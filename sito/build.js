@@ -10,7 +10,7 @@ const fse  = require('fs-extra');
 // ---------------------------------------------------------------------------
 const ROOT       = path.join(__dirname, '..');   // Sistema di frammenti md/
 const SITO       = __dirname;                    // sito/
-const BUILD_DIR  = path.join(SITO, 'build');
+const BUILD_DIR  = path.join(SITO, '..', 'docs');
 const TMPL_DIR   = path.join(SITO, 'src', 'templates');
 const ASSETS_DIR = path.join(SITO, 'src', 'assets');
 const JS_DIR     = path.join(SITO, 'src', 'js');

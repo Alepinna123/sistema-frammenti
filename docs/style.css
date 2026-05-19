@@ -71,18 +71,22 @@ body.page-fragment {
 #onboarding {
   position: fixed; inset: 0; z-index: 2000;
   background: var(--wood-dark);
-  display: flex; align-items: flex-start; justify-content: center;
-  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
   transition: opacity .6s ease, visibility .6s ease;
 }
 #onboarding.dismissed { opacity: 0; visibility: hidden; pointer-events: none; }
 
 .ob-inner {
-  max-width: 680px; width: 90%;
+  max-width: 680px; width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
   text-align: center;
   animation: fadeUp .8s ease .2s both;
-  margin: auto;        /* centra verticalmente quando il contenuto ci sta */
-  padding: 2rem 0;     /* respiro in cima e in fondo durante lo scroll */
+  padding: 1rem 0.5rem;
 }
 .ob-label {
   font-family: var(--font-mono);

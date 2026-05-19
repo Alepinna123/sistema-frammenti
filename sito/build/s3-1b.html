@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I quarantanove meme positivi: loci e imagines nella pubblicazione SVOD — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">I quarantanove meme positivi: loci e imagines nella pubblicazione SVOD</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="pubblicazione SVOD del sistema della tesi">pubblicazione SVOD del sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo digitale di navigazione">dispositivo digitale di navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia 7×7">griglia 7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quarantanove caselle">quarantanove caselle</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette colonne">sette colonne</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette gradi">sette gradi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pozzi tematici">pozzi tematici</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="domini di articolazione argomentativa">domini di articolazione argomentativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="matrice incrociata">matrice incrociata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prodotto matriciale">prodotto matriciale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="imagines contemporanee">imagines contemporanee</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meme positivi">meme positivi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tessera grafica">tessera grafica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo visivo di richiamo">dispositivo visivo di richiamo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bolzoni">Bolzoni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scacchiera dei luoghi">scacchiera dei luoghi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Camillo">Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro della memoria">Teatro della memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Manovich">Manovich</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia come confine semiotico">interfaccia come confine semiotico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Dawkins">Dawkins</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*The Selfish Gene*">*The Selfish Gene*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1976">1976</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meme">meme</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="replicante culturale">replicante culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stabilità">stabilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fedeltà">fedeltà</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricombinazione">ricombinazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualifica «positivo»">qualifica «positivo»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="intenzionalità progettuale">intenzionalità progettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="trasmissione attiva">trasmissione attiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="contrapposizione virali passivi">contrapposizione virali passivi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="isotropia progettuale">isotropia progettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione algoritmo di raccomandazione">sospensione algoritmo di raccomandazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione feedback loop">sospensione feedback loop</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione personalizzazione">sospensione personalizzazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database come promessa formale">database come promessa formale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="realizzazione cognitiva del database">realizzazione cognitiva del database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pre-illuminazione di percorsi">pre-illuminazione di percorsi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma SVOD industriale">piattaforma SVOD industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pubblicazione SVOD della tesi">pubblicazione SVOD della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attraversamento libero">attraversamento libero</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="significato relazionale">significato relazionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="percorso del fruitore">percorso del fruitore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grammatica formale">grammatica formale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo combinatorio">dispositivo combinatorio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="multidimensionalità">multidimensionalità</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta altrove la struttura camilliana del <span class="concept-link" data-tag="Teatro 7×7" tabindex="0" role="button">Teatro 7×7</span><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup> come <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> dell&#39;articolazione del proprio materiale. La presente articolazione approfondisce la dimensione che riguarda la pubblicazione del sistema sulla <span class="concept-link" data-tag="piattaforma SVOD" tabindex="0" role="button">piattaforma SVOD</span>, articolando come la struttura <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> opera nella forma digitale come dispositivo concreto di accesso al materiale. La pubblicazione del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è duplice: edizione cartacea che articola il materiale in sequenza lineare e <span class="concept-link" data-tag="dispositivo digitale di navigazione" tabindex="0" role="button">dispositivo digitale di navigazione</span> che permette al lettore di attraversarlo secondo percorsi multipli. La presente soglia si concentra sulla seconda forma, articolando come la struttura camilliana opera nella pubblicazione digitale come grammatica del dispositivo <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span>, e come le quarantanove unità tematiche del sistema operino come <em><span class="concept-link" data-tag="imagines contemporanee" tabindex="0" role="button">imagines contemporanee</span></em> — dispositivi visivi di richiamo che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> riconosce a colpo d&#39;occhio e che funzionano come punti di accesso al materiale che ciascuna unità organizza.</p>
+<p><span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> articola la <span class="concept-link" data-tag="scacchiera dei luoghi" tabindex="0" role="button">scacchiera dei luoghi</span> del Teatro come dispositivo che produce significati per <span class="concept-link" data-tag="movimento del fruitore" tabindex="0" role="button">movimento del fruitore</span> attraverso le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>. «L&#39;ordinamento orizzontale dei <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> si intreccia con quello verticale dei <span class="concept-link" data-tag="sette pianeti" tabindex="0" role="button">sette pianeti</span>. Ne risulta una specie di <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>, sulla quale il gioco delle immagini si può attuare attraverso gli spostamenti e le combinazioni»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Il punto cardinale della <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span> è che essa è dispositivo <em>attivo</em> — non semplice catalogo di luoghi ma sistema che produce nuove relazioni attraverso il movimento delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>. La <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> adotta questa logica come principio operativo: le quarantanove unità tematiche del sistema non sono catalogo statico di voci tematiche ma sono <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> che produce nuove relazioni attraverso il <span class="concept-link" data-tag="movimento del fruitore" tabindex="0" role="button">movimento del fruitore</span> sulla griglia digitale. Ciascuna unità è simultaneamente luogo (posizione fissa nella <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span>) e <span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> (dispositivo visivo che richiama il materiale che la unità organizza). Le due dimensioni operano insieme: il luogo dà la posizione sistematica, l&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> dà il punto di accesso visivo.</p>
+<p>La traduzione operativa della struttura camilliana nella <span class="concept-link" data-tag="pubblicazione SVOD" tabindex="0" role="button">pubblicazione SVOD</span> opera secondo principi che meritano di essere articolati. Sul piano della griglia, la <span class="concept-link" data-tag="pubblicazione SVOD" tabindex="0" role="button">pubblicazione SVOD</span> presenta al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> dei <span class="concept-link" data-tag="pozzi tematici" tabindex="0" role="button">pozzi tematici</span> in modo equivalente alle <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> del Teatro: il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> visualizza all&#39;apertura del dispositivo digitale una griglia bidimensionale in cui le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> sono articolate orizzontalmente e i <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> sono articolati verticalmente, producendo le <span class="concept-link" data-tag="quarantanove caselle" tabindex="0" role="button">quarantanove caselle</span> che organizzano il materiale del sistema. Sul piano delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>, la <span class="concept-link" data-tag="pubblicazione SVOD" tabindex="0" role="button">pubblicazione SVOD</span> assegna a ciascuna delle <span class="concept-link" data-tag="quarantanove caselle" tabindex="0" role="button">quarantanove caselle</span> un dispositivo visivo specifico — una <span class="concept-link" data-tag="tessera grafica" tabindex="0" role="button">tessera grafica</span> che funziona come <span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> di richiamo, riconoscibile a colpo d&#39;occhio dal <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>. Le tessere non sono ornamento del dispositivo ma sono operative: ciascuna tessera attiva, al clic del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>, l&#39;unità tematica che la casella ospita, e l&#39;unità si apre come testo articolato che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può leggere e attraversare a sua volta.</p>
+<p>Il principio di funzionamento è strutturalmente analogo a quello dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove come dispositivo Teatro contemporaneo (<span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> come caso paradigmatico), ma con una differenza progettuale significativa che merita di essere portata in evidenza. La <span class="concept-link" data-tag="piattaforma SVOD industriale" tabindex="0" role="button">piattaforma SVOD industriale</span> presenta al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> tessere visive (<span class="concept-link" data-tag="key art" tabindex="0" role="button">key art</span>, poster, immagini di scena dei contenuti del catalogo) progettate secondo la logica <span class="concept-link" data-tag="high concept" tabindex="0" role="button">high concept</span> del marketing integrato — l&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> è simultaneamente identità del prodotto e dispositivo promozionale. La <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> presenta al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> tessere visive progettate secondo una logica diversa — l&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> è dispositivo di richiamo cognitivo del materiale teorico che l&#39;unità organizza, e la sua funzione è facilitare al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> l&#39;orientamento nel sistema e l&#39;attivazione di percorsi multipli. Le due logiche non sono opposte ma sono differenti nel registro: l&#39;una opera nella logica commerciale dell&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span>, l&#39;altra opera nella logica cognitiva dell&#39;esposizione teorica. La struttura formale che le accomuna — <span class="concept-link" data-tag="tessera visiva" tabindex="0" role="button">tessera visiva</span> come dispositivo di accesso a un materiale strutturato — è invece la stessa, e questa continuità formale documenta la persistenza di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> della grammatica camilliana nei dispositivi mediali contemporanei.</p>
+<p>Il presente discorso può ora articolare il concetto operativo di <em><span class="concept-link" data-tag="meme positivo" tabindex="0" role="button">meme positivo</span></em> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta per nominare le quarantanove unità tematiche nella loro funzione di <span class="concept-link" data-tag="imagines contemporanee" tabindex="0" role="button">imagines contemporanee</span>. La nozione di <em><span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span></em>, articolata da Richard <span class="concept-link" data-tag="Dawkins" tabindex="0" role="button">Dawkins</span> nel proprio studio del 1976 <em>The Selfish Gene</em>, designa l&#39;unità elementare di <span class="concept-link" data-tag="trasmissione culturale" tabindex="0" role="button">trasmissione culturale</span> — il replicante stabile che si trasmette nella cultura attraverso meccanismi di imitazione e <span class="concept-link" data-tag="ricombinazione" tabindex="0" role="button">ricombinazione</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. Il <span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span> dawkinsiano non è semplicemente unità di contenuto, è replicante: ha proprietà strutturali di <span class="concept-link" data-tag="stabilità" tabindex="0" role="button">stabilità</span>, <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> nella trasmissione, capacità di <span class="concept-link" data-tag="ricombinazione" tabindex="0" role="button">ricombinazione</span> con altri <span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span>. La voce di <span class="concept-link" data-tag="Dawkins" tabindex="0" role="button">Dawkins</span> è articolata in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>; il presente discorso ne adotta la categoria per nominare le quarantanove unità tematiche del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come <em><span class="concept-link" data-tag="meme positivi" tabindex="0" role="button">meme positivi</span></em> — replicanti stabili che il sistema espone in modo intenzionale al lettore, e che funzionano come unità trasmissibili del materiale teorico.</p>
+<p>La qualifica <em>positivo</em> va precisata. Nel discorso pubblico contemporaneo la parola «<span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span>» è spesso associata a contenuti virali di natura ludica, satirica o disinformativa che circolano nei social media. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> sospende questa accezione contemporanea e recupera l&#39;accezione dawkinsiana originaria: <span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span> come <span class="concept-link" data-tag="replicante culturale" tabindex="0" role="button">replicante culturale</span> strutturale. La qualifica <em>positivo</em> nomina l&#39;orientamento progettuale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>: le quarantanove unità tematiche sono replicanti culturali progettati intenzionalmente per essere trasmessi al lettore, ricombinati con altri elementi del suo sapere, riarticolati in nuove costruzioni discorsive. Non sono virali nel senso passivo del termine (non si diffondono per imitazione automatica); sono operativi nel senso attivo (sono progettati per essere riusati dal lettore nel proprio lavoro intellettuale successivo). Il <em>positivo</em> è dunque qualifica di <span class="concept-link" data-tag="intenzionalità progettuale" tabindex="0" role="button">intenzionalità progettuale</span>: il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola consapevolmente le proprie unità come <span class="concept-link" data-tag="meme" tabindex="0" role="button">meme</span> operativi per il lavoro intellettuale del lettore.</p>
+<p>La struttura <span class="concept-link" data-tag="combinatoria" tabindex="0" role="button">combinatoria</span> della <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> opera dunque come segue. Il lettore entra nel dispositivo digitale, visualizza la <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> delle <span class="concept-link" data-tag="quarantanove caselle" tabindex="0" role="button">quarantanove caselle</span>, riconosce a colpo d&#39;occhio le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> che identificano ciascuna casella, sceglie una casella di ingresso e attiva l&#39;unità tematica corrispondente. L&#39;unità si apre come testo articolato che il lettore può leggere in autonomia. Alla fine della lettura, il lettore torna alla griglia e sceglie un&#39;altra casella di accesso; il dispositivo permette di muoversi liberamente sulla <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>, attivando le unità in ordini diversi a seconda dell&#39;interesse specifico che orienta la lettura. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non prescrive un percorso obbligato attraverso le quarantanove unità; offre una struttura di accesso che il lettore può attraversare in molti modi diversi, e ciascun attraversamento produce un&#39;<span class="concept-link" data-tag="esperienza fruitiva" tabindex="0" role="button">esperienza fruitiva</span> diversa perché le unità acquistano <span class="concept-link" data-tag="significato relazionale" tabindex="0" role="button">significato relazionale</span> in funzione del percorso che le ha messe in successione.</p>
+<p>La differenza progettuale rispetto alla <span class="concept-link" data-tag="piattaforma SVOD industriale" tabindex="0" role="button">piattaforma SVOD industriale</span> opera anche sul livello dei meccanismi di raccomandazione. La <span class="concept-link" data-tag="piattaforma SVOD industriale" tabindex="0" role="button">piattaforma SVOD industriale</span>, articolata altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come dispositivo che opera secondo la logica del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> culturale, propone al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> percorsi privilegiati attraverso il catalogo (le righe «Perché hai guardato X», «Continua a guardare», «Tendenze attuali») che amplificano la <span class="concept-link" data-tag="concentrazione della visibilità" tabindex="0" role="button">concentrazione della visibilità</span> sugli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> e marginalizzano la <span class="concept-link" data-tag="long tail" tabindex="0" role="button">long tail</span> del catalogo. La <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> sospende questa logica progettuale: non c&#39;è <span class="concept-link" data-tag="algoritmo di raccomandazione" tabindex="0" role="button">algoritmo di raccomandazione</span> che amplifica alcune unità a scapito di altre, non c&#39;è <span class="concept-link" data-tag="feedback loop" tabindex="0" role="button">feedback loop</span> che concentra la visibilità sui percorsi più frequentati, non c&#39;è meccanismo di personalizzazione che orienta il lettore verso contenuti correlati a quelli già visualizzati. Il dispositivo digitale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è progettato per essere il più possibile <em>isotropico</em> — tutte le quarantanove unità sono ugualmente accessibili dal <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>, e l&#39;attraversamento del sistema è libero da <span class="concept-link" data-tag="pre-illuminazione di percorsi" tabindex="0" role="button">pre-illuminazione di percorsi</span> privilegiati. La progettazione <em>attivamente</em> impedisce la concentrazione che la <span class="concept-link" data-tag="piattaforma SVOD industriale" tabindex="0" role="button">piattaforma SVOD industriale</span> invece <em>attivamente</em> favorisce.</p>
+<p>Il punto progettuale è significativo per la teoria dell&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. L&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> riconosciuta altrove come configurazione del medium contemporaneo opera come <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, ma le sue realizzazioni industriali operano come <span class="concept-link" data-tag="database già percorso" tabindex="0" role="button">database già percorso</span> — i percorsi sono iscritti nella struttura, gli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> sono pre-illuminati, le tessere sono progettate per il <span class="concept-link" data-tag="riconoscimento immediato" tabindex="0" role="button">riconoscimento immediato</span> del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la distinzione fra <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come <em>promessa formale</em> e <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come <em><span class="concept-link" data-tag="realizzazione industriale" tabindex="0" role="button">realizzazione industriale</span></em>; la <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> adotta la promessa formale del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come principio progettuale, e cerca di realizzarla in forma di dispositivo effettivamente isotropico. La struttura camilliana <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> funziona come <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> che permette questa realizzazione: organizza il materiale in modo che ciascuna unità sia accessibile in autonomia, e che le relazioni fra le unità si producano per <span class="concept-link" data-tag="movimento del fruitore" tabindex="0" role="button">movimento del fruitore</span> anziché per pre-illuminazione del dispositivo.</p>
+<p>Resta da nominare un punto progettuale ulteriore. La <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> della <span class="concept-link" data-tag="pubblicazione SVOD del sistema della tesi" tabindex="0" role="button">pubblicazione SVOD del sistema della tesi</span> articola le quarantanove unità tematiche come <span class="concept-link" data-tag="matrice incrociata" tabindex="0" role="button">matrice incrociata</span> fra le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> dei pozzi (<span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span>, <span class="concept-link" data-tag="teatro della memoria" tabindex="0" role="button">teatro della memoria</span>, <span class="concept-link" data-tag="organismo" tabindex="0" role="button">organismo</span>, <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>, <span class="concept-link" data-tag="AI come medium" tabindex="0" role="button">AI come medium</span>, <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span>) e i <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> che corrispondono ai <span class="concept-link" data-tag="sette domini di articolazione argomentativa" tabindex="0" role="button">sette domini di articolazione argomentativa</span>. Ciascuna unità ha dunque due coordinate sulla griglia: la colonna identifica il pozzo a cui l&#39;unità appartiene tematicamente, il grado identifica il dominio di articolazione argomentativa che l&#39;unità sviluppa. Le quarantanove unità non sono dunque articolate per somma — non sono semplicemente unità autonome accostate sulla griglia — ma sono articolate per <em><span class="concept-link" data-tag="prodotto matriciale" tabindex="0" role="button">prodotto matriciale</span></em>: ciascuna unità è l&#39;intersezione specifica di una colonna e un grado, e il suo materiale articola congiuntamente i due assi che la attraversano. Una unità che si trova nella colonna del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> e nel grado dell&#39;articolazione critica non è semplicemente «<span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> più critica»; è articolazione specifica del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> in chiave critica, che opera diversamente da una unità sulla stessa colonna ma in grado diverso. La griglia produce dunque non un insieme di quarantanove temi ma una matrice di quarantanove articolazioni incrociate, e questa struttura matriciale è ciò che permette al <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> di articolare l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> in modo organico e multidimensionale.</p>
+<p>La presente soglia ha articolato la <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> del dispositivo digitale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> attraverso il <span class="concept-link" data-tag="prestito strutturale" tabindex="0" role="button">prestito strutturale</span> dal Teatro camilliano e attraverso la categoria dei <span class="concept-link" data-tag="meme positivi" tabindex="0" role="button">meme positivi</span> come <span class="concept-link" data-tag="imagines contemporanee" tabindex="0" role="button">imagines contemporanee</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione critica del confronto fra la propria <span class="concept-link" data-tag="pubblicazione SVOD" tabindex="0" role="button">pubblicazione SVOD</span> e le realizzazioni industriali del modello <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span>; e altrove ancora articola la dimensione cognitiva del rapporto fra <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> e dispositivo come <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> che si apre verso una <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> esterna. La presente articolazione si è concentrata sulla dimensione operativa specifica della pubblicazione digitale come traduzione contemporanea del Teatro, e ha mostrato come la grammatica <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> organizzi le quarantanove unità tematiche in <span class="concept-link" data-tag="matrice incrociata" tabindex="0" role="button">matrice incrociata</span> che il lettore può attraversare in molti modi diversi.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Bolzoni, L. (1991), Introduzione a G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagina da verificare sul fisico, sezione 2 «La scacchiera dei luoghi»]. La voce di Bolzoni è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Dawkins, R. (1976), <em>The Selfish Gene</em>, Oxford University Press, Oxford [pagina da verificare sul fisico, capitolo 11 «Memes: the new replicators»]. La voce di Dawkins è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Camillo, G. (1550), <em>L&#39;idea del theatro</em>, postumo. Edizione di riferimento utilizzata dal sistema della tesi: Bolzoni, L. (a cura di) (1991), G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagine da verificare sul fisico]. La voce di Camillo è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's3-1b';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il dataprint come *manifestatio* del medium AI — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Il dataprint come *manifestatio* del medium AI</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="*dataprint*">*dataprint*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Distant Writing*">*Distant Writing*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2025">2025</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stilistica strutturale">stilistica strutturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI generativo">medium AI generativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pattern stilistici emergenti">pattern stilistici emergenti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ritmo della prosa">ritmo della prosa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="struttura frasale">struttura frasale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tendenze lessicali">tendenze lessicali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="transizioni">transizioni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="marche stilistiche">marche stilistiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*data*">*data*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*print*">*print*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="impronta">impronta</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="firma">firma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="voce vs dataprint">voce vs dataprint</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Claude">Claude</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="GPT">GPT</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Foucault">Foucault</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="funzione-autore">funzione-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*manifestatio*">*manifestatio*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Panofsky">Panofsky</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Erwin Panofsky">Erwin Panofsky</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Gothic Architecture and Scholasticism*">*Gothic Architecture and Scholasticism*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1951">1951</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scolastica">scolastica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cattedrale gotica">cattedrale gotica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Summa*">*Summa*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tommaso d'Aquino">Tommaso d'Aquino</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="visibilità della forma">visibilità della forma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma simbolica">forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Manovich">Manovich</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura medioevale">architettura medioevale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scrittura scolastica">scrittura scolastica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pittura rinascimentale">pittura rinascimentale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cinema novecentesco">cinema novecentesco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database digitale">database digitale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="finestra epistemica">finestra epistemica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="struttura opaca">struttura opaca</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricostruzione del lettore">ricostruzione del lettore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="educazione critica al medium AI">educazione critica al medium AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelte di utilizzo">scelte di utilizzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="adattamento del prompt">adattamento del prompt</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="valutazione critica dell'output">valutazione critica dell'output</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="resistenza attiva al dataprint">resistenza attiva al dataprint</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prevenzione pattern AI">prevenzione pattern AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quattro pattern strutturali">quattro pattern strutturali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quinto pattern bibliografico">quinto pattern bibliografico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="giudizio descrittivo">giudizio descrittivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="giudizio estetico">giudizio estetico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità dell'output">qualità dell'output</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tradizione estetica europea">tradizione estetica europea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fenomeno storicamente situato">fenomeno storicamente situato</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p><span class="concept-link" data-tag="Luciano Floridi" tabindex="0" role="button">Luciano Floridi</span> articola nel proprio paper del 2025 <em>Distant Writing</em> la nozione di <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em> come categoria specifica della <span class="concept-link" data-tag="stilistica strutturale del medium" tabindex="0" role="button">stilistica strutturale del medium</span> AI generativo. Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> è l&#39;insieme dei <span class="concept-link" data-tag="pattern stilistici emergenti" tabindex="0" role="button">pattern stilistici emergenti</span> che caratterizzano l&#39;output di un dato <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>: il <span class="concept-link" data-tag="ritmo della prosa" tabindex="0" role="button">ritmo della prosa</span>, la struttura preferita delle frasi, le <span class="concept-link" data-tag="tendenze lessicali" tabindex="0" role="button">tendenze lessicali</span>, i modi tipici di articolare argomentazioni e <span class="concept-link" data-tag="transizioni" tabindex="0" role="button">transizioni</span>, le <span class="concept-link" data-tag="marche stilistiche" tabindex="0" role="button">marche stilistiche</span> ricorrenti che l&#39;osservatore esperto riconosce come caratteristiche del modello specifico. <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola la dimensione strutturale del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> in un passaggio cardinale del paper: gli <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> «esibiscono pattern comuni — come ritmo, struttura narrativa, frequenza lessicale, schemi di transizione — che formano un pattern letterario identificabile che si potrebbe chiamare il loro <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em>»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Il termine <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em> combina <em>data</em> (i dati di addestramento del modello) e <em>print</em> (la stampa, l&#39;<span class="concept-link" data-tag="impronta" tabindex="0" role="button">impronta</span> caratteristica), e nomina precisamente il fenomeno: i dati specifici di addestramento del modello producono un&#39;<span class="concept-link" data-tag="impronta" tabindex="0" role="button">impronta</span> stilistica che si manifesta in ogni output del modello, e che ne identifica la fonte come si identifica un&#39;<span class="concept-link" data-tag="impronta" tabindex="0" role="button">impronta</span> digitale o una scrittura manuale specifica.</p>
+<p>Il punto cardinale del concetto floridiano per il presente discorso è che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> è caratteristica <em>strutturale</em> del modello, non scelta espressiva del soggetto. La voce di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola la distinzione apertamente: «Gli umani hanno entrambi, ma un <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> non ha voce, solo un <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. La voce — categoria classica della tradizione retorica e poetica che articola la dimensione personale ed espressiva dell&#39;autore — appartiene all&#39;autore umano e dipende dalle sue scelte intenzionali; il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> appartiene al dispositivo e dipende dalla sua <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> specifica e dal suo <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>. Il fenomeno è significativo perché articola il <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> come dispositivo dotato di propria <em><span class="concept-link" data-tag="firma" tabindex="0" role="button">firma</span></em> stilistica anche in assenza di soggetto espressivo. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove le conseguenze critiche di questa distinzione attraverso la voce di <span class="concept-link" data-tag="Foucault" tabindex="0" role="button">Foucault</span> sulla <span class="concept-link" data-tag="funzione-autore" tabindex="0" role="button">funzione-autore</span><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>; la presente articolazione si concentra sulla dimensione propria della categoria di <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> come strumento teorico per pensare il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>.</p>
+<p>La categoria di <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> è articolata da <span class="concept-link" data-tag="Erwin Panofsky" tabindex="0" role="button">Erwin Panofsky</span> come categoria estetica specifica della tradizione <span class="concept-link" data-tag="scolastica" tabindex="0" role="button">scolastica</span> medioevale. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la categoria panofskiana in dettaglio attraverso lo studio del 1951 <em>Gothic Architecture and Scholasticism</em><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>, dove <span class="concept-link" data-tag="Panofsky" tabindex="0" role="button">Panofsky</span> mostra come la <span class="concept-link" data-tag="cattedrale gotica" tabindex="0" role="button">cattedrale gotica</span> e la <em>Summa</em> <span class="concept-link" data-tag="scolastica" tabindex="0" role="button">scolastica</span> condividano una stessa <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> — una stessa logica di manifestazione della struttura formale del sapere attraverso la sua articolazione visibile. La cattedrale articola apertamente la propria struttura strutturale (la divisione delle navate, la gerarchia delle volte, la disposizione delle nicchie e dei contrafforti) in modo che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> possa vedere la logica del sistema attraverso la sua manifestazione architettonica. La <em>Summa</em> di Tommaso d&#39;Aquino articola apertamente la propria struttura strutturale (la divisione delle questioni, l&#39;ordine delle obiezioni e delle risposte, la gerarchia delle articolazioni) in modo che il lettore possa vedere la logica del sistema attraverso la sua manifestazione testuale. La <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> secondo <span class="concept-link" data-tag="Panofsky" tabindex="0" role="button">Panofsky</span> è dunque categoria che articola la <em><span class="concept-link" data-tag="visibilità della forma" tabindex="0" role="button">visibilità della forma</span></em> — il modo in cui un&#39;opera rende visibile la propria struttura formale al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che la attraversa.</p>
+<p>Il punto teorico significativo per il presente discorso è che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> floridiano opera nel <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> come la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> panofskiana opera in altri medium. Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> <em>manifesta</em> la struttura formale specifica del modello generativo: quando il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> legge un output di <span class="concept-link" data-tag="Claude" tabindex="0" role="button">Claude</span>, può riconoscere certe tendenze stilistiche (uso preferenziale di <span class="concept-link" data-tag="transizioni" tabindex="0" role="button">transizioni</span> specifiche, costruzione frasale tipica, equilibrio fra cautele epistemiche e affermazioni) che identificano l&#39;output come prodotto di <span class="concept-link" data-tag="Claude" tabindex="0" role="button">Claude</span> e non di altro modello. Quando il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> legge un output di <span class="concept-link" data-tag="GPT" tabindex="0" role="button">GPT</span>, può riconoscere altre tendenze stilistiche (diverso ritmo, diverso uso del paragrafo, diversa articolazione delle subordinate) che identificano l&#39;output come prodotto di <span class="concept-link" data-tag="GPT" tabindex="0" role="button">GPT</span>. Le tendenze stilistiche specifiche dei singoli modelli sono il loro <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>, e operano come manifestazione visibile della struttura formale del modello sul piano della produzione testuale. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> esperto del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> sviluppa la capacità di riconoscere il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> dei diversi modelli, esattamente come il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> esperto dell&#39;<span class="concept-link" data-tag="architettura medioevale" tabindex="0" role="button">architettura medioevale</span> sviluppa la capacità di riconoscere la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> delle diverse scuole architettoniche, e come il lettore esperto della filosofia <span class="concept-link" data-tag="scolastica" tabindex="0" role="button">scolastica</span> sviluppa la capacità di riconoscere la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> dei diversi maestri della <em>Summa</em>.</p>
+<p>La <span class="concept-link" data-tag="continuità di lunga durata" tabindex="0" role="button">continuità di lunga durata</span> fra la categoria panofskiana di <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> e la categoria floridiana di <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em> è significativa e merita di essere articolata apertamente. <span class="concept-link" data-tag="Panofsky" tabindex="0" role="button">Panofsky</span> articolava la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> come categoria che permette di pensare il rapporto fra struttura formale e manifestazione visibile in qualsiasi medium: l&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span>, la scrittura filosofica, e per estensione qualsiasi <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> del sistema culturale. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la categoria di <em><span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span></em> attraverso la voce di <span class="concept-link" data-tag="Manovich" tabindex="0" role="button">Manovich</span><sup><a href="#note-5" id="ref-5" class="note-ref">5</a></sup> come dispositivo che permette di pensare i medium del nostro tempo (il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> in particolare). Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> si inscrive in questa tradizione di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span>: è la categoria contemporanea che permette di pensare la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> specifica del <span class="concept-link" data-tag="medium AI generativo" tabindex="0" role="button">medium AI generativo</span>, e in tal modo articola il <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> come oggetto della stessa tradizione estetica che pensa l&#39;<span class="concept-link" data-tag="architettura medioevale" tabindex="0" role="button">architettura medioevale</span>, la <span class="concept-link" data-tag="scrittura scolastica" tabindex="0" role="button">scrittura scolastica</span>, la <span class="concept-link" data-tag="pittura rinascimentale" tabindex="0" role="button">pittura rinascimentale</span>, il <span class="concept-link" data-tag="cinema novecentesco" tabindex="0" role="button">cinema novecentesco</span>, il <span class="concept-link" data-tag="database digitale" tabindex="0" role="button">database digitale</span>, e ora il <em>wrAIting</em>. La continuità non è metafora applicata indebitamente al medium nuovo; è applicazione legittima di una categoria di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> che la tradizione estetica ha articolato per pensare il fenomeno strutturale della manifestazione della forma negli artefatti culturali.</p>
+<p>Il punto critico significativo per la teoria del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> è che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> opera come <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> della specifica struttura formale del modello, e dunque rivela qualcosa sul modello che il modello stesso non comunica esplicitamente all&#39;utente. Quando l&#39;utente interagisce con <span class="concept-link" data-tag="Claude" tabindex="0" role="button">Claude</span>, l&#39;<span class="concept-link" data-tag="interfaccia testuale" tabindex="0" role="button">interfaccia testuale</span> non gli dichiara le proprie regole di funzionamento; il dispositivo opera secondo le proprie strutture interne (i <span class="concept-link" data-tag="pesi della rete neurale" tabindex="0" role="button">pesi della rete neurale</span>, le <span class="concept-link" data-tag="matrici di attenzione" tabindex="0" role="button">matrici di attenzione</span>, le regolarità statistiche del <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>) ma queste strutture non sono direttamente accessibili all&#39;utente. Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> è dunque l&#39;unica manifestazione visibile della struttura formale del modello: l&#39;utente accede alla struttura del modello <em>attraverso</em> il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>, e il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> funziona come <span class="concept-link" data-tag="finestra epistemica" tabindex="0" role="button">finestra epistemica</span> sulla struttura altrimenti opaca. Questa funzione epistemica del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> è strutturalmente analoga alla funzione epistemica della <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> <span class="concept-link" data-tag="scolastica" tabindex="0" role="button">scolastica</span>: la <em>Summa</em> di Tommaso d&#39;Aquino non dichiara esplicitamente le proprie regole di costruzione, ma il lettore le ricostruisce attraverso la <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> della struttura nelle articolazioni del testo. Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello AI funziona analogamente: l&#39;utente non riceve dichiarazione esplicita delle regole del modello, ma ne ricostruisce alcune caratteristiche attraverso il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> che si manifesta nei singoli output.</p>
+<p>La conseguenza pratica per la critica del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> è significativa. La conoscenza del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> dei diversi modelli è competenza specifica del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> esperto del medium, e merita di essere articolata come parte costitutiva dell&#39;<span class="concept-link" data-tag="educazione critica al medium AI" tabindex="0" role="button">educazione critica al medium AI</span>. L&#39;utente che riconosce il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> di <span class="concept-link" data-tag="Claude" tabindex="0" role="button">Claude</span> e quello di <span class="concept-link" data-tag="GPT" tabindex="0" role="button">GPT</span> può articolare meglio le proprie <span class="concept-link" data-tag="scelte di utilizzo" tabindex="0" role="button">scelte di utilizzo</span>: può preferire un modello all&#39;altro a seconda del proprio compito specifico, può riconoscere le tendenze stilistiche del modello che sta utilizzando e adattare il proprio <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span> di conseguenza, può valutare criticamente l&#39;output sapendo quali sono le tendenze strutturali che il modello potrebbe imporre senza che l&#39;utente le abbia richieste. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione operativa dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>; la conoscenza del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello specifico utilizzato è componente costitutiva di quella <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span>, e merita di essere articolata apertamente nei propri presupposti metodologici. Il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera con la consapevolezza specifica del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello utilizzato, e adotta il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> come dimensione di cui essere consapevoli e da cui non lasciarsi orientare passivamente.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la propria specifica relazione con il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello utilizzato attraverso le pratiche di prevenzione dei pattern AI: il riconoscimento sistematico dei pattern stilistici che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> tende a produrre, e l&#39;intervento attivo del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> per evitare che questi pattern compaiano nella forma finita del testo. I <span class="concept-link" data-tag="quattro pattern strutturali" tabindex="0" role="button">quattro pattern strutturali</span> e i due pattern del quinto tipo articolati altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> sono articolazione operativa del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> specifico del modello utilizzato: ciascun pattern è una tendenza stilistica del <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> deve riconoscere e contrastare per produrre un testo che non rispecchi automaticamente le regolarità del dispositivo. La pratica del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> opera dunque come <em><span class="concept-link" data-tag="resistenza attiva al dataprint" tabindex="0" role="button">resistenza attiva al dataprint</span></em>, e questa resistenza è componente costitutiva della <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> verso il prodotto finale.</p>
+<p>Resta da nominare un punto teorico ulteriore che il parallelo fra <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> e <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> permette di portare apertamente. La <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> panofskiana non era valutata in modo univocamente negativo o positivo da <span class="concept-link" data-tag="Panofsky" tabindex="0" role="button">Panofsky</span>: era categoria descrittiva che permetteva di vedere la struttura del medium, e il <span class="concept-link" data-tag="giudizio estetico" tabindex="0" role="button">giudizio estetico</span> sulla specifica <span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span> dipendeva dalla <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> dell&#39;opera come tale. Una cattedrale che articola apertamente la propria <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> può essere bella o brutta a seconda della specifica realizzazione architettonica; una <em>Summa</em> che articola apertamente la propria <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> può essere convincente o non convincente a seconda della specifica articolazione argomentativa. Lo stesso vale per il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello AI: il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> è dimensione strutturale del modello, e il giudizio sul singolo output dipende dalla specifica realizzazione testuale. Un output che incorpora apertamente il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> può essere di qualità alta o bassa a seconda delle scelte specifiche di articolazione testuale. La conseguenza per la critica del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> è dunque che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> non va valutato globalmente come positivo o negativo, ma va riconosciuto come dimensione strutturale del medium che opera sempre nel <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> della produzione testuale. La <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> opera sui singoli output, non sul medium in quanto tale.</p>
+<p>La presente soglia ha articolato dunque il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> floridiano come realizzazione contemporanea della categoria panofskiana di <em><span class="concept-link" data-tag="manifestatio" tabindex="0" role="button">manifestatio</span></em> applicata al <span class="concept-link" data-tag="medium AI generativo" tabindex="0" role="button">medium AI generativo</span>, e ha mostrato come la categoria di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> della <span class="concept-link" data-tag="tradizione estetica europea" tabindex="0" role="button">tradizione estetica europea</span> trovi nel <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> la propria articolazione operativa specifica per il medium del nostro tempo. La continuità è significativa, e il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta apertamente questa continuità come fatto storico-strutturale che permette di pensare il <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> come oggetto pienamente integrato nella tradizione estetica della cultura europea. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione critica del rapporto fra <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> e <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>; la presente soglia ha fornito il fondamento teorico-strutturale di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> che permette di pensare il fenomeno in modo storicamente situato.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Floridi, L. (2025), <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em>, in «Minds and Machines», 35:30 [pagina da verificare sul fisico, sezione sul dataprint]. Il passaggio originale: «exhibit common patterns — such as rhythm, narrative structure, lexical frequency, transition schemes — that form an identifiable literary pattern that may be called their <em>dataprint</em>». Traduzione italiana dell&#39;autore di questa tesi. La voce di Floridi è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Floridi, L. (2025), <em>Distant Writing</em>, cit. [pagina da verificare sul fisico, sezione sulla distinzione fra voce e dataprint]. Il passaggio originale: «Humans have both, but an LLM has no voice, just a dataprint». Traduzione italiana dell&#39;autore di questa tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Foucault, M. (1969), <em>Qu&#39;est-ce qu&#39;un auteur?</em>, conferenza pronunciata alla Société française de philosophie il 22 febbraio 1969, pubblicata in «Bulletin de la Société française de philosophie», 63, 1969, pp. 73-104. Trad. it.: <em>Che cos&#39;è un autore?</em>, in <em>Scritti letterari</em>, Feltrinelli, Milano 1971 [pagina da verificare sul fisico]. La voce di Foucault è articolata in dettaglio altrove nel sistema della tesi nella regione dedicata alla dissoluzione della funzione-autore nel medium contemporaneo.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Panofsky, E. (1951), <em>Gothic Architecture and Scholasticism</em>, Archabbey Press, Latrobe, Pennsylvania. Trad. it.: <em>Architettura gotica e filosofia scolastica</em>, Liguori, Napoli 1986 [pagina da verificare sul fisico, sezione sulla <em>manifestatio</em> come principio strutturale comune alla cattedrale e alla <em>Summa</em>]. La voce di Panofsky è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-5"><a href="#ref-5" class="frag-note-num">[5]</a> Manovich, L. (2001), <em>The Language of New Media</em>, The MIT Press, Cambridge (MA), London. Trad. it.: <em>Il linguaggio dei nuovi media</em>, Olivares, Milano 2002 [pagina da verificare sul fisico, sezione sul database come forma simbolica dei nuovi media]. La voce di Manovich è articolata in dettaglio altrove nel sistema della tesi nella regione dedicata al database come forma del medium contemporaneo.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's6-2';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

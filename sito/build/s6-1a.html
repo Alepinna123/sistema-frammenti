@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accountability: a cosa risponde il meta-autore — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Accountability: a cosa risponde il meta-autore</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability">accountability</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Novelli">Novelli</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Mariarosaria Taddeo">Mariarosaria Taddeo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Luciano Floridi">Luciano Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Accountability in Artificial Intelligence*">*Accountability in Artificial Intelligence*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2024">2024</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette caratteristiche">sette caratteristiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*context*">*context*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*range*">*range*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*agent*">*agent*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*forum*">*forum*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*standards*">*standards*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*process*">*process*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*implications*">*implications*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grammatica operativa">grammatica operativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meta-autore">meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="contesto accademico">contesto accademico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tesi magistrale">tesi magistrale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="studi mediali e culturali">studi mediali e culturali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="università di provenienza">università di provenienza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="facoltà">facoltà</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="relatore">relatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corso di studi">corso di studi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability istituzionale">accountability istituzionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability tecnica">accountability tecnica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="campo di applicazione">campo di applicazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette dimensioni concettuali">sette dimensioni concettuali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="responsabilità delle scelte">responsabilità delle scelte</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="agente responsabile">agente responsabile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo tecnico come strumento">dispositivo tecnico come strumento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="principio classico del rapporto autore-tecnologia">principio classico del rapporto autore-tecnologia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="macchina da scrivere">macchina da scrivere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forum plurale">forum plurale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="commissione di laurea">commissione di laurea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="comunità accademica">comunità accademica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pubblico non specialistico">pubblico non specialistico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pubblicazione SVOD">pubblicazione SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability accademica">accountability accademica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability scientifica">accountability scientifica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability comunicativa">accountability comunicativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="standard istituzionale">standard istituzionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="standard epistemologico">standard epistemologico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="standard metodologico">standard metodologico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="standard etico">standard etico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="plagio">plagio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="processo">processo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelte progettuali">scelte progettuali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="auto-revisione">auto-revisione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="protocollo di prevenzione pattern AI">protocollo di prevenzione pattern AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="verifica retrospettiva">verifica retrospettiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="implicazioni">implicazioni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="valutazione">valutazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="credibilità">credibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fiducia">fiducia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="integrità professionale">integrità professionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="processo statistico non trasparente">processo statistico non trasparente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="controllo del meta-autore">controllo del meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="validazione">validazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meta-autore-editore">meta-autore-editore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scrittore classico">scrittore classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="responsabilità di produzione">responsabilità di produzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="responsabilità di validazione">responsabilità di validazione</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Claudio <span class="concept-link" data-tag="Novelli" tabindex="0" role="button">Novelli</span>, <span class="concept-link" data-tag="Mariarosaria Taddeo" tabindex="0" role="button">Mariarosaria Taddeo</span> e <span class="concept-link" data-tag="Luciano Floridi" tabindex="0" role="button">Luciano Floridi</span> articolano nel proprio studio del 2024 <em>Accountability in Artificial Intelligence: What It Is and How It Works</em> una formulazione strutturata della categoria di <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> come dispositivo specifico del rapporto fra agenti umani e sistemi di intelligenza artificiale<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La categoria è articolata attraverso <span class="concept-link" data-tag="sette caratteristiche" tabindex="0" role="button">sette caratteristiche</span> che il presente discorso adotta come <span class="concept-link" data-tag="grammatica operativa" tabindex="0" role="button">grammatica operativa</span> per pensare l&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. Le <span class="concept-link" data-tag="sette caratteristiche" tabindex="0" role="button">sette caratteristiche</span> sono: il <em>contesto</em> in cui l&#39;azione si svolge, il <em>campo</em> di applicazione della responsabilità, l&#39;<em>agente</em> responsabile, il <em>forum</em> dinanzi a cui si risponde, gli <em>standard</em> secondo cui si è valutati, il <em><span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span></em> attraverso cui la responsabilità si esercita, le <em><span class="concept-link" data-tag="implicazioni" tabindex="0" role="button">implicazioni</span></em> che derivano dall&#39;esercizio della responsabilità. Le sette dimensioni operano insieme come articolazione completa della categoria, e la loro applicazione concreta al <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> permette di articolare la <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span> in modo strutturalmente preciso. Il presente discorso le percorre una per una.</p>
+<p><em>Prima caratteristica: il contesto.</em> Il contesto in cui opera il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è il contesto specifico della produzione accademica di <span class="concept-link" data-tag="tesi magistrale" tabindex="0" role="button">tesi magistrale</span> in <span class="concept-link" data-tag="studi mediali e culturali" tabindex="0" role="button">studi mediali e culturali</span>. La produzione di tesi è atto pubblico-istituzionale che si inscrive in un contesto regolato — un&#39;università specifica come istituzione di provenienza, una <span class="concept-link" data-tag="facoltà" tabindex="0" role="button">facoltà</span> specifica come ambito di sapere, un <span class="concept-link" data-tag="relatore" tabindex="0" role="button">relatore</span> specifico come riferimento accademico, un <span class="concept-link" data-tag="corso di studi" tabindex="0" role="button">corso di studi</span> specifico come quadro formativo. Il contesto definisce le condizioni di possibilità della produzione, e simultaneamente i limiti che la produzione deve rispettare. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera dunque dentro questo contesto specifico, e la sua <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> è in primo luogo <span class="concept-link" data-tag="accountability istituzionale" tabindex="0" role="button">accountability istituzionale</span> verso l&#39;<span class="concept-link" data-tag="università di provenienza" tabindex="0" role="button">università di provenienza</span>. La specificità del contesto è che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera attraverso un dispositivo tecnico — il <em>wrAIting</em> mediato da <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup> — che è elemento relativamente nuovo nel <span class="concept-link" data-tag="contesto accademico" tabindex="0" role="button">contesto accademico</span>, e che richiede dunque articolazione specifica dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> rispetto al dispositivo. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> nomina apertamente l&#39;uso del dispositivo nel proprio apparato metodologico, e in tal modo articola l&#39;<span class="concept-link" data-tag="accountability tecnica" tabindex="0" role="button">accountability tecnica</span> come parte costitutiva dell&#39;<span class="concept-link" data-tag="accountability istituzionale" tabindex="0" role="button">accountability istituzionale</span>.</p>
+<p><em>Seconda caratteristica: il <span class="concept-link" data-tag="campo di applicazione" tabindex="0" role="button">campo di applicazione</span>.</em> Il <span class="concept-link" data-tag="campo di applicazione" tabindex="0" role="button">campo di applicazione</span> della responsabilità è la singola opera prodotta — il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> nel suo complesso, nelle sue parti, nei suoi singoli frammenti. La responsabilità non si applica a un&#39;attività generica del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> ma alla specifica produzione che il sistema articola. Il campo è dunque <span class="concept-link" data-tag="circoscritto" tabindex="0" role="button">circoscritto</span>: comprende le argomentazioni proposte, le voci convocate, le citazioni utilizzate, le interpretazioni articolate, le conclusioni avanzate. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola apertamente i propri confini argomentativi — articola <span class="concept-link" data-tag="sette dimensioni concettuali" tabindex="0" role="button">sette dimensioni concettuali</span> specifiche dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, non aspira a esaurire altre regioni del sapere — e in tal modo definisce il campo entro cui la responsabilità si esercita. Le argomentazioni che il sistema avanza dentro il proprio campo sono <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span>; argomentazioni che il sistema <em>non</em> avanza non sono dentro il campo della responsabilità, e il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> non risponde di esse.</p>
+<p><em>Terza caratteristica: l&#39;<span class="concept-link" data-tag="agente responsabile" tabindex="0" role="button">agente responsabile</span>.</em> L&#39;<span class="concept-link" data-tag="agente responsabile" tabindex="0" role="button">agente responsabile</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> — il singolo autore che opera dietro il sistema come decisore delle <span class="concept-link" data-tag="scelte progettuali" tabindex="0" role="button">scelte progettuali</span>, dei contenuti articolati, delle voci convocate, della struttura formale adottata. Il punto è cruciale e merita di essere articolato con precisione: il <em>wrAIting</em> mediato da <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> non distribuisce la responsabilità fra <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> e dispositivo tecnico in modo che il dispositivo divida la responsabilità del singolo autore. Il dispositivo tecnico è strumento — strumento sofisticato, ma strumento — che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> utilizza nella propria produzione, e la <span class="concept-link" data-tag="responsabilità delle scelte" tabindex="0" role="button">responsabilità delle scelte</span> resta interamente del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>. Quando il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola una specifica argomentazione, l&#39;argomentazione è <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span> che l&#39;ha formulata, anche se il dispositivo tecnico ha contribuito alla sua articolazione testuale. Il principio strutturale è analogo al principio classico del rapporto fra autore e tecnologia: l&#39;autore che scrive con la <span class="concept-link" data-tag="macchina da scrivere" tabindex="0" role="button">macchina da scrivere</span> è responsabile del testo che produce, anche se la <span class="concept-link" data-tag="macchina da scrivere" tabindex="0" role="button">macchina da scrivere</span> ha contribuito materialmente alla produzione del testo; l&#39;autore che scrive con il <em>wrAIting</em> è responsabile del testo che produce, anche se il <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> ha contribuito materialmente alla produzione del testo. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola apertamente questo principio nel proprio apparato metodologico, e in tal modo evita la diffusione della responsabilità che il fraintendimento del dispositivo potrebbe produrre.</p>
+<p><em>Quarta caratteristica: il forum dinanzi a cui si risponde.</em> Il forum dinanzi a cui il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> risponde è plurale, e merita di essere articolato in dettaglio. In prima istanza, il forum è la <span class="concept-link" data-tag="commissione di laurea" tabindex="0" role="button">commissione di laurea</span> che valuta la tesi come prodotto accademico — la commissione opera secondo standard accademici specifici, e l&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> verso la commissione è <span class="concept-link" data-tag="accountability accademica" tabindex="0" role="button">accountability accademica</span>. In seconda istanza, il forum è la <span class="concept-link" data-tag="comunità accademica" tabindex="0" role="button">comunità accademica</span> più ampia che potrà leggere la tesi in modo successivo — pubblicazione in archivio digitale, eventuale revisione paritaria in articolo derivato, eventuale lettura come riferimento da altri studiosi. L&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> verso la <span class="concept-link" data-tag="comunità accademica" tabindex="0" role="button">comunità accademica</span> più ampia è <span class="concept-link" data-tag="accountability scientifica" tabindex="0" role="button">accountability scientifica</span>, e opera secondo standard di onestà intellettuale, <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> alle fonti, rigore argomentativo. In terza istanza, il forum è il pubblico più ampio dei lettori non specialistici che potrebbero leggere il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> attraverso la <span class="concept-link" data-tag="pubblicazione SVOD" tabindex="0" role="button">pubblicazione SVOD</span> progettata altrove — pubblico ampio che si confronta con i contenuti culturali del sistema senza la specifica formazione accademica. L&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> verso il pubblico più ampio è <span class="concept-link" data-tag="accountability comunicativa" tabindex="0" role="button">accountability comunicativa</span>, e opera secondo standard di chiarezza, accessibilità, onestà del registro espositivo. Le tre dimensioni del forum operano insieme, e il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> cerca di rispondere a tutte e tre simultaneamente attraverso il proprio registro discorsivo specifico.</p>
+<p><em>Quinta caratteristica: gli standard secondo cui si è valutati.</em> Gli standard secondo cui il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è valutato sono articolabili attraverso categorie distinte. Lo standard <em>istituzionale</em> opera attraverso i criteri formali della <span class="concept-link" data-tag="tesi magistrale" tabindex="0" role="button">tesi magistrale</span> come prodotto accademico — struttura del testo, apparato delle note, bibliografia, originalità della ricerca. Lo standard <em>epistemologico</em> opera attraverso i criteri di <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> alle fonti, rigore argomentativo, coerenza interna, controllabilità delle affermazioni. Lo standard <em>metodologico</em> opera attraverso i criteri specifici della disciplina di riferimento (gli <span class="concept-link" data-tag="studi mediali e culturali" tabindex="0" role="button">studi mediali e culturali</span> contemporanei) e attraverso i criteri specifici del dispositivo tecnico utilizzato (il <em>wrAIting</em> mediato da <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>, con le proprie regole emergenti di <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> dichiarata). Lo standard <em>etico</em> opera attraverso i criteri di responsabilità sociale, rispetto degli autori citati, evitamento di <span class="concept-link" data-tag="plagio" tabindex="0" role="button">plagio</span> o di appropriazione indebita. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta consapevolmente tutti questi standard come grammatica della propria pratica, e articola la propria <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> secondo ciascuno di essi.</p>
+<p><em>Sesta caratteristica: il <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> attraverso cui la responsabilità si esercita.</em> Il <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> attraverso cui la responsabilità si esercita è il <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> concreto della produzione della tesi — il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> decide le <span class="concept-link" data-tag="scelte progettuali" tabindex="0" role="button">scelte progettuali</span>, articola le argomentazioni, convoca le voci, struttura le connessioni, redige i frammenti, rivede e corregge, finalizza la versione che viene presentata alla commissione. Il <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> è articolato nel tempo, e include momenti di verifica e di revisione (<span class="concept-link" data-tag="auto-revisione" tabindex="0" role="button">auto-revisione</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>, eventuale revisione del <span class="concept-link" data-tag="relatore" tabindex="0" role="button">relatore</span>, eventuali correzioni richieste dalla commissione). Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove le proprie pratiche di verifica e di revisione come parte costitutiva del <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span>: protocollo di prevenzione dei pattern AI, <span class="concept-link" data-tag="verifica retrospettiva" tabindex="0" role="button">verifica retrospettiva</span> sui frammenti pubblicati, controllo delle citazioni e delle traduzioni, dichiarazione dei limiti di verifica delle fonti non accessibili in archivio digitale. Il <span class="concept-link" data-tag="processo" tabindex="0" role="button">processo</span> è dunque dispositivo strutturato che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> mette in opera per esercitare la propria <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> in modo metodologicamente fondato.</p>
+<p><em>Settima caratteristica: le <span class="concept-link" data-tag="implicazioni" tabindex="0" role="button">implicazioni</span>.</em> Le <span class="concept-link" data-tag="implicazioni" tabindex="0" role="button">implicazioni</span> che derivano dall&#39;esercizio della responsabilità sono molteplici. Sul piano accademico, l&#39;esercizio dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> produce la <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> della tesi e la conseguenza istituzionale (conseguimento del titolo, <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> numerica della commissione). Sul piano scientifico, l&#39;esercizio dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> produce la <span class="concept-link" data-tag="credibilità" tabindex="0" role="button">credibilità</span> del lavoro nella <span class="concept-link" data-tag="comunità accademica" tabindex="0" role="button">comunità accademica</span> e la sua eventuale circolazione successiva. Sul piano pubblico, l&#39;esercizio dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> produce la <span class="concept-link" data-tag="fiducia" tabindex="0" role="button">fiducia</span> del lettore non specialistico verso il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come strumento culturale affidabile. Sul piano dell&#39;autore, l&#39;esercizio dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> produce l&#39;<span class="concept-link" data-tag="integrità professionale" tabindex="0" role="button">integrità professionale</span> e personale del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> come ricercatore. Le quattro dimensioni delle <span class="concept-link" data-tag="implicazioni" tabindex="0" role="button">implicazioni</span> operano simultaneamente e si rinforzano reciprocamente: un <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> che esercita responsabilmente la propria <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> produce simultaneamente valore istituzionale, scientifico, pubblico e personale.</p>
+<p>La presente articolazione delle <span class="concept-link" data-tag="sette caratteristiche" tabindex="0" role="button">sette caratteristiche</span> permette di portare apertamente un punto teorico significativo che il <em>wrAIting</em> solleva in modo specifico. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> utilizza un dispositivo tecnico — l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> — che genera testo attraverso processi statistici non interamente trasparenti né interamente controllabili dal <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>. Il testo che il dispositivo produce non è esattamente quello che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> avrebbe prodotto senza il dispositivo, e tuttavia il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> lo adotta come parte della propria produzione assumendone la responsabilità. La condizione è strutturalmente nuova rispetto alla produzione accademica tradizionale, e merita di essere articolata apertamente. Il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> non rivendica un controllo totale sul testo prodotto: rivendica invece il controllo sulle <span class="concept-link" data-tag="scelte progettuali" tabindex="0" role="button">scelte progettuali</span>, sulla <span class="concept-link" data-tag="validazione" tabindex="0" role="button">validazione</span> delle articolazioni proposte, sulla coerenza interna del sistema, sulla <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> alle fonti. Il testo specifico che il dispositivo articola è oggetto di <span class="concept-link" data-tag="validazione" tabindex="0" role="button">validazione</span> del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>, non oggetto di produzione diretta. Il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> è dunque <em>editore</em> del proprio testo nel senso forte del termine — qualcuno che valida ciò che entra nel proprio prodotto secondo standard espliciti — più che semplice <em>scrittore</em> nel senso classico. La distinzione è teoricamente significativa, e il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola apertamente la propria posizione di <span class="concept-link" data-tag="meta-autore-editore" tabindex="0" role="button">meta-autore-editore</span> come dimensione costitutiva della propria <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span>.</p>
+<p>Il punto teorico ulteriore che la situazione del <em>wrAIting</em> permette di portare apertamente riguarda la relazione fra <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> e autorialità. Nella tradizione moderna, l&#39;autorialità implicava una specifica relazione con il testo: l&#39;autore <em>produceva</em> il testo dalla propria intenzione creativa, e la responsabilità del testo era diretta conseguenza della sua produzione. Il <em>wrAIting</em> sospende parzialmente questa relazione: il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> non produce direttamente il testo dalla propria intenzione creativa, lo valida selettivamente da un campo di articolazioni che il dispositivo rende disponibili. La responsabilità non opera dunque come <span class="concept-link" data-tag="responsabilità di produzione" tabindex="0" role="button">responsabilità di produzione</span> ma come <span class="concept-link" data-tag="responsabilità di validazione" tabindex="0" role="button">responsabilità di validazione</span>, e questa distinzione è strutturalmente nuova nella relazione contemporanea fra autore e testo. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove le conseguenze culturali di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> di questa distinzione attraverso le voci di <span class="concept-link" data-tag="Manovich" tabindex="0" role="button">Manovich</span>, <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span>, <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> e altri; la presente articolazione si è concentrata sulle <span class="concept-link" data-tag="sette caratteristiche" tabindex="0" role="button">sette caratteristiche</span> specifiche dell&#39;<span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> come dispositivo critico che permette di pensare la <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span> in modo strutturalmente preciso.</p>
+<p>La grammatica delle <span class="concept-link" data-tag="sette caratteristiche" tabindex="0" role="button">sette caratteristiche</span> di <span class="concept-link" data-tag="Novelli" tabindex="0" role="button">Novelli</span>-<span class="concept-link" data-tag="Taddeo" tabindex="0" role="button">Taddeo</span>-<span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> è dunque adottata dal <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come articolazione operativa della propria <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span>. Ciascuna delle sette dimensioni è applicabile al sistema in modo specifico, e l&#39;insieme delle sette articolazioni produce un quadro complessivo della responsabilità autoriale che il <em>wrAIting</em> implica. La presente soglia ha articolato le sette dimensioni in dettaglio; il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera in continuità con questa articolazione in tutte le proprie pratiche metodologiche.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Novelli, C., Taddeo, M., Floridi, L. (2024), <em>Accountability in Artificial Intelligence: What It Is and How It Works</em>, in «AI &amp; Society» [pagina da verificare sul fisico, sezione sulle sette caratteristiche dell&#39;accountability]. La voce di Novelli-Taddeo-Floridi è articolata in dettaglio altrove nel sistema della tesi nella regione dedicata alla responsabilità del meta-autore nel medium AI generativo.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Floridi, L. (2025), <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em>, in «Minds and Machines», 35:30 [pagina da verificare sul fisico]. Floridi articola la categoria del <em>wrAIting</em> come pratica scrittoria specifica del medium AI generativo, e la figura del meta-autore come progettista narrativo che opera attraverso il dispositivo tecnico. La voce di Floridi è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's6-1a';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

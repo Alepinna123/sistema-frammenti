@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commento — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment page-comment">
+
+<!-- TENDINA LATERALE (profilo) -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA AL FRAMMENTO (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" id="commentBack" href="index.html" aria-label="Torna al frammento">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">frammento</span>
+</a>
+
+<!-- CONTENUTO COMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">commento</p>
+
+  <h1 class="concept-title" id="commentTitle">Caricamento…</h1>
+
+  <div class="comment-author-block" id="commentAuthorBlock"></div>
+
+  <!-- Tag del commento (collassabili) -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow" style="display:none">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del commento" hidden></div>
+
+  <!-- Corpo del commento -->
+  <div class="concept-body" id="fragmentBody"></div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) — sub-commenti -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.SYSTEM_DATA = 'system.json';
+// FRAGMENT_ID viene impostato da comment-page.js dopo aver letto il commento
+window.FRAGMENT_ID = null;
+</script>
+<script src="profile.js"></script>
+<script src="comment-page.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer profilo
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function cambiaRegistro() { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+
+// Tags toggle
+const tagsToggle = document.getElementById('tagsToggle');
+const tagsRow    = document.getElementById('tagsRow');
+if (tagsToggle && tagsRow) {
+  tagsToggle.addEventListener('click', () => {
+    const open = tagsToggle.getAttribute('aria-expanded') === 'true';
+    tagsToggle.setAttribute('aria-expanded', String(!open));
+    tagsToggle.querySelector('.tags-toggle-icon').textContent = open ? '+' : '−';
+    tagsRow.hidden = open;
+  });
+}
+</script>
+
+</body>
+</html>

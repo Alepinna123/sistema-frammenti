@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness e qualità narrativa: quando η compensa il grado — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Fitness e qualità narrativa: quando η compensa il grado</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="η">η</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="eta">eta</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello Bianconi-Barabási">modello Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2001 «Europhysics Letters»">2001 «Europhysics Letters»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Competition and multiscaling in evolving networks*">*Competition and multiscaling in evolving networks*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment classico">preferential attachment classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási-Albert">Barabási-Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grado k">grado k</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="k·η">k·η</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="probabilità di connessione">probabilità di connessione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bose-Einstein condensation">Bose-Einstein condensation</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="capitale narrativo">capitale narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Brembilla">Brembilla</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*It's All Connected*">*It's All Connected*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="effetto nostalgia">effetto nostalgia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tenuta del paradigma">tenuta del paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Pescatore">Pescatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Ecosistemi narrativi*">*Ecosistemi narrativi*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2018">2018</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="coerenza mitopoietica">coerenza mitopoietica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità del mondo secondario">profondità del mondo secondario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricchezza simbolica">ricchezza simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mondo costruito">mondo costruito</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien">Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il signore degli anelli*">*Il signore degli anelli*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1954-55">1954-55</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quattro Ere">Quattro Ere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="linguaggio costruito">linguaggio costruito</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lingue elfiche">lingue elfiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quenya">Quenya</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Sindarin">Sindarin</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Secondary Belief*">*Secondary Belief*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Peter Jackson">Peter Jackson</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2001-2003">2001-2003</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Frank Herbert">Frank Herbert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Dune*">*Dune*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="J.K. Rowling">J.K. Rowling</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Harry Potter*">*Harry Potter*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="George R.R. Martin">George R.R. Martin</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il Trono di Spade*">*Il Trono di Spade*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney">Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Star Wars">Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Warner">Warner</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="DC Comics">DC Comics</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Universal">Universal</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="iperhub industriali">iperhub industriali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise di alta fitness">franchise di alta fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise di alta posizione">franchise di alta posizione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="valore intrinseco">valore intrinseco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sfumatura della critica">sfumatura della critica</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>La presente regione del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha articolato altrove il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> come meccanismo strutturale che governa la crescita <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span> del mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. Il modello classico di <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span>-László <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> e Réka <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup> prevede che ogni nuovo nodo si connetta a un nodo esistente con probabilità proporzionale al grado del nodo (al numero di connessioni che esso possiede già), e da questa regola derivi la distribuzione di grado che segue una legge di potenza. Il modello classico ha tuttavia un limite descrittivo che <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> stesso ha riconosciuto in lavori successivi: esso non spiega perché alcuni nodi crescano più rapidamente di quanto il loro grado iniziale prevederrebbe, né perché alcuni nodi che partono con grado basso riescano talora a diventare <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> competitivi rispetto a nodi che hanno avuto vantaggio di ordine temporale. La risposta che Ginestra Bianconi e <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span>-László <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> hanno articolato nel proprio paper del 2001, <em>Competition and multiscaling in evolving networks</em>, introduce un secondo parametro nel modello — la <em><span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span></em> intrinseca del nodo, indicata convenzionalmente con η (<span class="concept-link" data-tag="eta" tabindex="0" role="button">eta</span>) — che modula il <span class="concept-link" data-tag="preferential attachment classico" tabindex="0" role="button">preferential attachment classico</span> e consente di spiegare i casi che il modello base non spiegava.</p>
+<p>Nel <span class="concept-link" data-tag="modello Bianconi-Barabási" tabindex="0" role="button">modello Bianconi-Barabási</span>, la probabilità che un nuovo nodo si connetta a un nodo esistente è proporzionale al <em>prodotto</em> del grado del nodo e della sua <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca: il nodo con <span class="concept-link" data-tag="grado k" tabindex="0" role="button">grado k</span> e <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> η ha probabilità proporzionale a <span class="concept-link" data-tag="k·η" tabindex="0" role="button">k·η</span> di ricevere la nuova connessione<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La conseguenza strutturale è significativa: un nodo con grado basso ma <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> elevata può crescere più rapidamente di un nodo con grado superiore ma <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> inferiore, perché la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> amplifica l&#39;effetto del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>. Quando la differenza di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> fra due nodi è sufficientemente grande, il nodo di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> più alta può superare il nodo di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> più bassa anche se quest&#39;ultimo aveva vantaggio iniziale di grado. Bianconi e <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> hanno mostrato matematicamente che il modello produce, sotto certe condizioni, un fenomeno di <em><span class="concept-link" data-tag="Bose-Einstein condensation" tabindex="0" role="button">Bose-Einstein condensation</span></em> della <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span>: un singolo nodo di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> eccezionalmente alta può attrarre una frazione macroscopica di tutte le connessioni del sistema, anziché vedere le connessioni distribuirsi proporzionalmente fra molti nodi secondo la legge di potenza standard.</p>
+<p>Il modello ha applicazione interessante al mercato culturale dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. Se nel mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> il <span class="concept-link" data-tag="grado k" tabindex="0" role="button">grado k</span> corrisponde al numero di connessioni che la <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> possiede già (film prodotti, serie, <span class="concept-link" data-tag="tie-in" tabindex="0" role="button">tie-in</span>, <span class="concept-link" data-tag="merchandising" tabindex="0" role="button">merchandising</span>, ecc.), la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> η può essere interpretata come una proprietà intrinseca del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> che agisce indipendentemente dal suo grado. Cosa può funzionare come <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca di un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>? Il presente discorso articola una proposta: la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> culturale del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> è funzione della <span class="concept-link" data-tag="coerenza mitopoietica" tabindex="0" role="button">coerenza mitopoietica</span>, della <span class="concept-link" data-tag="profondità del mondo secondario" tabindex="0" role="button">profondità del mondo secondario</span>, della <span class="concept-link" data-tag="ricchezza simbolica" tabindex="0" role="button">ricchezza simbolica</span> con cui il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> narrativo è stato costruito. Un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> costruito con cura e <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> — un <span class="concept-link" data-tag="mondo secondario" tabindex="0" role="button">mondo secondario</span> in cui le geografie, le storie, le lingue, le società sono articolate con coerenza interna — possiede una <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca alta che permette al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> di crescere oltre quanto il suo grado iniziale prevederrebbe. Un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> costruito superficialmente — con il solo intento di sfruttare la <span class="concept-link" data-tag="fidelizzazione del pubblico" tabindex="0" role="button">fidelizzazione del pubblico</span> verso un brand riconoscibile, senza investimento nella coerenza del mondo che il brand promette — possiede una <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca bassa che limita la sua crescita anche quando il suo grado iniziale è alto.</p>
+<p>La dimostrazione operativa del punto è il caso di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> e della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span>, che merita di essere articolato sinteticamente perché è caso paradigmatico del fenomeno e perché è già articolato in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. Quando <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> pubblicò <em>Il signore degli anelli</em> nel 1954-55, la sua posizione nel <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span> era quella di un nodo a grado basso: un singolo romanzo in tre volumi di un autore allora poco noto, senza precedenti <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> né struttura <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> di supporto. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non aveva accumulato connessioni preferenziali, e secondo il modello base di <span class="concept-link" data-tag="Barabási-Albert" tabindex="0" role="button">Barabási-Albert</span> avrebbe dovuto restare un nodo marginale del grafo culturale. La realtà storica è andata in direzione opposta: la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> è cresciuta nel tempo fino a diventare uno degli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> maggiori del mercato culturale contemporaneo, con un&#39;impressionante <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> di connessioni che attraversa libri, film, serie televisive, videogiochi, <span class="concept-link" data-tag="giochi di ruolo" tabindex="0" role="button">giochi di ruolo</span>, <span class="concept-link" data-tag="merchandising" tabindex="0" role="button">merchandising</span> di ogni tipo, sistemi di <span class="concept-link" data-tag="linguaggio costruito" tabindex="0" role="button">linguaggio costruito</span> utilizzati da comunità di pratica, traduzioni in decine di lingue, opere derivate canoniche e apocrife. Il modello base di <span class="concept-link" data-tag="Barabási-Albert" tabindex="0" role="button">Barabási-Albert</span> non spiega questa <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span>; il <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span> <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span> la spiega bene: la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> possiede una <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca eccezionalmente alta che ha amplificato sistematicamente la sua crescita nel tempo, compensando il vantaggio iniziale di grado di altri <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei più velocemente connessi all&#39;apparato <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>.</p>
+<p>La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non è qualità soggettiva che dipende dal gusto del singolo lettore. È proprietà strutturale del <span class="concept-link" data-tag="mondo costruito" tabindex="0" role="button">mondo costruito</span> da <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> — la coerenza linguistica fra le <span class="concept-link" data-tag="lingue elfiche" tabindex="0" role="button">lingue elfiche</span>, naniche, orchesche, ognuna delle quali è sistema linguistico funzionante con grammatica e fonologia; la coerenza geografica della mappa che articola le terre e i confini in modo verificabile interno al sistema; la coerenza storica che fa della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> un sistema con storia profonda di <span class="concept-link" data-tag="Quattro Ere" tabindex="0" role="button">Quattro Ere</span> documentate; la <span class="concept-link" data-tag="coerenza mitopoietica" tabindex="0" role="button">coerenza mitopoietica</span> che integra geografia, lingue e storia in un&#39;unica struttura cosmologica. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non è solo storia narrata, è <em>mondo</em> in cui storie possono essere narrate con coerenza interna che mantiene la <em><span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span></em> tolkieniana. Questa coerenza profonda è la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, ed è ciò che permette ad altre produzioni — i film di <span class="concept-link" data-tag="Peter Jackson" tabindex="0" role="button">Peter Jackson</span>, le serie successive, i videogiochi, le interpretazioni nuove — di trovare nel mondo già costruito materiale articolabile coerentemente. Quando Jackson produce <em>Il signore degli anelli</em> nel 2001-2003, non sta inventando un mondo, sta articolando un mondo che esiste già con la propria coerenza interna. La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> opera come <span class="concept-link" data-tag="amplificatore strutturale" tabindex="0" role="button">amplificatore strutturale</span> di ogni nuova produzione che si lega al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>: la nuova produzione eredita la coerenza del mondo già costruito, e questa eredità riduce il lavoro autoriale richiesto per la nuova opera, simultaneamente aumentando la probabilità che la nuova opera sia di qualità.</p>
+<p>Il punto teorico è significativo perché chiarisce in che senso il mercato culturale opera diversamente dalla <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> tecnologica pura. Nel modello base di <span class="concept-link" data-tag="Barabási-Albert" tabindex="0" role="button">Barabási-Albert</span>, il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> è meccanismo che premia la posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> indipendentemente dalla <span class="concept-link" data-tag="qualità intrinseca" tabindex="0" role="button">qualità intrinseca</span> del nodo. Nel <span class="concept-link" data-tag="modello Bianconi-Barabási" tabindex="0" role="button">modello Bianconi-Barabási</span> applicato al mercato culturale, la <span class="concept-link" data-tag="qualità intrinseca" tabindex="0" role="button">qualità intrinseca</span> del nodo modula il meccanismo, e può in alcuni casi prevalere sulla posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> iniziale. Il modello completo permette dunque di articolare due dimensioni complementari del mercato culturale: la dimensione della <em>posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span></em> (<span class="concept-link" data-tag="preferential attachment classico" tabindex="0" role="button">preferential attachment classico</span>, che premia ciò che è già consolidato) e la dimensione della <em><span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca</em> (che premia la qualità mitopoietica indipendentemente dalla posizione iniziale). Le due dimensioni operano simultaneamente: la maggior parte dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei si conferma per posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> (acquisizioni <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> di <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>, <span class="concept-link" data-tag="Lucasfilm" tabindex="0" role="button">Lucasfilm</span>, Fox; consolidamento di <span class="concept-link" data-tag="Warner" tabindex="0" role="button">Warner</span> sui <span class="concept-link" data-tag="DC Comics" tabindex="0" role="button">DC Comics</span>; consolidamento di <span class="concept-link" data-tag="Universal" tabindex="0" role="button">Universal</span> sui propri brand), ma alcuni casi documentano la prevalenza della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> anche su grandi vantaggi di posizione (<span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span>, <span class="concept-link" data-tag="Frank Herbert" tabindex="0" role="button">Frank Herbert</span> con <em>Dune</em>, <span class="concept-link" data-tag="J.K. Rowling" tabindex="0" role="button">J.K. Rowling</span> con <em>Harry Potter</em> nei primi anni, <span class="concept-link" data-tag="George R.R. Martin" tabindex="0" role="button">George R.R. Martin</span> con <em>Il Trono di Spade</em> nei primi anni).</p>
+<p>Paola <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> ha articolato la dimensione qualitativa del mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> nel proprio studio del 2018, <em>It&#39;s All Connected</em>, attraverso una formulazione che incrocia la dimensione <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> e la dimensione narrativa. Il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> non è solo prodotto <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ma è anche <em><span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span></em>: «il rilancio passa per la <span class="concept-link" data-tag="reinvenzione" tabindex="0" role="button">reinvenzione</span>, che a sua volta fa cassa sull&#39;eredità e l&#39;<span class="concept-link" data-tag="effetto nostalgia" tabindex="0" role="button">effetto nostalgia</span> del <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> già popolare»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. Il <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> che il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> accumula nel tempo non è quantità neutrale di connessioni, è qualità accumulata di storia, personaggi, mondo, simboli che il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> ha saputo costruire. Quando <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> parla di «<span class="concept-link" data-tag="effetto nostalgia" tabindex="0" role="button">effetto nostalgia</span>», parla della capacità del <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> di attivare risonanze culturali profonde nel pubblico — risonanze che dipendono dalla qualità del capitale, non solo dalla sua estensione. Il <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> è dunque candidato naturale come correlato culturale della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span>: non è semplicemente il numero di opere prodotte intorno al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, è la qualità della costruzione del mondo che ciascuna opera ha contribuito a edificare.</p>
+<p><span class="concept-link" data-tag="Armando Pescatore" tabindex="0" role="button">Armando Pescatore</span> ha articolato la dimensione complementare nel proprio studio del 2018 <em>Ecosistemi narrativi</em><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>, dove parla di <em><span class="concept-link" data-tag="tenuta del paradigma" tabindex="0" role="button">tenuta del paradigma</span></em> come capacità del <span class="concept-link" data-tag="mondo secondario" tabindex="0" role="button">mondo secondario</span> di accogliere coerentemente nuove narrazioni senza fratturarsi. Un <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> con buona tenuta — un <span class="concept-link" data-tag="mondo secondario" tabindex="0" role="button">mondo secondario</span> coerente, con regole interne articolate, con storia profonda, con geografia documentata — può accogliere molte nuove produzioni mantenendo l&#39;identità del mondo. Un <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> con tenuta scarsa — un <span class="concept-link" data-tag="mondo costruito" tabindex="0" role="button">mondo costruito</span> superficialmente, con regole vaghe, con storia poco articolata, con geografia poco caratterizzata — si frattura velocemente sotto la pressione delle nuove produzioni, e il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> perde coerenza interna. La <span class="concept-link" data-tag="tenuta del paradigma" tabindex="0" role="button">tenuta del paradigma</span> è dunque un altro correlato della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>: la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> alta corrisponde a tenuta alta, e dunque a capacità di crescere sostanzialmente senza degradare la coerenza interna.</p>
+<p>Resta da nominare la conseguenza teorica per la critica del mercato culturale. Il modello base del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>, articolato altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, suggerisce una critica strutturale forte: il mercato premia la posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> indipendentemente dalla qualità, e la concentrazione che ne risulta è strutturalmente sganciata dal <span class="concept-link" data-tag="valore intrinseco" tabindex="0" role="button">valore intrinseco</span> delle opere. Il <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span>, articolato qui, sfuma questa critica in una direzione specifica: la <span class="concept-link" data-tag="qualità intrinseca" tabindex="0" role="button">qualità intrinseca</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> — la sua <span class="concept-link" data-tag="coerenza mitopoietica" tabindex="0" role="button">coerenza mitopoietica</span>, la <span class="concept-link" data-tag="profondità del mondo secondario" tabindex="0" role="button">profondità del mondo secondario</span>, la <span class="concept-link" data-tag="ricchezza simbolica" tabindex="0" role="button">ricchezza simbolica</span> — può talora prevalere sulla posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span>, e dunque la <span class="concept-link" data-tag="concentrazione del mercato" tabindex="0" role="button">concentrazione del mercato</span> non è completamente sganciata dal valore. Tuttavia la sfumatura è precisa, e non va estesa indebitamente: la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> culturale può consentire a un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> di crescere oltre il proprio grado iniziale, ma la maggior parte dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei resta caratterizzata da grado alto e <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> moderata o bassa. La consolidazione dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> tramite acquisizioni industriali è strategia che premia la posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> senza richiedere <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> eccezionali; il fenomeno tolkieniano di prevalenza della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> su anni di grado superiore è <span class="concept-link" data-tag="caso eccezionale" tabindex="0" role="button">caso eccezionale</span>, non regola del mercato. Il mercato culturale è dunque governato dall&#39;intreccio di <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> e <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span>, ma il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> resta meccanismo dominante in termini di volume di mercato, e la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> opera come eccezione strutturale che alcuni casi documentati permettono di articolare.</p>
+<p>Il punto teorico complessivo che la presente soglia ha articolato è dunque il seguente. Il <span class="concept-link" data-tag="modello Bianconi-Barabási" tabindex="0" role="button">modello Bianconi-Barabási</span> estende il <span class="concept-link" data-tag="preferential attachment classico" tabindex="0" role="button">preferential attachment classico</span> introducendo il parametro di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca che modula la probabilità di accumulazione di nuove connessioni intorno al nodo. Applicato al mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, il modello permette di distinguere fra dimensione di posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> (consolidazione <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>) e dimensione di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca (qualità mitopoietica del <span class="concept-link" data-tag="mondo costruito" tabindex="0" role="button">mondo costruito</span>). Le due dimensioni operano simultaneamente, e i <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei sono distribuibili lungo lo spazio bidimensionale definito da k e η. La maggior parte dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei occupa la regione di k alto e η moderata (<span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span>/<span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>/<span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span> come <span class="concept-link" data-tag="iperhub industriali" tabindex="0" role="button">iperhub industriali</span> di <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> moderata); pochi casi paradigmatici occupano la regione di k iniziale basso e η eccezionalmente alta (<span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span>, e altri casi che le soglie successive del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articolano in dettaglio). Il caso tolkieniano in particolare è caso esemplare della prevalenza della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> sulla posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> iniziale, e merita un&#39;articolazione propria che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> sviluppa altrove in dettaglio.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Bianconi, G., Barabási, A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442 [pagina da verificare sul fisico, sezione sulla formulazione del modello con fitness]. La voce di Bianconi-Barabási è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Brembilla, P. (2018), <em>It&#39;s All Connected. L&#39;evoluzione delle serie TV statunitensi</em>, FrancoAngeli, Milano [pagina da verificare sul fisico, sezione sull&#39;effetto nostalgia e la reinvenzione delle eredità narrative].</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Barabási, A.-L., Albert, R. (1999), <em>Emergence of Scaling in Random Networks</em>, in «Science», 286(5439), pp. 509-512 [pagina da verificare sul fisico]. La voce di Barabási è articolata in dettaglio altrove nel sistema della tesi nelle regioni dedicate al preferential attachment.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Pescatore, A., Innocenti, V. (2018), <em>Ecosistemi narrativi. Dal fumetto alle serie TV</em>, Carocci, Roma [pagina da verificare sul fisico, sezione sulla tenuta del paradigma narrativo]. La voce di Pescatore-Innocenti è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's2-2';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

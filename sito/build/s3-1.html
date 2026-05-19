@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loci e imagines: la struttura 7×7 come sistema di accesso — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Loci e imagines: la struttura 7×7 come sistema di accesso</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="loci e imagines">loci e imagines</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arte della memoria">arte della memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Camillo">Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Giulio Camillo Delminio">Giulio Camillo Delminio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Idea del theatro*">*Idea del theatro*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1550">1550</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette colonne">sette colonne</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette gradi">sette gradi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quarantanove luoghi">quarantanove luoghi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia 7×7">griglia 7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scacchiera dei luoghi">scacchiera dei luoghi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bolzoni">Bolzoni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="edizione Adelphi">edizione Adelphi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1991">1991</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia di classificazione">griglia di classificazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello per la mente">modello per la mente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="proiezioni materiali">proiezioni materiali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pianeti">sette pianeti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Luna">Luna</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Mercurio">Mercurio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Venere">Venere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Sole">Sole</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marte">Marte</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Giove">Giove</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Saturno">Saturno</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cosmologia rinascimentale">cosmologia rinascimentale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Convivio">Convivio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Caverna">Caverna</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Gorgoni">Gorgoni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Pasifae e il Toro">Pasifae e il Toro</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Sandali di Mercurio">Sandali di Mercurio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Prometeo">Prometeo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tre Doni della Sapienza">Tre Doni della Sapienza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Binah">Binah</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="settima Sefirot">settima Sefirot</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette volte sette">sette volte sette</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Padre nostro">Padre nostro</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="testo ebraico di Matteo">testo ebraico di Matteo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ombra del divino archetipo">ombra del divino archetipo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cabala">cabala</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tradizione ermetica">tradizione ermetica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pozzi del sistema">sette pozzi del sistema</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette domini di articolazione argomentativa">sette domini di articolazione argomentativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quarantanove frammenti tematici">quarantanove frammenti tematici</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="imagines come dispositivo di richiamo">imagines come dispositivo di richiamo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meccanismo combinatorio">meccanismo combinatorio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="significato relazionale">significato relazionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="movimento del fruitore">movimento del fruitore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo digitale di navigazione">dispositivo digitale di navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità enciclopedica">totalità enciclopedica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="circoscritto">circoscritto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità dell'articolazione">profondità dell'articolazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prestito strutturale">prestito strutturale</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p><span class="concept-link" data-tag="Giulio Camillo Delminio" tabindex="0" role="button">Giulio Camillo Delminio</span> articola nell&#39;<em>Idea del theatro</em> del 1550<sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup> una struttura <span class="concept-link" data-tag="combinatoria" tabindex="0" role="button">combinatoria</span> che costituisce uno dei riferimenti strutturali principali del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. La struttura è articolabile in modo conciso: <span class="concept-link" data-tag="quarantanove luoghi" tabindex="0" role="button">quarantanove luoghi</span> principali nascono dall&#39;incrocio di <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> verticali e <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> orizzontali; ogni luogo è contrassegnato da una o più immagini che funzionano come dispositivi di richiamo del materiale che il Teatro ospita. Le colonne corrispondono ai <span class="concept-link" data-tag="sette pianeti" tabindex="0" role="button">sette pianeti</span> della cosmologia tradizionale; i gradi corrispondono a sette livelli di progressione che articolano la dimensione dei luoghi dal piano cosmologico al piano del divenire storico. La <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> funziona come sistema di accesso al materiale: il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> del Teatro non legge il materiale in sequenza lineare ma lo attraversa scegliendo punti di accesso fra i <span class="concept-link" data-tag="quarantanove luoghi" tabindex="0" role="button">quarantanove luoghi</span>, e ciascun punto di accesso apre il proprio sotto-materiale che il Teatro vi ha depositato. La struttura è dunque simultaneamente sistema cosmologico (le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> rispecchiano la <span class="concept-link" data-tag="cosmologia rinascimentale" tabindex="0" role="button">cosmologia rinascimentale</span>) e sistema operativo (i <span class="concept-link" data-tag="quarantanove luoghi" tabindex="0" role="button">quarantanove luoghi</span> funzionano come punti di accesso a un archivio strutturato).</p>
+<p>Lina <span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span>, curatrice dell&#39;<span class="concept-link" data-tag="edizione Adelphi" tabindex="0" role="button">edizione Adelphi</span> del 1991 e autrice del lavoro filologico che ha reso il testo di <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> accessibile alla critica contemporanea, articola la struttura formale del Teatro in un passaggio cardinale. «In primo luogo l&#39;Idea offre una <span class="concept-link" data-tag="griglia di classificazione" tabindex="0" role="button">griglia di classificazione</span>, un <span class="concept-link" data-tag="modello per la mente" tabindex="0" role="button">modello per la mente</span>, uno schema che prescinde dai modi possibili delle sue <span class="concept-link" data-tag="proiezioni materiali" tabindex="0" role="button">proiezioni materiali</span>. Vi troviamo <span class="concept-link" data-tag="quarantanove caselle" tabindex="0" role="button">quarantanove caselle</span>, o &quot;luoghi&quot; principali; essi nascono dall&#39;incrocio fra due tipi di ordine: uno che agisce in verticale (le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span>, o porte raffigurate dai <span class="concept-link" data-tag="sette pianeti" tabindex="0" role="button">sette pianeti</span>) e uno che agisce in senso orizzontale (&quot;sette porte, o gradi, o distintioni&quot;; qui a p. 154). Come insegna l&#39;<span class="concept-link" data-tag="arte della memoria" tabindex="0" role="button">arte della memoria</span>, ogni luogo deve essere contrassegnato da una o più immagini»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La formulazione di <span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> separa due dimensioni del Teatro che vanno tenute insieme nell&#39;analisi: la <em><span class="concept-link" data-tag="griglia di classificazione" tabindex="0" role="button">griglia di classificazione</span></em> come <span class="concept-link" data-tag="modello per la mente" tabindex="0" role="button">modello per la mente</span> (cioè come struttura cognitiva che organizza il materiale) e le <em><span class="concept-link" data-tag="proiezioni materiali" tabindex="0" role="button">proiezioni materiali</span></em> della griglia (cioè le realizzazioni concrete che la griglia può ricevere in forme diverse). <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> immaginava il Teatro nella sua proiezione materiale fisica — un <span class="concept-link" data-tag="edificio ligneo" tabindex="0" role="button">edificio ligneo</span> che gli amici di <span class="concept-link" data-tag="Erasmo" tabindex="0" role="button">Erasmo</span> poterono visitare a <span class="concept-link" data-tag="Venezia" tabindex="0" role="button">Venezia</span> — ma la <span class="concept-link" data-tag="griglia di classificazione" tabindex="0" role="button">griglia di classificazione</span> era strutturalmente indipendente da quella proiezione, e poteva ricevere <span class="concept-link" data-tag="proiezioni materiali" tabindex="0" role="button">proiezioni materiali</span> diverse.</p>
+<p>Il punto della separazione fra griglia e proiezione è strutturalmente significativo per il presente discorso, perché permette di articolare il <span class="concept-link" data-tag="prestito strutturale" tabindex="0" role="button">prestito strutturale</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera dal Teatro camilliano. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non si propone di costruire un Teatro come <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> lo aveva immaginato (un edificio fisico abitabile dallo <span class="concept-link" data-tag="spettatore" tabindex="0" role="button">spettatore</span>); si propone di adottare la <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> come struttura cognitiva che organizza il proprio materiale, riconoscendo apertamente che la proiezione materiale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è diversa da quella che <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> immaginava. La proiezione materiale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è duplice: un testo cartaceo che articola il materiale in sequenza lineare (la versione tradizionale del libro accademico) e un <span class="concept-link" data-tag="dispositivo digitale di navigazione" tabindex="0" role="button">dispositivo digitale di navigazione</span> che permette al lettore di attraversare il materiale secondo percorsi non lineari (la versione <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>). Entrambe le proiezioni operano sulla stessa <span class="concept-link" data-tag="griglia di classificazione" tabindex="0" role="button">griglia di classificazione</span>: <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span> come colonne tematiche del sistema, <span class="concept-link" data-tag="sette domini di articolazione argomentativa" tabindex="0" role="button">sette domini di articolazione argomentativa</span> come gradi, quarantanove unità intermedie come luoghi di accesso al materiale che ciascuna unità organizza.</p>
+<p>Vediamo ora come la traduzione contemporanea opera. Le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> del Teatro camilliano corrispondevano ai <span class="concept-link" data-tag="sette pianeti" tabindex="0" role="button">sette pianeti</span> della <span class="concept-link" data-tag="cosmologia rinascimentale" tabindex="0" role="button">cosmologia rinascimentale</span>: la <span class="concept-link" data-tag="Luna" tabindex="0" role="button">Luna</span>, <span class="concept-link" data-tag="Mercurio" tabindex="0" role="button">Mercurio</span>, <span class="concept-link" data-tag="Venere" tabindex="0" role="button">Venere</span>, il <span class="concept-link" data-tag="Sole" tabindex="0" role="button">Sole</span>, <span class="concept-link" data-tag="Marte" tabindex="0" role="button">Marte</span>, <span class="concept-link" data-tag="Giove" tabindex="0" role="button">Giove</span>, <span class="concept-link" data-tag="Saturno" tabindex="0" role="button">Saturno</span>. Le colonne erano principio di articolazione cosmologica del materiale — ciascun pianeta aveva qualità simboliche specifiche che orientavano il materiale che la colonna ospitava. Nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> sono i <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span> che articolano le <span class="concept-link" data-tag="sette dimensioni concettuali" tabindex="0" role="button">sette dimensioni concettuali</span> dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>: il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, la <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span>, il <span class="concept-link" data-tag="teatro della memoria" tabindex="0" role="button">teatro della memoria</span>, l&#39;<span class="concept-link" data-tag="organismo" tabindex="0" role="button">organismo</span>, il modello <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>, l&#39;<span class="concept-link" data-tag="AI come medium" tabindex="0" role="button">AI come medium</span>, la <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span>. Ciascun pozzo ha la propria qualità tematica specifica che orienta il materiale che ospita. La corrispondenza con i pianeti non è imitazione letterale (il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non assegna ai pozzi qualità planetarie) ma adozione del principio strutturale: <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span> articolate per dimensioni concettuali distinte, ciascuna autoportante, che insieme compongono l&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> complessiva del sistema.</p>
+<p>I <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> del Teatro corrispondevano a sette livelli di progressione del materiale, articolati da <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> come passaggi dalla dimensione cosmologica del Banchetto della Sapienza alla dimensione storica del divenire degli uomini. <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> li nomina come segue: il <span class="concept-link" data-tag="Convivio" tabindex="0" role="button">Convivio</span>, la <span class="concept-link" data-tag="Caverna" tabindex="0" role="button">Caverna</span>, le <span class="concept-link" data-tag="Gorgoni" tabindex="0" role="button">Gorgoni</span>, <span class="concept-link" data-tag="Pasifae e il Toro" tabindex="0" role="button">Pasifae e il Toro</span>, le <span class="concept-link" data-tag="Sandali di Mercurio" tabindex="0" role="button">Sandali di Mercurio</span>, <span class="concept-link" data-tag="Prometeo" tabindex="0" role="button">Prometeo</span>, e infine i <span class="concept-link" data-tag="Tre Doni della Sapienza" tabindex="0" role="button">Tre Doni della Sapienza</span>. Ciascun grado segna un livello di articolazione della dimensione cosmologica: dal piano del divino assoluto al piano dell&#39;azione umana storica, attraverso passaggi intermedi che articolano l&#39;emanazione del divino nel mondo. Nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> i <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> corrispondono ai <span class="concept-link" data-tag="sette domini di articolazione argomentativa" tabindex="0" role="button">sette domini di articolazione argomentativa</span> che ciascun pozzo dispiega. La denominazione operativa è meno mitologica e più descrittiva, ma il principio è analogo: ciascun grado segna un livello di articolazione del materiale che il pozzo ospita, e i <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> insieme articolano la dimensione del pozzo in modo organico.</p>
+<p>L&#39;incrocio fra colonne e gradi produce <span class="concept-link" data-tag="quarantanove luoghi" tabindex="0" role="button">quarantanove luoghi</span> nel Teatro camilliano. <span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> articola un passaggio significativo: «I luoghi principali del Teatro sono quarantanove, e quarantanove sono le immagini principali che li contrassegnano. Così facendo <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> ha imitato &quot;l&#39;ombra di queste salite&quot; (qui a p. 154), perché Mosè era asceso fino alla <span class="concept-link" data-tag="Binah" tabindex="0" role="button">Binah</span>, la <span class="concept-link" data-tag="settima Sefirot" tabindex="0" role="button">settima Sefirot</span>, <span class="concept-link" data-tag="sette volte sette" tabindex="0" role="button">sette volte sette</span>, e quarantanove sono le parole del <span class="concept-link" data-tag="Padre nostro" tabindex="0" role="button">Padre nostro</span> nel <span class="concept-link" data-tag="testo ebraico di Matteo" tabindex="0" role="button">testo ebraico di Matteo</span>. Il Teatro, anche nelle sue scansioni numeriche, è così &quot;ombra&quot; del divino archetipo»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. Il quarantanove è dunque numero saturo della struttura sette-sette, e <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> gli attribuisce significato cabalistico che il presente discorso può nominare senza adottare. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta la struttura quarantanove come <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> dell&#39;articolazione del proprio materiale, ma sospende consapevolmente la dimensione mistica che il numero aveva nella tradizione cabalistica e rinascimentale. La struttura <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> funziona nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> che genera unità tematiche, non come riflesso di un divino archetipo.</p>
+<p>Le quarantanove unità tematiche del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> sono articolate come <em>frammenti tematici</em> — la denominazione corrisponde alle <em><span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span></em> del Teatro camilliano nella loro funzione di dispositivo di richiamo del materiale. <span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> articola la funzione cognitiva delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> in un passaggio che merita di essere portato in extenso. «L&#39;ordinamento orizzontale dei <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span> si intreccia con quello verticale dei <span class="concept-link" data-tag="sette pianeti" tabindex="0" role="button">sette pianeti</span>. Ne risulta una specie di <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>, sulla quale il gioco delle immagini si può attuare attraverso gli spostamenti e le combinazioni. Una stessa <span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> viene infatti usata in luoghi diversi e varia il suo significato in relazione al grado in cui si viene a trovare. […] C&#39;è un certo automatismo nel proliferare dei significati in corrispondenza con lo spostarsi dell&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> sulla <span class="concept-link" data-tag="scacchiera dei luoghi" tabindex="0" role="button">scacchiera dei luoghi</span>: basta infatti tener presente lo schema dei significati dei diversi gradi che abbiamo riportato sopra. […] Il meccanismo può funzionare da sé, generando nuovi significati grazie al movimento e alle combinazioni»<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>. Il punto cardinale del passaggio bolzoniano è significativo per il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>: il <span class="concept-link" data-tag="meccanismo combinatorio" tabindex="0" role="button">meccanismo combinatorio</span> del Teatro produce nuovi significati attraverso il movimento delle immagini fra luoghi diversi della <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>. Le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> non hanno significato fisso; il loro significato dipende dal luogo che occupano, e cambia quando lo stesso oggetto figurativo riappare in luoghi diversi della struttura. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> del Teatro, percorrendo la <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>, riceve dunque significati che il meccanismo produce per sé, e che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può articolare ulteriormente attraverso il proprio movimento sulla griglia.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta questa logica come principio operativo del proprio <span class="concept-link" data-tag="dispositivo digitale di navigazione" tabindex="0" role="button">dispositivo digitale di navigazione</span>. Le quarantanove unità tematiche non hanno significato fisso che il lettore deve riconoscere; hanno <span class="concept-link" data-tag="significato relazionale" tabindex="0" role="button">significato relazionale</span> che dipende dal percorso che il lettore traccia attraverso il sistema. Una unità tematica che il lettore incontra dopo aver attraversato il pozzo della <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> ha un significato leggermente diverso da quella che il lettore incontra dopo aver attraversato il pozzo del <span class="concept-link" data-tag="teatro della memoria" tabindex="0" role="button">teatro della memoria</span>: la stessa unità, perché posizionata in punti diversi dell&#39;attraversamento, produce risonanze diverse con il materiale già incontrato. Il sistema funziona dunque come <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> che produce significati per movimento del lettore, esattamente come il Teatro camilliano produceva significati per movimento delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> sulla <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span>. La differenza strutturale è che nel Teatro le immagini erano mobili e il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> fisso (la <span class="concept-link" data-tag="scacchiera" tabindex="0" role="button">scacchiera</span> era nella mente, il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> stava davanti al Teatro), mentre nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> le unità sono fisse e il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> mobile (il sistema è il dispositivo, il lettore traccia il proprio percorso). Ma il <span class="concept-link" data-tag="meccanismo combinatorio" tabindex="0" role="button">meccanismo combinatorio</span> che produce significati per relazione è strutturalmente identico nelle due configurazioni.</p>
+<p>La conseguenza per la teoria dell&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è significativa. L&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> riconosciuta altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come configurazione del medium contemporaneo opera come <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>: collezione di unità che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> attraversa secondo percorsi multipli, e ciascun percorso produce <span class="concept-link" data-tag="esperienza fruitiva" tabindex="0" role="button">esperienza fruitiva</span> diversa. La struttura camilliana del Teatro, articolata cinque secoli fa per organizzare la <span class="concept-link" data-tag="totalità" tabindex="0" role="button">totalità</span> del <span class="concept-link" data-tag="sapere classico" tabindex="0" role="button">sapere classico</span>, è il prototipo dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>: era <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> che permetteva al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di accedere a un materiale strutturato secondo percorsi multipli, e produceva <span class="concept-link" data-tag="esperienza fruitiva" tabindex="0" role="button">esperienza fruitiva</span> attraverso il <span class="concept-link" data-tag="movimento del fruitore" tabindex="0" role="button">movimento del fruitore</span> sulla griglia delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola questa <span class="concept-link" data-tag="continuità di lunga durata" tabindex="0" role="button">continuità di lunga durata</span> come fatto strutturale, non come metafora moderna applicata al passato: il Teatro camilliano e l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> operano sullo stesso principio strutturale del <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span>, e la struttura <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta è la traduzione operativa del principio nella propria <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span>.</p>
+<p>Resta da nominare un punto teorico che permette di articolare la specificità del <span class="concept-link" data-tag="prestito strutturale" tabindex="0" role="button">prestito strutturale</span>. Il Teatro camilliano era progettato per organizzare la <em><span class="concept-link" data-tag="totalità" tabindex="0" role="button">totalità</span></em> del <span class="concept-link" data-tag="sapere classico" tabindex="0" role="button">sapere classico</span> — l&#39;ambizione di <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> era costruire una macchina che permettesse al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di accedere a tutto il sapere conservato nella tradizione classica, secondo l&#39;ideale enciclopedico del Rinascimento. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non condivide questa ambizione totalizzante: organizza il proprio materiale specifico (le <span class="concept-link" data-tag="sette dimensioni concettuali" tabindex="0" role="button">sette dimensioni concettuali</span> dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> articolate dai <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span>) e non pretende di esaurire altre regioni del sapere. La struttura <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> è dunque adottata dal <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come dispositivo formale di articolazione del proprio materiale, sospendendo la dimensione enciclopedica totalizzante che <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> gli attribuiva. La <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> — per usare la categoria che il sistema articola altrove — non opera sull&#39;estensione del materiale (il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è <span class="concept-link" data-tag="circoscritto" tabindex="0" role="button">circoscritto</span> al proprio oggetto specifico) ma sulla <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> dell&#39;articolazione (i <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span> articolano in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> le dimensioni dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, e le soglie articolano in dettaglio le connessioni fra le dimensioni). La struttura <span class="concept-link" data-tag="7×7" tabindex="0" role="button">7×7</span> funziona come <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> del sistema, dentro la quale il sistema dispiega la propria specifica ambizione di <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span>.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Bolzoni, L. (1991), Introduzione a G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagina da verificare sul fisico, sezione 2 «La scacchiera dei luoghi»]. La voce di Bolzoni è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Bolzoni, L. (1991), Introduzione a <em>L&#39;idea del theatro</em>, cit. [pagina da verificare sul fisico, sezione 2, passaggio sul significato cabalistico del quarantanove].</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Bolzoni, L. (1991), Introduzione a <em>L&#39;idea del theatro</em>, cit. [pagina da verificare sul fisico, sezione 2 «La scacchiera dei luoghi», passaggio sul meccanismo combinatorio delle immagini].</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Camillo, G. (1550), <em>L&#39;idea del theatro</em>, postumo. Edizione di riferimento utilizzata dal sistema della tesi: Bolzoni, L. (a cura di) (1991), G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagine da verificare sul fisico]. Il testo originale di Camillo, dettato in punto di morte attorno al 1544 e pubblicato postumo nel 1550, articola la struttura combinatoria della macchina mnemonica oggetto del presente discorso. La voce di Camillo è articolata in dettaglio altrove nel sistema della tesi, nella regione dedicata al Teatro della memoria come prototipo dell&#39;opera-volume.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's3-1';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

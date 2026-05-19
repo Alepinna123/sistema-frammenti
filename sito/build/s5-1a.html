@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fandom come periferia dinamica: bracconaggio testuale — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Fandom come periferia dinamica: bracconaggio testuale</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="fandom">fandom</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="periferia dinamica">periferia dinamica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="bracconaggio testuale">bracconaggio testuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="De Certeau">De Certeau</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Michel De Certeau">Michel De Certeau</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*L'invention du quotidien*">*L'invention du quotidien*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1980">1980</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="«Lire: un braconnage»">«Lire: un braconnage»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*braconnage*">*braconnage*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*braconnier*">*braconnier*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettura come pratica attiva">lettura come pratica attiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettore-bracconiere">lettore-bracconiere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="foresta del signore">foresta del signore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="inquilino del testo">inquilino del testo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pratica popolare">pratica popolare</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="resistenza al potere autoriale">resistenza al potere autoriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dimensione politica della lettura">dimensione politica della lettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Jenkins">Jenkins</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Henry Jenkins">Henry Jenkins</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Textual Poachers*">*Textual Poachers*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1992">1992</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Convergence Culture*">*Convergence Culture*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2006">2006</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cultura partecipativa">cultura partecipativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fan fiction">fan fiction</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fan art">fan art</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fan vidding">fan vidding</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cosplay">cosplay</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fanzine">fanzine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="podcast critici">podcast critici</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="convention">convention</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforme digitali dedicate">piattaforme digitali dedicate</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema distribuito di appropriazione">sistema distribuito di appropriazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corpus alternativo">corpus alternativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Star Trek*">*Star Trek*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Doctor Who*">*Doctor Who*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Harry Potter*">*Harry Potter*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il signore degli anelli*">*Il signore degli anelli*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Star Wars*">*Star Wars*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*MCU*">*MCU*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cultura partecipativa contemporanea">cultura partecipativa contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Brembilla">Brembilla</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*It's All Connected*">*It's All Connected*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="proprietà intellettuale">proprietà intellettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dialettica fra proprietà e condivisione">dialettica fra proprietà e condivisione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="zona grigia">zona grigia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="bracconaggio commerciale">bracconaggio commerciale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="bracconaggio non commerciale">bracconaggio non commerciale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforme dedicate">piattaforme dedicate</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tolleranza istituzionale">tolleranza istituzionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*fan service*">*fan service*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="circolazione bidirezionale">circolazione bidirezionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="co-produzione del significato">co-produzione del significato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione critica">ricodificazione critica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="riarticolazione queer">riarticolazione queer</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="riarticolazione politica">riarticolazione politica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dignità intellettuale del fandom">dignità intellettuale del fandom</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="centro industriale">centro industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="periferia produttiva">periferia produttiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo giuridico">dispositivo giuridico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="controllo del significato">controllo del significato</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dialettica fra industria e <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come dimensione costitutiva dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, e ha riconosciuto il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come polo attivo della relazione che produce significati specifici a partire dal materiale canonico fornito dall&#39;apparato <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>. La presente articolazione approfondisce la voce critica che permette di pensare la dinamica del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> in modo strutturalmente preciso: la categoria di <em><span class="concept-link" data-tag="bracconaggio testuale" tabindex="0" role="button">bracconaggio testuale</span></em> articolata da <span class="concept-link" data-tag="Michel De Certeau" tabindex="0" role="button">Michel De Certeau</span> nel proprio studio del 1980 <em>L&#39;<span class="concept-link" data-tag="invention" tabindex="0" role="button">invention</span> du quotidien</em>, applicata al <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> mediale da <span class="concept-link" data-tag="Henry Jenkins" tabindex="0" role="button">Henry Jenkins</span> nel proprio studio del 1992 <em>Textual Poachers</em>. La voce di <span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> permette di articolare il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come pratica di appropriazione attiva del materiale <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>, e di vedere la periferia del sistema mediale non come zona marginale ma come zona dinamica in cui si producono ricodificazioni del materiale canonico che modificano il significato del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>.</p>
+<p><span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> articola nel capitolo <span class="concept-link" data-tag="«Lire: un braconnage»" tabindex="0" role="button">«Lire: un braconnage»</span> dell&#39;<em>Invention du quotidien</em><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup> una posizione teorica che merita di essere richiamata sinteticamente. La lettura non è ricezione passiva del testo che l&#39;autore ha prodotto; è pratica attiva del lettore che attraversa il testo senza possederlo, esattamente come il <em>bracconnier</em> attraversa la <span class="concept-link" data-tag="foresta del signore" tabindex="0" role="button">foresta del signore</span> senza esserne il proprietario. Il bracconiere caccia nella foresta che non gli appartiene, prende ciò che gli serve, e se ne va. Il lettore secondo <span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> opera analogamente: attraversa il testo che l&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span> gli mette davanti, ne preleva i materiali che servono alla propria specifica costruzione di significato, e se ne va. La metafora del <em>braconnage</em> è precisa nel suggerire la dimensione conflittuale del rapporto: il bracconiere opera in territorio che non è suo, e la sua pratica è formalmente illegale rispetto al diritto di proprietà che governa il territorio. <span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> articola apertamente la dimensione politica del fenomeno: la lettura come bracconaggio è <span class="concept-link" data-tag="pratica popolare" tabindex="0" role="button">pratica popolare</span> che resiste al potere dell&#39;autore-proprietario e all&#39;apparato culturale che protegge il diritto autoriale come dispositivo di <span class="concept-link" data-tag="controllo del significato" tabindex="0" role="button">controllo del significato</span> del testo. Il <span class="concept-link" data-tag="lettore-bracconiere" tabindex="0" role="button">lettore-bracconiere</span> prende ciò che gli serve indipendentemente dall&#39;intenzione autoriale, e produce significati che l&#39;autore non aveva previsto e che non controlla.</p>
+<p><span class="concept-link" data-tag="Henry Jenkins" tabindex="0" role="button">Henry Jenkins</span> ha applicato la categoria certauiana al <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> mediale nel proprio studio del 1992 <em>Textual Poachers: Television Fans and Participatory Culture</em><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>, articolando il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> della serie televisiva come caso paradigmatico del bracconaggio contemporaneo. Il punto cardinale del lavoro di <span class="concept-link" data-tag="Jenkins" tabindex="0" role="button">Jenkins</span> per il presente discorso riguarda la dimensione organizzata e produttiva del bracconaggio <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span>. Il fan non è solo lettore individuale che opera nel proprio spazio privato; è membro di una comunità organizzata che condivide il proprio bracconaggio attraverso pratiche collettive — <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span>, <span class="concept-link" data-tag="fan art" tabindex="0" role="button">fan art</span>, <span class="concept-link" data-tag="fan vidding" tabindex="0" role="button">fan vidding</span>, dibattiti critici, <span class="concept-link" data-tag="convention" tabindex="0" role="button">convention</span>, riviste specializzate, e nell&#39;epoca contemporanea <span class="concept-link" data-tag="piattaforme digitali dedicate" tabindex="0" role="button">piattaforme digitali dedicate</span>. La comunità <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> organizza il bracconaggio come pratica condivisa, sviluppa convenzioni interne specifiche, articola criteri di <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> delle produzioni derivate, e produce nel tempo un <span class="concept-link" data-tag="corpus alternativo" tabindex="0" role="button">corpus alternativo</span> di articolazione del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> canonico. Il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> non è dunque collezione di lettori bracconieri isolati; è <span class="concept-link" data-tag="sistema distribuito di appropriazione" tabindex="0" role="button">sistema distribuito di appropriazione</span> e produzione che opera al confine del sistema <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> di cui pratica il bracconaggio.</p>
+<p>La nozione di <em><span class="concept-link" data-tag="cultura partecipativa" tabindex="0" role="button">cultura partecipativa</span></em> che <span class="concept-link" data-tag="Jenkins" tabindex="0" role="button">Jenkins</span> ha articolato a partire dal proprio studio del 1992 e che ha sviluppato in lavori successivi (<em>Convergence Culture</em> del 2006 e oltre)<sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup> è la categoria specifica che permette di pensare il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come dimensione produttiva del sistema mediale contemporaneo. Nella <span class="concept-link" data-tag="cultura partecipativa" tabindex="0" role="button">cultura partecipativa</span>, il consumo del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non si limita alla ricezione passiva ma si articola in pratiche produttive che generano nuovi materiali a partire dal materiale canonico — racconti che immaginano sviluppi alternativi del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, articolazioni di personaggi periferici che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha lasciato abbozzati, riarticolazioni critiche del significato del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> stesso. La <span class="concept-link" data-tag="cultura partecipativa" tabindex="0" role="button">cultura partecipativa</span> è dimensione strutturale del medium contemporaneo, e i grandi paradigmi narrativi del nostro tempo — <em>Star Trek</em>, <em>Doctor Who</em>, <em>Harry Potter</em>, <em>Il signore degli anelli</em>, <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em>, l&#39;<em><span class="concept-link" data-tag="MCU" tabindex="0" role="button">MCU</span></em> — sono accompagnati da apparati di <span class="concept-link" data-tag="cultura partecipativa" tabindex="0" role="button">cultura partecipativa</span> di scala globale che operano simultaneamente alla <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span> dei paradigmi stessi.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta queste due voci — <span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> e <span class="concept-link" data-tag="Jenkins" tabindex="0" role="button">Jenkins</span> — come articolazione strutturale della dinamica centro/periferia che caratterizza l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>. Il centro del sistema mediale è occupato dall&#39;apparato <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> che produce il materiale canonico del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> — gli studios, le piattaforme <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span>, le case editrici dei grandi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, gli sviluppatori dei videogiochi ufficiali. Il centro è caratterizzato da alta concentrazione di capitale, alta visibilità mediatica, struttura organizzata di produzione, controllo giuridico della <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span>. La periferia del sistema è occupata dal <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> organizzato che pratica il bracconaggio del materiale canonico — comunità online, piattaforme di <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span>, gruppi di vidding e di <span class="concept-link" data-tag="cosplay" tabindex="0" role="button">cosplay</span>, <span class="concept-link" data-tag="fanzine" tabindex="0" role="button">fanzine</span>, <span class="concept-link" data-tag="podcast critici" tabindex="0" role="button">podcast critici</span>, account social specializzati. La periferia è caratterizzata da bassa concentrazione di capitale, visibilità mediatica frammentata, struttura distribuita di produzione, assenza di controllo giuridico ma alta densità di pratiche partecipative.</p>
+<p>La specificità della periferia del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> rispetto a periferie di altri sistemi è la sua <em>dinamicità</em>. La periferia del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> non è zona statica di marginalità — è zona dinamica in cui si producono continuamente nuove articolazioni del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. Il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> di <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em> produce ogni anno migliaia di racconti fan-fiction che articolano sviluppi alternativi della storia canonica, articolano personaggi periferici come protagonisti, propongono ricodificazioni del significato del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. Il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> di <em>Harry Potter</em> opera analogamente, ma con caratteristiche specifiche legate al lavoro autoriale della Rowling sui temi del bene e del male, della identità razziale, dell&#39;amicizia, e con sotto-comunità che articolano in dettaglio dimensioni che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha lasciato abbozzate. Il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> dell&#39;<em><span class="concept-link" data-tag="MCU" tabindex="0" role="button">MCU</span></em> è particolarmente attivo nelle ricodificazioni critiche del significato dei personaggi (es. la <span class="concept-link" data-tag="riarticolazione queer" tabindex="0" role="button">riarticolazione queer</span> di personaggi che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha presentato come eterosessuali, la <span class="concept-link" data-tag="riarticolazione politica" tabindex="0" role="button">riarticolazione politica</span> di personaggi che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha presentato come neutri politicamente). La periferia del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> è dunque laboratorio di articolazione del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> che opera in parallelo alla <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span>, e che produce significati che l&#39;industria può ignorare ma che esistono come dimensione effettiva del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> esteso.</p>
+<p>Paola <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> nel proprio studio del 2018 <em>It&#39;s All Connected</em> articola la dimensione strutturale del rapporto fra <span class="concept-link" data-tag="centro industriale" tabindex="0" role="button">centro industriale</span> e periferia del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> attraverso la categoria della <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span>. «La costante <span class="concept-link" data-tag="dialettica fra proprietà e condivisione" tabindex="0" role="button">dialettica fra proprietà e condivisione</span> è quindi alla base della costruzione dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>», scrive <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span><sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> è il <span class="concept-link" data-tag="dispositivo giuridico" tabindex="0" role="button">dispositivo giuridico</span> che protegge il <span class="concept-link" data-tag="centro industriale" tabindex="0" role="button">centro industriale</span> dal bracconaggio del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span>, ma la sua applicazione non è assoluta: il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> opera in <span class="concept-link" data-tag="zona grigia" tabindex="0" role="button">zona grigia</span> in cui il bracconaggio è simultaneamente illegale per principio (la <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span> utilizza personaggi protetti da copyright <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>) e tollerato per ragioni di mercato (il bracconaggio del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> alimenta la <span class="concept-link" data-tag="fidelizzazione del pubblico" tabindex="0" role="button">fidelizzazione del pubblico</span> al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> canonico, e dunque produce valore indiretto per il proprietario del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> stesso). L&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span> contemporanea ha sviluppato una strategia mista nei confronti del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span>: persegue giuridicamente la <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span> commerciale (che vende prodotti derivati senza licenza) ma tollera la <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span> non commerciale (che produce materiali distribuiti gratuitamente su <span class="concept-link" data-tag="piattaforme dedicate" tabindex="0" role="button">piattaforme dedicate</span>). La <span class="concept-link" data-tag="zona grigia" tabindex="0" role="button">zona grigia</span> del bracconaggio <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> è dunque dimensione strutturale del sistema, e la sua <span class="concept-link" data-tag="tolleranza istituzionale" tabindex="0" role="button">tolleranza istituzionale</span> è scelta strategica del <span class="concept-link" data-tag="centro industriale" tabindex="0" role="button">centro industriale</span>.</p>
+<p>Il punto teorico significativo è che il bracconaggio del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> non è semplicemente attività di consumo derivato del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> canonico — è attività di <em>produzione attiva</em> che modifica nel tempo il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> stesso. Quando il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> articola in dettaglio una dimensione del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha lasciato abbozzata, e quando questa articolazione si diffonde nella comunità <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> acquistando visibilità e consenso, può accadere che il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> successivo recepisca l&#39;articolazione <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come elemento del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> esteso. Le strategie di <em>fan service</em> dell&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span> contemporanea (la produzione di contenuti specifici che rispondono a richieste articolate dal <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span>) sono manifestazione esplicita di questo fenomeno: il <span class="concept-link" data-tag="centro industriale" tabindex="0" role="button">centro industriale</span> ascolta la periferia, ne incorpora elementi nelle produzioni successive, e in tal modo la dinamica centro/periferia produce una <span class="concept-link" data-tag="circolazione bidirezionale" tabindex="0" role="button">circolazione bidirezionale</span> di significati che modifica il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> nel tempo. La periferia non è destinatario passivo del centro; è co-produttrice del significato del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>.</p>
+<p>Resta da nominare una conseguenza teorica della categoria di bracconaggio <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> per il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. La tradizione critica articolata da <span class="concept-link" data-tag="De Certeau" tabindex="0" role="button">De Certeau</span> e da <span class="concept-link" data-tag="Jenkins" tabindex="0" role="button">Jenkins</span> permette di articolare il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come dimensione legittima della cultura contemporanea, sospendendo la <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> svalutativa che la critica di alta cultura applicava storicamente al <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> (considerato come pratica derivativa di pubblico subordinato). La <span class="concept-link" data-tag="cultura partecipativa di Jenkins" tabindex="0" role="button">cultura partecipativa di Jenkins</span> è categoria che restituisce dignità intellettuale e politica al lavoro del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span>: il fan non è consumatore passivo ma produttore culturale che articola il proprio rapporto con i materiali industriali secondo modalità specifiche e legittime. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta consapevolmente questa posizione, e nomina il <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come dimensione co-produttrice dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, non come dimensione subordinata. La presente articolazione ha fornito le voci teoriche che permettono di pensare il fenomeno in modo strutturalmente preciso, articolando il bracconaggio certauiano come pratica fondante del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> e la <span class="concept-link" data-tag="cultura partecipativa di Jenkins" tabindex="0" role="button">cultura partecipativa di Jenkins</span> come categoria che ne articola la specificità contemporanea.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione macroculturale della relazione centro/periferia attraverso la voce di <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> sulla <span class="concept-link" data-tag="semiosfera" tabindex="0" role="button">semiosfera</span>, e altrove ancora articola la dimensione economica del rapporto fra industria e <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> attraverso la voce di <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> sulla <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span>. La presente soglia ha articolato la dimensione specifica del <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> come <span class="concept-link" data-tag="periferia dinamica" tabindex="0" role="button">periferia dinamica</span> del sistema, ricuperando le due voci critiche che il pozzo di provenienza presupponeva ma non sviluppava in dettaglio. La categoria di <span class="concept-link" data-tag="bracconaggio testuale" tabindex="0" role="button">bracconaggio testuale</span> è dunque ora articolata come voce operativa del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, disponibile per le successive articolazioni del rapporto fra industria, <span class="concept-link" data-tag="fandom" tabindex="0" role="button">fandom</span> e <span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Brembilla, P. (2018), <em>It&#39;s All Connected. L&#39;evoluzione delle serie TV statunitensi</em>, FrancoAngeli, Milano [pagina da verificare sul fisico, sezione sulla dialettica fra proprietà e condivisione nei franchise]. La voce di Brembilla è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> De Certeau, M. (1980), <em>L&#39;invention du quotidien. 1. Arts de faire</em>, Union générale d&#39;éditions, Paris [pagina da verificare sul fisico, capitolo «Lire: un braconnage»]. Trad. it.: <em>L&#39;invenzione del quotidiano</em>, Edizioni Lavoro, Roma 2001. La voce di De Certeau è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Jenkins, H. (1992), <em>Textual Poachers: Television Fans and Participatory Culture</em>, Routledge, New York [pagina da verificare sul fisico, capitoli sull&#39;applicazione della nozione certauiana di bracconaggio al fandom mediale]. La voce di Jenkins è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Jenkins, H. (2006), <em>Convergence Culture: Where Old and New Media Collide</em>, New York University Press, New York [pagina da verificare sul fisico, sezioni sulla cultura partecipativa]. Trad. it.: <em>Cultura convergente</em>, Apogeo, Milano 2007. La voce di Jenkins è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's5-1a';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

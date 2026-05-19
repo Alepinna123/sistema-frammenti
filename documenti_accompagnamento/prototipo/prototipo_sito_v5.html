@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema di frammenti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marble-light:#f2ede4;
+  --marble-mid:#e8e0d4;
+  --marble-deep:#d4c9b8;
+  --marble-vein:#b8a898;
+  --wood-dark:#1a1208;
+  --wood-mid:#2d1f0e;
+  --wood-grain:#3d2a12;
+  --brass:#b8862a;
+  --brass-light:#d4a84a;
+  --brass-dark:#7a5518;
+  --ink:#1a1208;
+  --ink-soft:#3d2a12;
+  --mid:#7a6a56;
+  --faint:#c8baa8;
+  --gold-0:#e8e0d4;
+  --gold-1:#dfcfa8;
+  --gold-2:#d4be88;
+  --gold-3:#caa860;
+  --gold-4:#b8862a;
+  --gold-5:#d4a84a;
+  --font-serif:'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-mono:'DM Mono', 'SF Mono', monospace;
+  --font-display:'Bebas Neue', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  background:var(--wood-dark);
+  color:var(--marble-light);
+  font-family:var(--font-serif);
+  font-size:18px;line-height:1.7;
+  font-feature-settings:"liga","kern";
+  font-variation-settings:"opsz" 14, "SOFT" 30, "WONK" 0;
+}
+.mono{font-family:var(--font-mono)}
+.label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid)}
+
+/* ── ONBOARDING ─────────────────────────── */
+#onboarding{
+  position:fixed;inset:0;z-index:2000;
+  background:var(--wood-dark);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#onboarding.dismissed{opacity:0;visibility:hidden;pointer-events:none}
+.ob-inner{max-width:680px;width:90%;text-align:center;animation:fadeUp .8s ease .2s both}
+.ob-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1.5rem}
+.ob-title{font-family:var(--font-serif);font-size:clamp(2.4rem,5.5vw,3.6rem);font-weight:400;color:var(--marble-light);line-height:1.1;margin-bottom:1rem;font-variation-settings:"opsz" 60, "SOFT" 50}
+.ob-title em{font-style:italic;color:var(--brass-light);font-weight:300}
+.ob-sub{font-family:var(--font-serif);font-size:1.05rem;font-weight:300;color:rgba(242,237,228,.5);margin-bottom:3rem;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
+.ob-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:2.5rem}
+.ob-card{
+  background:rgba(242,237,228,.04);border:1px solid rgba(184,134,42,.2);
+  padding:2.2rem 1.8rem;cursor:pointer;transition:all .25s;position:relative;text-align:left;
+}
+.ob-card:hover,.ob-card.selected{
+  background:rgba(184,134,42,.08);border-color:rgba(184,134,42,.6);
+  box-shadow:0 0 24px rgba(184,134,42,.12);
+}
+.ob-card-num{font-family:var(--font-display);font-size:1.7rem;color:var(--brass);margin-bottom:.6rem;letter-spacing:.05em}
+.ob-card-title{font-family:var(--font-serif);font-size:1.25rem;font-weight:400;color:var(--marble-light);margin-bottom:.5rem;font-variation-settings:"opsz" 36}
+.ob-card-desc{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.05em;color:rgba(242,237,228,.4);line-height:1.6}
+.ob-card.selected::after{content:'✓';position:absolute;top:.7rem;right:.9rem;font-family:var(--font-mono);font-size:.7rem;color:var(--brass-light)}
+.ob-cta{padding:.9rem 2.5rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;background:var(--brass);color:var(--ink);border:none;cursor:pointer;transition:all .2s;opacity:.4;pointer-events:none}
+.ob-cta.ready{opacity:1;pointer-events:auto}
+.ob-cta.ready:hover{background:var(--marble-light)}
+.ob-skip{display:block;margin:1.2rem auto 0;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,237,228,.3);background:none;border:none;cursor:pointer;transition:color .2s}
+.ob-skip:hover{color:var(--brass-light)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.ob-cards{grid-template-columns:1fr;gap:1rem}}
+
+/* ── NAV MINIMALE ─────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;
+  background:linear-gradient(to bottom, rgba(26,18,8,.92), rgba(26,18,8,.65) 70%, rgba(26,18,8,0));
+  pointer-events:none;
+}
+nav > *{pointer-events:auto}
+.nav-logo{font-family:var(--font-serif);font-size:1.05rem;font-style:italic;font-weight:300;letter-spacing:.04em;color:var(--brass-light);text-decoration:none;cursor:pointer;font-variation-settings:"opsz" 24}
+.nav-logo:hover{color:var(--marble-light)}
+.nav-right{display:flex;gap:.5rem;align-items:center}
+.viz-toggle{display:flex;border:1px solid var(--brass-dark);background:rgba(26,18,8,.65)}
+.viz-btn{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.05em;padding:.45rem .65rem;background:transparent;border:none;cursor:pointer;color:rgba(232,215,185,.5);transition:all .2s;text-transform:uppercase;min-width:36px}
+.viz-btn.active{background:var(--brass-dark);color:var(--brass-light)}
+.viz-btn:hover{color:var(--brass-light)}
+
+/* Pulsante info SX */
+#drawerToggle{
+  position:fixed;top:.9rem;left:1.5rem;z-index:201;
+  display:flex;align-items:center;gap:.5rem;
+  padding:.45rem .9rem;
+  background:rgba(26,18,8,.7);border:1px solid var(--brass-dark);color:rgba(232,215,185,.75);
+  font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+#drawerToggle:hover{background:var(--brass-dark);color:var(--brass-light)}
+#drawerToggle .dot{width:6px;height:6px;background:var(--brass-light);border-radius:50%;animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+
+/* ── SISTEMA / RETE FULLSCREEN ─────────────────────────── */
+#sistema{position:fixed;inset:0;background:var(--wood-dark);overflow:hidden}
+#sistema::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(
+    91deg,
+    transparent 0px, transparent 5px,
+    rgba(80,50,15,.05) 5px, rgba(80,50,15,.05) 6px,
+    transparent 6px, transparent 18px,
+    rgba(50,28,8,.07) 18px, rgba(50,28,8,.07) 19px,
+    transparent 19px, transparent 40px
+  );
+}
+#reteSvg{width:100%;height:100%;display:block;cursor:grab;user-select:none}
+#reteSvg.dragging{cursor:grabbing}
+
+.tag-node{cursor:pointer}
+.tag-node circle,.tag-node rect{transition:stroke .25s,stroke-width .25s,filter .25s}
+.tag-node:hover circle,.tag-node:hover rect{stroke:var(--marble-light);stroke-width:2;filter:drop-shadow(0 0 8px rgba(212,168,74,.4))}
+.tag-label{
+  user-select:none;pointer-events:none;
+  font-family:var(--font-serif);
+  font-variation-settings:"opsz" 14, "SOFT" 30;
+  opacity:0;
+  transition:opacity .45s ease;
+  fill:var(--marble-light);
+}
+.tag-label.visible{opacity:.95}
+.tag-label.concept{font-family:var(--font-mono);font-weight:400;letter-spacing:.04em}
+.tag-edge{fill:none;stroke:var(--brass-dark);stroke-width:0.6;opacity:.22;transition:opacity .25s,stroke .25s,stroke-width .25s}
+.tag-edge.lit{stroke:var(--brass-light);opacity:.65;stroke-width:1.1}
+
+/* ── TENDINA LATERALE (SX) ─────────────────────────── */
+#drawer{
+  position:fixed;top:0;left:-380px;width:360px;height:100vh;z-index:300;
+  background:var(--wood-mid);
+  background-image:linear-gradient(to right,var(--wood-dark),var(--wood-mid));
+  border-right:1px solid var(--brass-dark);
+  transition:left .35s cubic-bezier(.2,0,.2,1);
+  padding:4.5rem 1.8rem 2rem;
+  overflow-y:auto;
+  box-shadow:12px 0 40px rgba(0,0,0,.3);
+}
+#drawer.open{left:0}
+.dr-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:transparent;border:1px solid var(--brass-dark);color:var(--brass-light);font-size:1.3rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);line-height:1}
+.dr-close:hover{background:var(--brass-dark);color:var(--marble-light)}
+.dr-title{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;color:var(--brass-light);margin-bottom:.3rem;line-height:1.15;font-variation-settings:"opsz" 36,"SOFT" 50}
+.dr-subtitle{font-family:var(--font-serif);font-size:1.05rem;font-style:italic;font-weight:300;color:rgba(242,237,228,.55);margin-bottom:2rem;line-height:1.45}
+.dr-subtitle .meta{display:block;font-size:.78rem;color:rgba(232,215,185,.4);font-style:normal;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;margin-top:.4rem}
+.dr-section{margin-bottom:1.8rem;padding-bottom:1.4rem;border-bottom:1px solid rgba(184,134,42,.15)}
+.dr-section:last-child{border-bottom:none}
+.dr-sect-title{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brass);margin-bottom:.8rem}
+.dr-counter{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px solid rgba(184,134,42,.06)}
+.dr-counter:last-child{border-bottom:none}
+.dr-counter-label{font-family:var(--font-serif);font-size:.95rem;color:rgba(232,215,185,.78);font-weight:300}
+.dr-counter-value{font-family:var(--font-display);font-size:1.3rem;color:var(--brass-light);letter-spacing:.05em}
+.dr-persona{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;color:var(--brass-light);text-transform:uppercase}
+.dr-persona-sub{font-family:var(--font-serif);font-size:.92rem;color:rgba(232,215,185,.5);margin-top:.3rem;font-style:italic;font-weight:300;line-height:1.5}
+.dr-action{display:block;width:100%;text-align:left;padding:.7rem 0;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,215,185,.6);background:transparent;border:none;border-bottom:1px solid rgba(184,134,42,.1);cursor:pointer;transition:color .2s}
+.dr-action:hover{color:var(--brass-light)}
+.dr-philo{font-family:var(--font-serif);font-size:.88rem;font-style:italic;color:rgba(232,215,185,.45);line-height:1.65;font-weight:300}
+
+/* ── ZOOM HUD ─────────────────────────── */
+#zoomHud{
+  position:fixed;bottom:1.5rem;left:1.5rem;z-index:150;
+  display:flex;align-items:center;gap:.8rem;
+  font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(232,215,185,.4);
+}
+.zoom-btns{display:flex;border:1px solid var(--brass-dark);background:rgba(26,18,8,.6)}
+.zoom-btns button{width:28px;height:28px;background:transparent;border:none;color:rgba(232,215,185,.6);font-family:var(--font-mono);font-size:1rem;cursor:pointer;transition:all .2s;line-height:1}
+.zoom-btns button:hover{background:var(--brass-dark);color:var(--brass-light)}
+.zoom-level-bar{width:120px;height:3px;background:rgba(184,134,42,.15);position:relative}
+.zoom-level-fill{position:absolute;top:0;left:0;height:100%;background:var(--brass);transition:width .25s}
+.zoom-step-label{min-width:80px}
+
+/* ── LEGENDA INFERIORE ─────────────────────────── */
+#legend{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:150;
+  display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:flex-end;
+  font-family:var(--font-mono);font-size:.56rem;letter-spacing:.08em;color:rgba(232,215,185,.4);text-transform:uppercase;
+  max-width:60%;
+}
+.legend-item{display:flex;align-items:center;gap:.4rem}
+.legend-dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--brass-dark)}
+
+/* ── VIEWER ─────────────────────────── */
+#viewer{
+  position:fixed;inset:0;z-index:500;
+  background:var(--marble-light);
+  display:none;overflow-y:auto;
+  animation:slideUpFade .4s ease;
+}
+@keyframes slideUpFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+#viewer.active{display:block}
+.viewer-top{
+  position:sticky;top:0;z-index:10;
+  background:var(--marble-light);
+  background-image:linear-gradient(to bottom,var(--marble-light) 0%,var(--marble-light) 85%,rgba(242,237,228,0));
+  padding:1.4rem 2.5rem 1.2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(184,134,42,.15);
+}
+.viewer-close{
+  font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brass-dark);background:transparent;border:1px solid rgba(184,134,42,.3);
+  padding:.4rem 1rem;cursor:pointer;transition:all .2s;
+}
+.viewer-close:hover{background:rgba(184,134,42,.1);color:var(--brass)}
+.viewer-progress{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:var(--mid);text-transform:uppercase}
+
+.viewer-content{max-width:760px;margin:0 auto;padding:3rem 2.5rem 6rem}
+.concept-tags-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.concept-tag-pill{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-dark);background:rgba(184,134,42,.08);padding:.28rem .75rem;cursor:pointer;transition:all .2s;border:1px solid rgba(184,134,42,.15)}
+.concept-tag-pill:hover{background:rgba(184,134,42,.18);color:var(--brass)}
+.concept-title{
+  font-family:var(--font-serif);font-size:clamp(2rem,3.8vw,2.9rem);font-weight:400;line-height:1.15;margin-bottom:2.5rem;color:var(--ink);
+  font-variation-settings:"opsz" 96,"SOFT" 50;letter-spacing:-0.01em;
+}
+.concept-title em{font-style:italic;color:var(--brass-dark);font-weight:300}
+.concept-body{font-family:var(--font-serif);font-size:1.08rem;line-height:1.92;font-weight:400;color:var(--ink);font-variation-settings:"opsz" 14}
+.concept-body p{margin-bottom:1.45rem}
+.concept-body em{font-style:italic;color:var(--brass-dark)}
+.concept-body strong{font-weight:500}
+
+/* ───────── CONCEPT-LINK animato (versione elegante) ───────── */
+.concept-link{
+  position:relative;
+  color:var(--ink);
+  cursor:pointer;
+  padding:0 .12em;
+  display:inline-block;
+  text-decoration:none;
+  background-image:linear-gradient(120deg,
+    transparent 0%,
+    transparent 30%,
+    rgba(212,168,74,.35) 50%,
+    transparent 70%,
+    transparent 100%);
+  background-size:300% 100%;
+  background-position:200% 0;
+  background-repeat:no-repeat;
+  animation:concept-shimmer 12s ease-in-out infinite;
+  transition:color .25s, text-shadow .25s;
+  white-space:nowrap;
+}
+.concept-link::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;bottom:-1px;
+  height:1px;
+  background:linear-gradient(to right,
+    transparent 0%,
+    rgba(184,134,42,.4) 20%,
+    rgba(184,134,42,.55) 50%,
+    rgba(184,134,42,.4) 80%,
+    transparent 100%);
+  opacity:.55;
+  transition:opacity .3s, height .3s;
+}
+.concept-link::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:100%;
+  background:radial-gradient(ellipse at center bottom,
+    rgba(212,168,74,.18) 0%,
+    rgba(212,168,74,0) 70%);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s;
+  animation:concept-glow 9s ease-in-out infinite;
+}
+.concept-link:nth-of-type(3n)::after{animation-delay:1.8s}
+.concept-link:nth-of-type(3n+1)::after{animation-delay:4.1s}
+.concept-link:nth-of-type(3n+2)::after{animation-delay:6.5s}
+.concept-link:nth-of-type(5n){animation-delay:0.7s}
+.concept-link:nth-of-type(7n){animation-delay:2.3s}
+.concept-link:hover{color:var(--brass-dark);text-shadow:0 0 14px rgba(212,168,74,.4)}
+.concept-link:hover::before{opacity:1;height:2px;background:linear-gradient(to right,transparent 0%,var(--brass) 20%,var(--brass-light) 50%,var(--brass) 80%,transparent 100%)}
+.concept-link:hover::after{opacity:1;animation-play-state:paused}
+@keyframes concept-shimmer{
+  0%, 70%, 100% {background-position:200% 0}
+  85% {background-position:-100% 0}
+}
+@keyframes concept-glow{
+  0%, 70%, 100% {opacity:0}
+  82% {opacity:.6}
+  88% {opacity:1}
+  94% {opacity:.4}
+}
+
+/* Popup multi-destinazione */
+#multidest{
+  position:fixed;z-index:700;
+  opacity:0;visibility:hidden;
+  transition:opacity .18s ease, visibility .18s ease;
+  background:var(--ink);
+  border:1px solid var(--brass);
+  color:var(--marble-light);
+  padding:1.2rem 1.4rem;
+  max-width:340px;width:340px;
+  box-shadow:0 12px 40px rgba(10,9,5,.6);
+  pointer-events:auto;
+}
+#multidest.visible{opacity:1;visibility:visible}
+.md-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:.4rem}
+.md-name{font-family:var(--font-serif);font-size:1.35rem;font-style:italic;color:var(--brass-light);margin-bottom:1.1rem;line-height:1.2;font-weight:300;font-variation-settings:"opsz" 36}
+.md-section{margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid rgba(184,134,42,.15)}
+.md-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.md-section-title{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,215,185,.45);margin-bottom:.5rem}
+.md-option{display:block;padding:.45rem 0;color:rgba(232,215,185,.85);text-decoration:none;cursor:pointer;font-family:var(--font-serif);font-size:.98rem;font-weight:300;transition:color .2s;border-bottom:1px solid rgba(184,134,42,.07);line-height:1.4}
+.md-option:last-child{border-bottom:none}
+.md-option:hover{color:var(--brass-light)}
+.md-option-meta{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.08em;color:rgba(232,215,185,.4);text-transform:uppercase;margin-top:.18rem;display:block}
+.md-tags-line{display:flex;flex-wrap:wrap;gap:.3rem}
+.md-tag-mini{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass);background:rgba(184,134,42,.1);padding:.2rem .55rem;cursor:pointer;transition:all .2s}
+.md-tag-mini:hover{background:rgba(184,134,42,.2);color:var(--brass-light)}
+
+/* Suggerimenti */
+.continua{margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--marble-vein)}
+.continua-title{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-dark);margin-bottom:.6rem}
+.continua-sub{font-family:var(--font-serif);font-size:1.12rem;font-style:italic;color:var(--mid);margin-bottom:2rem;line-height:1.5;font-weight:300}
+.continua-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:700px){.continua-grid{grid-template-columns:1fr}}
+.continua-card{
+  padding:1.5rem 1.6rem;background:var(--marble-mid);border:1px solid var(--marble-vein);
+  cursor:pointer;transition:all .25s;position:relative;overflow:hidden;
+}
+.continua-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--brass);transform:scaleY(0);transition:transform .25s;transform-origin:bottom}
+.continua-card:hover{border-color:var(--brass);background:var(--marble-light);transform:translateY(-2px)}
+.continua-card:hover::before{transform:scaleY(1)}
+.continua-card-meta{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem}
+.continua-card-title{font-family:var(--font-serif);font-size:1.08rem;font-weight:400;line-height:1.3;color:var(--ink);margin-bottom:.4rem;font-variation-settings:"opsz" 24}
+.continua-card-cta{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:.4rem;margin-top:.6rem}
+.continua-card-cta::after{content:'→';transition:transform .2s}
+.continua-card:hover .continua-card-cta::after{transform:translateX(4px)}
+
+/* Note */
+.frag-notes{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--marble-vein)}
+.frag-notes-title{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.frag-note{font-family:var(--font-serif);font-size:.92rem;line-height:1.62;color:var(--mid);margin-bottom:.9rem;padding-left:1.6rem;text-indent:-1.6rem;font-weight:300}
+.frag-note-num{font-family:var(--font-mono);font-size:.65rem;color:var(--brass);margin-right:.5rem}
+
+/* ── COMMENTI ─────────────────────────── */
+.commenti{margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--marble-vein)}
+.commenti-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.8rem}
+.commenti-title{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-dark)}
+.commenti-count{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:var(--mid);text-transform:uppercase}
+.commenti-sub{font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:var(--mid);margin-bottom:2rem;line-height:1.5;font-weight:300}
+.commenti-list{margin-bottom:2.5rem}
+.commenti-list:empty + .commento-empty{display:block}
+.commento-empty{display:none;font-family:var(--font-serif);font-size:.95rem;color:var(--faint);font-style:italic;text-align:center;padding:2rem 0;border:1px dashed rgba(184,134,42,.15);font-weight:300;margin-bottom:2rem}
+.commento{background:rgba(232,224,212,.45);border:1px solid var(--marble-vein);padding:1.4rem 1.6rem;margin-bottom:1rem;position:relative}
+.commento-meta{display:flex;gap:.8rem;align-items:center;margin-bottom:.7rem;flex-wrap:wrap}
+.commento-when{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;color:var(--mid);text-transform:uppercase}
+.commento-priv{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;color:var(--brass);text-transform:uppercase;background:rgba(184,134,42,.1);padding:.15rem .5rem;border:1px solid rgba(184,134,42,.25)}
+.commento-body{font-family:var(--font-serif);font-size:1rem;line-height:1.65;color:var(--ink);font-weight:400;margin-bottom:.8rem}
+.commento-tags{display:flex;gap:.3rem;flex-wrap:wrap}
+.commento-tag{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-dark);background:rgba(184,134,42,.08);padding:.2rem .55rem;border:1px solid rgba(184,134,42,.15);cursor:pointer}
+.commento-tag:hover{background:rgba(184,134,42,.18);color:var(--brass)}
+
+.compose{background:var(--marble-mid);border:1px solid var(--marble-vein);padding:1.5rem}
+.compose-title{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brass-dark);margin-bottom:1rem}
+.compose-textarea{
+  width:100%;
+  font-family:var(--font-serif);font-size:1rem;line-height:1.55;color:var(--ink);
+  background:var(--marble-light);border:1px solid var(--marble-vein);
+  padding:1rem 1.2rem;outline:none;resize:vertical;min-height:120px;
+  transition:border-color .2s;
+}
+.compose-textarea:focus{border-color:var(--brass)}
+.compose-textarea::placeholder{color:rgba(122,106,86,.5);font-style:italic}
+.compose-meta{display:flex;justify-content:space-between;align-items:center;margin-top:.8rem;gap:1rem;flex-wrap:wrap}
+.compose-wordcount{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;color:var(--mid);text-transform:uppercase}
+.compose-wordcount.over{color:#a04020}
+.compose-controls{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.priv-toggle{display:flex;align-items:center;gap:.5rem;cursor:pointer;user-select:none;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;color:var(--mid);text-transform:uppercase}
+.priv-toggle input{position:absolute;opacity:0;pointer-events:none}
+.priv-switch{width:32px;height:16px;background:var(--marble-vein);border-radius:8px;position:relative;transition:background .2s}
+.priv-switch::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;background:var(--marble-light);border-radius:50%;transition:transform .2s,background .2s}
+.priv-toggle input:checked + .priv-switch{background:var(--brass)}
+.priv-toggle input:checked + .priv-switch::after{transform:translateX(16px);background:var(--marble-light)}
+.compose-cta{padding:.55rem 1.4rem;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:var(--brass);color:var(--marble-light);border:none;cursor:pointer;transition:all .2s}
+.compose-cta:hover:not(:disabled){background:var(--brass-dark)}
+.compose-cta:disabled{opacity:.4;cursor:not-allowed}
+.compose-guest{font-family:var(--font-serif);font-size:.92rem;font-style:italic;color:var(--mid);text-align:center;padding:1.5rem 0;font-weight:300}
+
+/* ── ESTRAZIONE TAG MODAL ─────────────────────────── */
+.tag-extract-modal{
+  position:fixed;inset:0;z-index:800;
+  background:rgba(26,18,8,.78);
+  display:none;align-items:center;justify-content:center;
+  padding:2rem;
+  animation:fadeIn .25s ease;
+}
+.tag-extract-modal.active{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.tag-extract-inner{
+  background:var(--marble-light);
+  max-width:560px;width:100%;
+  padding:2.2rem 2.4rem;
+  max-height:85vh;overflow-y:auto;
+  border:1px solid var(--brass);
+}
+.tem-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brass-dark);margin-bottom:.4rem}
+.tem-title{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:.4rem;line-height:1.25}
+.tem-title em{font-style:italic;color:var(--brass-dark);font-weight:300}
+.tem-sub{font-family:var(--font-serif);font-size:.95rem;font-style:italic;color:var(--mid);margin-bottom:1.5rem;line-height:1.55;font-weight:300}
+.tem-section{margin-bottom:1.4rem}
+.tem-section-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.6rem}
+.tem-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tem-tag{
+  font-family:var(--font-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:.4rem .8rem;border:1px solid var(--marble-vein);background:var(--marble-light);color:var(--mid);
+  cursor:pointer;transition:all .2s;user-select:none;
+}
+.tem-tag.selected{background:var(--brass);color:var(--marble-light);border-color:var(--brass)}
+.tem-tag.new{font-style:italic}
+.tem-tag.new::before{content:'+ ';color:var(--brass)}
+.tem-tag:hover{border-color:var(--brass)}
+.tem-add{display:flex;gap:.5rem;margin-top:.6rem}
+.tem-add input{
+  flex:1;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.05em;
+  padding:.4rem .8rem;border:1px solid var(--marble-vein);background:var(--marble-light);color:var(--ink);
+  outline:none;text-transform:uppercase;
+}
+.tem-add input:focus{border-color:var(--brass)}
+.tem-add button{
+  font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;
+  padding:.4rem .8rem;background:transparent;border:1px solid var(--brass);color:var(--brass-dark);
+  cursor:pointer;text-transform:uppercase;transition:all .2s;
+}
+.tem-add button:hover{background:var(--brass);color:var(--marble-light)}
+.tem-foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid var(--marble-vein);gap:1rem;flex-wrap:wrap}
+.tem-disclaim{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.08em;color:var(--mid);text-transform:uppercase;flex:1;line-height:1.5}
+.tem-actions{display:flex;gap:.5rem}
+.tem-cancel{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;padding:.5rem 1rem;background:transparent;border:1px solid var(--marble-vein);color:var(--mid);cursor:pointer;text-transform:uppercase;transition:all .2s}
+.tem-cancel:hover{border-color:var(--brass-dark);color:var(--brass-dark)}
+.tem-confirm{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;padding:.5rem 1.2rem;background:var(--brass);color:var(--marble-light);border:none;cursor:pointer;text-transform:uppercase;transition:all .2s}
+.tem-confirm:hover{background:var(--brass-dark)}
+
+.tem-loading{
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+  padding:2rem 0;font-family:var(--font-serif);font-style:italic;color:var(--mid);
+}
+.tem-spinner{
+  width:32px;height:32px;border:2px solid var(--marble-vein);border-top-color:var(--brass);
+  border-radius:50%;animation:spin 0.9s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- ONBOARDING -->
+<div id="onboarding">
+  <div class="ob-inner">
+    <div class="ob-label">Sistema di frammenti</div>
+    <h1 class="ob-title">Una <em>sinfilosofia</em> digitale</h1>
+    <p class="ob-sub">Il sistema è una rete di frammenti che si articolano gli uni gli altri. Scegli come vorresti attraversarli — la scelta non condiziona quello che vedrai, soltanto il registro con cui ti viene proposto.</p>
+    <div class="ob-cards">
+      <div class="ob-card" onclick="selectPersona('accademico')" id="ob-accademico">
+        <div class="ob-card-num">01</div>
+        <div class="ob-card-title">Lettore accademico</div>
+        <div class="ob-card-desc">ricerca, insegnamento, scrittura specialistica — registro pieno, nessun limite su lettura e contributo</div>
+      </div>
+      <div class="ob-card" onclick="selectPersona('curioso')" id="ob-curioso">
+        <div class="ob-card-num">02</div>
+        <div class="ob-card-title">Lettore curioso</div>
+        <div class="ob-card-desc">interesse non accademico — registro discorsivo, contributi sintetici (max 500 parole)</div>
+      </div>
+    </div>
+    <button class="ob-cta" id="obCta" onclick="dismissOnboarding()">Entra nel sistema →</button>
+    <button class="ob-skip" onclick="dismissOnboarding()">salta — entra senza scegliere</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="closeViewer()">Sistema di frammenti</a>
+  <div class="nav-right">
+    <div class="viz-toggle">
+      <button class="viz-btn active" onclick="setViz('scale-free')" id="viz-sf" title="Rete scale-free">SF</button>
+      <button class="viz-btn" onclick="setViz('reticolo')" id="viz-rt" title="Reticolo periodico">RT</button>
+      <button class="viz-btn" onclick="setViz('mandala')" id="viz-md" title="Mandala">MD</button>
+      <button class="viz-btn" onclick="setViz('spirale')" id="viz-sp" title="Spirale">SP</button>
+    </div>
+  </div>
+</nav>
+
+<button id="drawerToggle" onclick="toggleDrawer()">
+  <span class="dot"></span>
+  <span id="drawerTogText">Info</span>
+</button>
+
+<!-- DRAWER SX -->
+<aside id="drawer">
+  <button class="dr-close" onclick="toggleDrawer()">×</button>
+  <div class="dr-title">Sistema di frammenti</div>
+  <div class="dr-subtitle">Il <em>wrAIting</em> come forma culturale<span class="meta">A. Pinna · Tesi magistrale 2026</span></div>
+  
+  <div class="dr-section">
+    <div class="dr-sect-title">Stato del sistema</div>
+    <div class="dr-counter"><span class="dr-counter-label">Frammenti pubblicati</span><span class="dr-counter-value">30</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Voci convocate</span><span class="dr-counter-value">24+</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Tag attivi</span><span class="dr-counter-value">187</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Commenti ricevuti</span><span class="dr-counter-value">0</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Tag da utenti</span><span class="dr-counter-value">1</span></div>
+  </div>
+  
+  <div class="dr-section">
+    <div class="dr-sect-title">La tua presenza</div>
+    <div class="dr-persona" id="drPersonaName">Visitatore</div>
+    <div class="dr-persona-sub" id="drPersonaSub">non hai ancora scelto un registro — entri come ospite</div>
+    <div class="dr-counter" style="margin-top:1rem"><span class="dr-counter-label">Frammenti letti</span><span class="dr-counter-value" id="drFragRead">0</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Tag esplorati</span><span class="dr-counter-value" id="drTagExp">0</span></div>
+    <div class="dr-counter"><span class="dr-counter-label">Tuoi commenti</span><span class="dr-counter-value">0</span></div>
+  </div>
+  
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action">→ Apri profilo</button>
+    <button class="dr-action">→ Esporta percorso letto</button>
+    <button class="dr-action">→ Scarica tesi in PDF</button>
+    <button class="dr-action">→ Crediti e bibliografia</button>
+    <button class="dr-action">→ Cambia registro</button>
+  </div>
+  
+  <div class="dr-section" style="border-bottom:none">
+    <p class="dr-philo">Sinfilosofia digitale.<br>La firma è dissolta nella composizione collettiva. I commenti che lasci, i tag che generi, entrano nel sistema indistinti dal pensiero autoriale. Solo il tuo profilo personale conserva traccia del tuo contributo.</p>
+  </div>
+</aside>
+
+<!-- ZOOM HUD -->
+<div id="zoomHud">
+  <div class="zoom-btns">
+    <button onclick="zoomBy(-0.3)" title="Zoom out">−</button>
+    <button onclick="zoomReset()" title="Reset">○</button>
+    <button onclick="zoomBy(0.3)" title="Zoom in">+</button>
+  </div>
+  <div class="zoom-level-bar"><div class="zoom-level-fill" id="zoomFill"></div></div>
+  <div class="zoom-step-label" id="zoomStepLabel">livello 1</div>
+</div>
+
+<!-- LEGENDA -->
+<div id="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:var(--gold-0)"></span> non letto</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--gold-2)"></span> in lettura</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--gold-4)"></span> letto</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--gold-5)"></span> esplorato</div>
+</div>
+
+<!-- SISTEMA -->
+<section id="sistema">
+  <svg id="reteSvg" preserveAspectRatio="xMidYMid meet"></svg>
+</section>
+
+<!-- VIEWER -->
+<section id="viewer">
+  <div class="viewer-top">
+    <button class="viewer-close" onclick="closeViewer()">← torna alla rete</button>
+    <div class="viewer-progress" id="viewerProgress">frammento 1 / 30</div>
+  </div>
+  <div class="viewer-content" id="viewerContent"></div>
+</section>
+
+<!-- MULTI-DESTINATION POPUP -->
+<div id="multidest"></div>
+
+<!-- TAG EXTRACTION MODAL -->
+<div class="tag-extract-modal" id="temModal">
+  <div class="tag-extract-inner" id="temInner"></div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   DATI DEL SISTEMA
+══════════════════════════════════════════════════════ */
+
+const TAGS = [
+  {id:'frammento',label:'frammento',weight:30,r:24,kind:'central',level:0,readCount:1,totalCount:30},
+  {id:'database',label:'database',weight:18,r:20,kind:'hub',level:0,readCount:1,totalCount:8},
+  {id:'rete',label:'rete',weight:16,r:20,kind:'hub',level:0,readCount:0,totalCount:3},
+  {id:'teatro',label:'teatro della memoria',weight:14,r:19,kind:'hub',level:0,readCount:0,totalCount:4},
+  {id:'organismo',label:'organismo',weight:12,r:18,kind:'hub',level:0,readCount:0,totalCount:3},
+  {id:'industriale',label:'industriale',weight:12,r:18,kind:'hub',level:0,readCount:0,totalCount:2},
+  {id:'ai-medium',label:'AI medium',weight:14,r:19,kind:'hub',level:0,readCount:0,totalCount:3},
+  {id:'subcreazione',label:'subcreazione',weight:14,r:19,kind:'hub',level:0,readCount:1,totalCount:2},
+  
+  {id:'camillo',label:'Camillo',weight:9,r:14,kind:'voce',level:1,readCount:2,totalCount:4},
+  {id:'schlegel',label:'Schlegel',weight:9,r:14,kind:'voce',level:1,readCount:0,totalCount:5},
+  {id:'tolkien',label:'Tolkien',weight:8,r:14,kind:'voce',level:1,readCount:1,totalCount:3,s:'s2-2a'},
+  {id:'manovich',label:'Manovich',weight:7,r:13,kind:'voce',level:1,readCount:0,totalCount:4},
+  {id:'floridi',label:'Floridi',weight:8,r:14,kind:'voce',level:1,readCount:0,totalCount:5},
+  {id:'bolzoni',label:'Bolzoni',weight:6,r:12,kind:'voce',level:1,readCount:0,totalCount:3},
+  {id:'lotman',label:'Lotman',weight:6,r:12,kind:'voce',level:1,readCount:0,totalCount:2},
+  {id:'wolf',label:'Wolf',weight:6,r:12,kind:'voce',level:1,readCount:1,totalCount:2},
+  {id:'brembilla',label:'Brembilla',weight:6,r:12,kind:'voce',level:1,readCount:0,totalCount:5},
+  {id:'cucco',label:'Cucco',weight:5,r:11,kind:'voce',level:1,readCount:0,totalCount:3},
+  {id:'pescatore',label:'Pescatore',weight:5,r:11,kind:'voce',level:1,readCount:0,totalCount:2},
+  {id:'barabasi',label:'Barabási',weight:7,r:13,kind:'voce',level:1,readCount:0,totalCount:4},
+  
+  {id:'bianconi-barabasi',label:'Bianconi-Barabási',weight:5,r:10,kind:'voce',level:2,readCount:1,totalCount:2},
+  {id:'panofsky',label:'Panofsky',weight:4,r:10,kind:'voce',level:2,readCount:0,totalCount:2},
+  {id:'jenkins',label:'Jenkins',weight:4,r:10,kind:'voce',level:2,readCount:0,totalCount:2},
+  {id:'cometa',label:'Cometa',weight:4,r:10,kind:'voce',level:2,readCount:0,totalCount:2},
+  {id:'preferential-attachment',label:'preferential attachment',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:2},
+  {id:'fitness',label:'fitness',weight:3,r:8,kind:'concetto',level:2,readCount:1,totalCount:2},
+  {id:'dataprint',label:'dataprint',weight:4,r:9,kind:'concetto',level:2,readCount:0,totalCount:3},
+  {id:'manifestatio',label:'manifestatio',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:2},
+  {id:'mens-fenestrata',label:'mens fenestrata',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:1},
+  {id:'ars-combinatoria',label:'ars combinatoria',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:1},
+  {id:'secondary-belief',label:'Secondary Belief',weight:3,r:8,kind:'concetto',level:2,readCount:1,totalCount:1},
+  {id:'scale-free',label:'scale-free',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:2},
+  {id:'wraiting',label:'wrAIting',weight:5,r:10,kind:'concetto',level:2,readCount:0,totalCount:4},
+  {id:'sinfilosofia',label:'sinfilosofia',weight:4,r:9,kind:'concetto',level:2,readCount:0,totalCount:2},
+  {id:'accountability',label:'accountability',weight:3,r:8,kind:'concetto',level:2,readCount:0,totalCount:1},
+  {id:'fitness-mitopoietica',label:'fitness mitopoietica',weight:2,r:7,kind:'concetto',level:2,readCount:1,totalCount:1},
+  
+  {id:'kernel',label:'kernel',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'canone',label:'canone',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'bibbia',label:'bibbia',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'athenaeum',label:'Athenaeum',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:2},
+  {id:'lettera-131',label:'lettera 131',weight:2,r:6,kind:'concetto',level:3,readCount:1,totalCount:1},
+  {id:'quenya',label:'Quenya',weight:2,r:6,kind:'concetto',level:3,readCount:1,totalCount:1},
+  {id:'disney-plus',label:'Disney+',weight:3,r:7,kind:'concetto',level:3,readCount:0,totalCount:3},
+  {id:'rich-get-richer',label:'rich get richer',weight:1,r:5,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'spreadability',label:'spreadability',weight:1,r:5,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'pathosformel',label:'pathosformel',weight:1,r:5,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'eredita',label:'eredità',weight:1,r:5,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'meta-autore',label:'meta-autore',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:2},
+  {id:'imagines',label:'imagines',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:1},
+  {id:'loci',label:'loci',weight:2,r:6,kind:'concetto',level:3,readCount:0,totalCount:1},
+  
+  {id:'atemporale',label:'atemporale',weight:1,r:6,kind:'user',level:2,readCount:0,totalCount:1},
+];
+
+const EDGES = [
+  ['frammento','database'],['frammento','rete'],['frammento','teatro'],['frammento','organismo'],
+  ['frammento','industriale'],['frammento','ai-medium'],['frammento','subcreazione'],
+  ['database','manovich'],['database','manifestatio'],['database','disney-plus'],['database','panofsky'],
+  ['rete','barabasi'],['rete','preferential-attachment'],['rete','scale-free'],['rete','bianconi-barabasi'],
+  ['teatro','camillo'],['teatro','bolzoni'],['teatro','mens-fenestrata'],['teatro','ars-combinatoria'],['teatro','loci'],['teatro','imagines'],
+  ['organismo','schlegel'],['organismo','athenaeum'],['organismo','cometa'],['organismo','sinfilosofia'],
+  ['industriale','brembilla'],['industriale','cucco'],['industriale','pescatore'],['industriale','disney-plus'],['industriale','jenkins'],['industriale','spreadability'],['industriale','eredita'],
+  ['ai-medium','floridi'],['ai-medium','dataprint'],['ai-medium','wraiting'],['ai-medium','accountability'],['ai-medium','meta-autore'],
+  ['subcreazione','tolkien'],['subcreazione','wolf'],['subcreazione','secondary-belief'],['subcreazione','lettera-131'],['subcreazione','quenya'],
+  ['tolkien','fitness-mitopoietica'],['tolkien','wolf'],['tolkien','quenya'],['tolkien','lettera-131'],
+  ['bianconi-barabasi','fitness'],['bianconi-barabasi','fitness-mitopoietica'],
+  ['barabasi','preferential-attachment'],['barabasi','scale-free'],['barabasi','rich-get-richer'],
+  ['camillo','schlegel'],['camillo','bolzoni'],['camillo','ars-combinatoria'],['camillo','loci'],['camillo','imagines'],
+  ['schlegel','sinfilosofia'],['schlegel','athenaeum'],['schlegel','cometa'],
+  ['floridi','sinfilosofia'],['floridi','wraiting'],['floridi','accountability'],
+  ['manovich','database'],['panofsky','manifestatio'],['panofsky','dataprint'],
+  ['lotman','rete'],['jenkins','industriale'],['cucco','disney-plus'],['pescatore','kernel'],['pescatore','canone'],['pescatore','bibbia'],
+  ['atemporale','sinfilosofia'],['atemporale','frammento'],
+];
+
+const FRAGMENTS = {
+  's2-2a': {
+    title: 'Tolkien come caso di alta <em>fitness</em> mitopoietica',
+    progress: 'frammento 17 / 30',
+    tags: ['Tolkien','fitness mitopoietica','subcreazione','Secondary Belief','Quenya','lettera 131','Bianconi-Barabási'],
+    body: `<p>Il sistema della tesi articola altrove il modello con <span class="concept-link" data-id="bianconi-barabasi" data-name="Bianconi-Barabási, modello con fitness">fitness di Bianconi-Barabási</span> come estensione del preferential attachment classico, in cui la probabilità di un nuovo nodo di connettersi a un nodo esistente è proporzionale al prodotto del grado del nodo e della sua fitness intrinseca. Il modello permette di articolare la crescita asimmetrica delle reti culturali: alcuni paradigmi narrativi attraggono attenzione e materiale aggiuntivo non solo perché sono già grandi, ma perché possiedono caratteristiche intrinseche che li rendono attraenti come ambienti di <span class="concept-link" data-id="subcreazione" data-name="subcreazione">subcreazione</span>.</p>
+    
+    <p>La <span class="concept-link" data-id="fitness" data-name="fitness">fitness</span>, nella sua applicazione al mercato culturale, è funzione della coerenza mitopoietica, della profondità del mondo secondario, della ricchezza simbolica con cui il paradigma narrativo è stato costruito. Un mondo che ha una propria cronologia interna articolata, lingue funzionanti, geografia coerente, sistemi religiosi, tradizioni storiche stratificate ha fitness alta — non perché sia bello, ma perché offre superfici di attacco a innumerevoli operazioni di subcreazione successive. Il modello con fitness rispetto al preferential attachment classico aggiunge il termine η, che rappresenta proprio questa capacità intrinseca di attrarre nuove connessioni indipendentemente dal grado già raggiunto.</p>
+    
+    <p>La Terra di Mezzo di <span class="concept-link" data-id="tolkien" data-name="Tolkien">J.R.R. Tolkien</span> è il caso paradigmatico. Le due lingue elfiche principali — <span class="concept-link" data-id="quenya" data-name="Quenya">Quenya</span> e Sindarin — sono articolate in dettaglio nei manoscritti tolkieniani e nei volumi della <em>History of Middle-earth</em> curata postuma da Christopher Tolkien. Tolkien aveva cominciato a lavorare al Quenya nel 1910, quando aveva diciotto anni, quarantacinque anni prima della pubblicazione del <em>Signore degli Anelli</em>. La fitness alta del paradigma è il prodotto di un investimento autoriale di sessant'anni, e quel investimento autoriale è la differenza specifica fra il caso Tolkien e i suoi numerosi imitatori.</p>
+    
+    <p>Nella <span class="concept-link" data-id="lettera-131" data-name="lettera 131 a Milton Waldman">lettera 131 a Milton Waldman del 1951</span>, Tolkien articola in prima persona il proprio progetto: «I had a mind to make a body of more or less connected legend, ranging from the large and cosmogonic, to the level of romantic fairy-story […] The cycles should be linked to a majestic whole, and yet leave scope for other minds and hands». La fitness mitopoietica è dunque non solo qualità statica del mondo, ma intenzione esplicita di lasciare spazio aperto per altri — è progetto di apertura strutturale che il subcreatore costruisce <em>prima</em> di sapere chi entrerà nei propri spazi.</p>
+    
+    <p>La conseguenza teorica significativa per il sistema della tesi riguarda il rapporto fra fitness mitopoietica del mondo secondario e <span class="concept-link" data-id="secondary-belief" data-name="Secondary Belief">Secondary Belief</span> del fruitore. <span class="concept-link" data-id="wolf" data-name="Wolf, M.J.P.">Mark J.P. Wolf</span> ha articolato la dimensione teorica della profondità mitopoietica nel proprio studio del 2012 <em>Building Imaginary Worlds</em>, dove la Terra di Mezzo è uno dei casi paradigmatici analizzati. La fitness del mondo è ciò che rende possibile la Secondary Belief: il lettore non sospende l'incredulità per fede personale, la sospende perché il mondo gliela sostiene strutturalmente. Più il mondo è denso, più la fiducia del lettore opera senza sforzo.</p>
+    
+    <p>Resta da nominare un punto teorico essenziale. Il caso Tolkien è eccezionale, non è la norma. La maggioranza dei paradigmi narrativi contemporanei non ha investimenti autoriali di sessant'anni alle spalle, e dunque non può contare su una fitness mitopoietica analoga. La conseguenza è che il sistema con fitness del mercato culturale produce strutturalmente pochi vincitori e molti perdenti — i pochi paradigmi che hanno alta fitness diventano hub di ulteriore crescita, gli altri restano nodi periferici della rete. Questa è la <em>manifestatio</em> visibile della topologia scale-free quando si applica alla cultura narrativa contemporanea.</p>`,
+    suggerimenti: [
+      {id:'s2-2',title:'Fitness e qualità narrativa',meta:'soglia precedente'},
+      {id:'s7-2a',title:'Secondary Belief — la sospensione dell\'incredulità',meta:'soglia connessa'},
+      {id:'s2-1',title:'Preferential attachment nel mercato culturale',meta:'pre-requisito'},
+      {id:'p7',title:'Subcreazione: il mondo secondario',meta:'base teorica'},
+    ],
+    notes: [
+      {n:1,text:'Bianconi G., Barabási A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442.'},
+      {n:2,text:'Tolkien J.R.R. (1954-55), <em>The Lord of the Rings</em>, George Allen & Unwin, London. Trad. it. Bompiani.'},
+      {n:3,text:'Tolkien C. (a cura di) (1983-1996), <em>The History of Middle-earth</em>, 12 voll., HarperCollins, London.'},
+      {n:4,text:'Tolkien J.R.R. (1981), <em>The Letters of J.R.R. Tolkien</em>, a cura di H. Carpenter, lettera 131 a Milton Waldman.'},
+      {n:5,text:'Wolf M.J.P. (2012), <em>Building Imaginary Worlds: The Theory and History of Subcreation</em>, Routledge, New York.'},
+    ],
+  },
+  
+  's2-1': {
+    title: '<em>Preferential attachment</em> nel mercato culturale',
+    progress: 'frammento 15 / 30',
+    tags: ['Barabási','preferential attachment','rich get richer','scale-free','Brembilla','Cucco'],
+    body: `<p><span class="concept-link" data-id="barabasi" data-name="Albert-László Barabási e Réka Albert">Albert-László Barabási e Réka Albert</span> hanno articolato nel 1999, nel proprio paper su «Science», il meccanismo del <em>preferential attachment</em> come spiegazione strutturale dell'emergere della topologia scale-free nelle reti complesse del mondo reale. Il meccanismo è semplice nella sua formulazione: quando un nuovo nodo entra in una rete in crescita, la probabilità che si connetta a un nodo già esistente è proporzionale al grado di quel nodo. I nodi già connessi attraggono nuove connessioni più dei nodi periferici, e il sistema produce strutturalmente una distribuzione del grado che segue una legge di potenza.</p>
+    
+    <p>Il modello, originariamente formulato per le reti del world wide web e per quelle scientifiche delle citazioni, si applica con coerenza al mercato culturale contemporaneo. Marco <span class="concept-link" data-id="cucco" data-name="Cucco, M.">Cucco</span> nel proprio studio del 2010 <em>Il film blockbuster</em> articola in modo specifico questa dinamica per il cinema mainstream: i franchise di alto budget concentrano risorse, attenzione, materiale promozionale, e diventano nodi di alto grado nella rete dei prodotti culturali. Cucco cita David Puttnam, ex CEO Columbia Pictures: «un dollaro speso bene sui giusti franchise vale più di dieci dollari sui titoli ordinari».</p>
+    
+    <p>Paola <span class="concept-link" data-id="brembilla" data-name="Brembilla, P.">Brembilla</span> nel proprio studio del 2018 <em>It's All Connected</em> articola la stessa configurazione per il settore della serialità televisiva statunitense, mostrando come l'industria dopo il 2000 abbia adottato strutture sempre più articolate di franchise interconnessi. La sua analisi conferma il meccanismo strutturale: pochi paradigmi narrativi diventano hub di altissimo grado attraverso reboot, prequel, sequel, spin-off, mentre molti altri restano episodi singoli che non producono mondo. Il modello scale-free non è un'imposizione esterna sul mercato culturale: è la sua configurazione spontanea.</p>`,
+    suggerimenti: [
+      {id:'s2-2',title:'Fitness e qualità: oltre il puro grado',meta:'estensione del modello'},
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness',meta:'caso applicativo'},
+      {id:'p2',title:'Rete (frammento fondazionale)',meta:'inquadramento'},
+    ],
+    notes: [
+      {n:1,text:'Barabási A.-L., Albert R. (1999), <em>Emergence of Scaling in Random Networks</em>, in «Science», 286(5439), pp. 509-512.'},
+      {n:2,text:'Cucco M. (2010), <em>Il film blockbuster</em>, Carocci, Roma.'},
+      {n:3,text:'Brembilla P. (2018), <em>It\'s All Connected. L\'evoluzione delle serie TV statunitensi</em>, FrancoAngeli, Milano.'},
+    ],
+  },
+  
+  's2-2': {
+    title: '<em>Fitness</em> e qualità narrativa: il modello Bianconi-Barabási',
+    progress: 'frammento 16 / 30',
+    tags: ['Bianconi-Barabási','fitness','qualità','preferential attachment','Pescatore','tenuta del paradigma'],
+    body: `<p>Il modello classico di <span class="concept-link" data-id="barabasi" data-name="Barabási e Albert">Albert-László Barabási e Réka Albert</span> prevede che ogni nuovo nodo si connetta a un nodo esistente con probabilità proporzionale al grado del nodo. Il modello cattura il meccanismo del <em>preferential attachment</em>, ma è incompleto in un punto cruciale: tutti i nodi sono trattati come equivalenti, distinti solo dal proprio grado. Un nodo recente con grado basso non ha alcuna possibilità di superare un nodo anziano con grado alto, anche se le sue caratteristiche intrinseche sarebbero più attrattive.</p>
+    
+    <p>Ginestra <span class="concept-link" data-id="bianconi-barabasi" data-name="Bianconi e Barabási">Bianconi</span> e Albert-László Barabási hanno articolato nel 2001 un'estensione del modello che introduce il termine <em>fitness</em> η, una qualità intrinseca di ciascun nodo che modula la sua capacità di attrarre nuove connessioni indipendentemente dal grado. La probabilità di connessione diventa proporzionale al prodotto del grado e della fitness: un nodo recente con fitness alta può strutturalmente superare nodi anziani di grado maggiore ma di fitness inferiore.</p>
+    
+    <p>Armando <span class="concept-link" data-id="pescatore" data-name="Pescatore, A.">Pescatore</span> ha articolato la dimensione complementare nel proprio studio del 2018 <em>Ecosistemi narrativi</em>, dove parla di <em>tenuta del paradigma</em>: la capacità di un mondo narrativo di sostenere espansioni successive senza incoerenze, di attrarre operazioni di subcreazione di qualità senza diluirsi, di mantenere riconoscibilità identitaria attraverso molteplici realizzazioni. La tenuta del paradigma è, in termini Bianconi-Barabási, la fitness η del mondo narrativo come hub culturale.</p>`,
+    suggerimenti: [
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'caso applicativo'},
+      {id:'s2-1',title:'Preferential attachment nel mercato culturale',meta:'modello base'},
+      {id:'p7',title:'Subcreazione',meta:'campo applicativo'},
+    ],
+    notes: [
+      {n:1,text:'Bianconi G., Barabási A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442.'},
+      {n:2,text:'Pescatore A., Innocenti V. (2018), <em>Ecosistemi narrativi. Dal fumetto alle serie TV</em>, Carocci, Roma.'},
+    ],
+  },
+  
+  's7-2a': {
+    title: '<em>Secondary Belief</em> — la sospensione dell\'incredulità',
+    progress: 'frammento 24 / 30',
+    tags: ['Tolkien','Wolf','Secondary Belief','Coleridge','mondo secondario','subcreazione'],
+    body: `<p>J.R.R. <span class="concept-link" data-id="tolkien" data-name="Tolkien">Tolkien</span> articola nel saggio <em>On Fairy-Stories</em> del 1939 — testo originariamente concepito come lezione tenuta all'Università di St Andrews e pubblicato nel volume <em>Essays Presented to Charles Williams</em> nel 1947 — una categoria specifica della relazione fra fruitore e mondo secondario che chiama <em>Secondary Belief</em>. Non è semplice sospensione dell'incredulità, ma fede positiva attiva nel mondo costruito dal subcreatore. Coleridge, nella <em>Biographia Literaria</em> del 1817, articolava la <em>suspension of disbelief</em> (la sospensione dell'incredulità) come condizione richiesta al fruitore della finzione letteraria: il lettore deve volontariamente sospendere lo scetticismo per permettere alla narrazione di operare. Tolkien rovescia la categoria: non si tratta di sospendere l'incredulità (atto passivo del lettore), ma di produrre credenza nel mondo (atto attivo del subcreatore).</p>
+    
+    <p>Mark J.P. <span class="concept-link" data-id="wolf" data-name="Wolf, M.J.P.">Wolf</span> nel proprio studio del 2012 <em>Building Imaginary Worlds</em> riprende la categoria tolkieniana e ne articola le implicazioni teoriche per la teoria contemporanea dei mondi secondari. La <em>Secondary Belief</em> non è atto del singolo lettore, è effetto strutturale del mondo: emerge quando il mondo è abbastanza denso, coerente, internamente strutturato perché il fruitore non debba *fare* alcuno sforzo per crederci. Il mondo gli sostiene la fede invece di richiedergliela.</p>
+    
+    <p>La <em>Secondary Belief</em> opera dunque come fondamento strutturale della cultura partecipativa che il sistema della tesi articola altrove attraverso le voci di Jenkins e De Certeau: la cultura partecipativa del fandom è realizzazione concreta della <em>Secondary Belief</em> che il subcreatore ha reso possibile attraverso la costruzione del mondo coerente. Il fan non sospende l'incredulità per fede personale, la sospende perché il mondo gliela sostiene strutturalmente, e da quella fede sostenuta dal mondo nascono le fanfiction, i cosplay, le wikia.</p>`,
+    suggerimenti: [
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'caso correlato'},
+      {id:'p7',title:'Subcreazione',meta:'frammento fondazionale'},
+      {id:'s7-1',title:'Kernel, canone, bibbia',meta:'soglia connessa'},
+    ],
+    notes: [
+      {n:1,text:'Tolkien J.R.R. (1947), <em>On Fairy-Stories</em>, in <em>Essays Presented to Charles Williams</em>, Oxford University Press.'},
+      {n:2,text:'Wolf M.J.P. (2012), <em>Building Imaginary Worlds</em>, Routledge, New York.'},
+      {n:3,text:'Coleridge S.T. (1817), <em>Biographia Literaria</em>, Rest Fenner, London.'},
+    ],
+  },
+};
+
+const DESTINATIONS = {
+  'bianconi-barabasi': {
+    primary: {id:'s2-2',title:'Fitness e qualità: il modello Bianconi-Barabási',meta:'frammento principale'},
+    secondary: [
+      {id:'s4-1a',title:'Frammento-pozzo e frammento-soglia',meta:'cita di passaggio'},
+      {id:'s7-2a',title:'Secondary Belief come correlato fenomenologico',meta:'cita di passaggio'},
+    ],
+    tags:['fitness','scale-free','preferential attachment','rich get richer'],
+  },
+  'tolkien': {
+    primary: {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'frammento principale'},
+    secondary: [
+      {id:'s4-3',title:'Il sistema infinito',meta:'cita di passaggio'},
+      {id:'s7-1',title:'Kernel, canone, bibbia',meta:'cita di passaggio'},
+      {id:'s7-2a',title:'Secondary Belief',meta:'cita di passaggio'},
+    ],
+    tags:['Terra di Mezzo','Quenya','subcreazione','fitness mitopoietica','lettera 131'],
+  },
+  'wolf': {
+    primary: {id:'s7-2a',title:'Secondary Belief',meta:'frammento principale'},
+    secondary: [
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'cita di passaggio'},
+    ],
+    tags:['Building Imaginary Worlds','subcreazione','mondo secondario'],
+  },
+  'fitness': {
+    primary: {id:'s2-2',title:'Fitness e qualità: il modello Bianconi-Barabási',meta:'frammento principale'},
+    secondary: [
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'caso applicativo'},
+    ],
+    tags:['Bianconi-Barabási','fitness mitopoietica','η intrinseca'],
+  },
+  'subcreazione': {
+    primary: {id:'p7',title:'Subcreazione',meta:'frammento fondazionale'},
+    secondary: [
+      {id:'s7-1',title:'Kernel, canone, bibbia',meta:'articolazione'},
+      {id:'s7-2a',title:'Secondary Belief',meta:'articolazione'},
+      {id:'s2-2a',title:'Tolkien come caso di alta fitness',meta:'caso applicativo'},
+    ],
+    tags:['Tolkien','mondo secondario','subcreatore-custode'],
+  },
+  'secondary-belief': {
+    primary: {id:'s7-2a',title:'Secondary Belief',meta:'frammento principale'},
+    secondary: [
+      {id:'s2-2a',title:'Fitness mitopoietica come precondizione',meta:'caso connesso'},
+    ],
+    tags:['Tolkien','Coleridge','suspension of disbelief','mondo secondario'],
+  },
+  'quenya': {
+    primary: {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'frammento principale'},
+    secondary: [],
+    tags:['Sindarin','lingue elfiche','Terra di Mezzo','filologia'],
+  },
+  'lettera-131': {
+    primary: {id:'s2-2a',title:'Tolkien come caso di alta fitness mitopoietica',meta:'frammento principale'},
+    secondary: [
+      {id:'p7',title:'Subcreazione (frammento fondazionale)',meta:'articolazione'},
+    ],
+    tags:['Tolkien','Milton Waldman','progetto autoriale','altri minds and hands'],
+  },
+  'barabasi': {
+    primary: {id:'s2-1',title:'Preferential attachment nel mercato culturale',meta:'frammento principale'},
+    secondary: [
+      {id:'s2-2',title:'Fitness e qualità narrativa',meta:'estensione del modello'},
+      {id:'s2-2a',title:'Tolkien come caso applicativo',meta:'caso'},
+    ],
+    tags:['scale-free','preferential attachment','rich get richer','reti complesse'],
+  },
+  'cucco': {
+    primary: {id:'s2-1',title:'Preferential attachment nel mercato culturale',meta:'frammento che articola'},
+    secondary: [
+      {id:'p5',title:'Industriale (frammento fondazionale)',meta:'inquadramento'},
+    ],
+    tags:['blockbuster','franchise','David Puttnam','cinema mainstream'],
+  },
+  'brembilla': {
+    primary: {id:'s2-1',title:'Preferential attachment nel mercato culturale',meta:'frammento che articola'},
+    secondary: [
+      {id:'p5',title:'Industriale',meta:'inquadramento'},
+      {id:'s5-1a',title:'Fandom come periferia dinamica',meta:'soglia connessa'},
+    ],
+    tags:['serialità TV','franchise','It\'s All Connected'],
+  },
+  'pescatore': {
+    primary: {id:'s2-2',title:'Fitness e qualità narrativa',meta:'frammento che articola'},
+    secondary: [
+      {id:'s7-1',title:'Kernel, canone, bibbia',meta:'soglia connessa'},
+    ],
+    tags:['ecosistemi narrativi','tenuta del paradigma','franchise'],
+  },
+};
+
+/* ══════════════════════════════════════════════════════
+   STATO
+══════════════════════════════════════════════════════ */
+
+let currentLang = 'it';
+let currentPersona = null;
+let currentViz = 'scale-free';
+let zoom = 1.0;
+let panX = 0;
+let panY = 0;
+let isDragging = false;
+let dragStartX = 0, dragStartY = 0;
+
+const ZOOM_MIN = 0.5;
+const ZOOM_MAX = 3.0;
+
+/* ══════════════════════════════════════════════════════
+   ONBOARDING
+══════════════════════════════════════════════════════ */
+
+function selectPersona(p){
+  currentPersona = p;
+  document.querySelectorAll('.ob-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('ob-'+p).classList.add('selected');
+  document.getElementById('obCta').classList.add('ready');
+  document.getElementById('drPersonaName').textContent = p==='accademico' ? 'Lettore accademico' : 'Lettore curioso';
+  document.getElementById('drPersonaSub').textContent = p==='accademico' ? 'registro pieno, nessun limite' : 'registro discorsivo, commenti max 500 parole';
+}
+
+function dismissOnboarding(){
+  document.getElementById('onboarding').classList.add('dismissed');
+  setTimeout(()=>{ document.getElementById('onboarding').style.display='none'; renderRete(); },600);
+}
+
+/* ══════════════════════════════════════════════════════
+   DRAWER
+══════════════════════════════════════════════════════ */
+
+function toggleDrawer(){
+  const dr = document.getElementById('drawer');
+  const isOpen = dr.classList.toggle('open');
+  document.getElementById('drawerTogText').textContent = isOpen ? 'Chiudi' : 'Info';
+}
+
+/* ══════════════════════════════════════════════════════
+   GRADAZIONE DORATA
+══════════════════════════════════════════════════════ */
+
+function goldFor(tag){
+  if(!tag.totalCount) return 'var(--gold-0)';
+  const ratio = tag.readCount / tag.totalCount;
+  if(ratio === 0) return 'var(--gold-0)';
+  if(ratio < 0.25) return 'var(--gold-1)';
+  if(ratio < 0.5) return 'var(--gold-2)';
+  if(ratio < 0.75) return 'var(--gold-3)';
+  if(ratio < 1) return 'var(--gold-4)';
+  return 'var(--gold-5)';
+}
+
+function strokeFor(tag){
+  const ratio = tag.readCount / (tag.totalCount||1);
+  if(ratio === 0) return 'var(--brass-dark)';
+  if(ratio < 0.5) return 'var(--brass)';
+  return 'var(--brass-light)';
+}
+
+/* ══════════════════════════════════════════════════════
+   POSIZIONI
+══════════════════════════════════════════════════════ */
+
+function computePositions(viz){
+  const W = 1800, H = 1100, cx = W/2, cy = H/2;
+  const positions = {};
+  
+  if(viz === 'scale-free'){
+    TAGS.filter(t=>t.kind==='central').forEach(t=>{ positions[t.id]={x:cx,y:cy}; });
+    const hubs = TAGS.filter(t=>t.kind==='hub');
+    hubs.forEach((t,i)=>{
+      const ang = (i/hubs.length)*Math.PI*2 - Math.PI/2;
+      positions[t.id] = {x: cx+Math.cos(ang)*230, y: cy+Math.sin(ang)*210};
+    });
+    const voci = TAGS.filter(t=>t.kind==='voce');
+    voci.forEach((t,i)=>{
+      const ang = (i/voci.length)*Math.PI*2 + Math.PI/voci.length;
+      const r = 410 + (i%4)*45;
+      positions[t.id] = {x: cx+Math.cos(ang)*r, y: cy+Math.sin(ang)*r*0.85};
+    });
+    const concetti = TAGS.filter(t=>t.kind==='concetto'||t.kind==='user');
+    concetti.forEach((t,i)=>{
+      const ang = (i/concetti.length)*Math.PI*2 + Math.PI/6;
+      const r = 580 + (i%5)*35;
+      positions[t.id] = {x: cx+Math.cos(ang)*r, y: cy+Math.sin(ang)*r*0.82};
+    });
+  }
+  else if(viz === 'reticolo'){
+    const cols = 10;
+    const rows = Math.ceil(TAGS.length/cols);
+    const cellW = W/(cols+1);
+    const cellH = H/(rows+1);
+    TAGS.forEach((t,i)=>{
+      const col = i%cols;
+      const row = Math.floor(i/cols);
+      positions[t.id] = {x: cellW*(col+1), y: cellH*(row+1)};
+    });
+  }
+  else if(viz === 'mandala'){
+    TAGS.filter(t=>t.kind==='central').forEach(t=>{ positions[t.id]={x:cx,y:cy}; });
+    const hubs = TAGS.filter(t=>t.kind==='hub');
+    hubs.forEach((t,i)=>{
+      const ang = (i/hubs.length)*Math.PI*2;
+      positions[t.id] = {x: cx+Math.cos(ang)*180, y: cy+Math.sin(ang)*180};
+    });
+    const voci = TAGS.filter(t=>t.kind==='voce');
+    voci.forEach((t,i)=>{
+      const ang = (i/voci.length)*Math.PI*2 + Math.PI/voci.length;
+      positions[t.id] = {x: cx+Math.cos(ang)*330, y: cy+Math.sin(ang)*330};
+    });
+    const concetti = TAGS.filter(t=>t.kind==='concetto'||t.kind==='user');
+    concetti.forEach((t,i)=>{
+      const ang = (i/concetti.length)*Math.PI*2;
+      positions[t.id] = {x: cx+Math.cos(ang)*480, y: cy+Math.sin(ang)*480};
+    });
+  }
+  else if(viz === 'spirale'){
+    // Spirale aurea (Fermat) — distribuzione uniforme, più larga
+    const phi = Math.PI * (3 - Math.sqrt(5));
+    const k = 75;
+    TAGS.forEach((t,i)=>{
+      const theta = i * phi;
+      const r = k * Math.sqrt(i+1);
+      positions[t.id] = {x: cx+r*Math.cos(theta), y: cy+r*Math.sin(theta)};
+    });
+  }
+  
+  return positions;
+}
+
+/* ══════════════════════════════════════════════════════
+   RENDER RETE — refactoring per drift + transizioni
+══════════════════════════════════════════════════════ */
+
+// Posizioni base correnti dei nodi (ciò verso cui si interpolano)
+let nodeBase = {};   // {id: {x,y}}
+let nodeTarget = {}; // {id: {x,y}}
+let nodeDriftPhase = {}; // {id: phase}
+let nodeDriftAmp = {};   // {id: {ax, ay}}
+let domBuilt = false;
+let lastFrameTime = 0;
+let transitionStart = 0;
+let transitionDuration = 1100;
+let isTransitioning = false;
+
+function initDriftPhases(){
+  TAGS.forEach(t=>{
+    nodeDriftPhase[t.id] = Math.random() * Math.PI * 2;
+    nodeDriftAmp[t.id] = {
+      ax: 2 + Math.random() * 4,
+      ay: 2 + Math.random() * 4,
+      sx: 0.0003 + Math.random() * 0.0005,
+      sy: 0.00035 + Math.random() * 0.0005,
+    };
+  });
+}
+
+function setupReteDom(){
+  const svg = document.getElementById('reteSvg');
+  const sw = svg.clientWidth, sh = svg.clientHeight;
+  svg.setAttribute('viewBox', `0 0 ${sw} ${sh}`);
+  
+  let html = '';
+  
+  // Archi (placeholders, posizione aggiornata in animation loop)
+  EDGES.forEach(([a,b],i)=>{
+    const ta = TAGS.find(t=>t.id===a);
+    const tb = TAGS.find(t=>t.id===b);
+    if(!ta||!tb) return;
+    const lit = ta.readCount>0 && tb.readCount>0;
+    html += `<line class="tag-edge${lit?' lit':''}" id="edge-${i}" x1="0" y1="0" x2="0" y2="0"/>`;
+  });
+  
+  // Nodi
+  TAGS.forEach(t=>{
+    const fill = goldFor(t);
+    const stroke = strokeFor(t);
+    const strokeW = t.kind==='central' ? 1.8 : (t.kind==='hub' ? 1.3 : (t.kind==='voce' ? 1 : 0.8));
+    const labelClass = `tag-label${t.kind==='concetto'||t.kind==='user'?' concept':''}`;
+    const fontStyle = t.kind==='central' ? 'italic' : 'normal';
+    const fontWeight = (t.kind==='central' || t.kind==='hub') ? '400' : '300';
+    
+    if(t.kind==='user'){
+      html += `<g class="tag-node ${t.kind}" data-id="${t.id}" data-label="${t.label}" id="node-${t.id}">`;
+      html += `<rect x="0" y="0" width="0" height="0" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}" id="shape-${t.id}"/>`;
+      html += `<text class="${labelClass}" x="0" y="0" text-anchor="middle" font-style="italic" font-weight="${fontWeight}" id="label-${t.id}">${t.label}</text>`;
+      html += `</g>`;
+    } else {
+      html += `<g class="tag-node ${t.kind}" data-id="${t.id}" data-label="${t.label}" id="node-${t.id}">`;
+      html += `<circle cx="0" cy="0" r="0" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}" id="shape-${t.id}"/>`;
+      html += `<text class="${labelClass}" x="0" y="0" text-anchor="middle" font-style="${fontStyle}" font-weight="${fontWeight}" id="label-${t.id}">${t.label}</text>`;
+      html += `</g>`;
+    }
+  });
+  
+  svg.innerHTML = html;
+  
+  // Click handlers
+  svg.querySelectorAll('.tag-node').forEach(node=>{
+    node.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      if(Math.abs(e.clientX - dragStartX) > 5 || Math.abs(e.clientY - dragStartY) > 5) return;
+      const id = node.getAttribute('data-id');
+      const tag = TAGS.find(t=>t.id===id);
+      if(tag && tag.s) openFragment(tag.s);
+      else openFragment('s2-2a');
+    });
+  });
+  
+  domBuilt = true;
+}
+
+function setTargetPositions(viz){
+  const positions = computePositions(viz);
+  TAGS.forEach(t=>{
+    if(positions[t.id]) nodeTarget[t.id] = positions[t.id];
+    if(!nodeBase[t.id]) nodeBase[t.id] = {x:positions[t.id].x, y:positions[t.id].y};
+  });
+}
+
+function easeInOutCubic(t){ return t<0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2; }
+
+function updateRete(time){
+  if(!domBuilt) return;
+  
+  const svg = document.getElementById('reteSvg');
+  const sw = svg.clientWidth, sh = svg.clientHeight;
+  const cx = sw/2 + panX;
+  const cy = sh/2 + panY;
+  
+  // Interpolazione transizione (se in corso)
+  let progress = 1;
+  if(isTransitioning){
+    progress = Math.min(1, (time - transitionStart) / transitionDuration);
+    const eased = easeInOutCubic(progress);
+    TAGS.forEach(t=>{
+      const base = nodeBase[t.id];
+      const tgt = nodeTarget[t.id];
+      if(!base || !tgt) return;
+      const cur = {
+        x: base.x + (tgt.x - base.x) * eased,
+        y: base.y + (tgt.y - base.y) * eased,
+      };
+      // Aggiorno base "corrente" per riferimento (alla fine della transizione, base = target)
+      if(progress >= 1){
+        nodeBase[t.id] = {...tgt};
+      }
+      drawNode(t, cur, cx, cy);
+    });
+    if(progress >= 1) isTransitioning = false;
+  } else {
+    TAGS.forEach(t=>{
+      const base = nodeBase[t.id];
+      if(!base) return;
+      drawNode(t, base, cx, cy);
+    });
+  }
+  
+  // Aggiorno archi
+  EDGES.forEach(([a,b],i)=>{
+    const edge = document.getElementById(`edge-${i}`);
+    if(!edge) return;
+    const pa = nodeCurrent(a, time);
+    const pb = nodeCurrent(b, time);
+    if(!pa || !pb) return;
+    edge.setAttribute('x1', tx(pa, cx));
+    edge.setAttribute('y1', ty(pa, cy));
+    edge.setAttribute('x2', tx(pb, cx));
+    edge.setAttribute('y2', ty(pb, cy));
+  });
+  
+  updateZoomHud();
+}
+
+// Posizione corrente di un nodo (base + drift) — per gli archi
+function nodeCurrent(id, time){
+  const base = nodeBase[id];
+  if(!base) return null;
+  const phase = nodeDriftPhase[id] || 0;
+  const amp = nodeDriftAmp[id] || {ax:0,ay:0,sx:0,sy:0};
+  return {
+    x: base.x + Math.cos(time * amp.sx + phase) * amp.ax,
+    y: base.y + Math.sin(time * amp.sy + phase * 1.3) * amp.ay,
+  };
+}
+
+function tx(p, cx){ return (p.x - 900) * zoom + cx; }
+function ty(p, cy){ return (p.y - 550) * zoom + cy; }
+
+function drawNode(t, pos, cx, cy){
+  const time = performance.now();
+  const phase = nodeDriftPhase[t.id] || 0;
+  const amp = nodeDriftAmp[t.id] || {ax:0,ay:0,sx:0,sy:0};
+  const driftX = isTransitioning ? 0 : Math.cos(time * amp.sx + phase) * amp.ax;
+  const driftY = isTransitioning ? 0 : Math.sin(time * amp.sy + phase * 1.3) * amp.ay;
+  
+  const x = (pos.x - 900 + driftX) * zoom + cx;
+  const y = (pos.y - 550 + driftY) * zoom + cy;
+  
+  const r = t.r * Math.max(0.7, Math.min(1.4, zoom * 0.9));
+  const fontSize = (t.kind==='central' ? 17 : t.kind==='hub' ? 14 : t.kind==='voce' ? 12 : 10.5) * Math.max(0.85, Math.min(1.35, zoom*0.95));
+  const labelY = y + r + fontSize + 4;
+  
+  const shape = document.getElementById(`shape-${t.id}`);
+  const label = document.getElementById(`label-${t.id}`);
+  if(!shape || !label) return;
+  
+  if(t.kind==='user'){
+    shape.setAttribute('x', x-r);
+    shape.setAttribute('y', y-r);
+    shape.setAttribute('width', r*2);
+    shape.setAttribute('height', r*2);
+  } else {
+    shape.setAttribute('cx', x);
+    shape.setAttribute('cy', y);
+    shape.setAttribute('r', r);
+  }
+  
+  label.setAttribute('x', x);
+  label.setAttribute('y', labelY);
+  label.setAttribute('font-size', fontSize);
+  
+  // Visibilità etichetta
+  const labelVisible = isLabelVisible(t.level);
+  if(labelVisible) label.classList.add('visible');
+  else label.classList.remove('visible');
+  
+  // Aggiornamento colore (per readCount cambiato)
+  shape.setAttribute('fill', goldFor(t));
+  shape.setAttribute('stroke', strokeFor(t));
+}
+
+function renderRete(){
+  if(!domBuilt) setupReteDom();
+  setTargetPositions(currentViz);
+  
+  // Se è il primo render, base = target subito
+  if(!isTransitioning){
+    TAGS.forEach(t=>{
+      if(nodeBase[t.id] && nodeTarget[t.id]){
+        // Nulla — già a posto
+      }
+    });
+  }
+  
+  updateRete(performance.now());
+}
+
+function startVizTransition(){
+  setTargetPositions(currentViz);
+  isTransitioning = true;
+  transitionStart = performance.now();
+}
+
+// Loop di animazione continuo per drift
+function animationLoop(time){
+  if(domBuilt){
+    updateRete(time);
+  }
+  requestAnimationFrame(animationLoop);
+}
+
+// Visibilità etichetta in base a livello e zoom
+function isLabelVisible(level){
+  if(level === 0) return zoom >= 0.6;     // hub: sempre quasi
+  if(level === 1) return zoom >= 1.05;    // voci: zoom medio
+  if(level === 2) return zoom >= 1.55;    // concetti: zoom alto
+  if(level === 3) return zoom >= 2.1;     // micro: zoom max
+  return false;
+}
+
+function updateZoomHud(){
+  const pct = ((zoom - ZOOM_MIN) / (ZOOM_MAX - ZOOM_MIN)) * 100;
+  document.getElementById('zoomFill').style.width = pct+'%';
+  let label = 'livello 1';
+  if(zoom >= 2.1) label = 'livello 4';
+  else if(zoom >= 1.55) label = 'livello 3';
+  else if(zoom >= 1.05) label = 'livello 2';
+  document.getElementById('zoomStepLabel').textContent = label;
+}
+
+/* ══════════════════════════════════════════════════════
+   ZOOM & PAN
+══════════════════════════════════════════════════════ */
+
+function zoomBy(delta, cx, cy){
+  const oldZoom = zoom;
+  const newZoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, zoom + delta));
+  if(newZoom === zoom) return;
+  
+  if(cx !== undefined && cy !== undefined){
+    const svg = document.getElementById('reteSvg');
+    const rect = svg.getBoundingClientRect();
+    const localX = cx - rect.left - rect.width/2;
+    const localY = cy - rect.top - rect.height/2;
+    const scaleFactor = newZoom / oldZoom;
+    panX = localX - (localX - panX) * scaleFactor;
+    panY = localY - (localY - panY) * scaleFactor;
+  }
+  
+  zoom = newZoom;
+}
+
+function zoomReset(){
+  zoom = 1.0; panX = 0; panY = 0;
+}
+
+function setViz(v){
+  currentViz = v;
+  document.querySelectorAll('.viz-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('viz-' + (v==='scale-free'?'sf':v==='reticolo'?'rt':v==='mandala'?'md':'sp')).classList.add('active');
+  startVizTransition();
+}
+
+/* ══════════════════════════════════════════════════════
+   VIEWER
+══════════════════════════════════════════════════════ */
+
+function openFragment(id){
+  const frag = FRAGMENTS[id] || FRAGMENTS['s2-2a'];
+  
+  if(frag.tags){
+    frag.tags.forEach(t=>{
+      const norm = t.toLowerCase().replace(/[^a-z0-9]/g,'-');
+      const tag = TAGS.find(x=>x.id===norm || x.label.toLowerCase()===t.toLowerCase());
+      if(tag && tag.readCount < tag.totalCount){
+        tag.readCount = Math.min(tag.totalCount, tag.readCount + 1);
+      }
+    });
+  }
+  
+  const v = document.getElementById('viewer');
+  const content = document.getElementById('viewerContent');
+  document.getElementById('viewerProgress').textContent = frag.progress || '';
+  
+  let html = '';
+  html += `<div class="concept-tags-row">`;
+  frag.tags.forEach(t=>{
+    html += `<span class="concept-tag-pill">${t}</span>`;
+  });
+  html += `</div>`;
+  html += `<h1 class="concept-title">${frag.title}</h1>`;
+  html += `<div class="concept-body">${frag.body}</div>`;
+  
+  if(frag.suggerimenti && frag.suggerimenti.length){
+    html += `<div class="continua">`;
+    html += `<div class="continua-title">Continua il percorso</div>`;
+    html += `<div class="continua-sub">Da questo frammento il sistema propone quattro direzioni naturali. Scegli quella che ti chiama, oppure torna alla rete e procedi da un'altra porta.</div>`;
+    html += `<div class="continua-grid">`;
+    frag.suggerimenti.forEach(s=>{
+      html += `<div class="continua-card" onclick="openFragment('${s.id}')">`;
+      html += `<div class="continua-card-meta">${s.meta||''}</div>`;
+      html += `<div class="continua-card-title">${s.title}</div>`;
+      html += `<div class="continua-card-cta">apri il frammento</div>`;
+      html += `</div>`;
+    });
+    html += `</div></div>`;
+  }
+  
+  if(frag.notes && frag.notes.length){
+    html += `<div class="frag-notes">`;
+    html += `<div class="frag-notes-title">Note bibliografiche</div>`;
+    frag.notes.forEach(n=>{
+      html += `<div class="frag-note"><span class="frag-note-num">[${n.n}]</span>${n.text}</div>`;
+    });
+    html += `</div>`;
+  }
+  
+  // SEZIONE COMMENTI
+  html += renderCommentiSection(id);
+  
+  content.innerHTML = html;
+  v.classList.add('active');
+  v.scrollTop = 0;
+  
+  content.querySelectorAll('.concept-link').forEach(el=>{
+    el.addEventListener('mouseenter',(e)=>showMultidest(e, el.getAttribute('data-id'), el.getAttribute('data-name')));
+    el.addEventListener('mouseleave',scheduleHideMultidest);
+  });
+  
+  // Setup commenti
+  setupCommentiHandlers(id);
+  
+  const cnt = document.getElementById('drFragRead');
+  cnt.textContent = (parseInt(cnt.textContent||'0')+1).toString();
+  const tagExp = document.getElementById('drTagExp');
+  tagExp.textContent = TAGS.filter(t=>t.readCount>0).length.toString();
+}
+
+/* ══════════════════════════════════════════════════════
+   SISTEMA COMMENTI
+══════════════════════════════════════════════════════ */
+
+// Store dei commenti in memoria (in v reale: backend persistente)
+const COMMENTI = {};  // {fragId: [{id, body, tags, private, when}]}
+
+function renderCommentiSection(fragId){
+  const lista = COMMENTI[fragId] || [];
+  const pubblici = lista.filter(c=>!c.private);
+  const tuoi = lista.filter(c=>c.mine);
+  
+  let html = `<div class="commenti">`;
+  html += `<div class="commenti-header">`;
+  html += `<div class="commenti-title">Commenti</div>`;
+  html += `<div class="commenti-count">${pubblici.length} pubblici · ${tuoi.length} tuoi</div>`;
+  html += `</div>`;
+  html += `<div class="commenti-sub">I commenti pubblici entrano nel sistema come pensiero condiviso. I tag che generano si confondono col vocabolario autoriale. La firma è dissolta.</div>`;
+  
+  // Lista
+  html += `<div class="commenti-list">`;
+  pubblici.forEach(c=>{
+    html += `<div class="commento">`;
+    html += `<div class="commento-meta">`;
+    html += `<span class="commento-when">${c.when}</span>`;
+    if(c.private) html += `<span class="commento-priv">privato</span>`;
+    html += `</div>`;
+    html += `<div class="commento-body">${escapeHtml(c.body)}</div>`;
+    if(c.tags && c.tags.length){
+      html += `<div class="commento-tags">`;
+      c.tags.forEach(t=>{
+        html += `<span class="commento-tag">${escapeHtml(t)}</span>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `</div>`;
+  
+  if(pubblici.length === 0){
+    html += `<div class="commento-empty">Nessuno ha ancora lasciato un commento su questo frammento. Sii il primo.</div>`;
+  }
+  
+  // Compose
+  if(currentPersona){
+    const limit = currentPersona === 'curioso' ? 500 : null;
+    html += `<div class="compose">`;
+    html += `<div class="compose-title">Scrivi un commento</div>`;
+    html += `<textarea class="compose-textarea" id="composeText" placeholder="Lascia il tuo pensiero. Verrà letto da chi vorrà, e i suoi tag entreranno nel sistema..."></textarea>`;
+    html += `<div class="compose-meta">`;
+    html += `<div class="compose-wordcount" id="composeWC">0 parole${limit?' · '+limit+' max':' · nessun limite'}</div>`;
+    html += `<div class="compose-controls">`;
+    html += `<label class="priv-toggle"><input type="checkbox" id="composePriv"><span class="priv-switch"></span>privato</label>`;
+    html += `<button class="compose-cta" id="composeCta" onclick="submitCommento('${fragId}')" disabled>Invia</button>`;
+    html += `</div>`;
+    html += `</div>`;
+    html += `</div>`;
+  } else {
+    html += `<div class="compose"><div class="compose-guest">Per lasciare un commento, scegli un registro di lettura dal pannello a sinistra.</div></div>`;
+  }
+  
+  html += `</div>`;
+  return html;
+}
+
+function setupCommentiHandlers(fragId){
+  const txt = document.getElementById('composeText');
+  if(!txt) return;
+  
+  const limit = currentPersona === 'curioso' ? 500 : null;
+  txt.addEventListener('input',()=>{
+    const words = txt.value.trim() ? txt.value.trim().split(/\s+/).length : 0;
+    const wc = document.getElementById('composeWC');
+    wc.textContent = `${words} parole${limit?' · '+limit+' max':' · nessun limite'}`;
+    const over = limit && words > limit;
+    wc.classList.toggle('over', over);
+    document.getElementById('composeCta').disabled = words === 0 || over;
+  });
+}
+
+function submitCommento(fragId){
+  const txt = document.getElementById('composeText').value.trim();
+  if(!txt) return;
+  const isPrivate = document.getElementById('composePriv').checked;
+  
+  // Mostra modal estrazione tag
+  openTagExtraction(txt, isPrivate, fragId);
+}
+
+function openTagExtraction(text, isPrivate, fragId){
+  const modal = document.getElementById('temModal');
+  const inner = document.getElementById('temInner');
+  
+  // Stato 1: loading
+  inner.innerHTML = `
+    <div class="tem-label">Sistema di frammenti · estrazione tag</div>
+    <h2 class="tem-title">Estraendo i <em>tag</em> dal tuo commento…</h2>
+    <p class="tem-sub">Un modello linguistico analizza il testo e propone tag concettuali. Tu confermerai quali far entrare nel sistema.</p>
+    <div class="tem-loading">
+      <div class="tem-spinner"></div>
+      <div>L'LLM legge il tuo commento...</div>
+    </div>
+  `;
+  modal.classList.add('active');
+  
+  // Simula chiamata LLM
+  setTimeout(()=>{
+    const proposed = simulateTagExtraction(text);
+    showTagSelection(proposed, text, isPrivate, fragId);
+  }, 1500);
+}
+
+function simulateTagExtraction(text){
+  const lower = text.toLowerCase();
+  const recognized = [];
+  const newSuggested = [];
+  
+  // Match con vocabolario esistente
+  TAGS.forEach(t=>{
+    const lbl = t.label.toLowerCase();
+    if(lower.includes(lbl) && t.kind !== 'central'){
+      recognized.push({label: t.label, exists: true});
+    }
+  });
+  
+  // Match anche con varianti (per ricchezza simulazione)
+  const variants = {
+    'narrazion':'narrazione','mondo':'mondo','sistema':'sistema','medi':'media','autor':'autorialità',
+    'lettur':'lettura','linguaggi':'linguaggio','memori':'memoria','digital':'digitale','tradizion':'tradizione',
+    'critic':'critica','industri':'industria','attenzion':'attenzione','tempo':'temporalità',
+  };
+  Object.entries(variants).forEach(([key,val])=>{
+    if(lower.includes(key) && !recognized.find(r=>r.label.toLowerCase()===val.toLowerCase())){
+      newSuggested.push({label: val, exists: false});
+    }
+  });
+  
+  // Almeno 2-3 tag totali per simulazione
+  if(recognized.length + newSuggested.length < 3){
+    const fallbacks = ['concetto emergente','riflessione critica','articolazione'];
+    fallbacks.forEach(f=>{
+      if(recognized.length + newSuggested.length < 3){
+        newSuggested.push({label: f, exists: false});
+      }
+    });
+  }
+  
+  // Limito a 8 totali
+  return [...recognized, ...newSuggested].slice(0, 8);
+}
+
+let temState = {proposed: [], selected: new Set(), customTags: [], text: '', isPrivate: false, fragId: null};
+
+function showTagSelection(proposed, text, isPrivate, fragId){
+  temState = {proposed, selected: new Set(proposed.map(p=>p.label)), customTags:[], text, isPrivate, fragId};
+  renderTagSelection();
+}
+
+function renderTagSelection(){
+  const inner = document.getElementById('temInner');
+  
+  const recognized = temState.proposed.filter(p=>p.exists);
+  const newOnes = temState.proposed.filter(p=>!p.exists);
+  
+  let html = `
+    <div class="tem-label">Sistema di frammenti · conferma tag</div>
+    <h2 class="tem-title">Quali <em>tag</em> far entrare nel sistema?</h2>
+    <p class="tem-sub">L'LLM ha proposto i seguenti tag dal tuo commento. Clicca per selezionare o deselezionare. I tag confermati entreranno nella rete indistinti dal vocabolario autoriale.</p>
+  `;
+  
+  if(recognized.length){
+    html += `<div class="tem-section">`;
+    html += `<div class="tem-section-label">riconosciuti nel sistema</div>`;
+    html += `<div class="tem-tags">`;
+    recognized.forEach(p=>{
+      const sel = temState.selected.has(p.label);
+      html += `<span class="tem-tag${sel?' selected':''}" onclick="toggleTemTag('${p.label.replace(/'/g,"\\'")}')">${p.label}</span>`;
+    });
+    html += `</div></div>`;
+  }
+  
+  if(newOnes.length){
+    html += `<div class="tem-section">`;
+    html += `<div class="tem-section-label">proposte nuove</div>`;
+    html += `<div class="tem-tags">`;
+    newOnes.forEach(p=>{
+      const sel = temState.selected.has(p.label);
+      html += `<span class="tem-tag new${sel?' selected':''}" onclick="toggleTemTag('${p.label.replace(/'/g,"\\'")}')">${p.label}</span>`;
+    });
+    html += `</div></div>`;
+  }
+  
+  if(temState.customTags.length){
+    html += `<div class="tem-section">`;
+    html += `<div class="tem-section-label">tuoi tag personalizzati</div>`;
+    html += `<div class="tem-tags">`;
+    temState.customTags.forEach(t=>{
+      const sel = temState.selected.has(t);
+      html += `<span class="tem-tag new${sel?' selected':''}" onclick="toggleTemTag('${t.replace(/'/g,"\\'")}')">${t}</span>`;
+    });
+    html += `</div></div>`;
+  }
+  
+  html += `<div class="tem-section">`;
+  html += `<div class="tem-section-label">aggiungi un tuo tag</div>`;
+  html += `<div class="tem-add">`;
+  html += `<input type="text" id="temCustomInput" placeholder="es. mondo secondario" maxlength="40">`;
+  html += `<button onclick="addCustomTag()">aggiungi</button>`;
+  html += `</div></div>`;
+  
+  html += `<div class="tem-foot">`;
+  html += `<div class="tem-disclaim">tag estratti da LLM · confermati da te · dichiarazione di accountability</div>`;
+  html += `<div class="tem-actions">`;
+  html += `<button class="tem-cancel" onclick="closeTemModal()">annulla</button>`;
+  html += `<button class="tem-confirm" onclick="publishCommento()">pubblica</button>`;
+  html += `</div></div>`;
+  
+  inner.innerHTML = html;
+  
+  const inp = document.getElementById('temCustomInput');
+  if(inp) inp.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){e.preventDefault(); addCustomTag();}});
+}
+
+function toggleTemTag(label){
+  if(temState.selected.has(label)) temState.selected.delete(label);
+  else temState.selected.add(label);
+  renderTagSelection();
+}
+
+function addCustomTag(){
+  const inp = document.getElementById('temCustomInput');
+  const val = inp.value.trim();
+  if(!val) return;
+  if(!temState.customTags.includes(val)){
+    temState.customTags.push(val);
+    temState.selected.add(val);
+  }
+  inp.value = '';
+  renderTagSelection();
+}
+
+function closeTemModal(){
+  document.getElementById('temModal').classList.remove('active');
+}
+
+function publishCommento(){
+  const tags = Array.from(temState.selected);
+  const fragId = temState.fragId;
+  
+  // Salva commento
+  if(!COMMENTI[fragId]) COMMENTI[fragId] = [];
+  const now = new Date();
+  const when = now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear()+' · '+now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  COMMENTI[fragId].push({
+    body: temState.text,
+    tags: tags,
+    private: temState.isPrivate,
+    mine: true,
+    when: when,
+  });
+  
+  // Tag nuovi → entrano nella rete (anche dai commenti privati, per principio sinfilosofico)
+  tags.forEach(label=>{
+    const norm = label.toLowerCase().replace(/[^a-z0-9]/g,'-').slice(0,40);
+    let existing = TAGS.find(t=>t.label.toLowerCase()===label.toLowerCase() || t.id===norm);
+    if(!existing){
+      // Nuovo tag user-generated
+      const newTag = {
+        id: norm,
+        label: label,
+        weight: 1, r: 7,
+        kind: 'user', level: 2,
+        readCount: 0, totalCount: 1,
+      };
+      TAGS.push(newTag);
+      // Nuovo edge: collega al frammento corrente (semplificazione: lo collega al primo tag del frammento)
+      const frag = FRAGMENTS[fragId];
+      if(frag && frag.tags.length){
+        const tgt = frag.tags[0].toLowerCase().replace(/[^a-z0-9]/g,'-');
+        if(TAGS.find(t=>t.id===tgt)){
+          EDGES.push([newTag.id, tgt]);
+        }
+      }
+      // Inizializzo drift per nuovo nodo
+      nodeDriftPhase[newTag.id] = Math.random() * Math.PI * 2;
+      nodeDriftAmp[newTag.id] = {
+        ax: 2 + Math.random() * 4,
+        ay: 2 + Math.random() * 4,
+        sx: 0.0003 + Math.random() * 0.0005,
+        sy: 0.00035 + Math.random() * 0.0005,
+      };
+      domBuilt = false; // forza riscrittura DOM
+    }
+  });
+  
+  // Chiudo modal
+  closeTemModal();
+  
+  // Aggiorno conteggi drawer
+  // (semplificato)
+  
+  // Re-render del frammento per mostrare il nuovo commento
+  openFragment(fragId);
+}
+
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function closeViewer(){
+  document.getElementById('viewer').classList.remove('active');
+  hideMultidest();
+  renderRete();
+}
+
+/* ══════════════════════════════════════════════════════
+   MULTI-DESTINATION
+══════════════════════════════════════════════════════ */
+
+let hideTimer = null;
+
+function showMultidest(e, id, name){
+  if(hideTimer){ clearTimeout(hideTimer); hideTimer = null; }
+  const dest = DESTINATIONS[id];
+  const md = document.getElementById('multidest');
+  
+  if(!dest){
+    md.innerHTML = `<div class="md-label">Concetto</div><div class="md-name">${name||id}</div><div style="font-family:var(--font-serif);font-size:.92rem;font-style:italic;color:rgba(232,215,185,.5);line-height:1.5">Le destinazioni per questo concetto saranno disponibili nella prossima versione.</div>`;
+  } else {
+    let html = `<div class="md-label">Voce convocata</div>`;
+    html += `<div class="md-name">${name||id}</div>`;
+    
+    if(dest.primary){
+      html += `<div class="md-section">`;
+      html += `<div class="md-section-title">articolata in dettaglio in</div>`;
+      html += `<a class="md-option" onclick="openFragment('${dest.primary.id}')">${dest.primary.title}<span class="md-option-meta">${dest.primary.meta||''}</span></a>`;
+      html += `</div>`;
+    }
+    
+    if(dest.secondary && dest.secondary.length){
+      html += `<div class="md-section">`;
+      html += `<div class="md-section-title">citata anche in</div>`;
+      dest.secondary.forEach(s=>{
+        html += `<a class="md-option" onclick="openFragment('${s.id}')">${s.title}<span class="md-option-meta">${s.meta||''}</span></a>`;
+      });
+      html += `</div>`;
+    }
+    
+    if(dest.tags && dest.tags.length){
+      html += `<div class="md-section">`;
+      html += `<div class="md-section-title">tag connessi</div>`;
+      html += `<div class="md-tags-line">`;
+      dest.tags.forEach(t=>{
+        html += `<span class="md-tag-mini">${t}</span>`;
+      });
+      html += `</div></div>`;
+    }
+    
+    md.innerHTML = html;
+  }
+  
+  const rect = e.target.getBoundingClientRect();
+  let x = rect.left;
+  let y = rect.bottom + 8;
+  if(x + 340 > window.innerWidth) x = window.innerWidth - 352;
+  if(y + 320 > window.innerHeight) y = rect.top - 330;
+  md.style.left = x+'px';
+  md.style.top = y+'px';
+  md.classList.add('visible');
+  
+  md.addEventListener('mouseenter',()=>{ if(hideTimer){clearTimeout(hideTimer);hideTimer=null;} });
+  md.addEventListener('mouseleave',scheduleHideMultidest);
+}
+
+function scheduleHideMultidest(){
+  hideTimer = setTimeout(hideMultidest, 250);
+}
+
+function hideMultidest(){
+  document.getElementById('multidest').classList.remove('visible');
+}
+
+/* ══════════════════════════════════════════════════════
+   EVENTS
+══════════════════════════════════════════════════════ */
+
+window.addEventListener('load',()=>{
+  const svg = document.getElementById('reteSvg');
+  
+  // Init drift phases
+  initDriftPhases();
+  
+  svg.addEventListener('mousedown',(e)=>{
+    if(e.target.closest('.tag-node')){ dragStartX=e.clientX; dragStartY=e.clientY; return; }
+    isDragging = true;
+    dragStartX = e.clientX - panX;
+    dragStartY = e.clientY - panY;
+    svg.classList.add('dragging');
+  });
+  
+  window.addEventListener('mousemove',(e)=>{
+    if(!isDragging) return;
+    panX = e.clientX - dragStartX;
+    panY = e.clientY - dragStartY;
+  });
+  
+  window.addEventListener('mouseup',()=>{
+    if(isDragging){
+      isDragging = false;
+      svg.classList.remove('dragging');
+    }
+  });
+  
+  svg.addEventListener('wheel',(e)=>{
+    e.preventDefault();
+    const delta = -e.deltaY * 0.002;
+    zoomBy(delta, e.clientX, e.clientY);
+  }, {passive:false});
+  
+  window.addEventListener('resize',()=>{
+    const svgEl = document.getElementById('reteSvg');
+    svgEl.setAttribute('viewBox', `0 0 ${svgEl.clientWidth} ${svgEl.clientHeight}`);
+  });
+  
+  // Avvio animation loop continuo (drift)
+  requestAnimationFrame(animationLoop);
+  
+  if(document.getElementById('onboarding').classList.contains('dismissed')){
+    renderRete();
+  }
+});
+</script>
+</body>
+</html>

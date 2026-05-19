@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-network">
+
+<!-- ONBOARDING / AUTH -->
+<div id="onboarding" role="dialog" aria-label="Accesso al sistema" aria-modal="true">
+  <div class="ob-inner">
+    <div class="ob-label">Sistema di frammenti</div>
+    <h1 class="ob-title">Una <em>sinfilosofia</em> digitale</h1>
+
+    <!-- Tab switcher -->
+    <div class="ob-tabs" role="tablist">
+      <button class="ob-tab active" id="tab-reg"   role="tab" aria-selected="true"  onclick="showAuthTab('reg')">Registrati</button>
+      <button class="ob-tab"        id="tab-login" role="tab" aria-selected="false" onclick="showAuthTab('login')">Accedi</button>
+    </div>
+
+    <!-- Pannello registrazione -->
+    <div id="ob-panel-reg" class="ob-panel">
+      <div class="ob-fields">
+        <div class="ob-field">
+          <label class="ob-field-label" for="regUsername">Nome utente</label>
+          <input id="regUsername" type="text"     class="ob-input" placeholder="Come vuoi essere chiamato" autocomplete="username">
+        </div>
+        <div class="ob-field">
+          <label class="ob-field-label" for="regEmail">Email</label>
+          <input id="regEmail"    type="email"    class="ob-input" placeholder="nome@esempio.it" autocomplete="email">
+        </div>
+        <div class="ob-field">
+          <label class="ob-field-label" for="regPassword">Password</label>
+          <input id="regPassword" type="password" class="ob-input" placeholder="Scegli una password" autocomplete="new-password">
+        </div>
+      </div>
+      <p class="ob-sub">Scegli come vorresti attraversare il sistema</p>
+      <div class="ob-cards" role="list">
+        <div class="ob-card" role="listitem" onclick="selectPersona('accademico')" id="ob-accademico" tabindex="0" aria-label="Lettore accademico">
+          <div class="ob-card-num">01</div>
+          <div class="ob-card-title">Lettore accademico</div>
+          <div class="ob-card-desc">ricerca, insegnamento, scrittura specialistica — registro pieno, nessun limite su lettura e contributo</div>
+        </div>
+        <div class="ob-card" role="listitem" onclick="selectPersona('curioso')" id="ob-curioso" tabindex="0" aria-label="Lettore curioso">
+          <div class="ob-card-num">02</div>
+          <div class="ob-card-title">Lettore curioso</div>
+          <div class="ob-card-desc">interesse non accademico — registro discorsivo, contributi sintetici (max 500 parole)</div>
+        </div>
+      </div>
+      <p class="ob-error" id="reg-error"></p>
+      <button class="ob-cta" id="obCta" onclick="submitRegister()" disabled>Entra nel sistema →</button>
+    </div>
+
+    <!-- Pannello login -->
+    <div id="ob-panel-login" class="ob-panel" hidden>
+      <div class="ob-fields">
+        <div class="ob-field">
+          <label class="ob-field-label" for="loginEmail">Email</label>
+          <input id="loginEmail"    type="email"    class="ob-input" placeholder="nome@esempio.it" autocomplete="email">
+        </div>
+        <div class="ob-field">
+          <label class="ob-field-label" for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" class="ob-input" placeholder="La tua password" autocomplete="current-password">
+        </div>
+      </div>
+      <p class="ob-error" id="login-error"></p>
+      <button class="ob-cta" onclick="submitLogin()">Accedi →</button>
+    </div>
+
+    <button class="ob-skip" onclick="dismissOnboarding()">salta — entra come visitatore</button>
+  </div>
+</div>
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti totali</span>
+      <span class="dr-counter-value" id="drTotali">{{TOTAL_FRAGMENTS}}</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag nel sistema</span>
+      <span class="dr-counter-value" id="drTotaliTag">{{TOTAL_TAGS}}</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html" aria-label="Sistema di frammenti — home">Sistema di frammenti</a>
+  <div class="nav-right">
+    <div class="viz-toggle" role="group" aria-label="Visualizzazione rete">
+      <button class="viz-btn active" onclick="setViz('scale-free')" id="viz-sf" title="Rete scale-free" aria-pressed="true">SF</button>
+      <button class="viz-btn" onclick="setViz('reticolo')"  id="viz-rt" title="Reticolo periodico" aria-pressed="false">RT</button>
+      <button class="viz-btn" onclick="setViz('mandala')"   id="viz-md" title="Mandala"             aria-pressed="false">MD</button>
+      <button class="viz-btn" onclick="setViz('spirale')"   id="viz-sp" title="Spirale aurea"       aria-pressed="false">SP</button>
+    </div>
+  </div>
+</nav>
+
+<!-- RETE FULLSCREEN -->
+<div id="sistema" aria-label="Rete dei tag">
+  <svg id="reteSvg" aria-hidden="true">
+    <g id="edgesGroup"></g>
+    <g id="nodesGroup"></g>
+  </svg>
+</div>
+
+<!-- ZOOM HUD -->
+<div id="zoomHud" aria-label="Controlli zoom" role="group">
+  <div class="zoom-btns">
+    <button onclick="zoomOut()" title="Zoom out" aria-label="Zoom out">−</button>
+    <button onclick="zoomIn()"  title="Zoom in"  aria-label="Zoom in">+</button>
+    <button onclick="zoomFit()" title="Fit"      aria-label="Adatta alla finestra">⊡</button>
+  </div>
+  <div class="zoom-level-bar" aria-hidden="true">
+    <div class="zoom-level-fill" id="zoomFill"></div>
+  </div>
+  <span class="zoom-step-label" id="zoomLabel" aria-live="polite">Panoramica</span>
+</div>
+
+<!-- LEGENDA -->
+<div id="legend" aria-label="Legenda" role="list">
+  <div class="legend-item" role="listitem">
+    <svg width="10" height="10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#b8862a" stroke-width="1.5"/></svg>
+    <span>Tag autoriale</span>
+  </div>
+  <div class="legend-item" role="listitem">
+    <svg width="10" height="10" aria-hidden="true"><rect x="1" y="1" width="8" height="8" fill="none" stroke="#b8862a" stroke-width="1.5"/></svg>
+    <span>Tag lettore</span>
+  </div>
+  <div class="legend-item" role="listitem">
+    <svg width="14" height="10" aria-hidden="true">
+      <circle cx="2" cy="5" r="1.5" fill="#e8e0d4"/>
+      <circle cx="5" cy="5" r="2"   fill="#d4be88"/>
+      <circle cx="9" cy="5" r="3"   fill="#b8862a"/>
+    </svg>
+    <span>Peso lettura →</span>
+  </div>
+</div>
+
+<!-- Popup multi-destinazione (condiviso con fragment.html) -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<script>
+window.SYSTEM_DATA = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="network.js"></script>
+<script src="onboarding.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

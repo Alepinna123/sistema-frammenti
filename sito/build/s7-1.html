@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kernel, canone e bibbia: la struttura operativa dell'opera-volume — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Kernel, canone e bibbia: la struttura operativa dell'opera-volume</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume">opera-volume</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Pescatore">Pescatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Armando Pescatore">Armando Pescatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Veronica Innocenti">Veronica Innocenti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Ecosistemi narrativi*">*Ecosistemi narrativi*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2018">2018</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*kernel*">*kernel*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*canone*">*canone*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*bibbia*">*bibbia*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nucleo minimo del paradigma">nucleo minimo del paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="invariante del paradigma">invariante del paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="confine identitario">confine identitario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Forza">Forza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Jedi">Jedi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Sith">Sith</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Ribellione">Ribellione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Impero">Impero</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="galassia">galassia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Star Wars*">*Star Wars*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="multiverso">multiverso</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Avengers">Avengers</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Marvel Cinematic Universe*">*Marvel Cinematic Universe*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cosmogonia di Eä">cosmogonia di Eä</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quattro Ere">quattro Ere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="razze fondamentali">razze fondamentali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien">Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opere ufficialmente riconosciute">opere ufficialmente riconosciute</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*κανών*">*κανών*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo gerarchico">dispositivo gerarchico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dentro il canone">dentro il canone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fuori dal canone">fuori dal canone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Expanded Universe*">*Expanded Universe*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Legends*">*Legends*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Lucasfilm-Disney">Lucasfilm-Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2012">2012</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*retconning*">*retconning*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*re-canonization*">*re-canonization*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="canone secondario">canone secondario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="documento normativo">documento normativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="bibbia di franchise">bibbia di franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industria seriale televisiva">industria seriale televisiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sceneggiatore">sceneggiatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="memoria istituzionale">memoria istituzionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="memoria esterna">memoria esterna</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro di Camillo">Teatro di Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Doctor Who*">*Doctor Who*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Star Trek*">*Star Trek*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="soap statunitensi">soap statunitensi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="saga di Star Wars">saga di Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wizarding World">Wizarding World</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Final Fantasy*">*Final Fantasy*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*The Legend of Zelda*">*The Legend of Zelda*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Pokémon*">*Pokémon*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreazione">subcreazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreatore">subcreatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien come subcreatore singolo">Tolkien come subcreatore singolo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="unità autoriale">unità autoriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="autorialità distribuita">autorialità distribuita</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="proprietà industriale">proprietà industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="apparati editoriali">apparati editoriali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="uffici dedicati">uffici dedicati</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="esperienza fruitiva">esperienza fruitiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="visione autoriale unitaria">visione autoriale unitaria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="istituzione produttiva">istituzione produttiva</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> come configurazione strutturale del medium del nostro tempo, e ha articolato in particolare la dimensione della <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> come pratica autoriale specifica che produce mondi secondari coerenti. La presente articolazione approfondisce la dimensione operativa concreta del fenomeno attraverso le tre categorie articolate da <span class="concept-link" data-tag="Armando Pescatore" tabindex="0" role="button">Armando Pescatore</span> e <span class="concept-link" data-tag="Veronica Innocenti" tabindex="0" role="button">Veronica Innocenti</span> nel proprio studio del 2018 <em>Ecosistemi narrativi</em><sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Le tre categorie — <em><span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span></em>, <em><span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span></em>, <em><span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span></em> — articolano l&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> interna del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporaneo come <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> operativa, e specificano le funzioni distinte che ciascun elemento svolge nella produzione e nella manutenzione del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> narrativo. La voce di <span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti è articolata in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>; il presente discorso ne riprende le categorie specifiche per articolare il punto operativo che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> presupponeva ma non aveva sviluppato in dettaglio.</p>
+<p>Il <em><span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span></em> è la prima delle tre strutture che operano nell&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. Il termine <em><span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span></em> — letteralmente <em>nocciolo</em>, <em>seme</em>, <em>nucleo</em> — designa il <span class="concept-link" data-tag="nucleo minimo del paradigma" tabindex="0" role="button">nucleo minimo del paradigma</span> narrativo: gli elementi fondamentali senza i quali il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> cesserebbe di essere riconoscibile come tale. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> comprende tipicamente i personaggi principali, le ambientazioni cardinali, gli archetipi narrativi fondanti, i temi centrali, le regole costitutive del mondo che il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> articola. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> di <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em> comprende elementi come la <span class="concept-link" data-tag="Forza" tabindex="0" role="button">Forza</span> come potere mistico <span class="concept-link" data-tag="universale" tabindex="0" role="button">universale</span>, l&#39;opposizione <span class="concept-link" data-tag="Jedi" tabindex="0" role="button">Jedi</span>/<span class="concept-link" data-tag="Sith" tabindex="0" role="button">Sith</span>, la <span class="concept-link" data-tag="galassia" tabindex="0" role="button">galassia</span> molto, molto lontana, l&#39;opposizione fra <span class="concept-link" data-tag="Ribellione" tabindex="0" role="button">Ribellione</span> e <span class="concept-link" data-tag="Impero" tabindex="0" role="button">Impero</span>, e poche altre caratteristiche fondamentali. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> del <em><span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> Cinematic Universe</em> comprende elementi come il <span class="concept-link" data-tag="multiverso" tabindex="0" role="button">multiverso</span>, gli <span class="concept-link" data-tag="Avengers" tabindex="0" role="button">Avengers</span> come gruppo di supereroi, l&#39;opposizione fra eroi e villain ricorrenti, e altre caratteristiche strutturali. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup> comprende elementi come la <span class="concept-link" data-tag="cosmogonia di Eä" tabindex="0" role="button">cosmogonia di Eä</span>, le <span class="concept-link" data-tag="quattro Ere" tabindex="0" role="button">quattro Ere</span> narrative, le <span class="concept-link" data-tag="razze fondamentali" tabindex="0" role="button">razze fondamentali</span> (<span class="concept-link" data-tag="elfi" tabindex="0" role="button">elfi</span>, uomini, <span class="concept-link" data-tag="nani" tabindex="0" role="button">nani</span>, <span class="concept-link" data-tag="hobbit" tabindex="0" role="button">hobbit</span>, <span class="concept-link" data-tag="orchi" tabindex="0" role="button">orchi</span>), e altre caratteristiche.</p>
+<p>Il punto operativo del <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> è che esso opera come <em>invariante</em> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>: tutte le opere che si legano al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> devono rispettare il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> per essere riconoscibili come parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> stesso. Un&#39;opera <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em> che eliminasse la <span class="concept-link" data-tag="Forza" tabindex="0" role="button">Forza</span>, o un&#39;opera <em><span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span></em> che eliminasse gli <span class="concept-link" data-tag="Avengers" tabindex="0" role="button">Avengers</span>, o un&#39;opera tolkieniana che eliminasse le <span class="concept-link" data-tag="quattro Ere" tabindex="0" role="button">quattro Ere</span>, cesserebbe di essere parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> originario e diventerebbe altro. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> è dunque il <em><span class="concept-link" data-tag="confine identitario" tabindex="0" role="button">confine identitario</span></em> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> — articola gli elementi minimi che garantiscono il riconoscimento del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> da parte del pubblico. La conseguenza operativa è significativa: la produzione di nuove opere del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera dentro il vincolo del <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span>, e la pratica autoriale del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> deve negoziare costantemente fra innovazione (l&#39;introduzione di nuovi elementi che ampliano il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>) e conservazione (il rispetto degli elementi del <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> che garantiscono il riconoscimento del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>).</p>
+<p>Il <em><span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span></em> è la seconda delle tre strutture. Il termine <em><span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span></em> — derivato dal greco <em>κανών</em> (canna, regola, norma) — designa l&#39;insieme delle <span class="concept-link" data-tag="opere ufficialmente riconosciute" tabindex="0" role="button">opere ufficialmente riconosciute</span> come parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. Il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> non coincide con tutto ciò che è prodotto attorno al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>; coincide con ciò che il proprietario del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> riconosce ufficialmente come parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. Il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> di <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em> include i film principali della saga, le serie televisive prodotte da <span class="concept-link" data-tag="Lucasfilm-Disney" tabindex="0" role="button">Lucasfilm-Disney</span>, alcuni romanzi specifici riconosciuti come canonici; non include la maggior parte della <span class="concept-link" data-tag="fan fiction" tabindex="0" role="button">fan fiction</span> non commerciale, alcuni vecchi romanzi dell&#39;<em>Expanded Universe</em> declassati al <em>Legends</em> con l&#39;acquisizione <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> del 2012, alcuni prodotti derivati di vecchie licenze. Il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> è dunque dispositivo <em>gerarchico</em> che articola lo spazio delle opere legate al <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> in due categorie: <span class="concept-link" data-tag="dentro il canone" tabindex="0" role="button">dentro il canone</span> (ufficialmente riconosciute come parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>) e <span class="concept-link" data-tag="fuori dal canone" tabindex="0" role="button">fuori dal canone</span> (non riconosciute come parte del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>). La distinzione è opera del proprietario del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, e si esercita attraverso atti specifici di riconoscimento ufficiale.</p>
+<p>La dimensione operativa del <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> è cruciale per il funzionamento del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> come <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span>. Il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> garantisce la coerenza interna del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> nella misura in cui tutte le opere canoniche devono essere reciprocamente compatibili: un evento narrato in un film canonico non può essere contraddetto da un evento narrato in una serie canonica; un personaggio caratterizzato in un romanzo canonico non può essere caratterizzato in modo incompatibile in un videogioco canonico. La coerenza del <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> è dunque la <em>coerenza del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span></em> nella sua articolazione ufficiale, ed è dispositivo che il proprietario gestisce attivamente per mantenere il valore <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. Quando emergono incompatibilità fra opere canoniche, il proprietario interviene con operazioni specifiche di <em>retconning</em> (riscrittura retrospettiva del <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> per mantenerne la coerenza) o di <em>re-canonization</em> (rimozione di alcune opere dal <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span>, talora con loro retrocessione a un <span class="concept-link" data-tag="canone secondario" tabindex="0" role="button">canone secondario</span>). Le pratiche di gestione attiva del <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> sono parte costitutiva del lavoro del proprietario del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> operativo.</p>
+<p>La <em><span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span></em> è la terza delle tre strutture. Il termine <em><span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span></em> — usato nell&#39;industria della produzione seriale televisiva e mediatica per designare un documento specifico — indica il documento di riferimento normativo che governa la produzione di un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. La <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> raccoglie sistematicamente gli elementi del <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, le caratterizzazioni dei personaggi, le regole interne del mondo, le ambientazioni cardinali, gli archi narrativi previsti, le restrizioni stilistiche. La <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> è documento <em>interno</em> dell&#39;apparato produttivo: non è pubblicato per il pubblico ma è strumento di lavoro per gli autori specifici che producono le opere del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. Quando uno <span class="concept-link" data-tag="sceneggiatore" tabindex="0" role="button">sceneggiatore</span> è incaricato di scrivere un episodio di una serie di un <span class="concept-link" data-tag="franchise consolidato" tabindex="0" role="button">franchise consolidato</span>, riceve dalla produzione la <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come documento di riferimento, ed è tenuto a rispettare le indicazioni della <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> nella scrittura dell&#39;episodio. La <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> è dunque dispositivo <em>operativo</em> che assicura la coerenza del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> attraverso la disciplina della produzione autoriale.</p>
+<p><span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti articolano la funzione cardinale della <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> come dispositivo di <em><span class="concept-link" data-tag="memoria istituzionale" tabindex="0" role="button">memoria istituzionale</span></em> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. Il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> di un <span class="concept-link" data-tag="franchise consolidato" tabindex="0" role="button">franchise consolidato</span> è cresciuto nel tempo attraverso decenni di produzione, e ha accumulato una mole di articolazioni che superano la memoria del singolo autore. La <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> funziona come archivio della memoria del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>: documenta apertamente gli elementi del <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span>, le decisioni canoniche pregresse, le incompatibilità note, le restrizioni vigenti. Il singolo autore-<span class="concept-link" data-tag="sceneggiatore" tabindex="0" role="button">sceneggiatore</span>-regista che lavora su un nuovo episodio del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> non può conoscere a memoria tutta la storia del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>; consulta la <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> come strumento operativo che gli permette di lavorare in coerenza con la storia pregressa. La <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> è dunque <span class="concept-link" data-tag="memoria esterna" tabindex="0" role="button">memoria esterna</span> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, esattamente come il <span class="concept-link" data-tag="Teatro di Camillo" tabindex="0" role="button">Teatro di Camillo</span> era <span class="concept-link" data-tag="memoria esterna" tabindex="0" role="button">memoria esterna</span> del <span class="concept-link" data-tag="sapere classico" tabindex="0" role="button">sapere classico</span> per il proprio <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>.</p>
+<p>Le tre strutture — <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span>, <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span>, <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> — operano insieme come <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> interna del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporaneo. Il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> garantisce l&#39;identità del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>; il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> garantisce la coerenza ufficiale delle opere riconosciute; la <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> garantisce la disciplina operativa della produzione autoriale. Ciascuna delle tre strutture svolge una funzione specifica, e l&#39;insieme delle tre produce il funzionamento del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> operativa nel mercato culturale contemporaneo. La voce di <span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti articola apertamente come le tre strutture operino in modo specifico in casi paradigmatici: i grandi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati del medium televisivo (le serie di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> come <em>Doctor Who</em>, <em>Star Trek</em>, le grandi <span class="concept-link" data-tag="soap statunitensi" tabindex="0" role="button">soap statunitensi</span>), i grandi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> cinematografici (l&#39;<span class="concept-link" data-tag="MCU" tabindex="0" role="button">MCU</span>, la <span class="concept-link" data-tag="saga di Star Wars" tabindex="0" role="button">saga di Star Wars</span>, il <span class="concept-link" data-tag="Wizarding World" tabindex="0" role="button">Wizarding World</span> post-Rowling), i grandi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> videoludici (le serie di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> come <em>Final Fantasy</em>, <em>The Legend of Zelda</em>, <em>Pokémon</em>). Ciascun caso paradigmatico articola le tre strutture in modo specifico, ma il principio strutturale dell&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> interna è continuo nei diversi casi.</p>
+<p>Resta da articolare la conseguenza teorica della tripartizione di <span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti per la teoria della <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove. La <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana — la costruzione di un <span class="concept-link" data-tag="mondo secondario" tabindex="0" role="button">mondo secondario</span> coerente come pratica autoriale del <em><span class="concept-link" data-tag="subcreatore" tabindex="0" role="button">subcreatore</span></em> — opera secondo il principio strutturale che le tre categorie di <span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti articolano in modo operativo. Il <span class="concept-link" data-tag="subcreatore" tabindex="0" role="button">subcreatore</span> tolkieniano costruisce un <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> (gli elementi minimi della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span>: cosmogonia, <span class="concept-link" data-tag="quattro Ere" tabindex="0" role="button">quattro Ere</span>, <span class="concept-link" data-tag="razze fondamentali" tabindex="0" role="button">razze fondamentali</span>), articola un <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> (le opere ufficiali pubblicate da <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> in vita e dal figlio <span class="concept-link" data-tag="Christopher Tolkien" tabindex="0" role="button">Christopher Tolkien</span> postumamente)<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>, e mantiene una <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> (gli appunti, le note, le mappe, le genealogie che <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> aveva accumulato come archivio della memoria interna del proprio mondo). Le tre strutture operano nella <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana esattamente come operano nei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei dell&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span>, ma con una differenza significativa: il <span class="concept-link" data-tag="subcreatore" tabindex="0" role="button">subcreatore</span> tolkieniano è autore singolo che svolge tutte e tre le funzioni in autonomia, mentre il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> contemporaneo distribuisce le tre funzioni fra molti agenti istituzionali (proprietari, autori, produttori, editori).</p>
+<p>La conseguenza pratica della differenza è significativa per pensare la specificità della <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> autoriale rispetto alla <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span> di <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>. La <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana opera in regime di <span class="concept-link" data-tag="unità autoriale" tabindex="0" role="button">unità autoriale</span>: un singolo <span class="concept-link" data-tag="subcreatore" tabindex="0" role="button">subcreatore</span> mantiene la coerenza del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> attraverso il proprio lavoro accumulato nel tempo, e la <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> interna del mondo è memoria che il <span class="concept-link" data-tag="subcreatore" tabindex="0" role="button">subcreatore</span> ha costruito personalmente. La <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera invece in regime di distribuzione delle funzioni: il <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span> è proprietà del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come asset <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>, il <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> è gestito da <span class="concept-link" data-tag="apparati editoriali" tabindex="0" role="button">apparati editoriali</span> specializzati, la <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span> è documento istituzionale aggiornato da <span class="concept-link" data-tag="uffici dedicati" tabindex="0" role="button">uffici dedicati</span>. La differenza non è quantitativa (più o meno autori coinvolti) ma strutturale (autorialità unitaria vs <span class="concept-link" data-tag="autorialità distribuita" tabindex="0" role="button">autorialità distribuita</span>), e produce esperienze fruitive differenti nel rapporto con i mondi secondari risultanti. La <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana produce un mondo che è sentito dal <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> come prodotto di una <span class="concept-link" data-tag="visione autoriale unitaria" tabindex="0" role="button">visione autoriale unitaria</span>; il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> produce un mondo che è sentito dal <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> come prodotto di un&#39;<span class="concept-link" data-tag="istituzione produttiva" tabindex="0" role="button">istituzione produttiva</span>.</p>
+<p>La presente soglia ha articolato le tre strutture operative del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporaneo secondo le categorie di <span class="concept-link" data-tag="Pescatore" tabindex="0" role="button">Pescatore</span>-Innocenti, e ha articolato la specificità della <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> autoriale rispetto alla <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span> di <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> nella distribuzione delle funzioni che governano <span class="concept-link" data-tag="kernel" tabindex="0" role="button">kernel</span>, <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> e <span class="concept-link" data-tag="bibbia" tabindex="0" role="button">bibbia</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione critica del rapporto fra <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> autoriale e <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>; la presente articolazione ha fornito il quadro operativo concreto che permette di pensare il rapporto in modo strutturalmente preciso.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Pescatore, A., Innocenti, V. (2018), <em>Ecosistemi narrativi. Dal fumetto alle serie TV</em>, Carocci, Roma [pagina da verificare sul fisico, sezioni su kernel, canone, bibbia]. La voce di Pescatore-Innocenti è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Tolkien, J.R.R. (1954-55), <em>The Lord of the Rings</em>, 3 voll. (<em>The Fellowship of the Ring</em>, 1954; <em>The Two Towers</em>, 1954; <em>The Return of the King</em>, 1955), George Allen &amp; Unwin, London. Trad. it.: <em>Il Signore degli Anelli</em>, Bompiani, Milano (numerose edizioni successive) [pagine da verificare sul fisico]. Tolkien è autore-subcreatore della Terra di Mezzo, paradigma narrativo cui il presente discorso fa riferimento come caso esemplare. La voce di Tolkien è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Tolkien, C. (a cura di) (1983-1996), <em>The History of Middle-earth</em>, 12 volumi, George Allen &amp; Unwin / HarperCollins, London [riferimento bibliografico complessivo della raccolta postuma; volumi specifici da verificare sul fisico]. La curatela postuma di Christopher Tolkien documenta il materiale che il padre ha accumulato in sessant&#39;anni di lavoro come archivio della memoria interna del proprio mondo.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's7-1';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

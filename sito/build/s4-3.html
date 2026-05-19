@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il sistema infinito: poesia romantica e opera-volume come forme incompiute — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Il sistema infinito: poesia romantica e opera-volume come forme incompiute</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="Schlegel">Schlegel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento 116">frammento 116</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Athenaeum*">*Athenaeum*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1798">1798</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="poesia romantica">poesia romantica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="poesia universale progressiva">poesia universale progressiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="universale">universale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="progressiva">progressiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="poesia">poesia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cometa">Cometa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*L'età classico-romantica*">*L'età classico-romantica*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2009">2009</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="incompiutezza per principio">incompiutezza per principio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="apertura ontologica">apertura ontologica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema aperto">sistema aperto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema classico">sistema classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Spinoza">Spinoza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Kant">Kant</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Schelling">Schelling</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Sistema dell'idealismo trascendentale*">*Sistema dell'idealismo trascendentale*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="compimento">compimento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità organica">totalità organica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma costitutivamente incompiuta">forma costitutivamente incompiuta</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rivista">rivista</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera in progress">opera in progress</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sinfilosofia collettiva">sinfilosofia collettiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Marvel Cinematic Universe*">*Marvel Cinematic Universe*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2008-2025">2008-2025</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Infinity Saga*">*Infinity Saga*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Avengers: Endgame*">*Avengers: Endgame*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2019">2019</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Multiverse Saga*">*Multiverse Saga*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien">Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il signore degli anelli*">*Il signore degli anelli*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1954-55">1954-55</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Christopher Tolkien">Christopher Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*History of Middle-earth*">*History of Middle-earth*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1983-1996">1983-1996</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Amazon Prime Video">Amazon Prime Video</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2022">2022</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Seconda Era">Seconda Era</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wizarding World">Wizarding World</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="J.K. Rowling">J.K. Rowling</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Animali fantastici*">*Animali fantastici*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Pottermore">Pottermore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il Trono di Spade*">*Il Trono di Spade*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="George R.R. Martin">George R.R. Martin</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Cronache del ghiaccio e del fuoco*">*Cronache del ghiaccio e del fuoco*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="HBO">HBO</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="finale narrativo">finale narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="canone d'autore">canone d'autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="incompiutezza industriale">incompiutezza industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ragioni economiche">ragioni economiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accumulazione cumulativa">accumulazione cumulativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="capitale narrativo">capitale narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma estetica nobile">forma estetica nobile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="realizzazione industriale">realizzazione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="incompiutezza autentica">incompiutezza autentica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="incompiutezza ambivalente">incompiutezza ambivalente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreazione">subcreazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien lettera 131">Tolkien lettera 131</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Milton Waldman">Milton Waldman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1951">1951</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="majestic whole">majestic whole</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cicli collegati">cicli collegati</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="altre menti e mani">altre menti e mani</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelta progettuale">scelta progettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ragione costitutiva">ragione costitutiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness mitopoietica">fitness mitopoietica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="coesistenza delle due ragioni">coesistenza delle due ragioni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="regime misto">regime misto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industria culturale">industria culturale</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p><span class="concept-link" data-tag="Friedrich Schlegel" tabindex="0" role="button">Friedrich Schlegel</span> articola nel <span class="concept-link" data-tag="frammento 116" tabindex="0" role="button">frammento 116</span> dell&#39;<em><span class="concept-link" data-tag="Athenaeum" tabindex="0" role="button">Athenaeum</span></em> del 1798 una formulazione che ha valore di principio costitutivo della <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span>. «La <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> è una <span class="concept-link" data-tag="poesia universale progressiva" tabindex="0" role="button">poesia universale progressiva</span>», scrive <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span>, e con questa definizione articola simultaneamente tre dimensioni del proprio progetto teorico-letterario<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. <em>Universale</em>, perché vuole abbracciare tutti i generi e tutte le forme — la <span class="concept-link" data-tag="poesia" tabindex="0" role="button">poesia</span>, la prosa, la filosofia, la critica, la musica, la pittura — in una <span class="concept-link" data-tag="totalità" tabindex="0" role="button">totalità</span> che sussume le distinzioni di genere precedenti. <em>Progressiva</em>, perché non è forma data una volta per tutte ma è progetto in continuo divenire, sempre in costruzione, sempre incompiuto per principio. <em>Poesia</em>, perché trasforma ogni discorso in <span class="concept-link" data-tag="poesia" tabindex="0" role="button">poesia</span> attraverso il proprio operare — un romanzo, un saggio filosofico, una recensione critica possono tutti essere <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> se il loro operare risponde al principio progressivo. La definizione articola la triade come progetto unitario: la <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> è insieme <span class="concept-link" data-tag="universale" tabindex="0" role="button">universale</span> (in estensione) e <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span> (in temporalità), e l&#39;unione delle due dimensioni produce una forma essenzialmente incompiuta.</p>
+<p>Michele <span class="concept-link" data-tag="Cometa" tabindex="0" role="button">Cometa</span> nel proprio studio <em>L&#39;età classico-romantica</em> del 2009 articola l&#39;incompiutezza romantica come dimensione costitutiva del progetto. «Sappiamo dal <span class="concept-link" data-tag="frammento 116" tabindex="0" role="button">frammento 116</span> dell&#39;<em><span class="concept-link" data-tag="Athenaeum" tabindex="0" role="button">Athenaeum</span></em> che essa è essenzialmente <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span>, vale a dire incompiuta, ed è essenzialmente moderna, vale a dire <span class="concept-link" data-tag="universale" tabindex="0" role="button">universale</span>»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. La progressività non è caratteristica accidentale della <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> ma è proprietà strutturale: la <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> è incompiuta per principio, perché ogni sua articolazione apre nuovi spazi di articolazione che il progetto deve poter continuare a esplorare. L&#39;opera romantica non si chiude; non può chiudersi senza tradire il proprio principio costitutivo. <span class="concept-link" data-tag="Cometa" tabindex="0" role="button">Cometa</span> articola la conseguenza in un passaggio cardinale che riguarda direttamente la categoria del sistema: «la nuova poetica non si fissa […] non si decide per una posizione ma per la posizione di tutte le posizioni possibili. Ed è cogliendo questa molteplicità che si determina la specificità del nuovo: tra essere e divenire non vi è alternativa, ma un divenire che porta in sé sempre l&#39;essere — il che porta inevitabilmente alla <span class="concept-link" data-tag="genealogia" tabindex="0" role="button">genealogia</span> che rintraccia gli essere passati attraverso lo studio del divenire — e un essere che è già sempre divenire»<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>. Il sistema romantico è dunque <span class="concept-link" data-tag="sistema aperto" tabindex="0" role="button">sistema aperto</span> per principio: non è elenco chiuso di posizioni ma è dispositivo che ammette tutte le posizioni possibili come articolazioni del proprio orizzonte, e che si articola progressivamente attraverso il proprio divenire.</p>
+<p>La specificità di questo sistema rispetto ai sistemi filosofici classici è significativa. Il <span class="concept-link" data-tag="sistema classico" tabindex="0" role="button">sistema classico</span> — l&#39;Etica di <span class="concept-link" data-tag="Spinoza" tabindex="0" role="button">Spinoza</span>, la Critica di <span class="concept-link" data-tag="Kant" tabindex="0" role="button">Kant</span>, il Sistema dell&#39;idealismo trascendentale di <span class="concept-link" data-tag="Schelling" tabindex="0" role="button">Schelling</span> — aspira al <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span>: articola le proprie tesi, le argomenta, le compone in <span class="concept-link" data-tag="totalità organica" tabindex="0" role="button">totalità organica</span>, e ritiene di aver detto ciò che andava detto sul proprio oggetto. Il sistema romantico, secondo <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span>, non aspira al <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span> perché lo riconosce come tradimento del proprio principio: ogni <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span> sarebbe chiusura di un orizzonte che il sistema deve mantenere aperto. La <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> si articola dunque attraverso forme che ammettono per principio la propria continuazione — il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span>, la <span class="concept-link" data-tag="rivista" tabindex="0" role="button">rivista</span>, l&#39;<span class="concept-link" data-tag="opera in progress" tabindex="0" role="button">opera in progress</span>, la <span class="concept-link" data-tag="sinfilosofia collettiva" tabindex="0" role="button">sinfilosofia collettiva</span>. <span class="concept-link" data-tag="Cometa" tabindex="0" role="button">Cometa</span> nomina la dimensione operativa: «se è un <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> (di un più grande sistema) è chiaramente segnato dalla finitudine ed è pertanto soggetto all&#39;incompiutezza»<sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>. Il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> non è semplicemente forma breve ma è <span class="concept-link" data-tag="forma costitutivamente incompiuta" tabindex="0" role="button">forma costitutivamente incompiuta</span> — apre uno spazio di articolazione che altri frammenti dovranno percorrere, ed è dunque chiamato dalla propria natura a entrare in dialogo con altri frammenti che lo continueranno o lo riarticoleranno.</p>
+<p>L&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> riconosciuta altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come configurazione del medium contemporaneo condivide strutturalmente la dimensione dell&#39;incompiutezza che <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> articolava per la <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span>. Il <em><span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> Cinematic Universe</em> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> che non si conclude: i film del 2008-2025 articolano un mondo narrativo che ammette per principio nuovi film, nuove serie televisive, nuove articolazioni del proprio <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>; quando arriva al termine di una fase narrativa (la <em>Infinity Saga</em> conclusa con <em><span class="concept-link" data-tag="Avengers" tabindex="0" role="button">Avengers</span>: Endgame</em> nel 2019), apre immediatamente la fase successiva (la <em>Multiverse Saga</em> in corso al momento di scrittura della presente tesi). La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> che non si conclude: dopo <em>Il signore degli anelli</em> del 1954-55, <span class="concept-link" data-tag="Christopher Tolkien" tabindex="0" role="button">Christopher Tolkien</span> pubblica postumi i dodici volumi della <em>History of Middle-earth</em> fra il 1983 e il 1996<sup><a href="#note-6" id="ref-6" class="note-ref">6</a></sup>, articolando la storia del mondo prima e dopo gli eventi del romanzo principale; e dopo il 2022 l&#39;<span class="concept-link" data-tag="Amazon Prime Video" tabindex="0" role="button">Amazon Prime Video</span> articola la <em><span class="concept-link" data-tag="Seconda Era" tabindex="0" role="button">Seconda Era</span></em> in serie televisiva. Il <span class="concept-link" data-tag="Wizarding World" tabindex="0" role="button">Wizarding World</span> di <span class="concept-link" data-tag="J.K. Rowling" tabindex="0" role="button">J.K. Rowling</span> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> che non si conclude: dopo i sette libri originali del 1997-2007, l&#39;autrice articola nuovi materiali (la trilogia di <em>Animali fantastici</em>, il sito <span class="concept-link" data-tag="Pottermore" tabindex="0" role="button">Pottermore</span>, le interviste e le precisazioni canoniche successive) che estendono il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. <em>Il Trono di Spade</em> di <span class="concept-link" data-tag="George R.R. Martin" tabindex="0" role="button">George R.R. Martin</span> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> che non si conclude: i romanzi del ciclo <em>Cronache del ghiaccio e del fuoco</em> non sono ancora compiuti dopo trent&#39;anni di pubblicazione, e la serie televisiva <span class="concept-link" data-tag="HBO" tabindex="0" role="button">HBO</span> ha articolato un <span class="concept-link" data-tag="finale narrativo" tabindex="0" role="button">finale narrativo</span> che l&#39;autore ha pubblicamente dichiarato di non considerare definitivo per il proprio <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span>.</p>
+<p>Le quattro opere-volume citate sono casi specifici di un fenomeno strutturale: l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> non si conclude per principio, e l&#39;incompiutezza è dimensione costitutiva della forma, non accidente delle singole realizzazioni. La struttura formale dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> è strutturalmente analoga alla struttura formale della <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> articolata da <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span>: forma <span class="concept-link" data-tag="universale" tabindex="0" role="button">universale</span> (che ambisce a includere film, serie, libri, videogiochi, <span class="concept-link" data-tag="merchandising" tabindex="0" role="button">merchandising</span>, parchi a tema in una <span class="concept-link" data-tag="totalità" tabindex="0" role="button">totalità</span>), forma <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span> (che si articola progressivamente senza un termine ultimo), forma poetica (che trasforma ogni discorso che la attraversa in articolazione del proprio mondo). Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola questa analogia strutturale come fatto storico-strutturale di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span>: la categoria di <span class="concept-link" data-tag="sistema aperto" tabindex="0" role="button">sistema aperto</span> che <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> articola alla fine del Settecento è categoria che attraversa la cultura europea dal romanticismo al presente, e l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> è realizzazione contemporanea della categoria.</p>
+<p>Il punto teorico cruciale è che la struttura formale analoga sospende una differenza profonda nella <em>ragione</em> dell&#39;incompiutezza. La <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> è incompiuta <em>per principio</em>: l&#39;incompiutezza è <span class="concept-link" data-tag="scelta progettuale" tabindex="0" role="button">scelta progettuale</span> fondata sull&#39;<span class="concept-link" data-tag="apertura ontologica" tabindex="0" role="button">apertura ontologica</span> del sistema che si articola. L&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> è incompiuta <em>per progetto <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span></em>: l&#39;incompiutezza è <span class="concept-link" data-tag="scelta progettuale" tabindex="0" role="button">scelta progettuale</span> fondata sulle <span class="concept-link" data-tag="ragioni economiche" tabindex="0" role="button">ragioni economiche</span> dell&#39;industria mediale, che ha interesse a non chiudere i propri <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> per poter continuare a produrre opere che si legano al <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> e che attivano la <span class="concept-link" data-tag="fidelizzazione del pubblico" tabindex="0" role="button">fidelizzazione del pubblico</span>. Le due ragioni dell&#39;incompiutezza operano in direzioni strutturalmente diverse, anche se producono strutture formali analoghe. La <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span> rinuncia al <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span> per <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> al proprio principio costitutivo di <span class="concept-link" data-tag="apertura ontologica" tabindex="0" role="button">apertura ontologica</span>; l&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> rinuncia al <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span> per <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> alla propria razionalità economica di <span class="concept-link" data-tag="accumulazione cumulativa" tabindex="0" role="button">accumulazione cumulativa</span>.</p>
+<p>La tensione fra le due incompiutezze va nominata apertamente. L&#39;incompiutezza romantica è incompiutezza onesta — riconosce apertamente il proprio carattere ontologico e fa del proprio carattere virtù estetica. L&#39;<span class="concept-link" data-tag="incompiutezza industriale" tabindex="0" role="button">incompiutezza industriale</span> è <span class="concept-link" data-tag="incompiutezza ambivalente" tabindex="0" role="button">incompiutezza ambivalente</span> — si presenta come ricchezza di articolazione del mondo narrativo, ma serve simultaneamente l&#39;interesse economico dell&#39;apparato produttivo che ne governa la realizzazione. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non sostiene che l&#39;<span class="concept-link" data-tag="incompiutezza industriale" tabindex="0" role="button">incompiutezza industriale</span> sia <em>falsa</em> incompiutezza, ma sostiene che la sua origine non è soltanto estetica come quella romantica — è anche economica. La conseguenza è significativa per la critica complessiva del mercato culturale articolata altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>: l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> eredita una <span class="concept-link" data-tag="forma estetica nobile" tabindex="0" role="button">forma estetica nobile</span> (l&#39;incompiutezza romantica), ma la realizza per ragioni che operano in tutt&#39;altro registro (l&#39;accumulazione del <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span>). La struttura formale e la motivazione storica operano in modi che non coincidono, e questa non-coincidenza è caratteristica costitutiva dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>.</p>
+<p>La presente articolazione può ora portare apertamente un punto teorico che la convergenza <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span>-<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> permette di formulare. Esistono casi storici di opere-volume contemporanee in cui l&#39;incompiutezza non è soltanto <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ma è anche autenticamente estetica nel senso romantico — opere in cui la rinuncia al <span class="concept-link" data-tag="compimento" tabindex="0" role="button">compimento</span> è scelta dell&#39;autore-creatore fondata su un principio costitutivo, e non semplicemente strategia <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> di produzione cumulativa. Il caso paradigmatico è <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> e la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span>. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non si conclude per ragione <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> (<span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> morì nel 1973 e non aveva interesse personale a non concluderla); non si conclude per ragione ontologica costitutiva del progetto autoriale. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> articola nella propria <span class="concept-link" data-tag="lettera 131" tabindex="0" role="button">lettera 131</span> a <span class="concept-link" data-tag="Milton Waldman" tabindex="0" role="button">Milton Waldman</span> del 1951 una formulazione che merita di essere ripresa. La sua ambizione era costruire «more or less connected legend, ranging from the large and cosmogonic, to the level of romantic fairy-story», e «the cycles should be linked to a <span class="concept-link" data-tag="majestic whole" tabindex="0" role="button">majestic whole</span>, and yet leave scope for other minds and hands, wielding paint and music and drama»<sup><a href="#note-5" id="ref-5" class="note-ref">5</a></sup>. I cicli devono essere connessi al magnifico tutto, e tuttavia lasciare spazio ad <span class="concept-link" data-tag="altre menti e mani" tabindex="0" role="button">altre menti e mani</span> che impugnino pittura, musica, dramma. La voce di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> articola dunque apertamente l&#39;incompiutezza come <span class="concept-link" data-tag="scelta progettuale" tabindex="0" role="button">scelta progettuale</span> fondata su una <span class="concept-link" data-tag="ragione costitutiva" tabindex="0" role="button">ragione costitutiva</span>: la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> deve essere costruita in modo da rimanere abitabile da altri autori che ne continuino l&#39;articolazione. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> non lascia spazio per opportunismo <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>; lo lascia per <span class="concept-link" data-tag="fedeltà" tabindex="0" role="button">fedeltà</span> alla natura mitopoietica del <span class="concept-link" data-tag="mondo costruito" tabindex="0" role="button">mondo costruito</span>.</p>
+<p>L&#39;incompiutezza tolkieniana è dunque incompiutezza estetica autentica, strutturalmente analoga a quella romantica articolata da <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span>. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> di alta <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> articolata altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come caso paradigmatico del <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span> <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove anche la <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana come categoria che permette di nominare il principio specifico secondo cui <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> costruisce il proprio mondo. La presente soglia articola il punto teorico cardinale: la <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span> tolkieniana è realizzazione contemporanea autentica della <span class="concept-link" data-tag="poesia universale progressiva" tabindex="0" role="button">poesia universale progressiva</span> schlegeliana, e in tal senso <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> è l&#39;autore moderno che articola in modo paradigmatico la categoria romantica nella forma dell&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> mediata dall&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span>. Il fatto che la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> sia stata successivamente assorbita dall&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span> come <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> globale non sospende il fondamento autentico dell&#39;incompiutezza tolkieniana — la sospende solo dal punto di vista delle realizzazioni successive che la <span class="concept-link" data-tag="Warner" tabindex="0" role="button">Warner</span> Bros. e <span class="concept-link" data-tag="Amazon Prime Video" tabindex="0" role="button">Amazon Prime Video</span> hanno articolato, ma il fondamento originario di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> resta come riferimento estetico-strutturale del progetto.</p>
+<p>Resta da nominare un punto teorico ulteriore che il caso <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> permette di portare apertamente. La distinzione fra <span class="concept-link" data-tag="incompiutezza per principio" tabindex="0" role="button">incompiutezza per principio</span> e <span class="concept-link" data-tag="incompiutezza industriale" tabindex="0" role="button">incompiutezza industriale</span> non è dunque distinzione fra epoche storiche (<span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> = principio, contemporaneità = industria) né fra autori (autori puri = principio, autori industriali = industria). È distinzione fra <em>ragioni</em> dell&#39;incompiutezza che possono coesistere o divergere nelle singole opere-volume contemporanee. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> articola una <span class="concept-link" data-tag="incompiutezza per principio" tabindex="0" role="button">incompiutezza per principio</span> in piena epoca <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> e in <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> successivamente industrializzata. Le grandi opere-volume industriali contemporanee — il <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> Cinematic Universe, il <span class="concept-link" data-tag="Wizarding World" tabindex="0" role="button">Wizarding World</span> post-Rowling, la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> post-Jackson — operano in <span class="concept-link" data-tag="regime misto" tabindex="0" role="button">regime misto</span>: ereditano forme estetiche dall&#39;incompiutezza romantica articolata in modo autentico da alcuni autori (<span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> è esempio cardinale), e le realizzano simultaneamente attraverso strategia <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> di <span class="concept-link" data-tag="accumulazione cumulativa" tabindex="0" role="button">accumulazione cumulativa</span>. La specificità dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> è dunque la <span class="concept-link" data-tag="coesistenza delle due ragioni" tabindex="0" role="button">coesistenza delle due ragioni</span> dell&#39;incompiutezza, e la critica del fenomeno deve poter pensare la coesistenza senza ridurre una ragione all&#39;altra. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola questa coesistenza come fatto strutturale del medium contemporaneo, e la presente soglia ha articolato il fondamento storico-strutturale di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> che la rende pensabile.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Schlegel, F. (1798), <em>Athenaeum-Fragmente</em>, frammento 116. Citato nella traduzione italiana di Michele Cometa in <em>Frammenti critici e poetici</em>, Einaudi, Torino 1998 [pagina da verificare sul fisico, sezione del frammento 116]. La voce di Schlegel è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Cometa, M. (2009), <em>L&#39;età classico-romantica</em>, Laterza, Roma-Bari [pagina da verificare sul fisico, sezione sul carattere progressivo e universale della poesia romantica]. La voce di Cometa è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Cometa, M. (2009), <em>L&#39;età classico-romantica</em>, cit. [pagina da verificare sul fisico, sezione sulla nuova poetica come posizione di tutte le posizioni possibili].</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Cometa, M. (2009), <em>L&#39;età classico-romantica</em>, cit. [pagina da verificare sul fisico, sezione sul frammento come finitudine e incompiutezza].</p>
+    <p class="frag-note" id="note-5"><a href="#ref-5" class="frag-note-num">[5]</a> Tolkien, J.R.R. (1981), <em>The Letters of J.R.R. Tolkien</em>, a cura di H. Carpenter, George Allen &amp; Unwin, London, lettera 131 a Milton Waldman (1951) [pagina da verificare sul fisico]. Il passaggio originale: «I had a mind to make a body of more or less connected legend, ranging from the large and cosmogonic, to the level of romantic fairy-story […] The cycles should be linked to a majestic whole, and yet leave scope for other minds and hands, wielding paint and music and drama». La voce di Tolkien è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-6"><a href="#ref-6" class="frag-note-num">[6]</a> Tolkien, C. (a cura di) (1983-1996), <em>The History of Middle-earth</em>, 12 volumi, George Allen &amp; Unwin / HarperCollins, London [riferimento bibliografico complessivo della raccolta postuma; volumi specifici da verificare sul fisico]. La curatela postuma di Christopher Tolkien documenta la costruzione mitopoietica della Terra di Mezzo articolata dal padre.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's4-3';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

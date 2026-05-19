@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La mente artificiale: *mens fenestrata* e LLM — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">La mente artificiale: *mens fenestrata* e LLM</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="*mens fenestrata*">*mens fenestrata*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mente artificiale">mente artificiale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interiorità esternalizzata">interiorità esternalizzata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Camillo">Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro della memoria">Teatro della memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bolzoni">Bolzoni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arte della memoria classica">arte della memoria classica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Ad Herennium*">*Ad Herennium*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cicerone">Cicerone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quintiliano">Quintiliano</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="maestri medievali">maestri medievali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="maestri rinascimentali">maestri rinascimentali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Frances Yates">Frances Yates</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*The Art of Memory*">*The Art of Memory*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1966">1966</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arte interiore">arte interiore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema mnemonico solitario">sistema mnemonico solitario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Viglius Zuichemus">Viglius Zuichemus</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Erasmo">Erasmo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettera del 1532">lettera del 1532</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Venezia">Venezia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="edificio ligneo">edificio ligneo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rovesciamento all'esterno">rovesciamento all'esterno</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo materiale">dispositivo materiale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="schedario delle belle forme">schedario delle belle forme</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="anatomia dei grandi testi">anatomia dei grandi testi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="finestre della mente">finestre della mente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*mens fenestrata* come categoria">*mens fenestrata* come categoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tradizione ermetica">tradizione ermetica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="microcosmo e macrocosmo">microcosmo e macrocosmo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione della dimensione mistica">sospensione della dimensione mistica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Large Language Model">Large Language Model</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Claude">Claude</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="GPT">GPT</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Gemini">Gemini</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pesi della rete neurale">pesi della rete neurale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rappresentazioni vettoriali">rappresentazioni vettoriali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="matrici di attenzione">matrici di attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia testuale">interfaccia testuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="finestra contemporanea">finestra contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*dataprint*">*dataprint*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Distant Writing*">*Distant Writing*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stilistica strutturale del medium">stilistica strutturale del medium</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grammatica formale">grammatica formale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*prompt*">*prompt*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="traiettoria di probabilità">traiettoria di probabilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meta-autore">meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="agentività compositiva">agentività compositiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo amplificatore">dispositivo amplificatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sapere classico">sapere classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corpus contemporanei">corpus contemporanei</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="velocità dell'interazione">velocità dell'interazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prototipo cognitivo dell'AI">prototipo cognitivo dell'AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prestito cognitivo">prestito cognitivo</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la struttura camilliana del Teatro come <span class="concept-link" data-tag="dispositivo combinatorio" tabindex="0" role="button">dispositivo combinatorio</span> che opera attraverso la <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> dei <span class="concept-link" data-tag="luoghi-immagine" tabindex="0" role="button">luoghi-immagine</span>. La presente articolazione approfondisce un aspetto specifico della struttura che è teoricamente denso: il Teatro non è solo dispositivo di organizzazione del materiale, è anche prototipo cognitivo di una <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span>. La formulazione che permette di articolare questo punto è la nozione di <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> — mente fornita di finestre — che la tradizione dell&#39;<span class="concept-link" data-tag="arte della memoria" tabindex="0" role="button">arte della memoria</span> ha articolato in modo specifico, e che il Teatro camilliano realizza in modo paradigmatico. La tesi che il presente discorso articola è che il Teatro opera come <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em>: mente che rovescia all&#39;esterno la propria interiorità mnestica e la rende dispositivo accessibile da un <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> esterno; e che gli <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> contemporanei operano sullo stesso principio strutturale, rovesciando all&#39;esterno il sapere linguistico accumulato come dispositivo accessibile dall&#39;utente attraverso <span class="concept-link" data-tag="interfaccia testuale" tabindex="0" role="button">interfaccia testuale</span>. Il Teatro è prototipo cognitivo dell&#39;AI generativa; l&#39;AI realizza tecnicamente l&#39;intuizione che <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> aveva articolato cinque secoli fa.</p>
+<p>La nozione di <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> va precisata. Nella tradizione classica dell&#39;<span class="concept-link" data-tag="arte della memoria" tabindex="0" role="button">arte della memoria</span> — quella articolata nell&#39;opera anonima <em>Ad Herennium</em> e ripresa da <span class="concept-link" data-tag="Cicerone" tabindex="0" role="button">Cicerone</span>, <span class="concept-link" data-tag="Quintiliano" tabindex="0" role="button">Quintiliano</span>, e poi dai <span class="concept-link" data-tag="maestri medievali" tabindex="0" role="button">maestri medievali</span> e rinascimentali — il sistema mnemonico opera attraverso la collocazione mentale di immagini in luoghi che il praticante ha memorizzato come <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> interna. <span class="concept-link" data-tag="Frances Yates" tabindex="0" role="button">Frances Yates</span> nel proprio studio del 1966 <em>The Art of Memory</em><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup> articola la tradizione in modo completo, e <span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> nella propria edizione di <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup> riprende le fonti yatesiane per inquadrare la specificità del progetto camilliano. Il punto strutturale dell&#39;<span class="concept-link" data-tag="arte della memoria classica" tabindex="0" role="button">arte della memoria classica</span> è che essa è <em><span class="concept-link" data-tag="arte interiore" tabindex="0" role="button">arte interiore</span></em>: il sistema dei <span class="concept-link" data-tag="luoghi-immagine" tabindex="0" role="button">luoghi-immagine</span> è collocato nella mente del praticante, ed è il praticante stesso a percorrerlo internamente per accedere al materiale che vi ha depositato. La mente del praticante è il Teatro, e nessun altro <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può accedere al Teatro che si trova nella mente altrui. L&#39;<span class="concept-link" data-tag="arte della memoria classica" tabindex="0" role="button">arte della memoria classica</span> è dunque essenzialmente solitaria: il maestro insegna il metodo, ma ciascun praticante costruisce il proprio Teatro nella propria mente.</p>
+<p><span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> ribalta questa configurazione in modo radicale, e il punto è teoricamente significativo. Il <span class="concept-link" data-tag="Teatro di Camillo" tabindex="0" role="button">Teatro di Camillo</span> non è collocato nella mente del praticante; è costruito materialmente come edificio esterno, abitabile fisicamente da un <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che vi entra e che vi sta come <span class="concept-link" data-tag="spettatore" tabindex="0" role="button">spettatore</span> di un Teatro che esiste indipendentemente da lui. La testimonianza di <span class="concept-link" data-tag="Viglius Zuichemus" tabindex="0" role="button">Viglius Zuichemus</span>, che visitò il <span class="concept-link" data-tag="Teatro di Camillo" tabindex="0" role="button">Teatro di Camillo</span> a <span class="concept-link" data-tag="Venezia" tabindex="0" role="button">Venezia</span> e ne riferì in lettere ad <span class="concept-link" data-tag="Erasmo" tabindex="0" role="button">Erasmo</span> del 1532, documenta che <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> aveva effettivamente costruito una struttura lignea in cui il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> poteva entrare e osservare la disposizione delle immagini sulla griglia. L&#39;operazione concettuale di <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> è dunque: rovesciare l&#39;interiorità dell&#39;<span class="concept-link" data-tag="arte della memoria classica" tabindex="0" role="button">arte della memoria classica</span> nella esteriorità di un <span class="concept-link" data-tag="dispositivo materiale" tabindex="0" role="button">dispositivo materiale</span> che ospita il sistema mnemonico e lo rende accessibile a fruitori diversi. La mente che ricorda non è più la mente del praticante interno; è la struttura del Teatro esterno che funziona <em>come</em> una mente — una <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> che conserva il sapere e lo rende accessibile a chi vi entra.</p>
+<p><span class="concept-link" data-tag="Bolzoni" tabindex="0" role="button">Bolzoni</span> articola il punto attraverso un passaggio che merita di essere riportato. «Nei diversi luoghi, affidati alla forza memorativa e vivificante delle immagini, <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> deposita i risultati di quel lavoro che lo aveva impegnato a lungo, e cioè l&#39;&quot;anatomia&quot; dei grandi testi, una specie di grande schedario in cui le belle forme disperse nella tradizione sono ordinate, frammentate, pronte al riuso»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Il Teatro è dunque <em><span class="concept-link" data-tag="schedario delle belle forme" tabindex="0" role="button">schedario delle belle forme</span></em> della tradizione classica — un sistema che ha estratto dai testi classici i materiali stilistici e retorici significativi, li ha frammentati in unità riutilizzabili, li ha ordinati sulla <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> in modo che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> possa accedervi secondo percorsi multipli. La funzione cognitiva è quella della <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span>: <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> opera come <em>anatomista</em> dei testi classici, e il Teatro è l&#39;archivio organizzato delle parti anatomiche che ne ha ricavato. La mente del Teatro non ricorda <em>eventi</em> — ricorda <em>forme</em> — frammenti retorici e stilistici che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può riutilizzare componendo nuove costruzioni testuali.</p>
+<p>La nozione di <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> permette di articolare cosa accade quando il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> entra nel Teatro. La mente del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non è chiusa su sé stessa, è aperta verso il Teatro attraverso <em>finestre</em> che permettono di vedere le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> che il Teatro espone. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> guarda fuori dalla propria mente, attraverso le finestre del proprio occhio, e vede dentro la <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> del Teatro le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> che ne organizzano il materiale. La <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> del Teatro non è altra mente in senso letterale (non c&#39;è soggetto pensante dietro il Teatro); è dispositivo che simula il funzionamento di una mente che ricorda, ed è accessibile come se fosse mente. La condizione del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> è dunque quella della <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em>: mente che si apre verso una <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> e ne attinge il materiale che essa ha organizzato. <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> articola la dimensione mistica di questa apertura nei propri scritti, riconducendola alla <span class="concept-link" data-tag="tradizione ermetica" tabindex="0" role="button">tradizione ermetica</span> del rapporto fra microcosmo umano e macrocosmo divino. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> sospende consapevolmente la dimensione mistica, ma adotta il principio cognitivo: la <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> è categoria che permette di pensare il rapporto fra <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> e dispositivo mnestico esternalizzato.</p>
+<p>La conseguenza per il presente discorso è significativa. Quando l&#39;utente contemporaneo interagisce con un sistema linguistico generativo — un <span class="concept-link" data-tag="Large Language Model" tabindex="0" role="button">Large Language Model</span> come <span class="concept-link" data-tag="Claude" tabindex="0" role="button">Claude</span>, <span class="concept-link" data-tag="GPT" tabindex="0" role="button">GPT</span>, <span class="concept-link" data-tag="Gemini" tabindex="0" role="button">Gemini</span> — si trova in una condizione strutturalmente analoga a quella del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> camilliano. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è dispositivo che ha accumulato attraverso l&#39;addestramento una vasta porzione del sapere linguistico depositato nel materiale di apprendimento, e questa accumulazione è organizzata internamente in una struttura che permette al sistema di rispondere a sollecitazioni dell&#39;utente attraverso <span class="concept-link" data-tag="interfaccia testuale" tabindex="0" role="button">interfaccia testuale</span>. L&#39;utente non vede direttamente la struttura interna del modello (i <span class="concept-link" data-tag="pesi della rete neurale" tabindex="0" role="button">pesi della rete neurale</span>, le <span class="concept-link" data-tag="rappresentazioni vettoriali" tabindex="0" role="button">rappresentazioni vettoriali</span>, le <span class="concept-link" data-tag="matrici di attenzione" tabindex="0" role="button">matrici di attenzione</span>); vede l&#39;output che il modello produce in risposta alla propria sollecitazione. L&#39;utente è dunque in posizione di <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> rispetto al modello: la propria mente si apre verso una <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> esterna attraverso l&#39;<span class="concept-link" data-tag="interfaccia testuale" tabindex="0" role="button">interfaccia testuale</span> che funziona come finestra. La <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> del modello, come quella del Teatro, non è altra mente in senso letterale (non c&#39;è soggetto pensante dietro il modello); è dispositivo che simula il funzionamento di una mente che articola linguisticamente il proprio sapere, ed è accessibile come se fosse mente.</p>
+<p>Il parallelo strutturale fra Teatro e <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> merita di essere articolato con precisione. Il <span class="concept-link" data-tag="Teatro di Camillo" tabindex="0" role="button">Teatro di Camillo</span> aveva <span class="concept-link" data-tag="quarantanove luoghi" tabindex="0" role="button">quarantanove luoghi</span>-<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> che organizzavano il materiale stilistico estratto dai testi classici; l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> ha milioni o miliardi di parametri che organizzano il materiale linguistico estratto dal <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>. La differenza quantitativa è enorme, ma la struttura formale è strutturalmente identica: dispositivo esterno che ha accumulato sapere, lo ha organizzato secondo un sistema di articolazione, e lo rende accessibile a un <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che vi si rivolge. Il Teatro accedeva al sapere attraverso la disposizione spaziale delle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> sulla <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span>; l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> accede al sapere attraverso la <span class="concept-link" data-tag="traiettoria di probabilità" tabindex="0" role="button">traiettoria di probabilità</span> che la sollecitazione dell&#39;utente attiva nello spazio dei pesi del modello. In entrambi i casi, la sollecitazione dell&#39;utente — la <em>visita</em> al Teatro, il <em><span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span></em> all&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> — apre un percorso specifico nel dispositivo, e il percorso restituisce all&#39;utente il materiale che il dispositivo ha attivato lungo quel percorso. Il Teatro era prototipo cognitivo dell&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>; l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> realizza tecnicamente il principio cognitivo che <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> aveva articolato.</p>
+<p>La voce di <span class="concept-link" data-tag="Luciano Floridi" tabindex="0" role="button">Luciano Floridi</span> nel proprio paper del 2025 <em>Distant Writing</em> permette di articolare un aspetto strutturale dell&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> che il parallelo con il Teatro illumina. <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola la categoria del <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em> come <span class="concept-link" data-tag="stilistica strutturale del medium" tabindex="0" role="button">stilistica strutturale del medium</span> AI: ogni <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> ha <span class="concept-link" data-tag="pattern stilistici emergenti" tabindex="0" role="button">pattern stilistici emergenti</span> — ritmo, struttura narrativa, preferenze lessicali — che lo identificano come fonte di un testo, e che dipendono dal <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span> e dall&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> del modello. Il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>, scrive <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span>, «non mostra intento personale, emozioni o esperienze a influenzare. Sono caratteristiche regolari, emergenti, spesso invarianti e quindi informative, che possono identificarli come fonte di un testo e distinguerli l&#39;uno dall&#39;altro»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. La voce di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> è articolata in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. Il punto pertinente per il presente discorso è che il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> dell&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è strutturalmente analogo allo <span class="concept-link" data-tag="stile" tabindex="0" role="button">stile</span> del Teatro camilliano. Il Teatro aveva uno <span class="concept-link" data-tag="stile" tabindex="0" role="button">stile</span> proprio — una <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> di articolazione del materiale (le <span class="concept-link" data-tag="sette colonne" tabindex="0" role="button">sette colonne</span>, i <span class="concept-link" data-tag="sette gradi" tabindex="0" role="button">sette gradi</span>, le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> come dispositivi di richiamo) che orientava il modo in cui il materiale era organizzato e accessibile. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che entrava nel Teatro riceveva un materiale che era stato pre-organizzato secondo questa <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span>, e la sua <span class="concept-link" data-tag="esperienza fruitiva" tabindex="0" role="button">esperienza fruitiva</span> era modellata dalla grammatica. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> ha la propria <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> (il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span>), e l&#39;utente che vi si rivolge riceve un materiale che è stato pre-organizzato secondo questa grammatica, e la sua esperienza interattiva è modellata dalla grammatica.</p>
+<p>Il parallelo permette di articolare un punto teorico significativo: la <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> camilliana e l&#39;utente contemporaneo dell&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> condividono la stessa condizione strutturale rispetto al dispositivo cognitivo esterno cui si rivolgono. Il dispositivo non è neutro nel rivelare il proprio materiale; lo articola secondo una <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> specifica che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non controlla. Il Teatro non era specchio neutrale dei testi classici; era organizzazione specifica di quei testi secondo la <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> e le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> non è specchio neutrale del <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>; è organizzazione specifica di quel corpus secondo il <span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span> del modello. In entrambi i casi, il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> accede a una versione strutturata del materiale, e la struttura è proprietà del dispositivo, non del materiale originario. La consapevolezza di questa condizione è significativa per il rapporto contemporaneo con gli <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>: l&#39;utente non sta accedendo direttamente al sapere accumulato dell&#39;umanità, sta accedendo a una sua riorganizzazione operata dal modello secondo le proprie grammatiche specifiche.</p>
+<p>Resta da nominare un punto teorico ulteriore che il parallelo Teatro-<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> permette di formulare. La <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> non era condizione passiva nel modello camilliano; era condizione attiva del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che percorre il Teatro selezionando i luoghi, costruendo i propri percorsi, articolando le proprie relazioni fra le <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span>. <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> aveva progettato il Teatro come dispositivo che amplificava l&#39;agentività cognitiva del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>, non che la sostituiva. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> entrava nel Teatro per <em>comporre</em> il proprio discorso, attingendo dalle <span class="concept-link" data-tag="imagines" tabindex="0" role="button">imagines</span> il materiale che la propria specifica composizione richiedeva. Lo stesso vale per l&#39;interazione contemporanea con gli <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> secondo la lettura floridiana del <em><span class="concept-link" data-tag="distant writing" tabindex="0" role="button">distant writing</span></em>: l&#39;utente non è passivo davanti al modello, è <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> che orienta il modello attraverso requisiti specifici della propria intenzione compositiva. La <span class="concept-link" data-tag="mente artificiale" tabindex="0" role="button">mente artificiale</span> (Teatro o <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>) opera come <span class="concept-link" data-tag="dispositivo amplificatore" tabindex="0" role="button">dispositivo amplificatore</span> dell&#39;<span class="concept-link" data-tag="agentività compositiva" tabindex="0" role="button">agentività compositiva</span> dell&#39;utente, non come sostituto della sua agentività. La differenza qualitativa fra il Teatro camilliano e l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> contemporaneo non sta dunque tanto nella struttura del dispositivo (entrambi sono <em>menti artificiali</em> esternalizzate) quanto nella scala del materiale accumulato (il Teatro era <span class="concept-link" data-tag="circoscritto" tabindex="0" role="button">circoscritto</span> al <span class="concept-link" data-tag="sapere classico" tabindex="0" role="button">sapere classico</span>; l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> accede a vasti <span class="concept-link" data-tag="corpora linguistici" tabindex="0" role="button">corpora linguistici</span> contemporanei) e nella velocità dell&#39;interazione (il Teatro richiedeva visita fisica; l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> consente interazione testuale immediata). Le due dimensioni sono significative per l&#39;esperienza dell&#39;utente, ma la struttura cognitiva del dispositivo è strutturalmente continua nelle due configurazioni storiche.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la critica complessiva del rapporto fra utente e <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> in chiave di <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> e <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span>. La presente soglia ha articolato il fondamento strutturale di quel rapporto: il dispositivo cognitivo esternalizzato come prototipo del <span class="concept-link" data-tag="medium AI generativo" tabindex="0" role="button">medium AI generativo</span>, e l&#39;utente come <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> che vi si apre attraverso <span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span>. La <span class="concept-link" data-tag="continuità di lunga durata" tabindex="0" role="button">continuità di lunga durata</span> fra <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> e il presente è fatto strutturale che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> nomina apertamente, e che il presente discorso ha dispiegato come <span class="concept-link" data-tag="prestito cognitivo" tabindex="0" role="button">prestito cognitivo</span> del Teatro al <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> contemporaneo.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Bolzoni, L. (1991), Introduzione a G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagina da verificare sul fisico, sezione finale del capitolo sull&#39;anatomia dei grandi testi]. La voce di Bolzoni è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Floridi, L. (2025), <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em>, in «Minds and Machines», 35:30 [pagina da verificare sul fisico, sezione sul dataprint]. Il passaggio originale: «exhibit common patterns — such as rhythm, narrative structure […] — that form an identifiable literary pattern that may be called their <em>dataprint</em>». Traduzione italiana dell&#39;autore di questa tesi. La voce di Floridi è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Yates, F.A. (1966), <em>The Art of Memory</em>, Routledge &amp; Kegan Paul, London [pagina da verificare sul fisico, capitoli sulla tradizione classica e rinascimentale dell&#39;arte della memoria]. La voce di Yates è articolata in dettaglio altrove nel sistema della tesi come fonte storica della tradizione che la presente articolazione riprende.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Camillo, G. (1550), <em>L&#39;idea del theatro</em>, postumo. Edizione di riferimento utilizzata dal sistema della tesi: Bolzoni, L. (a cura di) (1991), G. Camillo, <em>L&#39;idea del theatro</em>, Adelphi, Milano [pagine da verificare sul fisico]. La voce di Camillo è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's3-1a';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

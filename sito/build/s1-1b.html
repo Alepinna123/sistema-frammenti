@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isotropia narrativa e topologia reale: la tensione costitutiva del meta-autore — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Isotropia narrativa e topologia reale: la tensione costitutiva del meta-autore</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="isotropia narrativa">isotropia narrativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="spazio narrativo come marmo">spazio narrativo come marmo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Distant Writing*">*Distant Writing*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scrittura distante">scrittura distante</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualsiasi direzione coerente">qualsiasi direzione coerente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="spazio illimitato di possibilità">spazio illimitato di possibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Manovich">Manovich</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma/sintagma">paradigma/sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintagma come direzione">sintagma come direzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma scale-free">paradigma scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*power-law*">*power-law*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási-Albert">Barabási-Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment">preferential attachment</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness model">fitness model</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodi-hub e nodi-foglia">nodi-hub e nodi-foglia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-freeness emergente">scale-freeness emergente</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="anisotropia pratica">anisotropia pratica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tensione costitutiva del meta-autore">tensione costitutiva del meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="libertà teorica e responsabilità reale">libertà teorica e responsabilità reale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="C-creativity">C-creativity</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="novità combinatoria">novità combinatoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*winner-takes-all* nel mercato dei franchise">*winner-takes-all* nel mercato dei franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato culturale">concentrazione del mercato culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pratica matura del *wrAIting*">pratica matura del *wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="democratizzazione dello strumento">democratizzazione dello strumento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="MCU">MCU</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wizarding World">Wizarding World</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>In <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em> del 2025, <span class="concept-link" data-tag="Luciano Floridi" tabindex="0" role="button">Luciano Floridi</span> propone una formulazione che ha il valore di un teorema. «La <span class="concept-link" data-tag="scrittura distante" tabindex="0" role="button">scrittura distante</span> introduce considerazioni teoriche nuove, come ciò che si potrebbe chiamare l&#39;<em>isotropia dello spazio narrativo</em>: il principio che qualsiasi dominio narrativo è ugualmente lavorabile in ogni direzione, purché la coerenza sia mantenuta»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La formulazione si articola in due termini che meritano di essere precisati prima di essere messi in tensione. <em>Isotropia</em> è termine fisico-matematico che indica una proprietà di uno spazio in cui tutte le direzioni sono equivalenti — non c&#39;è una direzione preferita rispetto alle altre, lo spazio si comporta nello stesso modo in qualunque punto e in qualunque orientamento. <em>Spazio narrativo</em> è il dominio delle possibilità che una determinata costellazione di personaggi, ambienti, eventi e regole apre alla narrazione: tutto ciò che potrebbe essere narrato dato un certo <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> di partenza. La tesi di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> è che quando il <em>wrAIting</em> opera attraverso un sistema linguistico generativo capace di mantenere la coerenza interna del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, lo spazio narrativo si comporta come isotropo — tutte le direzioni di sviluppo sono ugualmente lavorabili, nessuna direzione è privilegiata strutturalmente rispetto alle altre.</p>
+<p><span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola la portata operativa del principio attraverso un&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> che funziona come allegoria. «Per contrasto, la <span class="concept-link" data-tag="scrittura distante" tabindex="0" role="button">scrittura distante</span> mostra che lo spazio narrativo può essere modellato in qualsiasi direzione desiderata, in modo simile a come il marmo può essere scolpito liberamente, purché la coerenza sia mantenuta»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. La metafora del marmo è precisa nel senso che richiede di essere precisata. Il marmo come materiale grezzo non ha forma intrinseca: ammette qualsiasi forma che lo scultore voglia ricavarne, vincolata solo dalla resistenza del materiale stesso e dalla coerenza interna delle scelte successive (una colonna scolpita troppo sottile crollerà; un volto scolpito senza rispettare le proporzioni anatomiche risulterà inverosimile). Lo spazio narrativo del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> considerato attraverso il <em>wrAIting</em> ha la stessa proprietà secondo <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span>: ammette qualsiasi articolazione coerente, e la coerenza è il vincolo unico che separa le narrazioni possibili da quelle impossibili. <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> formula la conseguenza implicita: «Questa isotropia ha <span class="concept-link" data-tag="implicazioni" tabindex="0" role="button">implicazioni</span> profonde per la creazione letteraria. Suggerisce che qualsiasi storia è solo una possibile realizzazione di uno <span class="concept-link" data-tag="spazio illimitato di possibilità" tabindex="0" role="button">spazio illimitato di possibilità</span> narrative»<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>. Lo spazio delle possibilità è illimitato (<em>boundless</em> nel termine di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span>), e la singola storia non è il suo punto di arrivo necessario ma solo una sua attuazione contingente.</p>
+<p>L&#39;isotropia floridiana è elaborazione di un punto che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha già articolato altrove attraverso la voce di <span class="concept-link" data-tag="Manovich" tabindex="0" role="button">Manovich</span><sup><a href="#note-5" id="ref-5" class="note-ref">5</a></sup>. L&#39;<span class="concept-link" data-tag="inversione paradigma/sintagma" tabindex="0" role="button">inversione paradigma/sintagma</span> sostiene che il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> (il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>) esiste materialmente mentre la narrativa (il <span class="concept-link" data-tag="sintagma" tabindex="0" role="button">sintagma</span>) è virtuale: il <span class="concept-link" data-tag="sintagma" tabindex="0" role="button">sintagma</span> esiste come <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> possibile attraverso il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, e ogni storia è una delle traiettorie attuabili. <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola lo stesso punto attraverso una nuova categoria — l&#39;isotropia — che precisa la dimensione operativa: le traiettorie possibili attraverso il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> non sono finite o gerarchizzate per natura, sono virtualmente infinite e ugualmente percorribili purché la coerenza interna sia mantenuta. Il <em>wrAIting</em> è la pratica che rende operativa questa isotropia teorica: il sistema linguistico generativo, sotto i requisiti del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>, può produrre qualsiasi <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> narrativa coerente attraverso il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, e l&#39;autore non è più vincolato alla <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> che la propria capacità esecutiva direttamente saprebbe percorrere. La libertà che <span class="concept-link" data-tag="Manovich" tabindex="0" role="button">Manovich</span> attribuisce al <span class="concept-link" data-tag="sintagma come direzione" tabindex="0" role="button">sintagma come direzione</span> virtuale attraverso il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> trova nel <em>wrAIting</em> di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> la propria attuazione tecnica.</p>
+<p>Il presente discorso può ora articolare un punto critico che la formulazione di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> presenta con cautela ma che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> deve sviluppare apertamente. L&#39;isotropia dello spazio narrativo è proprietà <em>teorica</em> del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> considerato in astratto, ma il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> del mondo reale non è mai astratto — è sempre concreto, e nella sua concretezza è quasi sempre <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>. La distribuzione <em><span class="concept-link" data-tag="power-law" tabindex="0" role="button">power-law</span></em> che <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span>-László <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> e Réka <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span> hanno individuato come configurazione tipica delle reti complesse del mondo reale<sup><a href="#note-6" id="ref-6" class="note-ref">6</a></sup> opera anche nei paradigmi narrativi: pochi nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> accumulano la maggior parte delle connessioni, molti nodi-foglia ne hanno pochissime. Nel <em><span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> Cinematic Universe</em>, <span class="concept-link" data-tag="Iron Man" tabindex="0" role="button">Iron Man</span> è <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> di connessioni narrative molto più di quanto non lo sia un personaggio secondario di un singolo film; nei <em><span class="concept-link" data-tag="Wizarding World" tabindex="0" role="button">Wizarding World</span></em> di <span class="concept-link" data-tag="J.K. Rowling" tabindex="0" role="button">J.K. Rowling</span>, Harry è <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> molto più di Justin Finch-Fletchley; nella <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> di <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span><sup><a href="#note-7" id="ref-7" class="note-ref">7</a></sup>, Frodo e Aragorn sono <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> molto più di personaggi minori. Il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> è <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>, e questa scale-freeness modifica la situazione delle direzioni narrative possibili.</p>
+<p>In un <span class="concept-link" data-tag="paradigma scale-free" tabindex="0" role="button">paradigma scale-free</span> le direzioni narrative non sono tutte ugualmente percorribili nella pratica, anche se sono tutte ugualmente coerenti nella teoria. Una storia che approfondisce un <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> (un nuovo film su <span class="concept-link" data-tag="Iron Man" tabindex="0" role="button">Iron Man</span>) può attivare connessioni narrative ricche con tutte le altre regioni del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, perché il <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> è già densamente connesso al resto. Una storia che approfondisce un nodo-foglia (un nuovo film su un personaggio secondario senza precedenti narrativi) deve costruire le proprie connessioni con il resto del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> da zero, e le connessioni che riesce a costruire sono in numero inferiore e di minore densità rispetto a quelle di una storia centrata su un <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span>. Lo spazio narrativo è dunque <em>isotropo</em> come configurazione di possibilità coerenti, ma è <em>anisotropo</em> come configurazione di possibilità effettivamente percorribili nella pratica. La tensione tra le due dimensioni non è errore della teoria di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> — è caratteristica costitutiva del lavoro del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> nei paradigmi del mondo reale.</p>
+<p>Il punto è che l&#39;<span class="concept-link" data-tag="anisotropia pratica" tabindex="0" role="button">anisotropia pratica</span> del <span class="concept-link" data-tag="paradigma scale-free" tabindex="0" role="button">paradigma scale-free</span> non è data una volta per tutte: è prodotta dall&#39;attività del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> stesso. Quando il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> costruisce un <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> narrativo, opera sotto due dimensioni simultaneamente. Sul piano dell&#39;isotropia teorica, ammette tutte le direzioni narrative possibili come ugualmente legittime, costruisce il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> in modo da non chiudere preventivamente nessuna direzione. Sul piano della topologia reale, le proprie scelte costruttive — quali personaggi vengono articolati in dettaglio, quali eventi vengono raccontati con maggiore peso narrativo, quali connessioni vengono esplicitate, quali ambienti vengono caratterizzati — producono una distribuzione di pesi narrativi che configura il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> come <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>. I nodi che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> approfondisce diventano <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span>; i nodi che il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> lascia abbozzati restano foglie. La scale-freeness non è imposta dall&#39;esterno al <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> — è il modo in cui il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> si forma effettivamente attraverso la pratica costruttiva del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>. La differenza rispetto al modello classico di <span class="concept-link" data-tag="Barabási-Albert" tabindex="0" role="button">Barabási-Albert</span> va dichiarata apertamente: nel modello base i nodi più connessi crescono semplicemente perché sono più connessi (il <em><span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span></em> è meccanismo statistico cumulativo), mentre nei paradigmi narrativi i nodi più connessi crescono perché il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> <em>sceglie</em> di approfondirli — la <span class="concept-link" data-tag="scale-freeness emergente" tabindex="0" role="button">scale-freeness emergente</span> conserva la forma statistica della <span class="concept-link" data-tag="power-law" tabindex="0" role="button">power-law</span> ma sostituisce il meccanismo cumulativo automatico con il meccanismo autoriale intenzionale. È variante del modello classico che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> può precisare attraverso la voce complementare di Bianconi e <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span>, che hanno articolato un modello di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> in cui la crescita dei nodi è funzione del prodotto fra il numero di connessioni esistenti e un parametro di <em><span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span></em> intrinseca del nodo<sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>. Nei paradigmi narrativi la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> assegnata dal <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> al singolo nodo opera come parametro che governa l&#39;amplificazione cumulativa della scale-freeness.</p>
+<p>La conseguenza è teoricamente densa. Il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> opera in una tensione costitutiva tra isotropia e anisotropia che non è risolvibile né eliminabile. Da un lato, quanto più il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> è isotropo nella propria struttura formale, tanto più il <em>wrAIting</em> può sfruttare la <span class="concept-link" data-tag="C-creativity" tabindex="0" role="button">C-creativity</span> <span class="concept-link" data-tag="combinatoria" tabindex="0" role="button">combinatoria</span> di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> per esplorare lo spazio illimitato delle possibilità narrative coerenti. Dall&#39;altro lato, quanto più il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> diventa concreto attraverso le scelte costruttive del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span>, tanto più diventa anisotropo nella pratica — i nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> si formano per accumulazione di connessioni narrative, e le direzioni narrative future sono pratiche di sviluppo dei nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> piuttosto che esplorazione equilibrata di tutto lo spazio. Il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> matura attraverso una <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span> specificazione che è simultaneamente arricchimento e gerarchizzazione. La libertà del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> di esplorare l&#39;isotropia teorica e la <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span> di mantenere la coerenza dell&#39;anisotropia reale operano insieme, e la pratica autoriale matura consiste precisamente nel saperle tenere insieme senza ridurre l&#39;una all&#39;altra.</p>
+<p>Si può articolare ora la portata critica della tensione per la pratica del <em>wrAIting</em>. La <span class="concept-link" data-tag="C-creativity" tabindex="0" role="button">C-creativity</span> di <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> — la <span class="concept-link" data-tag="novità combinatoria" tabindex="0" role="button">novità combinatoria</span> che emerge dall&#39;esplorazione sistematica delle connessioni possibili nello spazio narrativo coerente — opera in modo specifico nei paradigmi <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>. Le connessioni più ricche di possibilità combinatorie sono quelle che attraversano gli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span>, perché gli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> sono già densamente connessi al resto del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> e nuove connessioni che li attraversano amplificano la <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> delle possibilità. Le connessioni che attraversano <span class="concept-link" data-tag="nodi periferici" tabindex="0" role="button">nodi periferici</span> producono <span class="concept-link" data-tag="novità combinatoria" tabindex="0" role="button">novità combinatoria</span> più limitata, perché i <span class="concept-link" data-tag="nodi periferici" tabindex="0" role="button">nodi periferici</span> sono meno connessi e nuove connessioni che li attraversano non amplificano la <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> in modo significativo. La <span class="concept-link" data-tag="C-creativity" tabindex="0" role="button">C-creativity</span>, nei paradigmi <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>, ha dunque una direzione preferita anche se l&#39;isotropia teorica suggerirebbe l&#39;equivalenza di tutte le direzioni. La pratica matura del <em>wrAIting</em> riconosce questa direzione preferita e la utilizza strategicamente: il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> lavora prevalentemente sugli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> quando vuole produrre amplificazione del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>, lavora prevalentemente sulle foglie quando vuole bilanciare la distribuzione e introdurre nuovi <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> potenziali nel sistema.</p>
+<p>Resta da nominare la conseguenza che la tensione isotropia/anisotropia ha per il rapporto tra il <em>wrAIting</em> e l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, e questa conseguenza opera su due livelli che vanno tenuti distinti. Sul livello della pratica scrittoria, la tensione è interna al lavoro autoriale del <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> singolo: il <em>wrAIting</em> deve negoziare continuamente tra apertura dell&#39;isotropia teorica e gerarchia dell&#39;anisotropia che la propria pratica produce. Sul livello macroculturale, la tensione si rispecchia nella configurazione del mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>: l&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> del nostro tempo — riconosciuta altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come <span class="concept-link" data-tag="configurazione industriale" tabindex="0" role="button">configurazione industriale</span> specifica — opera in regime di <span class="concept-link" data-tag="power-law" tabindex="0" role="button">power-law</span> non solo nella propria struttura interna ma anche nella propria diffusione culturale. Il fenomeno <em><span class="concept-link" data-tag="winner-takes-all" tabindex="0" role="button">winner-takes-all</span></em> che caratterizza il mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei (pochi paradigmi che accumulano la maggior parte dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> culturale, molti paradigmi che restano marginali) è la versione di mercato della scale-freeness narrativa. I due livelli — pratica autoriale interna e configurazione macroculturale — operano simultaneamente, e la tensione che il <em>wrAIting</em> incontra come tensione costitutiva del proprio lavoro ricompare al livello superiore come tensione tra l&#39;apertura teorica del <span class="concept-link" data-tag="medium AI generativo" tabindex="0" role="button">medium AI generativo</span> e la concentrazione effettiva del mercato culturale.</p>
+<p>L&#39;apertura teorica del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> è dichiarata: chiunque può accedere ai sistemi linguistici generativi e produrre <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> secondo la logica dei <em>requirements</em>. Lo strumento è diffuso, l&#39;accesso è alla portata. Ma la concentrazione effettiva del mercato culturale è strutturalmente diversa dall&#39;apertura teorica dello strumento: pochi attori istituzionali — gli studios, le piattaforme <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span>, le case editrici dei grandi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> — producono i paradigmi che riescono a diventare <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> collettiva, e questi attori dispongono di risorse autoriali, tecniche, distributive e di marketing che gli utenti individuali del <em>wrAIting</em> non hanno. La libertà teorica del medium e la concentrazione reale del mercato operano simultaneamente, e l&#39;apertura dello strumento non si traduce automaticamente in apertura del mercato. La critica contemporanea dell&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> mediata da AI deve poter pensare entrambe le dimensioni senza ridurre l&#39;una all&#39;altra: il <em>wrAIting</em> è <span class="concept-link" data-tag="democratizzazione dello strumento" tabindex="0" role="button">democratizzazione dello strumento</span>, ma non è democratizzazione automatica del mercato culturale che lo strumento serve.</p>
+<p>Il punto strutturale che la presente articolazione vuole rendere visibile è dunque il seguente. L&#39;isotropia dello spazio narrativo che <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span> articola come principio teorico del <em>wrAIting</em> è proprietà che opera in tensione con la topologia reale dei paradigmi narrativi del mondo reale, che sono quasi sempre <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span>. Lo spazio è isotropo come configurazione di possibilità coerenti e anisotropo come configurazione di possibilità effettivamente percorribili. Il <span class="concept-link" data-tag="meta-autore" tabindex="0" role="button">meta-autore</span> opera in questa tensione in modo costitutivo: la sua libertà di esplorare lo spazio illimitato delle possibilità narrative coerenti è simultanea alla sua responsabilità di costruire un <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> la cui <span class="concept-link" data-tag="scale-freeness emergente" tabindex="0" role="button">scale-freeness emergente</span> sarà essa stessa esito delle proprie scelte costruttive. Il <em>wrAIting</em> maturo come pratica scrittoria è quello che riconosce questa tensione, la abita consapevolmente, e fa della propria attività autoriale un dialogo continuo tra le due dimensioni — esplorazione dell&#39;isotropia teorica nella generazione di nuove possibilità, manutenzione dell&#39;anisotropia reale nella cura della coerenza interna del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> maturo.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Floridi, L. (2025), <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em>, in «Minds and Machines», 35:30, p. 4. Il passaggio originale: «distant writing also introduces novel theoretical considerations, like what one might term the &quot;isotropy of the narrative space&quot;: the principle that any narrative domain is equally workable in any direction, provided coherence is maintained». Traduzione italiana dell&#39;autore di questa tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Floridi, L. (2025), <em>Distant Writing</em>, cit., p. 9. Il passaggio originale: «By contrast, distant writing shows that narrative space can be shaped in any direction desired, similar to how marble can be sculpted freely, provided coherence is maintained». Traduzione italiana dell&#39;autore di questa tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Floridi, L. (2025), <em>Distant Writing</em>, cit. [pagina da verificare sul fisico]. Il passaggio originale: «This isotropy has profound implications for literary creation. It suggests that any story is only one possible realisation of a boundless space of narrative possibilities». Traduzione italiana dell&#39;autore di questa tesi.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Bianconi, G., Barabási, A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442 [pagina da verificare sul fisico, sezione sul modello con fitness]. Il modello Bianconi-Barabási estende il modello classico di crescita scale-free di Barabási-Albert introducendo un parametro di <em>fitness</em> intrinseca del nodo che modula il <em>preferential attachment</em>. La probabilità che un nuovo nodo si connetta a un nodo esistente è proporzionale al prodotto del numero di connessioni esistenti del nodo e della sua fitness. La voce è articolata in dettaglio altrove nel sistema della tesi, in relazione all&#39;analisi della topologia dei percorsi nelle piattaforme SVOD.</p>
+    <p class="frag-note" id="note-5"><a href="#ref-5" class="frag-note-num">[5]</a> Manovich, L. (2001), <em>The Language of New Media</em>, MIT Press, Cambridge MA [pagina da verificare sul fisico, capitolo 5 «The Forms», sezione «Database and Narrative»]. La voce di Manovich sulla coppia paradigma/sintagma è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-6"><a href="#ref-6" class="frag-note-num">[6]</a> Barabási, A.-L., Albert, R. (1999), <em>Emergence of Scaling in Random Networks</em>, in «Science», 286(5439), pp. 509-512 [pagina da verificare sul fisico]. La voce di Barabási-Albert è articolata in dettaglio altrove nel sistema della tesi nelle regioni dedicate al preferential attachment.</p>
+    <p class="frag-note" id="note-7"><a href="#ref-7" class="frag-note-num">[7]</a> Tolkien, J.R.R. (1954-55), <em>The Lord of the Rings</em>, 3 voll., George Allen &amp; Unwin, London. Trad. it.: <em>Il Signore degli Anelli</em>, Bompiani, Milano [pagine da verificare sul fisico]. La voce di Tolkien è articolata in dettaglio altrove nel sistema della tesi, nella regione dedicata alla subcreazione.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's1-1b';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frammento-pozzo e frammento-soglia: i neologismi della tesi — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Frammento-pozzo e frammento-soglia: i neologismi della tesi</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Schlegel">Schlegel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Athenaeum*">*Athenaeum*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cometa">Cometa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*L'età classico-romantica*">*L'età classico-romantica*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2009">2009</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="elemento più semplice di un sistema aperto">elemento più semplice di un sistema aperto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piccolo cosmo">piccolo cosmo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema aperto">sistema aperto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sinfilosofia">sinfilosofia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="romantici di Jena">romantici di Jena</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Novalis">Novalis</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Schleiermacher">Schleiermacher</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Schlegel">Schlegel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione dell'elemento minimo">sospensione dell'elemento minimo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Dawkins">Dawkins</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="memetica">memetica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1976">1976</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fisica degli atomi">fisica degli atomi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento come unità relativa di senso">frammento come unità relativa di senso</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento-pozzo">frammento-pozzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="neologismo">neologismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pozzo come metafora">pozzo come metafora</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="verticalità">verticalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodo-hub">nodo-hub</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pozzi">sette pozzi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="teatro della memoria">teatro della memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="organismo">organismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="AI come medium">AI come medium</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreazione">subcreazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento-soglia">frammento-soglia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="neologismo">neologismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="soglia come metafora">soglia come metafora</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="orizzontalità">orizzontalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ponte di passaggio">ponte di passaggio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arco del grafo">arco del grafo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="livelli diversi di scala">livelli diversi di scala</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="network science">network science</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grafo del sistema">grafo del sistema</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="topologia scale-free">topologia scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási-Albert">Barabási-Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello con fitness">modello con fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità del pozzo">profondità del pozzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="specificità della soglia">specificità della soglia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness dei frammenti">fitness dei frammenti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettura per pozzi">lettura per pozzi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettura per soglie">lettura per soglie</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grammatica operativa">grammatica operativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="articolazione metalinguistica">articolazione metalinguistica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="carattere relazionale">carattere relazionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="carattere profondo">carattere profondo</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la propria <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> attraverso la categoria del <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span>, ereditata da <span class="concept-link" data-tag="Friedrich Schlegel" tabindex="0" role="button">Friedrich Schlegel</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup> e ripresa dai <span class="concept-link" data-tag="romantici di Jena" tabindex="0" role="button">romantici di Jena</span> come unità elementare dell&#39;opera filosofica e letteraria. Il presente discorso nomina apertamente la propria terminologia operativa, articolando due neologismi specifici che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta come categorie proprie: <em><span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span></em> e <em><span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span></em>. Entrambi i termini ereditano dal <span class="concept-link" data-tag="frammento schlegeliano" tabindex="0" role="button">frammento schlegeliano</span> la disponibilità per le connessioni multiple e la rinuncia all&#39;<span class="concept-link" data-tag="autorialità individuale" tabindex="0" role="button">autorialità individuale</span>; entrambi sospendono la qualità di elemento minimo irriducibile che <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> attribuiva al <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span>; entrambi sono articolati specificamente in funzione della struttura <span class="concept-link" data-tag="combinatoria" tabindex="0" role="button">combinatoria</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta come <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> propria. Il <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> di livello superiore — articolazione in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> di una regione concettuale del sistema. Il <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> è <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> di livello secondario — ponte di connessione fra frammenti-pozzo che articola le relazioni di passaggio fra le regioni concettuali.</p>
+<p>La nozione schlegeliana di <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> va richiamata brevemente come fondamento dei due neologismi. Michele <span class="concept-link" data-tag="Cometa" tabindex="0" role="button">Cometa</span> articola la categoria nel proprio studio del 2009 <em>L&#39;età classico-romantica</em>: «il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> è invece per <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> l&#39;<span class="concept-link" data-tag="elemento più semplice di un sistema aperto" tabindex="0" role="button">elemento più semplice di un sistema aperto</span>, un <span class="concept-link" data-tag="piccolo cosmo" tabindex="0" role="button">piccolo cosmo</span> che non aspira mai a divenire <span class="concept-link" data-tag="totalità" tabindex="0" role="button">totalità</span>»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Il <span class="concept-link" data-tag="frammento schlegeliano" tabindex="0" role="button">frammento schlegeliano</span> ha tre proprietà strutturali: è <em>unità di senso autonoma</em> (può essere letto in autonomia senza dipendere da altri frammenti per la propria comprensibilità); è <em>elemento di <span class="concept-link" data-tag="sistema aperto" tabindex="0" role="button">sistema aperto</span></em> (entra in relazione con altri frammenti producendo nuove configurazioni di senso); è <em><span class="concept-link" data-tag="piccolo cosmo" tabindex="0" role="button">piccolo cosmo</span></em> (ha al proprio interno una struttura organica che lo rende mondo a sé). La tradizione romantica articolata da <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> e dai sodali dell&#39;<em><span class="concept-link" data-tag="Athenaeum" tabindex="0" role="button">Athenaeum</span></em> — <span class="concept-link" data-tag="Novalis" tabindex="0" role="button">Novalis</span>, <span class="concept-link" data-tag="Schleiermacher" tabindex="0" role="button">Schleiermacher</span>, gli <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> — ha utilizzato il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> come forma privilegiata del proprio lavoro filosofico e letterario, e <span class="concept-link" data-tag="Cometa" tabindex="0" role="button">Cometa</span> documenta in dettaglio la struttura della <em><span class="concept-link" data-tag="sinfilosofia" tabindex="0" role="button">sinfilosofia</span></em> romantica come pratica di <span class="concept-link" data-tag="scrittura collettiva di frammenti" tabindex="0" role="button">scrittura collettiva di frammenti</span> destinati a comporre il sistema.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta tre proprietà del <span class="concept-link" data-tag="frammento schlegeliano" tabindex="0" role="button">frammento schlegeliano</span> e ne sospende una. Adotta l&#39;autonomia del <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> (ciascuna unità del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è leggibile in autonomia), l&#39;apertura del sistema (le unità entrano in relazione fra loro producendo configurazioni multiple), la struttura del <span class="concept-link" data-tag="piccolo cosmo" tabindex="0" role="button">piccolo cosmo</span> (ciascuna unità ha al proprio interno coerenza organica). Sospende invece la qualità di elemento minimo irriducibile che <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> attribuiva al <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span>. Il motivo della sospensione è strutturale: la <span class="concept-link" data-tag="memetica" tabindex="0" role="button">memetica</span> articolata da <span class="concept-link" data-tag="Dawkins" tabindex="0" role="button">Dawkins</span> nel 1976<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup> e la <span class="concept-link" data-tag="fisica degli atomi" tabindex="0" role="button">fisica degli atomi</span> degli ultimi due secoli hanno mostrato che ogni elemento ammette ulteriori scomposizioni — non esiste in linea di principio un elemento minimo che chiuda definitivamente la scomposizione. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> opera dunque con una nozione di <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> che è relativa al livello di articolazione adottato: nelle proprie articolazioni, il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> è unità di senso minimale; ma riconosce apertamente che ciascuna unità può essere ulteriormente scomposta in sotto-unità a un livello di articolazione più fine.</p>
+<p>La distinzione fra <em><span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span></em> e <em><span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span></em> opera dunque dentro questa nozione di <span class="concept-link" data-tag="frammento come unità relativa di senso" tabindex="0" role="button">frammento come unità relativa di senso</span>. I due termini sono articolati per scala e per funzione. La scala riguarda l&#39;estensione del materiale che ciascun tipo di <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> articola: il <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è di estensione maggiore (<del>5.000-8.000 parole nella realizzazione tipica del sistema), il <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> è di estensione minore (</del>2.000-4.000 parole). La funzione riguarda il ruolo che ciascun tipo svolge nella <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> del sistema: il <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> articola in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> una regione concettuale specifica del sistema, il <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> articola il passaggio fra regioni concettuali diverse. Le due dimensioni operano insieme: il <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è più esteso perché articola in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> una sola regione, il <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> è più conciso perché articola la connessione fra regioni già articolate altrove dai frammenti-pozzo.</p>
+<p>Il termine <em><span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span></em> va precisato nei suoi due elementi. Il <em><span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span></em> eredita le tre proprietà schlegeliane già articolate. Il <em>pozzo</em> aggiunge una specificazione strutturale: il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> opera come <em>nodo profondo</em> nella <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, articolando in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> il proprio materiale tematico. La metafora del pozzo è precisa nel suggerire <span class="concept-link" data-tag="verticalità" tabindex="0" role="button">verticalità</span>: il <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> non si limita a nominare la propria regione concettuale, vi scava in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span>, articolando il materiale lungo molti livelli di articolazione argomentativa. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha sette frammenti-pozzo, ciascuno corrispondente a una delle <span class="concept-link" data-tag="sette dimensioni concettuali" tabindex="0" role="button">sette dimensioni concettuali</span> dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>: il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, la <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span>, il <span class="concept-link" data-tag="teatro della memoria" tabindex="0" role="button">teatro della memoria</span>, l&#39;<span class="concept-link" data-tag="organismo" tabindex="0" role="button">organismo</span>, il modello <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>, l&#39;<span class="concept-link" data-tag="AI come medium" tabindex="0" role="button">AI come medium</span>, la <span class="concept-link" data-tag="subcreazione" tabindex="0" role="button">subcreazione</span>. I <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span> sono autoportanti — ciascuno può essere letto come <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> in sé — e insieme compongono l&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> concettuale del sistema. Sul piano della <span class="concept-link" data-tag="network science" tabindex="0" role="button">network science</span> contemporanea, ciascun <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> del <span class="concept-link" data-tag="grafo del sistema" tabindex="0" role="button">grafo del sistema</span>: nodo ad alta connettività che articola in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> una regione, e che si connette a molti altri elementi del sistema attraverso i frammenti-soglia che vi accedono.</p>
+<p>Il termine <em><span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span></em> va precisato analogamente. Il <em><span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span></em> eredita ancora le tre proprietà schlegeliane. La <em>soglia</em> aggiunge una specificazione strutturale diversa da quella del pozzo: il <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> opera come <em><span class="concept-link" data-tag="ponte di passaggio" tabindex="0" role="button">ponte di passaggio</span></em> fra regioni concettuali diverse del sistema. La metafora della soglia è precisa nel suggerire <span class="concept-link" data-tag="orizzontalità" tabindex="0" role="button">orizzontalità</span>: il <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> non scava in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> una singola regione, articola invece le relazioni che attraversano le regioni e che permettono al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di muoversi fra di esse. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola un numero variabile di frammenti-soglia (la mappa attuale del sistema ne prevede una quindicina prioritari, più altri secondari e opzionali), ciascuno dedicato a una specifica articolazione di passaggio. Le soglie possono operare a <span class="concept-link" data-tag="livelli diversi di scala" tabindex="0" role="button">livelli diversi di scala</span>: alcune articolano passaggi diretti fra due pozzi specifici (es. soglia che articola la connessione fra il pozzo del <span class="concept-link" data-tag="teatro della memoria" tabindex="0" role="button">teatro della memoria</span> e il pozzo dell&#39;<span class="concept-link" data-tag="AI come medium" tabindex="0" role="button">AI come medium</span>); altre articolano applicazioni specifiche di un singolo pozzo a un caso particolare (es. soglie di analisi di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> come caso del pozzo della <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> e del pozzo <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>); altre ancora articolano sintesi critiche complessive di più analisi al livello superiore. Sul piano della <span class="concept-link" data-tag="network science" tabindex="0" role="button">network science</span>, ciascun <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> è arco del <span class="concept-link" data-tag="grafo del sistema" tabindex="0" role="button">grafo del sistema</span>, che connette nodi-pozzo specifici fra di loro e che produce la topologia complessiva del sistema attraverso la composizione di molti archi.</p>
+<p>La distinzione formale tra i due tipi di <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> permette di articolare un punto teorico significativo del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. La struttura schlegeliana del <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> come elemento di <span class="concept-link" data-tag="sistema aperto" tabindex="0" role="button">sistema aperto</span> non specifica i livelli interni del sistema: tutti i frammenti operavano per <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> allo stesso livello, come unità accumulate orizzontalmente nello spazio del libro che li ospitava (la <span class="concept-link" data-tag="rivista" tabindex="0" role="button">rivista</span> <em><span class="concept-link" data-tag="Athenaeum" tabindex="0" role="button">Athenaeum</span></em> come sede dei frammenti). Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola invece due livelli di frammenti che operano in posizioni strutturalmente diverse del <span class="concept-link" data-tag="grafo del sistema" tabindex="0" role="button">grafo del sistema</span>. I frammenti-pozzo occupano la posizione dei nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> e organizzano in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> il materiale concettuale. I frammenti-soglia occupano la posizione degli archi e organizzano le relazioni di passaggio. La distinzione è coerente con la <span class="concept-link" data-tag="topologia scale-free" tabindex="0" role="button">topologia scale-free</span><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup> che le reti complesse del mondo reale documentano: pochi nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> accumulano molte connessioni, molti archi connettono nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> fra di loro o nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> a <span class="concept-link" data-tag="nodi periferici" tabindex="0" role="button">nodi periferici</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta consapevolmente questa topologia come struttura propria, articolando i frammenti-pozzo come <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> e i frammenti-soglia come archi.</p>
+<p>La voce di <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span><sup><a href="#note-5" id="ref-5" class="note-ref">5</a></sup> articolata altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> permette di articolare un aspetto ulteriore della distinzione. Nel <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span> <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span>, la probabilità di un nuovo nodo di connettersi a un nodo esistente è proporzionale al prodotto del grado del nodo e della sua <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca. Applicato al <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, il modello permette di articolare la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> specifica dei frammenti-pozzo e dei frammenti-soglia. La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> del <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è funzione della <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> con cui articola la propria regione concettuale: un pozzo che articola in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> il proprio materiale con molte voci convocate, molti esempi, molte articolazioni argomentative ha <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> alta, e funziona effettivamente come <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> che attira molte soglie. La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> del <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> è funzione della specificità della connessione che articola: una soglia che articola una connessione cardinale fra due pozzi (es. <em><span class="concept-link" data-tag="mens fenestrata" tabindex="0" role="button">mens fenestrata</span></em> tra Teatro e <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>) ha <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> alta, perché funziona come arco strutturalmente cruciale del <span class="concept-link" data-tag="grafo del sistema" tabindex="0" role="button">grafo del sistema</span>. Le due dimensioni della <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> — <span class="concept-link" data-tag="profondità del pozzo" tabindex="0" role="button">profondità del pozzo</span>, <span class="concept-link" data-tag="specificità della soglia" tabindex="0" role="button">specificità della soglia</span> — operano insieme nella crescita del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come dispositivo articolato.</p>
+<p>Resta da nominare la conseguenza pratica della distinzione per il lettore del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>. Il lettore che vuole approfondire una specifica dimensione concettuale dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> trova nei frammenti-pozzo l&#39;articolazione più completa: un <span class="concept-link" data-tag="frammento-pozzo" tabindex="0" role="button">frammento-pozzo</span> è <span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> in sé, leggibile in autonomia, che articola la propria regione concettuale con il materiale necessario per la sua comprensione integrale. Il lettore che vuole esplorare le connessioni fra dimensioni diverse trova nei frammenti-soglia il dispositivo specifico: una soglia non rielabora il materiale che il pozzo di provenienza ha già articolato, lo presuppone, e articola invece la specifica connessione di passaggio che è propria della soglia. Le due tipologie di lettura sono complementari: la <span class="concept-link" data-tag="lettura per pozzi" tabindex="0" role="button">lettura per pozzi</span> articolata in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> ciascuna dimensione, la <span class="concept-link" data-tag="lettura per soglie" tabindex="0" role="button">lettura per soglie</span> articola in dettaglio le relazioni che le compongono in sistema organico. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non prescrive un ordine di lettura preferenziale: il lettore può entrare attraverso un pozzo specifico e percorrere le soglie che ne dipartono, oppure entrare attraverso una soglia specifica e risalire ai pozzi che essa connette. La <span class="concept-link" data-tag="grammatica formale" tabindex="0" role="button">grammatica formale</span> del sistema — la <span class="concept-link" data-tag="griglia 7×7" tabindex="0" role="button">griglia 7×7</span> articolata altrove — permette entrambi i percorsi e li struttura come accessi equivalenti al materiale del sistema.</p>
+<p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola dunque la propria terminologia operativa attraverso due neologismi che operano come specificazioni della categoria schlegeliana del <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span>. La specificazione adotta dalla <span class="concept-link" data-tag="network science" tabindex="0" role="button">network science</span> contemporanea la distinzione strutturale fra nodi e archi del grafo: i pozzi sono nodi profondi, le soglie sono archi specifici di connessione. La distinzione non è formalismo terminologico ma è <span class="concept-link" data-tag="grammatica operativa" tabindex="0" role="button">grammatica operativa</span> del sistema, che articola simultaneamente la <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> delle articolazioni concettuali (i pozzi) e la specificità delle relazioni argomentative (le soglie). La presente soglia è essa stessa esempio operativo della categoria che articola: è <span class="concept-link" data-tag="frammento-soglia" tabindex="0" role="button">frammento-soglia</span> che articola la distinzione fra frammenti-pozzo e frammenti-soglia, e in tal modo opera come <span class="concept-link" data-tag="articolazione metalinguistica" tabindex="0" role="button">articolazione metalinguistica</span> della grammatica del sistema. La <span class="concept-link" data-tag="specificità della soglia" tabindex="0" role="button">specificità della soglia</span> come tipo di <span class="concept-link" data-tag="frammento" tabindex="0" role="button">frammento</span> è precisamente questa: articolare cose che attraversano i pozzi e che richiedono di essere nominate in dettaglio per il loro <span class="concept-link" data-tag="carattere relazionale" tabindex="0" role="button">carattere relazionale</span>, distinguibile dal <span class="concept-link" data-tag="carattere profondo" tabindex="0" role="button">carattere profondo</span> dei pozzi che articolano regioni concettuali in autonomia.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Cometa, M. (2009), <em>L&#39;età classico-romantica</em>, Laterza, Roma-Bari [pagina da verificare sul fisico, sezione sul frammento come elemento del sistema aperto]. La voce di Cometa è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Schlegel, F. (1798), <em>Athenaeum-Fragmente</em>, originariamente pubblicati nella rivista <em>Athenaeum</em> curata da F. e A.W. Schlegel, Berlino. Edizione italiana di riferimento utilizzata: Schlegel, F. (1998), <em>Frammenti critici e poetici</em>, a cura di M. Cometa, Einaudi, Torino [pagine da verificare sul fisico]. La voce di Schlegel è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Dawkins, R. (1976), <em>The Selfish Gene</em>, Oxford University Press, Oxford [pagina da verificare sul fisico, capitolo 11 «Memes: the new replicators»]. La voce di Dawkins è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Barabási, A.-L., Albert, R. (1999), <em>Emergence of Scaling in Random Networks</em>, in «Science», 286(5439), pp. 509-512 [pagina da verificare sul fisico]. La voce di Barabási-Albert è articolata in dettaglio altrove nel sistema della tesi nelle regioni dedicate al preferential attachment.</p>
+    <p class="frag-note" id="note-5"><a href="#ref-5" class="frag-note-num">[5]</a> Bianconi, G., Barabási, A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442 [pagina da verificare sul fisico]. La voce di Bianconi-Barabási è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's4-1a';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

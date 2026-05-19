@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memoria culturale e ricodificazione: come la cultura usa il suo passato — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Memoria culturale e ricodificazione: come la cultura usa il suo passato</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="memoria culturale">memoria culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Lotman">Lotman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Jurij Lotman">Jurij Lotman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="semiosfera">semiosfera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scuola di Tartu-Mosca">scuola di Tartu-Mosca</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="anni Settanta-Ottanta">anni Settanta-Ottanta</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="trasmissione culturale">trasmissione culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione sistematica">ricodificazione sistematica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meccanismo dinamico">meccanismo dinamico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="archivio dinamico">archivio dinamico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="selezione del passato">selezione del passato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rinascimento e classicità">rinascimento e classicità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="romanticismo e medioevo">romanticismo e medioevo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modernismo e rinascimento">modernismo e rinascimento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione come condizione di possibilità">ricodificazione come condizione di possibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="trasmissione passiva e sterilità">trasmissione passiva e sterilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione legittima">ricodificazione legittima</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione critica">ricodificazione critica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Brembilla">Brembilla</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rilancio attraverso reinvenzione">rilancio attraverso reinvenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="capitale narrativo">capitale narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="effetto nostalgia">effetto nostalgia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*La sirenetta* live action">*La sirenetta* live action</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2023">2023</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*La sirenetta* animazione">*La sirenetta* animazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1989">1989</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Halle Bailey">Halle Bailey</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="diversità">diversità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sensibilità contemporanee">sensibilità contemporanee</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="reboot">reboot</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prequel">prequel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="remake">remake</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Star Wars* 1977">*Star Wars* 1977</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il risveglio della Forza*">*Il risveglio della Forza*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2015">2015</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*L'ascesa di Skywalker*">*L'ascesa di Skywalker*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2019">2019</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Obi-Wan Kenobi*">*Obi-Wan Kenobi*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2022">2022</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Ahsoka*">*Ahsoka*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2023">2023</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Batman">Batman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bob Kane">Bob Kane</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bill Finger">Bill Finger</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1939">1939</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tim Burton">Tim Burton</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1989">1989</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Christopher Nolan">Christopher Nolan</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2005-2012">2005-2012</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Matt Reeves">Matt Reeves</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2022">2022</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Adam West">Adam West</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1966">1966</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="serie *Arkham*">serie *Arkham*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Rocksteady">Rocksteady</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2009">2009</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*The Dark Knight Returns*">*The Dark Knight Returns*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Frank Miller">Frank Miller</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1986">1986</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Batman culturale">Batman culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stratificazione storica">stratificazione storica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Large Language Model">Large Language Model</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corpus di addestramento">corpus di addestramento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="prompt">prompt</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ricodificazione tecnica">ricodificazione tecnica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*dataprint*">*dataprint*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stilistica strutturale del medium">stilistica strutturale del medium</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scala e velocità">scala e velocità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="costruzione del passato">costruzione del passato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*terzo* prodotto dalla composizione">*terzo* prodotto dalla composizione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="versione ricodificata">versione ricodificata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability">accountability</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="responsabilità del meta-autore">responsabilità del meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo produttivo">dispositivo produttivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="articolazione contemporanea della cultura">articolazione contemporanea della cultura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p><span class="concept-link" data-tag="Jurij Lotman" tabindex="0" role="button">Jurij Lotman</span> articola nella propria teoria della <span class="concept-link" data-tag="semiosfera" tabindex="0" role="button">semiosfera</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>, sviluppata negli anni Settanta e Ottanta nel quadro della scuola semiotica di Tartu-Mosca, una nozione di <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> che merita di essere ripresa in dettaglio per il presente discorso. La <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> secondo <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> non è semplicemente archivio passivo del passato che la cultura conserva per riferimento; è dispositivo attivo di trasmissione che opera attraverso <span class="concept-link" data-tag="ricodificazione sistematica" tabindex="0" role="button">ricodificazione sistematica</span> del materiale ricevuto. Il passato culturale non si trasmette al presente nella propria forma originaria, perché il presente lo riceve attraverso codici interpretativi specifici che ne articolano il significato secondo il proprio orizzonte. La cultura del presente non eredita il passato come deposito archivistico; lo riceve come materiale che ricodifica in nuove configurazioni semiotiche. La ricodificazione non è errore della trasmissione né tradimento della fonte; è caratteristica costitutiva del meccanismo culturale come tale.</p>
+<p><span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> articola il punto attraverso un&#39;osservazione strutturale che è particolarmente significativa per il presente discorso. La cultura del presente seleziona dal passato non in modo neutrale, ma secondo le proprie esigenze interpretative attuali: enfatizza ciò che le serve, marginalizza ciò che non le serve, rilegge in chiave attuale ciò che il passato pensava in chiave differente. <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> articola la dimensione operativa del fenomeno con l&#39;esempio del rinascimento italiano, che selezionò dalla classicità greco-romana gli elementi che servivano al proprio orizzonte culturale e marginalizzò ciò che non rispondeva a quel orizzonte. Il rinascimento non riportò in vita la classicità come essa era stata; la ricodificò come <em>propria</em> classicità — un&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> del passato che era simultaneamente fedele alla tradizione e funzionale agli scopi del presente che la articolava. La stessa operazione di ricodificazione opera in ogni epoca storica: il romanticismo ricodifica il medioevo, il modernismo ricodifica il rinascimento, il presente ricodifica il modernismo, e ciascuna ricodificazione produce un&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> del passato che serve l&#39;orizzonte interpretativo dell&#39;epoca che la articola.</p>
+<p>La <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> è dunque secondo <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> <em><span class="concept-link" data-tag="meccanismo dinamico" tabindex="0" role="button">meccanismo dinamico</span></em> di selezione e ricodificazione, non <em>archivio statico</em> di conservazione. Questa dimensione attiva ha conseguenze teoriche significative per la comprensione della cultura come sistema. La cultura non è semplicemente patrimonio di materiali tramandati nel tempo; è sistema operativo di articolazione che attraversa il tempo riarticolando continuamente i propri materiali. La voce di <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> è articolata in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> nel contesto della teoria della <span class="concept-link" data-tag="semiosfera" tabindex="0" role="button">semiosfera</span>. Il presente discorso ne adotta la categoria specifica della <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> come dispositivo di ricodificazione, e la applica a due dimensioni complementari dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>: la pratica <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> del <em><span class="concept-link" data-tag="rilancio attraverso reinvenzione" tabindex="0" role="button">rilancio attraverso reinvenzione</span></em> dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati, e la pratica tecnica del <em>wrAIting</em> mediato da Large Language Models.</p>
+<p>La pratica <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> del rilancio dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati opera come ricodificazione lotmaniana. Paola <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> articola il punto attraverso una formulazione netta: «il rilancio passa per la <span class="concept-link" data-tag="reinvenzione" tabindex="0" role="button">reinvenzione</span>, che a sua volta fa cassa sull&#39;eredità e l&#39;<span class="concept-link" data-tag="effetto nostalgia" tabindex="0" role="button">effetto nostalgia</span> del <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> già popolare»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. Il rilancio non è semplice ripubblicazione del materiale canonico; è ricodificazione che riattiva l&#39;eredità del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> secondo le esigenze del presente — sensibilità sociali, stili visivi, ritmi narrativi, formati di consumo che il presente articola e che la riedizione del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> incorpora. Quando <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> riproduce <em>La sirenetta</em> nel 2023 come live action dopo aver pubblicato il film di animazione del 1989, non sta semplicemente riconfezionando il vecchio materiale — sta ricodificando la propria eredità secondo l&#39;orizzonte interpretativo del 2023 (la scelta del casting con <span class="concept-link" data-tag="Halle Bailey" tabindex="0" role="button">Halle Bailey</span> nel ruolo della protagonista incorpora dimensioni di <span class="concept-link" data-tag="diversità" tabindex="0" role="button">diversità</span> che la versione del 1989 non articolava; la revisione di alcune sequenze e di alcuni testi musicali risponde a <span class="concept-link" data-tag="sensibilità contemporanee" tabindex="0" role="button">sensibilità contemporanee</span> specifiche). Il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera dunque come materiale culturale che il presente ricodifica, e ciascuna riedizione è ricodificazione che produce simultaneamente continuità con la tradizione e novità del presente.</p>
+<p>Lo stesso meccanismo opera nei <span class="concept-link" data-tag="reboot" tabindex="0" role="button">reboot</span>, nelle reinterpretazioni canoniche, nei <span class="concept-link" data-tag="prequel" tabindex="0" role="button">prequel</span>, nei <span class="concept-link" data-tag="remake" tabindex="0" role="button">remake</span>. <em><span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span></em> del 1977 è riedizione nel 2015 con <em>Il risveglio della <span class="concept-link" data-tag="Forza" tabindex="0" role="button">Forza</span></em>, riedizione nel 2019 con <em>L&#39;ascesa di Skywalker</em>, riedizione nel 2022 con la serie <em>Obi-Wan Kenobi</em>, riedizione nel 2023 con <em>Ahsoka</em>; ciascuna riedizione è ricodificazione del materiale canonico secondo l&#39;orizzonte del proprio momento di produzione. <em><span class="concept-link" data-tag="Batman" tabindex="0" role="button">Batman</span></em> è personaggio nato nel 1939 nel comic book di <span class="concept-link" data-tag="Bob Kane" tabindex="0" role="button">Bob Kane</span> e <span class="concept-link" data-tag="Bill Finger" tabindex="0" role="button">Bill Finger</span>, ricodificato innumerevoli volte nel cinema (<span class="concept-link" data-tag="Tim Burton" tabindex="0" role="button">Tim Burton</span> 1989, <span class="concept-link" data-tag="Christopher Nolan" tabindex="0" role="button">Christopher Nolan</span> 2005-2012, <span class="concept-link" data-tag="Matt Reeves" tabindex="0" role="button">Matt Reeves</span> 2022), nella televisione (la serie del 1966 con <span class="concept-link" data-tag="Adam West" tabindex="0" role="button">Adam West</span>), nei videogiochi (la serie <em>Arkham</em> di <span class="concept-link" data-tag="Rocksteady" tabindex="0" role="button">Rocksteady</span> dal 2009), nelle graphic novel (<em>The Dark Knight Returns</em> di <span class="concept-link" data-tag="Frank Miller" tabindex="0" role="button">Frank Miller</span> del 1986). Ciascuna ricodificazione articola <span class="concept-link" data-tag="Batman" tabindex="0" role="button">Batman</span> secondo l&#39;orizzonte specifico del proprio momento di produzione, e l&#39;insieme delle ricodificazioni produce un <em><span class="concept-link" data-tag="Batman culturale" tabindex="0" role="button">Batman culturale</span></em> che non corrisponde più al <span class="concept-link" data-tag="Batman" tabindex="0" role="button">Batman</span> originale del 1939 ma che è formato dalla <span class="concept-link" data-tag="stratificazione storica" tabindex="0" role="button">stratificazione storica</span> delle ricodificazioni che il personaggio ha ricevuto.</p>
+<p>Il punto teorico significativo è che la ricodificazione lotmaniana non è critica negativa del fenomeno — non sostiene che le riedizioni dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> siano falsificazioni del materiale originale o sfruttamenti opportunistici della tradizione. La ricodificazione è semplicemente <em>come la cultura usa il suo passato</em>. La cultura non può non ricodificare quando trasmette: la trasmissione passiva senza ricodificazione produce sterilità (materiale del passato che resta inintelligibile al presente perché non viene riarticolato secondo i codici attuali). La ricodificazione è dunque <span class="concept-link" data-tag="condizione di possibilità" tabindex="0" role="button">condizione di possibilità</span> della <span class="concept-link" data-tag="trasmissione culturale" tabindex="0" role="button">trasmissione culturale</span>, non sua corruzione. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta questa posizione lotmaniana come fondamento teorico per pensare il rilancio dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> contemporanei: il rilancio è <span class="concept-link" data-tag="ricodificazione legittima" tabindex="0" role="button">ricodificazione legittima</span> quando rispetta la coerenza interna del <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> e la articola secondo l&#39;orizzonte presente; è <span class="concept-link" data-tag="ricodificazione critica" tabindex="0" role="button">ricodificazione critica</span> quando tradisce la coerenza interna in nome di esigenze esterne al <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span>. La distinzione fra <span class="concept-link" data-tag="ricodificazione legittima" tabindex="0" role="button">ricodificazione legittima</span> e <span class="concept-link" data-tag="ricodificazione critica" tabindex="0" role="button">ricodificazione critica</span> è <span class="concept-link" data-tag="valutazione" tabindex="0" role="button">valutazione</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola caso per caso, non principio assoluto della categoria.</p>
+<p>La pratica tecnica del <em>wrAIting</em> mediato da <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> opera sullo stesso meccanismo strutturale, articolato però attraverso un dispositivo tecnico specifico. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è dispositivo che ha accumulato attraverso l&#39;addestramento una vasta porzione del materiale linguistico e culturale del passato (corpora di testi, libri, articoli, contenuti web, conversazioni, codice, e altri materiali a seconda dell&#39;addestramento specifico del modello). Quando l&#39;utente attiva l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> attraverso un <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span>, il dispositivo opera una ricodificazione lotmaniana sistematica: seleziona dal proprio corpus interno gli elementi rilevanti per il <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span>, li ricombina in una nuova configurazione che risponde alla specificità del <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span>, e restituisce l&#39;output ricombinato all&#39;utente. La ricodificazione operata dall&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è strutturalmente analoga alla ricodificazione culturale che <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> articolava: non semplice conservazione del <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>, ma riattivazione del corpus in nuove configurazioni che il presente del <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span> orienta.</p>
+<p>Il parallelo strutturale è significativo. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è realizzazione tecnica contemporanea della <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> lotmaniana: dispositivo che opera nel tempo come archivio della cultura ricevuta e simultaneamente come meccanismo di ricodificazione che articola la cultura ricevuta secondo le esigenze del presente. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione operativa del <em>wrAIting</em> come pratica scrittoria che opera attraverso questa <span class="concept-link" data-tag="ricodificazione tecnica" tabindex="0" role="button">ricodificazione tecnica</span>. La presente articolazione mostra che la struttura formale del fenomeno è la stessa che <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> articolava per la cultura come sistema: l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> realizza tecnicamente ciò che la cultura ha sempre fatto, ma con una scala e una velocità che modificano la qualità del fenomeno. <span class="concept-link" data-tag="Camillo" tabindex="0" role="button">Camillo</span> nel Cinquecento ricodificava la tradizione classica attraverso il <span class="concept-link" data-tag="Teatro 7×7" tabindex="0" role="button">Teatro 7×7</span>; <span class="concept-link" data-tag="Schlegel" tabindex="0" role="button">Schlegel</span> nell&#39;Ottocento ricodificava la tradizione attraverso la <em>Mischung</em> chimica della <span class="concept-link" data-tag="poesia romantica" tabindex="0" role="button">poesia romantica</span>; <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> nel Novecento articolava la categoria della ricodificazione come dispositivo strutturale della cultura come tale; gli <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> del nostro tempo realizzano la categoria attraverso un dispositivo tecnico che opera su corpora di scala radicalmente maggiore e con velocità di operazione radicalmente più veloce di quella dei meccanismi culturali precedenti.</p>
+<p>La conseguenza teorica per il rapporto fra utente e <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> è significativa. L&#39;utente che interagisce con un <span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> non sta accedendo direttamente al <span class="concept-link" data-tag="corpus di addestramento" tabindex="0" role="button">corpus di addestramento</span>, non sta consultando un archivio neutro del sapere accumulato. Sta interagendo con un dispositivo che ricodifica sistematicamente il proprio corpus secondo le sollecitazioni del <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span> che riceve. La ricodificazione operata dall&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> ha proprie regolarità — il <em><span class="concept-link" data-tag="dataprint" tabindex="0" role="button">dataprint</span></em> che <span class="concept-link" data-tag="Floridi" tabindex="0" role="button">Floridi</span><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup> articola come <span class="concept-link" data-tag="stilistica strutturale del medium" tabindex="0" role="button">stilistica strutturale del medium</span> — e queste regolarità sono caratteristiche del dispositivo, non del materiale ricodificato. Quando l&#39;utente riceve l&#39;output dell&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span>, sta ricevendo una <em><span class="concept-link" data-tag="versione ricodificata" tabindex="0" role="button">versione ricodificata</span></em> del materiale di addestramento, e questa versione è influenzata dal dispositivo specifico che ha operato la ricodificazione. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove le conseguenze critiche di questa situazione attraverso le voci sulla <span class="concept-link" data-tag="accountability" tabindex="0" role="button">accountability</span> e sulla <span class="concept-link" data-tag="responsabilità del meta-autore" tabindex="0" role="button">responsabilità del meta-autore</span>. La presente articolazione fornisce la categoria teorica che permette di pensare il fenomeno nella sua dimensione strutturale: l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> come dispositivo di <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> operante che ricodifica il passato secondo l&#39;orizzonte del <span class="concept-link" data-tag="prompt" tabindex="0" role="button">prompt</span> presente.</p>
+<p>Resta da nominare una dimensione del fenomeno che la categoria lotmaniana permette di articolare con precisione. La ricodificazione operata dall&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> non è semplicemente trasmissione del materiale passato al presente; è anche <em>costruzione</em> di un materiale passato che non era così articolato nella propria forma originaria. Quando l&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> articola un&#39;argomentazione complessa che integra materiali di provenienza eterogenea (filosofia, scienza, letteratura, conversazione), sta producendo un <em>terzo</em> materiale che non corrisponde a nessuno dei materiali originari della propria fonte di addestramento. Il <em>terzo</em> è prodotto dalla composizione, e la composizione opera secondo le regolarità del dispositivo. <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> articolava la stessa osservazione per la cultura come tale: il rinascimento non riportò in vita la classicità ma ne costruì una versione che non era esistita prima come tale, e questa versione del passato è stata da allora il passato culturale dell&#39;Europa moderna. L&#39;<span class="concept-link" data-tag="LLM" tabindex="0" role="button">LLM</span> opera analogamente per la propria scala specifica: produce versioni del passato linguistico e culturale che non erano esistite prima come tali, e queste versioni circolano come materiale culturale del nostro tempo. La conseguenza per la critica contemporanea del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> è che il <em>wrAIting</em> non è dispositivo neutro di accesso alla cultura accumulata; è <span class="concept-link" data-tag="dispositivo produttivo" tabindex="0" role="button">dispositivo produttivo</span> di una specifica <span class="concept-link" data-tag="articolazione contemporanea della cultura" tabindex="0" role="button">articolazione contemporanea della cultura</span> che il medium produce per propria operazione strutturale.</p>
+<p>La presente soglia ha articolato <span class="concept-link" data-tag="Lotman" tabindex="0" role="button">Lotman</span> come voce teorica che permette di pensare il fenomeno della ricodificazione contemporaneamente attraverso il livello <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> (<span class="concept-link" data-tag="rilancio attraverso reinvenzione" tabindex="0" role="button">rilancio attraverso reinvenzione</span>) e il livello tecnico del <span class="concept-link" data-tag="medium AI" tabindex="0" role="button">medium AI</span> (wrAIting come ricodificazione operante). Le due dimensioni operano simultaneamente nel sistema mediale contemporaneo, e la categoria lotmaniana di <span class="concept-link" data-tag="memoria culturale" tabindex="0" role="button">memoria culturale</span> come dispositivo dinamico di ricodificazione permette di articolarle in un quadro teorico unitario. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la dimensione critica del fenomeno nelle sue specifiche realizzazioni industriali e tecniche; la presente soglia ha fornito il fondamento teorico-strutturale di <span class="concept-link" data-tag="lunga durata" tabindex="0" role="button">lunga durata</span> che permette di pensare l&#39;unità sottostante del fenomeno.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Brembilla, P. (2018), <em>It&#39;s All Connected. L&#39;evoluzione delle serie TV statunitensi</em>, FrancoAngeli, Milano [pagina da verificare sul fisico, sezione sull&#39;effetto nostalgia e la reinvenzione delle eredità narrative]. La voce di Brembilla è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Lotman, J. (1985), <em>La semiosfera. L&#39;asimmetria e il dialogo nelle strutture pensanti</em>, a cura di S. Salvestroni, Marsilio, Venezia [pagina da verificare sul fisico, sezioni sulla memoria culturale come dispositivo dinamico di ricodificazione]. Edizione originale russa: Lotman, J.M. (1984), <em>O semiosfere</em>, in «Trudy po znakovym sistemam», 17, Tartu. La voce di Lotman è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Floridi, L. (2025), <em>Distant Writing: Literary Production in the Age of Artificial Intelligence</em>, in «Minds and Machines», 35:30 [pagina da verificare sul fisico, sezione sul dataprint]. La voce di Floridi è articolata in dettaglio altrove nel sistema della tesi.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's5-2';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

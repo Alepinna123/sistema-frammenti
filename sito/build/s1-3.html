@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Critica complessiva di Disney+ come caso esemplare dell'opera-volume nell'industria SVOD contemporanea — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Critica complessiva di Disney+ come caso esemplare dell'opera-volume nell'industria SVOD contemporanea</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney+">Disney+</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia">interfaccia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma SVOD">piattaforma SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume">opera-volume</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database come forma simbolica">database come forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Manovich">Manovich</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma/sintagma">paradigma/sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rovesciamento">rovesciamento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="libertà fruitiva">libertà fruitiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database già percorso">database già percorso</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione della visibilità">concentrazione della visibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="long tail">long tail</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attaccamento preferenziale">attaccamento preferenziale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Matthew effect">Matthew effect</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="feedback loop">feedback loop</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia razionale">griglia razionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="gabbie cognitive">gabbie cognitive</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pillar brand">pillar brand</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cinque pillar">cinque pillar</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="«Per te»">«Per te»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="personalizzazione algoritmica">personalizzazione algoritmica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintesi instabile">sintesi instabile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine come dispositivo">immagine come dispositivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="superficie visiva">superficie visiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità testuale">profondità testuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="drill-down">drill-down</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="key art">key art</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="high concept">high concept</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="marchio-locomotiva">marchio-locomotiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cucco">Cucco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="blockbuster">blockbuster</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opacità del meccanismo">opacità del meccanismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="trasparenza dell'interfaccia">trasparenza dell'interfaccia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="confine semiotico">confine semiotico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="asimmetria">asimmetria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Lotman">Lotman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="semiosfera">semiosfera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sotto la trasparenza">sotto la trasparenza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="platform capitalism">platform capitalism</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Srnicek">Srnicek</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="effetti di rete">effetti di rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="monopolio">monopolio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industria dell'attenzione">industria dell'attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wu">Wu</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cattura dell'attenzione">cattura dell'attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="merce attenzione">merce attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ecosistema della piattaforma">ecosistema della piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="realizzazione storica">realizzazione storica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelta progettuale">scelta progettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="destino del medium">destino del medium</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="alternative possibili">alternative possibili</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attraversabilità">attraversabilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="esplorazione fruitiva">esplorazione fruitiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="livello 3">livello 3</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintesi critica">sintesi critica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tripletta 2A 2B 2C">tripletta 2A 2B 2C</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="catena di pre-determinazione">catena di pre-determinazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelta libera">scelta libera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scelta vincolata">scelta vincolata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello economico">modello economico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="efficacia del design">efficacia del design</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="limite strutturale">limite strutturale</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>La presente soglia chiude la riflessione su <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha articolato in tre soglie precedenti di livello inferiore. Quelle soglie hanno dispiegato tre dimensioni descrittive complementari della <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> — la <span class="concept-link" data-tag="struttura razionale" tabindex="0" role="button">struttura razionale</span>-geometrica come Teatro contemporaneo della memoria, i <span class="concept-link" data-tag="percorsi di fruizione" tabindex="0" role="button">percorsi di fruizione</span> e la <span class="concept-link" data-tag="topologia di rete" tabindex="0" role="button">topologia di rete</span> del catalogo, l&#39;<span class="concept-link" data-tag="immagine come dispositivo industriale-culturale" tabindex="0" role="button">immagine come dispositivo industriale-culturale</span> di identificazione delle opere-volume — e ciascuna delle tre ha nominato in chiusura una tensione critica che ha esplicitamente rinviato a una riflessione di terzo livello. La presente soglia <em>è</em> quella riflessione. Il suo compito non è introdurre dimensioni nuove dell&#39;analisi ma raccogliere le tre tensioni già nominate, mostrarle nella loro sinergia, e portare a sintesi la critica che la tripletta annunciava senza svolgere. Il registro che il presente discorso adotta è descrittivo-analitico: la critica viene posta come constatazione documentata, non come verdetto polemico né come prescrizione normativa; il giudizio si afferma sulla struttura del dispositivo, e lascia all&#39;industria come soggetto economico la responsabilità delle proprie scelte.</p>
+<p>Le tre tensioni critiche annunciate dalle soglie precedenti vanno richiamate brevemente come premesse della sintesi. La prima riguarda la rigidità della <span class="concept-link" data-tag="griglia razionale" tabindex="0" role="button">griglia razionale</span> che organizza il catalogo. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> ha progettato la propria <span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> in opposizione consapevole alla logica algoritmica primaria di <span class="concept-link" data-tag="Netflix" tabindex="0" role="button">Netflix</span>, scegliendo di esporre al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> una griglia categoriale i cui assi sono noti prima della <span class="concept-link" data-tag="navigazione" tabindex="0" role="button">navigazione</span>: cinque assi della barra superiore, tre tabs del commutatore secondario di catalogo, <span class="concept-link" data-tag="cinque pillar brand" tabindex="0" role="button">cinque pillar brand</span>. Questa scelta produce un <span class="concept-link" data-tag="vantaggio cognitivo" tabindex="0" role="button">vantaggio cognitivo</span> — la mappa è chiara, il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> sa dove trovare ciò che cerca — ma produce anche un costo: la <span class="concept-link" data-tag="griglia razionale" tabindex="0" role="button">griglia razionale</span> è rigida, espone categorie predefinite che possono diventare <span class="concept-link" data-tag="gabbie cognitive" tabindex="0" role="button">gabbie cognitive</span> limitando la scoperta laterale. L&#39;aggiornamento dell&#39;ottobre 2025 con l&#39;introduzione della <span class="concept-link" data-tag="tab «Per te»" tabindex="0" role="button">tab «Per te»</span> come prima vista della homepage tenta esattamente la sintesi tra <span class="concept-link" data-tag="struttura razionale" tabindex="0" role="button">struttura razionale</span> e <span class="concept-link" data-tag="personalizzazione algoritmica" tabindex="0" role="button">personalizzazione algoritmica</span>, ma la sintesi resta instabile: l&#39;utente può scegliere la vista personalizzata o la vista standard del catalogo, ma le due viste convivono come opzioni alternative, non come integrazione organica.</p>
+<p>La seconda tensione critica riguarda la <span class="concept-link" data-tag="topologia di rete" tabindex="0" role="button">topologia di rete</span> del catalogo e i meccanismi di crescita che la governano. La <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> è network <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span> in cui pochi <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> raccolgono moltissima visibilità e molti nodi restano periferici. L&#39;<span class="concept-link" data-tag="attaccamento preferenziale" tabindex="0" role="button">attaccamento preferenziale</span> — il meccanismo per cui i contenuti che hanno già raccolto <span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> tendono a raccoglierne di più — opera sia nel lungo termine della crescita storica del catalogo, sia nel breve termine del <span class="concept-link" data-tag="feedback loop" tabindex="0" role="button">feedback loop</span> dell&#39;interazione utente, dove ogni clic modifica le proposte future del sistema. Il dato di <span class="concept-link" data-tag="Erik Runyon" tabindex="0" role="button">Erik Runyon</span> sul comportamento del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> nelle interfacce a <span class="concept-link" data-tag="carousel" tabindex="0" role="button">carousel</span> — il 40% dei clic concentrati nel primo elemento di ogni riga — è manifestazione concreta del <span class="concept-link" data-tag="Matthew effect" tabindex="0" role="button">Matthew effect</span> operante a velocità accelerata nell&#39;interazione <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span>. La conseguenza strutturale è la <span class="concept-link" data-tag="concentrazione della visibilità" tabindex="0" role="button">concentrazione della visibilità</span> sui contenuti già visti, e la marginalizzazione <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span> della <span class="concept-link" data-tag="long tail" tabindex="0" role="button">long tail</span>. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> mitiga parzialmente l&#39;effetto attraverso la struttura a <span class="concept-link" data-tag="pillar brand" tabindex="0" role="button">pillar brand</span> — non c&#39;è un unico <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> di visibilità, ce ne sono cinque, e ciascun brand mantiene un&#39;autonomia editoriale che permette ad alcuni contenuti periferici di ricevere <span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> — ma il pattern resta strutturale.</p>
+<p>La terza tensione critica riguarda il dispositivo di riconoscimento delle opere. L&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> presenta le opere-volume principalmente attraverso le proprie immagini — <span class="concept-link" data-tag="key art" tabindex="0" role="button">key art</span>, poster, logo dei brand — e il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> riconosce visivamente prima di leggere il titolo. L&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> svolge simultaneamente tre funzioni che operano insieme in ogni tessera del catalogo: rievoca formule visive culturali ricorrenti, comunica identità di prodotto <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> costruito secondo la logica <span class="concept-link" data-tag="high concept" tabindex="0" role="button">high concept</span>, giustifica investimenti di <span class="concept-link" data-tag="blockbuster" tabindex="0" role="button">blockbuster</span> come <span class="concept-link" data-tag="marchio-locomotiva" tabindex="0" role="button">marchio-locomotiva</span> di una catena di prodotti accessori. La conseguenza è che la descrizione testuale dell&#39;opera — sinossi, recensioni, metadati narrativi — viene relegata a un livello successivo accessibile solo attraverso il <span class="concept-link" data-tag="drill-down" tabindex="0" role="button">drill-down</span>. La superficie dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> è dunque visiva, e la <span class="concept-link" data-tag="profondità testuale" tabindex="0" role="button">profondità testuale</span> è progressivamente nascosta dietro la prima soglia del riconoscimento visivo.</p>
+<p>Le tre tensioni che la tripletta ha articolato separatamente non sono indipendenti l&#39;una dall&#39;altra. Operano sinergicamente in tre livelli del medesimo dispositivo, e il punto cardine del presente discorso è precisamente questa sinergia. La <span class="concept-link" data-tag="griglia razionale" tabindex="0" role="button">griglia razionale</span> (prima tensione) decide <em>quali</em> categorie esistono nel catalogo. La <span class="concept-link" data-tag="topologia scale-free" tabindex="0" role="button">topologia scale-free</span> e l&#39;<span class="concept-link" data-tag="attaccamento preferenziale" tabindex="0" role="button">attaccamento preferenziale</span> (seconda tensione) decidono <em>quali</em> contenuti dentro ciascuna categoria ricevono visibilità. L&#39;<span class="concept-link" data-tag="immagine come dispositivo" tabindex="0" role="button">immagine come dispositivo</span> (terza tensione) decide <em>come</em> ciascun contenuto viene riconosciuto a colpo d&#39;occhio dal <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>. Le tre operazioni si compongono in una <span class="concept-link" data-tag="catena di pre-determinazione" tabindex="0" role="button">catena di pre-determinazione</span> che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> vive come naturalità della propria <span class="concept-link" data-tag="navigazione" tabindex="0" role="button">navigazione</span>. Quando il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> apre la homepage di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> e seleziona una tessera, sta esercitando una scelta che è formalmente sua ma che è stata anticipata in <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> da una struttura <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> che ha già deciso quali categorie esistono, quali contenuti meritano di essere visibili dentro le categorie, quale <span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> di ciascun contenuto verrà mostrata. La scelta del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> è atto reale, ma opera in uno spazio già fortemente pre-organizzato.</p>
+<p>Il punto teorico è significativo perché tocca direttamente la promessa che il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, come <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> dell&#39;epoca contemporanea, fa al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha articolato altrove la tesi manoviciana del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come forma che rovescia il rapporto classico tra <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> e <span class="concept-link" data-tag="sintagma" tabindex="0" role="button">sintagma</span>. Nella tradizione strutturalista saussuriano-barthesiana il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> era la dimensione virtuale e il <span class="concept-link" data-tag="sintagma" tabindex="0" role="button">sintagma</span> era la sequenza materialmente attuata; nel <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> il rapporto si inverte, perché il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> stesso è il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> reso materialmente accessibile, e ciascun percorso di lettura attraverso il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> è un <span class="concept-link" data-tag="sintagma virtuale" tabindex="0" role="button">sintagma virtuale</span> che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può scegliere fra molti possibili. La libertà di <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> attraverso il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> è la promessa strutturale del medium: il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di un <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> può, in linea di principio, tracciare qualsiasi percorso coerente attraverso la struttura. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> adotta questo modello strutturale — la propria <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> è effettivamente quella di un <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>, accessibile attraverso percorsi multipli — ma realizza il modello in una configurazione specifica in cui i percorsi possibili sono fortemente vincolati dalla pre-organizzazione <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>. Il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> promesso dalla <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> del medium è realizzato, su <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span>, come <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> <em>già percorso</em>: i percorsi sono iscritti nella struttura prima che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> inizi a navigarla, gli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> sono pre-illuminati editorialmente, le tessere sono progettate per orientare il riconoscimento. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non <em>traccia</em> liberamente il proprio percorso attraverso il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span>. Segue traiettorie che la struttura <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> ha pre-disposto, e lo fa percependo questa <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> come <span class="concept-link" data-tag="scelta libera" tabindex="0" role="button">scelta libera</span>.</p>
+<p>Questa è la critica specifica che il <span class="concept-link" data-tag="livello 3" tabindex="0" role="button">livello 3</span> articola, e merita di essere formulata con precisione. La <span class="concept-link" data-tag="libertà fruitiva" tabindex="0" role="button">libertà fruitiva</span> promessa dall&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> non è inesistente — il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> può effettivamente scegliere, può deviare dalle proposte editoriali, può cercare contenuti specifici, può ignorare gli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> e cercare la <span class="concept-link" data-tag="long tail" tabindex="0" role="button">long tail</span>. Ma la libertà è strutturalmente vincolata, e il vincolo non è accidente del design: è conseguenza coerente del <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> di concentrazione che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha articolato altrove. La <span class="concept-link" data-tag="piattaforma SVOD" tabindex="0" role="button">piattaforma SVOD</span> non è infrastruttura neutra di accesso al catalogo; è dispositivo progettato per ottimizzare specifici risultati economici, e la sua <span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> riflette quegli obiettivi. La distinzione fra il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come <em>promessa formale</em> e il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come <em><span class="concept-link" data-tag="realizzazione industriale" tabindex="0" role="button">realizzazione industriale</span></em> è strutturale, e <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è caso esemplare per pensare la distinzione.</p>
+<p>Le tre tensioni che si rinforzano reciprocamente operano dentro una caratteristica più profonda del dispositivo che merita di essere portata apertamente: la sua opacità. Le tre soglie precedenti hanno articolato la struttura come visibile — la griglia categoriale è dichiarata, le righe del catalogo sono navigabili, l&#39;<span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> sulla tessera è frontalmente esposta. Ma il <em>meccanismo</em> che produce questa struttura visibile non è visibile al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>. Le scelte editoriali che decidono cosa mostrare in <span class="concept-link" data-tag="hero principale" tabindex="0" role="button">hero principale</span>, il modello di raccomandazione che decide cosa proporre nella riga «Perché hai guardato», la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> che il sistema assegna a ciascun contenuto, le statistiche di clic che si retroalimentano nella visibilità futura, gli algoritmi che modulano il ranking dei contenuti dentro ciascuna riga: tutto questo opera sotto la superficie. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> si presenta al <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> come Teatro razionale trasparente nelle proprie categorie, e questa trasparenza è una conquista reale del design — il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> <em>vede</em> dove sono i contenuti, e può orientarsi. Ma <span class="concept-link" data-tag="sotto la trasparenza" tabindex="0" role="button">sotto la trasparenza</span> opera un meccanismo opaco, e il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non vede questo meccanismo.</p>
+<p>Lo strumento teorico per pensare questa <span class="concept-link" data-tag="asimmetria" tabindex="0" role="button">asimmetria</span> fra superficie visibile e meccanismo opaco è la nozione lotmaniana di <span class="concept-link" data-tag="confine semiotico" tabindex="0" role="button">confine semiotico</span>, che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> ha articolato altrove. <span class="concept-link" data-tag="Jurij Lotman" tabindex="0" role="button">Jurij Lotman</span><sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>, nella propria teoria della <span class="concept-link" data-tag="semiosfera" tabindex="0" role="button">semiosfera</span>, descrive il confine come zona asimmetrica per definizione: chi è dentro il confine percepisce il proprio dentro come spazio organizzato e familiare, e percepisce ciò che è fuori dal confine come caos non organizzato; chi è fuori vede il dentro come spazio chiuso. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è dentro il <span class="concept-link" data-tag="confine semiotico" tabindex="0" role="button">confine semiotico</span> dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span>: percepisce lo spazio della <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> come Teatro razionale, vede le categorie e le tessere, naviga attraverso una struttura che gli si presenta come trasparente. Ma il meccanismo che ha prodotto questa struttura — le decisioni progettuali, gli algoritmi, le metriche di <span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>, i contratti di licensing fra <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> e gli studi di produzione — opera dall&#39;altro lato del confine, ed è opaco per chi è dentro. L&#39;<span class="concept-link" data-tag="asimmetria" tabindex="0" role="button">asimmetria</span> del <span class="concept-link" data-tag="confine semiotico" tabindex="0" role="button">confine semiotico</span> spiega perché la trasparenza dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> e l&#39;<span class="concept-link" data-tag="opacità del meccanismo" tabindex="0" role="button">opacità del meccanismo</span> coesistono senza contraddizione: appartengono a lati diversi del medesimo confine, e ciascun lato vede solo quello che il proprio punto di vista gli rende visibile.</p>
+<p>L&#39;<span class="concept-link" data-tag="opacità del meccanismo" tabindex="0" role="button">opacità del meccanismo</span> non è caratteristica accidentale di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> ma struttura comune alle piattaforme digitali nel loro insieme. Nick <span class="concept-link" data-tag="Srnicek" tabindex="0" role="button">Srnicek</span>, nel proprio studio del 2017 sul <em>Platform Capitalism</em><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>, ha articolato la categoria della <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> come infrastruttura digitale che genera valore attraverso <span class="concept-link" data-tag="effetti di rete" tabindex="0" role="button">effetti di rete</span>, e ha mostrato che gli <span class="concept-link" data-tag="effetti di rete" tabindex="0" role="button">effetti di rete</span> producono una tendenza strutturale al <span class="concept-link" data-tag="monopolio" tabindex="0" role="button">monopolio</span>. La <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> cresce in valore proporzionalmente al numero dei propri utenti, e i grandi attori dell&#39;industria <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> — <span class="concept-link" data-tag="Netflix" tabindex="0" role="button">Netflix</span>, <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span>, <span class="concept-link" data-tag="Amazon Prime Video" tabindex="0" role="button">Amazon Prime Video</span>, Apple TV+, Max, ESPN+ — competono in un mercato che tende strutturalmente a consolidarsi in pochi player dominanti. La <span class="concept-link" data-tag="concentrazione della visibilità" tabindex="0" role="button">concentrazione della visibilità</span> dentro la singola <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> è dunque coerente con la concentrazione di mercato fra le piattaforme: stessa logica strutturale, attuata a scale diverse del sistema. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> non è anomalia critica di un mercato altrimenti sano. È realizzazione coerente del <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> generale delle piattaforme digitali. La critica strutturale al dispositivo dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è critica strutturale al <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> delle piattaforme, e le due dimensioni — <span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> e <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> — si rinforzano reciprocamente perché sono manifestazioni del medesimo dispositivo di concentrazione.</p>
+<p>Tim Wu ha fornito al modello un complemento storico-economico necessario. Nel proprio lavoro del 2016, <em>The Attention Merchants</em><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>, Wu ha articolato la logica <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> generale di cui le piattaforme <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> sono attuazione specifica: il modello dell&#39;industria dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>, in cui l&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> è la vera merce e il contenuto è il dispositivo che permette di estrarla. La crescita continua è imperativo strutturale dell&#39;industria dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>, e nella sua attuazione contemporanea si traduce nell&#39;esigenza di catturare quote crescenti dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> disponibile dei fruitori. L&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span> di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> — il caricamento automatico dell&#39;episodio successivo, il sistema di raccomandazione che propone contenuti correlati, la minimizzazione dei punti di uscita dal flusso, l&#39;integrazione di <span class="concept-link" data-tag="Hulu" tabindex="0" role="button">Hulu</span> nella tab unica della <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> — è progettata per catturare e mantenere l&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> dentro l&#39;<span class="concept-link" data-tag="ecosistema della piattaforma" tabindex="0" role="button">ecosistema della piattaforma</span>. La <span class="concept-link" data-tag="griglia razionale" tabindex="0" role="button">griglia razionale</span> del Teatro contemporaneo, vista da <span class="concept-link" data-tag="Srnicek" tabindex="0" role="button">Srnicek</span> e Wu, è dispositivo di cattura dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> che opera dentro la logica economica della <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span>. La trasparenza categoriale dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span>, <span class="concept-link" data-tag="vantaggio cognitivo" tabindex="0" role="button">vantaggio cognitivo</span> per il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span>, è simultaneamente strumento di efficienza per l&#39;industria: un <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che trova rapidamente ciò che cerca è un <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> che resta dentro la <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> più a lungo.</p>
+<p>Lo spazio della pre-organizzazione che il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> non vede ha dunque due dimensioni complementari. La prima è economica: la <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> è infrastruttura tendente al <span class="concept-link" data-tag="monopolio" tabindex="0" role="button">monopolio</span>, e questa tendenza ne struttura l&#39;<span class="concept-link" data-tag="architettura" tabindex="0" role="button">architettura</span>. La seconda è cognitiva: la <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> è dispositivo di cattura dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>, e questa funzione ne struttura il design dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span>. Le due dimensioni si compongono nel meccanismo concreto che produce la trasparenza visibile della homepage e l&#39;opacità invisibile del modello di raccomandazione. Il <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è dunque dentro un dispositivo che pre-organizza categorialmente lo spazio del catalogo (prima tensione), pre-illumina i percorsi privilegiati attraverso il catalogo (seconda tensione), pre-costruisce le immagini con cui i contenuti si presentano (terza tensione), e fa tutto questo dentro la cornice di una <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> tendente al <span class="concept-link" data-tag="monopolio" tabindex="0" role="button">monopolio</span> che cattura l&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> del <span class="concept-link" data-tag="fruitore" tabindex="0" role="button">fruitore</span> come propria merce. Le tre tensioni delle soglie precedenti sono le facce visibili di un meccanismo unitario, e il meccanismo è coerente con il <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> generale dell&#39;industria digitale.</p>
+<p>Resta da articolare in chiusura il punto che il presente discorso non vuole eludere: la configurazione di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è <span class="concept-link" data-tag="realizzazione storica" tabindex="0" role="button">realizzazione storica</span> specifica del <span class="concept-link" data-tag="database come forma simbolica" tabindex="0" role="button">database come forma simbolica</span><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>, non destino della forma. Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non sostiene che il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come medium contemporaneo debba essere necessariamente realizzato come <span class="concept-link" data-tag="database già percorso" tabindex="0" role="button">database già percorso</span>. Sostiene il contrario: la <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> ammette realizzazioni diverse, e la differenza tra le realizzazioni è <span class="concept-link" data-tag="scelta progettuale" tabindex="0" role="button">scelta progettuale</span>, non necessità del medium. Un <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> può essere progettato per essere un <em>paesaggio già organizzato per il <span class="concept-link" data-tag="riconoscimento immediato" tabindex="0" role="button">riconoscimento immediato</span></em>, come <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è, oppure per essere un <em>territorio attraversabile in molti modi</em>, come il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> cerca di essere nella propria forma. Le due realizzazioni operano sullo stesso medium ma producono esperienze fruitive radicalmente diverse. Nel primo caso il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> serve un <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> di concentrazione e cattura dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>; nel secondo serve un modello fruitivo di esplorazione e tracciamento di percorsi non pre-determinati. La <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> è neutra rispetto a questa alternativa — può servire l&#39;una o l&#39;altra realizzazione a seconda di come viene progettata. <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> è caso esemplare di una realizzazione possibile, non di tutte le realizzazioni possibili. La critica complessiva di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> non è critica del <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come medium, ma critica di una specifica <span class="concept-link" data-tag="configurazione industriale" tabindex="0" role="button">configurazione industriale</span> del medium.</p>
+<p>L&#39;osservazione apre uno spazio che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> può occupare nella propria pratica. Il presente lavoro è esempio operativo di un&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> che adotta principi strutturali diversi da quelli di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span>. La griglia categoriale del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> è dichiarata al lettore (i <span class="concept-link" data-tag="sette pozzi" tabindex="0" role="button">sette pozzi</span>, le soglie, le voci convocate) ma è progettata per essere attraversabile in molti modi: ciascun pozzo è un&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> autonoma, le soglie collegano pozzi diversi in percorsi multipli, il lettore traccia il proprio cammino attraverso il sistema senza che la struttura amplifichi alcuni percorsi a scapito di altri. La topologia del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non opera con <span class="concept-link" data-tag="attaccamento preferenziale" tabindex="0" role="button">attaccamento preferenziale</span> automatico: non c&#39;è un algoritmo che amplifica i contenuti più letti né un <span class="concept-link" data-tag="feedback loop" tabindex="0" role="button">feedback loop</span> che concentra l&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> del lettore su pochi nodi. L&#39;identificazione visiva dei contenuti del <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> non passa attraverso <span class="concept-link" data-tag="key art" tabindex="0" role="button">key art</span> <span class="concept-link" data-tag="high concept" tabindex="0" role="button">high concept</span> progettate per il <span class="concept-link" data-tag="riconoscimento immediato" tabindex="0" role="button">riconoscimento immediato</span>, ma attraverso una tipografia sobria e titoli descrittivi che richiedono lettura per essere compresi. Le tre tensioni che operano sinergicamente in <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> sono assenti — o operano in modo radicalmente attenuato — nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, e questa differenza non è accidente del design ma <span class="concept-link" data-tag="scelta progettuale" tabindex="0" role="button">scelta progettuale</span> dichiarata. L&#39;esistenza di realizzazioni alternative dimostra che la configurazione di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> non è <span class="concept-link" data-tag="destino del medium" tabindex="0" role="button">destino del medium</span> ma scelta dell&#39;industria; e la critica complessiva di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> trova il proprio fondamento positivo nell&#39;esistenza dimostrata di <span class="concept-link" data-tag="alternative possibili" tabindex="0" role="button">alternative possibili</span>.</p>
+<p>Il caso <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> resta caso esemplare per il livello <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> dell&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span>, e la presente soglia ha articolato perché questo è il caso. La <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> realizza in forma matura le tre dimensioni del dispositivo <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> dell&#39;<span class="concept-link" data-tag="interfaccia" tabindex="0" role="button">interfaccia</span> <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> — <span class="concept-link" data-tag="struttura razionale" tabindex="0" role="button">struttura razionale</span>, percorsi pre-illuminati, <span class="concept-link" data-tag="immagine" tabindex="0" role="button">immagine</span> come riconoscimento — e le combina sinergicamente in un <span class="concept-link" data-tag="modello economico" tabindex="0" role="button">modello economico</span> coerente con la logica generale delle piattaforme digitali. La configurazione è efficace per i propri obiettivi, e la sua efficacia è precisamente quello che rende strutturale la critica: ciò che <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> realizza non è errore del design ma successo del design, e il successo del design è simultaneamente il <span class="concept-link" data-tag="limite strutturale" tabindex="0" role="button">limite strutturale</span> della <span class="concept-link" data-tag="libertà fruitiva" tabindex="0" role="button">libertà fruitiva</span> che il <span class="concept-link" data-tag="database" tabindex="0" role="button">database</span> come medium potrebbe ammettere. L&#39;analisi di <span class="concept-link" data-tag="Disney+" tabindex="0" role="button">Disney+</span> come caso esemplare non serve a misurare la <span class="concept-link" data-tag="piattaforma" tabindex="0" role="button">piattaforma</span> rispetto a un modello ideale che essa avrebbe mancato; serve a vedere chiaramente la configurazione che essa realizza, e a riconoscere che altre configurazioni del medesimo medium restano logicamente possibili.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's1-3';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

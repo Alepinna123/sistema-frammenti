@@ -1,0 +1,5757 @@
+{
+  "generated": "2026-05-19T20:43:38.174Z",
+  "fragments": [
+    {
+      "id": "p1",
+      "tipo": "pozzo",
+      "title": "Il paradigma come qualità estetica dell'opera-volume",
+      "tags": [
+        "database",
+        "paradigma",
+        "sintagma",
+        "Manovich",
+        "Panofsky",
+        "forma simbolica",
+        "manifestatio",
+        "visual logic",
+        "Barabási",
+        "rete scale-free",
+        "preferential attachment",
+        "power-law",
+        "opera-volume",
+        "Architect",
+        "hub",
+        "modus operandi",
+        "qualità estetica",
+        "Landow",
+        "lettore attivo",
+        "stile"
+      ],
+      "file": "p1.html"
+    },
+    {
+      "id": "p2",
+      "tipo": "pozzo",
+      "title": "La rete come potere effettivo dell'Architect",
+      "tags": [
+        "rete",
+        "scale-free",
+        "power-law",
+        "preferential attachment",
+        "first-mover advantage",
+        "fitness",
+        "Bianconi-Barabási",
+        "hub",
+        "winner-takes-all",
+        "Bose-Einstein condensation",
+        "blockbuster",
+        "high concept",
+        "kernel",
+        "canone",
+        "bibbia",
+        "ecosistema narrativo",
+        "resilienza",
+        "Architect",
+        "opera-volume",
+        "algoritmo di raccomandazione",
+        "piattaforma",
+        "semiosfera (puntuale)",
+        "proprietà intellettuale (rinvio a P7)"
+      ],
+      "file": "p2.html"
+    },
+    {
+      "id": "p3",
+      "tipo": "pozzo",
+      "title": "Il Teatro della Memoria di Giulio Camillo come *manifestatio* del programma del database",
+      "tags": [
+        "Teatro della Memoria",
+        "Camillo",
+        "arte della memoria",
+        "loci",
+        "imagines",
+        "7×7",
+        "Sefirot",
+        "cabala",
+        "scacchiera",
+        "combinatoria",
+        "spettatore",
+        "interfaccia",
+        "mens fenestrata",
+        "mente artificiale",
+        "homunculus",
+        "alchimia",
+        "Bolzoni",
+        "Yates",
+        "manifestatio",
+        "Panofsky",
+        "Warburg",
+        "Mnemosyne Atlas",
+        "Pathosformel",
+        "Iconology of the Interval",
+        "intervallo",
+        "Zwischenraum",
+        "Grundtmann",
+        "Didi-Huberman",
+        "sistema chiuso",
+        "sistema aperto",
+        "totalità",
+        "*Mischung*",
+        "*diaskeué*",
+        "Schlegel",
+        "Cometa",
+        "meme positivo",
+        "auto-riflessività",
+        "power-law",
+        "Bianconi-Barabási",
+        "database",
+        "LLM",
+        "distant writing",
+        "opera-volume",
+        "Prometeo",
+        "triade alchimica (fusione/affinità/intervallo)"
+      ],
+      "file": "p3.html"
+    },
+    {
+      "id": "p4",
+      "tipo": "pozzo",
+      "title": "Sistema di frammenti, organismo, caos formato: la riflessione estetica di Schlegel come strumento per pensare il database e il metamedium",
+      "tags": [
+        "frammento",
+        "sistema aperto",
+        "sinfilosofia",
+        "Athenaeum",
+        "Witz",
+        "*Verkleinerungsglas*",
+        "Lichtenberg",
+        "*Mischung*",
+        "*Verschmelzung*",
+        "*Wahlverwandtschaft*",
+        "diaskeué",
+        "*Restruktion*",
+        "organismo",
+        "*infinita pienezza*",
+        "caos formato",
+        "*organisches Zeitalter*",
+        "carattere animale",
+        "potenziazione",
+        "poesia universale progressiva",
+        "serie interminabile di specchi",
+        "Schlegel",
+        "Cometa",
+        "*Frühromantik*",
+        "database come forma simbolica",
+        "paradigma/sintagma",
+        "metamedium",
+        "Manovich",
+        "Kay",
+        "linguaggi non ancora inventati",
+        "opera-volume",
+        "frammento-pozzo",
+        "frammento-soglia",
+        "forma estetica",
+        "*Kulturpolitik*",
+        "isolamento dell'estetica",
+        "totalità illimitata"
+      ],
+      "file": "p4.html"
+    },
+    {
+      "id": "p5",
+      "tipo": "pozzo",
+      "title": "Franchise, piattaforma, fandom: la configurazione industriale dell'opera-volume contemporanea",
+      "tags": [
+        "franchise",
+        "IP",
+        "proprietà intellettuale",
+        "continuity",
+        "multiplicity",
+        "*human bible*",
+        "Brembilla",
+        "Caldwell",
+        "*industrial reflexivity*",
+        "piattaforma",
+        "SVOD",
+        "ambiente d'uso",
+        "effetti di rete",
+        "Srnicek",
+        "monopolio",
+        "attenzione",
+        "Wu",
+        "economia dell'attenzione",
+        "*participatory culture*",
+        "Jenkins",
+        "Ito",
+        "boyd",
+        "fandom",
+        "cultura partecipativa",
+        "interactive media",
+        "cooptazione",
+        "Bratich",
+        "universe storytelling",
+        "ecosistemi narrativi",
+        "agenti eterogenei",
+        "semiosfera",
+        "Lotman",
+        "meccanismo se non organismo",
+        "opera-volume",
+        "configurazione industriale"
+      ],
+      "file": "p5.html"
+    },
+    {
+      "id": "p6",
+      "tipo": "pozzo",
+      "title": "L'AI come medium della scrittura distante: meta-autore, isotropia, dataprint, accountability",
+      "tags": [
+        "distant writing",
+        "*wrAIting*",
+        "meta-autore",
+        "designer",
+        "responsibility",
+        "decoupling",
+        "sette fasi",
+        "prompt engineering",
+        "progressive refinement",
+        "curation",
+        "logica dei requisiti",
+        "isotropia narrativa",
+        "costruttivismo",
+        "C-creativity",
+        "combinatorial novelty",
+        "Karinthy",
+        "Encounters",
+        "network narratives",
+        "multiverse literature",
+        "conversational literature",
+        "dataprint",
+        "voice",
+        "stilistica del medium",
+        "Floridi",
+        "Flusser",
+        "grammar machines",
+        "accountability",
+        "answerability",
+        "sette caratteristiche",
+        "sociotecnico",
+        "molte mani",
+        "Novelli",
+        "Taddeo",
+        "personificazione",
+        "scaffolding immaginativo",
+        "simulazione",
+        "intelligence",
+        "black box",
+        "hallucinations",
+        "Bernini",
+        "architettura",
+        "death of the author",
+        "birth of the author as designer"
+      ],
+      "file": "p6.html"
+    },
+    {
+      "id": "p7",
+      "tipo": "pozzo",
+      "title": "Subcreazione, mondi secondari, cerchi concentrici di autorialità: l'autore dell'opera-volume",
+      "tags": [
+        "subcreazione",
+        "subcreator",
+        "Tolkien",
+        "Wolf",
+        "*On Fairy-stories*",
+        "Mondo Primario",
+        "mondo secondario",
+        "*creating under*",
+        "Secondary Belief",
+        "invention",
+        "completeness",
+        "consistency",
+        "MacDonald",
+        "*Primary World defaults*",
+        "cerchi concentrici di autorialità",
+        "concentric circles of authorship",
+        "originatore",
+        "custode",
+        "canone",
+        "mondo aperto",
+        "mondo chiuso",
+        "Tolkien estate",
+        "Christopher Tolkien",
+        "Pescatore",
+        "*L'ombra dell'autore*",
+        "estetica romantica",
+        "genio",
+        "ispirazione pura",
+        "*caméra-stylo*",
+        "postmoderno autoriale",
+        "Brembilla",
+        "personaggi seriali",
+        "figure seriali",
+        "Casoli",
+        "ecosistemi narrativi",
+        "Schlegel",
+        "*Athenaeum*",
+        "frammento 116",
+        "*romantische Poesie*",
+        "poesia universale progressiva",
+        "*Roman*",
+        "*Wilhelm Meister*",
+        "Goethe",
+        "frammento 216",
+        "tendenze dell'epoca",
+        "aspirazione poetologica",
+        "totalità narrativa",
+        "opera-volume",
+        "custode delle leggi del mondo"
+      ],
+      "file": "p7.html"
+    },
+    {
+      "id": "s1-1",
+      "tipo": "soglia",
+      "title": "Paradigma e sintagma nell'opera-volume: il mondo narrativo come totalità materiale, la singola storia come traiettoria virtuale",
+      "tags": [
+        "paradigma",
+        "sintagma",
+        "inversione paradigma/sintagma",
+        "Saussure",
+        "Barthes",
+        "*Elementi di semiologia*",
+        "Manovich",
+        "*Database as a Symbolic Form*",
+        "*The Language of New Media*",
+        "database materiale",
+        "narrativa virtuale",
+        "*natural enemies*",
+        "opera-volume",
+        "catalogo SVOD",
+        "Netflix",
+        "paradigma letterario eccedente",
+        "Terra di Mezzo",
+        "Tolkien",
+        "*Marvel Cinematic Universe*",
+        "Stan Lee",
+        "subcreatore",
+        "Greenaway",
+        "*Stairs-Munich-Projection*",
+        "*database cinema*",
+        "paradigma scale-free",
+        "power-law",
+        "Barabási",
+        "qualità estetica del paradigma",
+        "autorialità sul paradigma",
+        "fenomenologia della fruizione",
+        "navigazione",
+        "sintagma virtuale",
+        "traiettoria",
+        "spazio attraversabile",
+        "tempo della narrazione vs tempo della fruizione",
+        "*wrAIting*",
+        "logica dei *requirements*",
+        "meta-autore-progettista",
+        "semiosfera",
+        "Lotman",
+        "profondità diacronica",
+        "frammento schlegeliano"
+      ],
+      "file": "s1-1.html"
+    },
+    {
+      "id": "s1-1b",
+      "tipo": "soglia",
+      "title": "Isotropia narrativa e topologia reale: la tensione costitutiva del meta-autore",
+      "tags": [
+        "isotropia narrativa",
+        "spazio narrativo come marmo",
+        "Floridi",
+        "*Distant Writing*",
+        "scrittura distante",
+        "qualsiasi direzione coerente",
+        "spazio illimitato di possibilità",
+        "Manovich",
+        "paradigma/sintagma",
+        "sintagma come direzione",
+        "paradigma scale-free",
+        "*power-law*",
+        "Barabási-Albert",
+        "preferential attachment",
+        "Bianconi-Barabási",
+        "fitness model",
+        "nodi-hub e nodi-foglia",
+        "scale-freeness emergente",
+        "anisotropia pratica",
+        "tensione costitutiva del meta-autore",
+        "libertà teorica e responsabilità reale",
+        "C-creativity",
+        "novità combinatoria",
+        "*winner-takes-all* nel mercato dei franchise",
+        "concentrazione del mercato culturale",
+        "pratica matura del *wrAIting*",
+        "democratizzazione dello strumento",
+        "concentrazione del mercato",
+        "MCU",
+        "Wizarding World",
+        "Terra di Mezzo"
+      ],
+      "file": "s1-1b.html"
+    },
+    {
+      "id": "s1-2-a",
+      "tipo": "soglia",
+      "title": "L'interfaccia di Disney+ come Teatro contemporaneo della memoria. Analisi strutturale",
+      "tags": [
+        "Disney+",
+        "interfaccia",
+        "piattaforma SVOD",
+        "struttura razionale",
+        "griglia geometrica",
+        "brand pillar",
+        "Disney",
+        "Pixar",
+        "Marvel",
+        "Star Wars",
+        "National Geographic",
+        "Hulu",
+        "Brand Hub",
+        "content hub",
+        "hub-and-spoke",
+        "Camillo",
+        "Teatro della memoria",
+        "matrice 7×7",
+        "scacchiera combinatoria",
+        "Bolzoni",
+        "sospensione delle dimensioni mistiche",
+        "accesso simultaneo",
+        "Manovich",
+        "spazializzazione",
+        "grammatica della camera",
+        "zoom",
+        "scroll bidimensionale",
+        "piano vs profondità",
+        "drill-down",
+        "clic come operatore di profondità",
+        "multi-list interface",
+        "carousel",
+        "Erik Runyon",
+        "infinite scrolling problem",
+        "paper RecGaze",
+        "Frank Rausch",
+        "navigazione discreta",
+        "vantaggio cognitivo",
+        "prezzo della rigidità",
+        "tab «Per te»",
+        "personalizzazione algoritmica",
+        "sintesi struttura razionale e algoritmo"
+      ],
+      "file": "s1-2-a.html"
+    },
+    {
+      "id": "s1-2-b",
+      "tipo": "soglia",
+      "title": "Percorsi di fruizione e topologia di rete dell'opera-volume in Disney+. Wolf e Barabási",
+      "tags": [
+        "opera-volume",
+        "piattaforma SVOD",
+        "Disney+",
+        "percorsi di fruizione",
+        "topologia di rete",
+        "scale-free network",
+        "Barabási",
+        "Albert",
+        "*Science* 1999",
+        "preferential attachment",
+        "attaccamento preferenziale",
+        "Matthew effect",
+        "rich get richer",
+        "hub",
+        "nodi periferici",
+        "power law",
+        "growth",
+        "crescita del network",
+        "Bianconi-Albert",
+        "fitness model",
+        "Wolf",
+        "*Building Imaginary Worlds*",
+        "circoli concentrici di autorialità",
+        "originator",
+        "torchbearer",
+        "estate",
+        "employees",
+        "freelancers",
+        "derivative products",
+        "fan productions",
+        "noncanonical additions",
+        "*Marvel Cinematic Universe*",
+        "Stan Lee",
+        "Kevin Feige",
+        "MCU Infinity Saga",
+        "MCU Multiverse Saga",
+        "*Daredevil Rinascita*",
+        "hero principale",
+        "Brand page",
+        "long tail",
+        "concentrazione della visibilità",
+        "Erik Runyon",
+        "dato statistico carousel",
+        "algoritmo di raccomandazione",
+        "centralità autoriale",
+        "centralità topologica",
+        "dinamica personalizzata",
+        "interazione utente in tempo reale",
+        "feedback loop",
+        "Manovich"
+      ],
+      "file": "s1-2-b.html"
+    },
+    {
+      "id": "s1-2-c",
+      "tipo": "soglia",
+      "title": "L'immagine come dispositivo industriale-culturale di identificazione delle opere-volume in Disney+. Warburg, Wyatt, Cucco",
+      "tags": [
+        "immagine",
+        "pathosformel",
+        "*Mnemosyne Atlas*",
+        "Aby Warburg",
+        "archivio visuale",
+        "risonanze visive",
+        "affinità per immagini",
+        "riproducibilità tecnica",
+        "Walter Benjamin (richiamo)",
+        "Grundtmann",
+        "high concept",
+        "Justin Wyatt",
+        "*High Concept: Movies and Marketing in Hollywood*",
+        "the Look the Hook the Book",
+        "Steven Spielberg",
+        "venticinque parole",
+        "integrazione film-marketing",
+        "key art",
+        "marketing hook",
+        "merchandising",
+        "tie-in",
+        "Marco Cucco",
+        "blockbuster",
+        "*Il film blockbuster*",
+        "concentrazione industriale",
+        "David Puttnam",
+        "marchio-locomotiva",
+        "cinque pillar brand",
+        "Disney",
+        "Pixar",
+        "Marvel",
+        "Star Wars",
+        "National Geographic",
+        "*Daredevil Rinascita*",
+        "*Avengers Endgame*",
+        "MCU Infinity Saga",
+        "MCU Multiverse Saga",
+        "tessera visiva",
+        "riconoscimento immediato",
+        "iconografia del supereroe",
+        "cinema di supereroi",
+        "superficie visiva",
+        "profondità testuale",
+        "drill-down",
+        "medium libro vs medium SVOD",
+        "convergenza delle tre voci",
+        "immagine come dispositivo industriale-culturale"
+      ],
+      "file": "s1-2-c.html"
+    },
+    {
+      "id": "s1-2",
+      "tipo": "soglia",
+      "title": "L'interfaccia come confine semiotico: la zona di traduzione che produce significato",
+      "tags": [
+        "interfaccia",
+        "confine semiotico",
+        "zona di traduzione",
+        "Manovich",
+        "*The Language of New Media*",
+        "non-trasparenza del codice",
+        "Whorf-Sapir",
+        "Derrida",
+        "*cut and paste*",
+        "Lotman",
+        "*La semiosfera*",
+        "finestra trasparente",
+        "messaggi propri dell'interfaccia",
+        "recettore sensoriale",
+        "asimmetria della traduzione",
+        "codici asimmetrici",
+        "Galloway",
+        "*The Interface Effect*",
+        "zona autonoma di attività",
+        "effetto-interfaccia",
+        "semiosfera",
+        "barbaro",
+        "esterno caotico",
+        "produzione del fruitore come soggetto",
+        "produzione del database come oggetto",
+        "piattaforma SVOD",
+        "Disney+",
+        "Netflix",
+        "*Marvel Cinematic Universe*",
+        "interfacce alternative",
+        "fandom come interfaccia interpretativa",
+        "Wikipedia come interfaccia enciclopedica",
+        "*The Witcher 3*",
+        "*Mass Effect*",
+        "bestiario",
+        "codex",
+        "paratesti come confini semiotici interni",
+        "design dell'interfaccia come atto autoriale",
+        "doppia funzione del confine commerciale",
+        "logica culturale e logica industriale"
+      ],
+      "file": "s1-2.html"
+    },
+    {
+      "id": "s1-3",
+      "tipo": "soglia",
+      "title": "Critica complessiva di Disney+ come caso esemplare dell'opera-volume nell'industria SVOD contemporanea",
+      "tags": [
+        "Disney+",
+        "interfaccia",
+        "piattaforma SVOD",
+        "opera-volume",
+        "database come forma simbolica",
+        "Manovich",
+        "paradigma/sintagma",
+        "rovesciamento",
+        "libertà fruitiva",
+        "database già percorso",
+        "concentrazione della visibilità",
+        "long tail",
+        "attaccamento preferenziale",
+        "Matthew effect",
+        "feedback loop",
+        "griglia razionale",
+        "gabbie cognitive",
+        "pillar brand",
+        "cinque pillar",
+        "«Per te»",
+        "personalizzazione algoritmica",
+        "sintesi instabile",
+        "immagine come dispositivo",
+        "superficie visiva",
+        "profondità testuale",
+        "drill-down",
+        "key art",
+        "high concept",
+        "marchio-locomotiva",
+        "Cucco",
+        "blockbuster",
+        "opacità del meccanismo",
+        "trasparenza dell'interfaccia",
+        "confine semiotico",
+        "asimmetria",
+        "Lotman",
+        "semiosfera",
+        "sotto la trasparenza",
+        "platform capitalism",
+        "Srnicek",
+        "effetti di rete",
+        "monopolio",
+        "industria dell'attenzione",
+        "Wu",
+        "cattura dell'attenzione",
+        "merce attenzione",
+        "ecosistema della piattaforma",
+        "realizzazione storica",
+        "scelta progettuale",
+        "destino del medium",
+        "alternative possibili",
+        "sistema della tesi",
+        "attraversabilità",
+        "esplorazione fruitiva",
+        "livello 3",
+        "sintesi critica",
+        "tripletta 2A 2B 2C",
+        "catena di pre-determinazione",
+        "scelta libera",
+        "scelta vincolata",
+        "modello economico",
+        "efficacia del design",
+        "limite strutturale"
+      ],
+      "file": "s1-3.html"
+    },
+    {
+      "id": "s2-1",
+      "tipo": "soglia",
+      "title": "Preferential attachment nel mercato culturale",
+      "tags": [
+        "preferential attachment",
+        "rich get richer",
+        "Matthew effect",
+        "Barabási-Albert",
+        "1999 «Science»",
+        "rete scale-free",
+        "power-law",
+        "grafo del mercato culturale",
+        "nodi-franchise",
+        "connessioni-investimenti",
+        "iperhub",
+        "Disney",
+        "Marvel",
+        "Star Wars",
+        "Lucasfilm",
+        "20th Century Fox",
+        "Avengers",
+        "Iron Man",
+        "Spider-Man",
+        "*Avatar*",
+        "*Alien*",
+        "*Predator*",
+        "*Harry Potter*",
+        "*Il Trono di Spade*",
+        "blockbuster",
+        "Cucco",
+        "*Il film blockbuster*",
+        "2010",
+        "concentrazione industriale",
+        "David Puttnam",
+        "marchio-locomotiva",
+        "Brembilla",
+        "*It's All Connected*",
+        "proprietà intellettuale",
+        "diritto d'autore",
+        "marchio commerciale",
+        "accumulazione cumulativa",
+        "capitale narrativo",
+        "effetto nostalgia",
+        "reinvenzione",
+        "acquisizioni strategiche",
+        "2009",
+        "2012",
+        "2019",
+        "ecologia dei franchise",
+        "ecosistema narrativo",
+        "franchise consolidato",
+        "franchise nuovo",
+        "fidelizzazione del pubblico",
+        "apparato di marketing",
+        "sinergie commerciali",
+        "posizionamento di rete",
+        "qualità intrinseca",
+        "qualità modulante",
+        "attenzione iniziale",
+        "attenzione successiva",
+        "concentrazione del mercato",
+        "razionalità industriale",
+        "operazione strutturale sulla rete"
+      ],
+      "file": "s2-1.html"
+    },
+    {
+      "id": "s2-2",
+      "tipo": "soglia",
+      "title": "Fitness e qualità narrativa: quando η compensa il grado",
+      "tags": [
+        "fitness",
+        "η",
+        "eta",
+        "modello Bianconi-Barabási",
+        "2001 «Europhysics Letters»",
+        "*Competition and multiscaling in evolving networks*",
+        "preferential attachment classico",
+        "Barabási-Albert",
+        "grado k",
+        "k·η",
+        "probabilità di connessione",
+        "Bose-Einstein condensation",
+        "capitale narrativo",
+        "Brembilla",
+        "*It's All Connected*",
+        "effetto nostalgia",
+        "tenuta del paradigma",
+        "Pescatore",
+        "*Ecosistemi narrativi*",
+        "2018",
+        "coerenza mitopoietica",
+        "profondità del mondo secondario",
+        "ricchezza simbolica",
+        "mondo costruito",
+        "Tolkien",
+        "Terra di Mezzo",
+        "*Il signore degli anelli*",
+        "1954-55",
+        "Quattro Ere",
+        "linguaggio costruito",
+        "lingue elfiche",
+        "Quenya",
+        "Sindarin",
+        "*Secondary Belief*",
+        "Peter Jackson",
+        "2001-2003",
+        "Frank Herbert",
+        "*Dune*",
+        "J.K. Rowling",
+        "*Harry Potter*",
+        "George R.R. Martin",
+        "*Il Trono di Spade*",
+        "Disney",
+        "Marvel",
+        "Star Wars",
+        "Warner",
+        "DC Comics",
+        "Universal",
+        "iperhub industriali",
+        "franchise di alta fitness",
+        "franchise di alta posizione",
+        "concentrazione del mercato",
+        "valore intrinseco",
+        "sfumatura della critica"
+      ],
+      "file": "s2-2.html"
+    },
+    {
+      "id": "s2-2a",
+      "tipo": "soglia",
+      "title": "Tolkien come caso di alta fitness mitopoietica",
+      "tags": [
+        "Tolkien",
+        "J.R.R. Tolkien",
+        "Terra di Mezzo",
+        "*Lo Hobbit*",
+        "1937",
+        "*Il signore degli anelli*",
+        "1954-55",
+        "Allen & Unwin",
+        "*Silmarillion*",
+        "Christopher Tolkien",
+        "*History of Middle-earth*",
+        "1983-1996",
+        "Ainulindalë",
+        "Valaquenta",
+        "Quattro Ere",
+        "Prima Era",
+        "Seconda Era",
+        "Terza Era",
+        "Quarta Era",
+        "Quenya",
+        "Sindarin",
+        "Khuzdul",
+        "Black Speech",
+        "Adûnaic",
+        "Tengwar",
+        "Cirth",
+        "cattedra di anglosassone",
+        "Oxford",
+        "filologo",
+        "cosmogonia di Eä",
+        "Númenor",
+        "mappa della Terra di Mezzo",
+        "trilogia cinematografica",
+        "Peter Jackson",
+        "2001-2003",
+        "*Il ritorno del re*",
+        "tre Oscar",
+        "*Lo Hobbit* film",
+        "2012-2014",
+        "*Gli anelli del potere*",
+        "Amazon Prime Video",
+        "2022",
+        "*The Lord of the Rings Online*",
+        "*Middle-earth: Shadow of Mordor*",
+        "giochi di ruolo",
+        "merchandising globale",
+        "cinquanta lingue",
+        "comunità di pratica linguistica",
+        "fitness mitopoietica",
+        "Wolf",
+        "*Building Imaginary Worlds*",
+        "*Secondary Belief*",
+        "sospensione attiva dell'incredulità",
+        "leggi interne articolate",
+        "mondo abitabile",
+        "condizione di possibilità",
+        "condizione di sostenibilità",
+        "amplificatore strutturale",
+        "Bianconi-Barabási",
+        "η eccezionale",
+        "lettera 131",
+        "Milton Waldman",
+        "«more or less connected legend»",
+        "cicli collegati al magnifico tutto",
+        "spazio per altre menti e mani",
+        "investimento autoriale",
+        "sessanta anni di lavoro",
+        "1910",
+        "caso eccezionale",
+        "produzione industriale",
+        "rapporto fra fitness e produzione"
+      ],
+      "file": "s2-2a.html"
+    },
+    {
+      "id": "s3-1",
+      "tipo": "soglia",
+      "title": "Loci e imagines: la struttura 7×7 come sistema di accesso",
+      "tags": [
+        "loci e imagines",
+        "arte della memoria",
+        "Camillo",
+        "Giulio Camillo Delminio",
+        "*Idea del theatro*",
+        "1550",
+        "sette colonne",
+        "sette gradi",
+        "quarantanove luoghi",
+        "griglia 7×7",
+        "scacchiera dei luoghi",
+        "Bolzoni",
+        "edizione Adelphi",
+        "1991",
+        "griglia di classificazione",
+        "modello per la mente",
+        "proiezioni materiali",
+        "sette pianeti",
+        "Luna",
+        "Mercurio",
+        "Venere",
+        "Sole",
+        "Marte",
+        "Giove",
+        "Saturno",
+        "cosmologia rinascimentale",
+        "Convivio",
+        "Caverna",
+        "Gorgoni",
+        "Pasifae e il Toro",
+        "Sandali di Mercurio",
+        "Prometeo",
+        "Tre Doni della Sapienza",
+        "Binah",
+        "settima Sefirot",
+        "sette volte sette",
+        "Padre nostro",
+        "testo ebraico di Matteo",
+        "ombra del divino archetipo",
+        "cabala",
+        "tradizione ermetica",
+        "sette pozzi del sistema",
+        "sette domini di articolazione argomentativa",
+        "quarantanove frammenti tematici",
+        "imagines come dispositivo di richiamo",
+        "meccanismo combinatorio",
+        "significato relazionale",
+        "movimento del fruitore",
+        "dispositivo digitale di navigazione",
+        "totalità enciclopedica",
+        "sistema della tesi",
+        "circoscritto",
+        "profondità dell'articolazione",
+        "prestito strutturale"
+      ],
+      "file": "s3-1.html"
+    },
+    {
+      "id": "s3-1a",
+      "tipo": "soglia",
+      "title": "La mente artificiale: *mens fenestrata* e LLM",
+      "tags": [
+        "*mens fenestrata*",
+        "mente artificiale",
+        "interiorità esternalizzata",
+        "Camillo",
+        "Teatro della memoria",
+        "Bolzoni",
+        "arte della memoria classica",
+        "*Ad Herennium*",
+        "Cicerone",
+        "Quintiliano",
+        "maestri medievali",
+        "maestri rinascimentali",
+        "Frances Yates",
+        "*The Art of Memory*",
+        "1966",
+        "arte interiore",
+        "sistema mnemonico solitario",
+        "Viglius Zuichemus",
+        "Erasmo",
+        "lettera del 1532",
+        "Venezia",
+        "edificio ligneo",
+        "rovesciamento all'esterno",
+        "dispositivo materiale",
+        "schedario delle belle forme",
+        "anatomia dei grandi testi",
+        "finestre della mente",
+        "*mens fenestrata* come categoria",
+        "tradizione ermetica",
+        "microcosmo e macrocosmo",
+        "sospensione della dimensione mistica",
+        "LLM",
+        "Large Language Model",
+        "Claude",
+        "GPT",
+        "Gemini",
+        "pesi della rete neurale",
+        "rappresentazioni vettoriali",
+        "matrici di attenzione",
+        "interfaccia testuale",
+        "finestra contemporanea",
+        "*dataprint*",
+        "Floridi",
+        "*Distant Writing*",
+        "stilistica strutturale del medium",
+        "grammatica formale",
+        "*prompt*",
+        "traiettoria di probabilità",
+        "meta-autore",
+        "agentività compositiva",
+        "dispositivo amplificatore",
+        "sapere classico",
+        "corpus contemporanei",
+        "velocità dell'interazione",
+        "continuità di lunga durata",
+        "prototipo cognitivo dell'AI",
+        "prestito cognitivo"
+      ],
+      "file": "s3-1a.html"
+    },
+    {
+      "id": "s3-1b",
+      "tipo": "soglia",
+      "title": "I quarantanove meme positivi: loci e imagines nella pubblicazione SVOD",
+      "tags": [
+        "pubblicazione SVOD del sistema della tesi",
+        "dispositivo digitale di navigazione",
+        "griglia 7×7",
+        "quarantanove caselle",
+        "sette colonne",
+        "sette gradi",
+        "pozzi tematici",
+        "domini di articolazione argomentativa",
+        "matrice incrociata",
+        "prodotto matriciale",
+        "imagines contemporanee",
+        "meme positivi",
+        "tessera grafica",
+        "dispositivo visivo di richiamo",
+        "Bolzoni",
+        "scacchiera dei luoghi",
+        "Camillo",
+        "Teatro della memoria",
+        "Manovich",
+        "interfaccia come confine semiotico",
+        "Dawkins",
+        "*The Selfish Gene*",
+        "1976",
+        "meme",
+        "replicante culturale",
+        "stabilità",
+        "fedeltà",
+        "ricombinazione",
+        "qualifica «positivo»",
+        "intenzionalità progettuale",
+        "trasmissione attiva",
+        "contrapposizione virali passivi",
+        "isotropia progettuale",
+        "sospensione algoritmo di raccomandazione",
+        "sospensione feedback loop",
+        "sospensione personalizzazione",
+        "database come promessa formale",
+        "realizzazione cognitiva del database",
+        "pre-illuminazione di percorsi",
+        "piattaforma SVOD industriale",
+        "pubblicazione SVOD della tesi",
+        "attraversamento libero",
+        "significato relazionale",
+        "percorso del fruitore",
+        "grammatica formale",
+        "dispositivo combinatorio",
+        "multidimensionalità"
+      ],
+      "file": "s3-1b.html"
+    },
+    {
+      "id": "s4-1a",
+      "tipo": "soglia",
+      "title": "Frammento-pozzo e frammento-soglia: i neologismi della tesi",
+      "tags": [
+        "frammento",
+        "Schlegel",
+        "*Athenaeum*",
+        "Cometa",
+        "*L'età classico-romantica*",
+        "2009",
+        "elemento più semplice di un sistema aperto",
+        "piccolo cosmo",
+        "sistema aperto",
+        "sinfilosofia",
+        "romantici di Jena",
+        "Novalis",
+        "Schleiermacher",
+        "Schlegel",
+        "sospensione dell'elemento minimo",
+        "Dawkins",
+        "memetica",
+        "1976",
+        "fisica degli atomi",
+        "frammento come unità relativa di senso",
+        "frammento-pozzo",
+        "neologismo",
+        "pozzo come metafora",
+        "verticalità",
+        "profondità",
+        "nodo-hub",
+        "sette pozzi",
+        "database",
+        "rete",
+        "teatro della memoria",
+        "organismo",
+        "industriale",
+        "AI come medium",
+        "subcreazione",
+        "frammento-soglia",
+        "neologismo",
+        "soglia come metafora",
+        "orizzontalità",
+        "ponte di passaggio",
+        "arco del grafo",
+        "livelli diversi di scala",
+        "network science",
+        "grafo del sistema",
+        "topologia scale-free",
+        "Barabási-Albert",
+        "Bianconi-Barabási",
+        "modello con fitness",
+        "profondità del pozzo",
+        "specificità della soglia",
+        "fitness dei frammenti",
+        "lettura per pozzi",
+        "lettura per soglie",
+        "grammatica operativa",
+        "articolazione metalinguistica",
+        "carattere relazionale",
+        "carattere profondo"
+      ],
+      "file": "s4-1a.html"
+    },
+    {
+      "id": "s4-2a",
+      "tipo": "soglia",
+      "title": "Ars combinatoria: lo spirito combinatorio tra Camillo, Schlegel e Floridi",
+      "tags": [
+        "ars combinatoria",
+        "spirito combinatorio",
+        "principio combinatorio",
+        "lunga durata",
+        "Camillo",
+        "*Idea del theatro*",
+        "1550",
+        "Bolzoni",
+        "macchine retoriche",
+        "*gorgo dell'artificio*",
+        "*artificiosa rota*",
+        "Teatro 7×7",
+        "luoghi-immagine",
+        "scacchiera dei luoghi",
+        "meccanismo che funziona da sé",
+        "ars dictaminis",
+        "retoriche umanistiche",
+        "magazzino ideale di macchine per costruire testi",
+        "Accademia di Lagado",
+        "Swift",
+        "tradizione epico-cavalleresca",
+        "Schlegel",
+        "*Athenaeum*",
+        "*Mischung*",
+        "*Verschmelzung*",
+        "*Auflösung*",
+        "mescolanza",
+        "fusione",
+        "dissoluzione",
+        "chimica romantica",
+        "Schelling",
+        "filosofia della natura",
+        "*Witz*",
+        "arguzia",
+        "acutezza",
+        "diascévase",
+        "filologia omerica",
+        "decostruzione e ricomposizione",
+        "sinfilosofia",
+        "scrittura collettiva di frammenti",
+        "Floridi",
+        "*Distant Writing*",
+        "2025",
+        "*C-creativity*",
+        "novità combinatoria",
+        "spazio della coerenza narrativa",
+        "non ex nihilo",
+        "costruttivista",
+        "Margaret Boden",
+        "creatività computazionale",
+        "P-creativity",
+        "H-creativity",
+        "tertium con proprietà nuove",
+        "corpora linguistici",
+        "LLM",
+        "scala materiale",
+        "scala formale",
+        "autore come compositore",
+        "sospensione dell'originalità assoluta",
+        "creazione ex nihilo",
+        "altra tradizione",
+        "cinque secoli di pensiero",
+        "pratica metodologica del sistema della tesi",
+        "meta-autore come compositore"
+      ],
+      "file": "s4-2a.html"
+    },
+    {
+      "id": "s4-3",
+      "tipo": "soglia",
+      "title": "Il sistema infinito: poesia romantica e opera-volume come forme incompiute",
+      "tags": [
+        "Schlegel",
+        "frammento 116",
+        "*Athenaeum*",
+        "1798",
+        "poesia romantica",
+        "poesia universale progressiva",
+        "universale",
+        "progressiva",
+        "poesia",
+        "Cometa",
+        "*L'età classico-romantica*",
+        "2009",
+        "incompiutezza per principio",
+        "apertura ontologica",
+        "sistema aperto",
+        "sistema classico",
+        "Spinoza",
+        "Kant",
+        "Schelling",
+        "*Sistema dell'idealismo trascendentale*",
+        "compimento",
+        "totalità organica",
+        "frammento",
+        "forma costitutivamente incompiuta",
+        "rivista",
+        "opera in progress",
+        "sinfilosofia collettiva",
+        "opera-volume contemporanea",
+        "*Marvel Cinematic Universe*",
+        "2008-2025",
+        "*Infinity Saga*",
+        "*Avengers: Endgame*",
+        "2019",
+        "*Multiverse Saga*",
+        "Terra di Mezzo",
+        "Tolkien",
+        "*Il signore degli anelli*",
+        "1954-55",
+        "Christopher Tolkien",
+        "*History of Middle-earth*",
+        "1983-1996",
+        "Amazon Prime Video",
+        "2022",
+        "Seconda Era",
+        "Wizarding World",
+        "J.K. Rowling",
+        "*Animali fantastici*",
+        "Pottermore",
+        "*Il Trono di Spade*",
+        "George R.R. Martin",
+        "*Cronache del ghiaccio e del fuoco*",
+        "HBO",
+        "finale narrativo",
+        "canone d'autore",
+        "incompiutezza industriale",
+        "ragioni economiche",
+        "accumulazione cumulativa",
+        "capitale narrativo",
+        "forma estetica nobile",
+        "realizzazione industriale",
+        "incompiutezza autentica",
+        "incompiutezza ambivalente",
+        "subcreazione",
+        "Tolkien lettera 131",
+        "Milton Waldman",
+        "1951",
+        "majestic whole",
+        "cicli collegati",
+        "altre menti e mani",
+        "scelta progettuale",
+        "ragione costitutiva",
+        "fitness mitopoietica",
+        "coesistenza delle due ragioni",
+        "regime misto",
+        "industria culturale"
+      ],
+      "file": "s4-3.html"
+    },
+    {
+      "id": "s5-1a",
+      "tipo": "soglia",
+      "title": "Fandom come periferia dinamica: bracconaggio testuale",
+      "tags": [
+        "fandom",
+        "periferia dinamica",
+        "bracconaggio testuale",
+        "De Certeau",
+        "Michel De Certeau",
+        "*L'invention du quotidien*",
+        "1980",
+        "«Lire: un braconnage»",
+        "*braconnage*",
+        "*braconnier*",
+        "lettura come pratica attiva",
+        "lettore-bracconiere",
+        "foresta del signore",
+        "inquilino del testo",
+        "pratica popolare",
+        "resistenza al potere autoriale",
+        "dimensione politica della lettura",
+        "Jenkins",
+        "Henry Jenkins",
+        "*Textual Poachers*",
+        "1992",
+        "*Convergence Culture*",
+        "2006",
+        "cultura partecipativa",
+        "fan fiction",
+        "fan art",
+        "fan vidding",
+        "cosplay",
+        "fanzine",
+        "podcast critici",
+        "convention",
+        "piattaforme digitali dedicate",
+        "sistema distribuito di appropriazione",
+        "corpus alternativo",
+        "*Star Trek*",
+        "*Doctor Who*",
+        "*Harry Potter*",
+        "*Il signore degli anelli*",
+        "*Star Wars*",
+        "*MCU*",
+        "cultura partecipativa contemporanea",
+        "Brembilla",
+        "*It's All Connected*",
+        "proprietà intellettuale",
+        "dialettica fra proprietà e condivisione",
+        "zona grigia",
+        "bracconaggio commerciale",
+        "bracconaggio non commerciale",
+        "piattaforme dedicate",
+        "tolleranza istituzionale",
+        "*fan service*",
+        "circolazione bidirezionale",
+        "co-produzione del significato",
+        "ricodificazione critica",
+        "riarticolazione queer",
+        "riarticolazione politica",
+        "dignità intellettuale del fandom",
+        "centro industriale",
+        "periferia produttiva",
+        "dispositivo giuridico",
+        "controllo del significato"
+      ],
+      "file": "s5-1a.html"
+    },
+    {
+      "id": "s5-2",
+      "tipo": "soglia",
+      "title": "Memoria culturale e ricodificazione: come la cultura usa il suo passato",
+      "tags": [
+        "memoria culturale",
+        "Lotman",
+        "Jurij Lotman",
+        "semiosfera",
+        "scuola di Tartu-Mosca",
+        "anni Settanta-Ottanta",
+        "trasmissione culturale",
+        "ricodificazione sistematica",
+        "meccanismo dinamico",
+        "archivio dinamico",
+        "selezione del passato",
+        "rinascimento e classicità",
+        "romanticismo e medioevo",
+        "modernismo e rinascimento",
+        "ricodificazione come condizione di possibilità",
+        "trasmissione passiva e sterilità",
+        "ricodificazione legittima",
+        "ricodificazione critica",
+        "Brembilla",
+        "rilancio attraverso reinvenzione",
+        "capitale narrativo",
+        "effetto nostalgia",
+        "*La sirenetta* live action",
+        "2023",
+        "*La sirenetta* animazione",
+        "1989",
+        "Halle Bailey",
+        "diversità",
+        "sensibilità contemporanee",
+        "reboot",
+        "prequel",
+        "remake",
+        "*Star Wars* 1977",
+        "*Il risveglio della Forza*",
+        "2015",
+        "*L'ascesa di Skywalker*",
+        "2019",
+        "*Obi-Wan Kenobi*",
+        "2022",
+        "*Ahsoka*",
+        "2023",
+        "Batman",
+        "Bob Kane",
+        "Bill Finger",
+        "1939",
+        "Tim Burton",
+        "1989",
+        "Christopher Nolan",
+        "2005-2012",
+        "Matt Reeves",
+        "2022",
+        "Adam West",
+        "1966",
+        "serie *Arkham*",
+        "Rocksteady",
+        "2009",
+        "*The Dark Knight Returns*",
+        "Frank Miller",
+        "1986",
+        "Batman culturale",
+        "stratificazione storica",
+        "*wrAIting*",
+        "LLM",
+        "Large Language Model",
+        "corpus di addestramento",
+        "prompt",
+        "ricodificazione tecnica",
+        "*dataprint*",
+        "Floridi",
+        "stilistica strutturale del medium",
+        "scala e velocità",
+        "costruzione del passato",
+        "*terzo* prodotto dalla composizione",
+        "versione ricodificata",
+        "accountability",
+        "responsabilità del meta-autore",
+        "dispositivo produttivo",
+        "articolazione contemporanea della cultura",
+        "medium AI"
+      ],
+      "file": "s5-2.html"
+    },
+    {
+      "id": "s6-1a",
+      "tipo": "soglia",
+      "title": "Accountability: a cosa risponde il meta-autore",
+      "tags": [
+        "accountability",
+        "Novelli",
+        "Mariarosaria Taddeo",
+        "Luciano Floridi",
+        "*Accountability in Artificial Intelligence*",
+        "2024",
+        "sette caratteristiche",
+        "*context*",
+        "*range*",
+        "*agent*",
+        "*forum*",
+        "*standards*",
+        "*process*",
+        "*implications*",
+        "grammatica operativa",
+        "meta-autore",
+        "contesto accademico",
+        "tesi magistrale",
+        "studi mediali e culturali",
+        "università di provenienza",
+        "facoltà",
+        "relatore",
+        "corso di studi",
+        "accountability istituzionale",
+        "accountability tecnica",
+        "campo di applicazione",
+        "sistema della tesi",
+        "sette dimensioni concettuali",
+        "responsabilità delle scelte",
+        "agente responsabile",
+        "dispositivo tecnico come strumento",
+        "principio classico del rapporto autore-tecnologia",
+        "macchina da scrivere",
+        "LLM",
+        "forum plurale",
+        "commissione di laurea",
+        "comunità accademica",
+        "pubblico non specialistico",
+        "pubblicazione SVOD",
+        "accountability accademica",
+        "accountability scientifica",
+        "accountability comunicativa",
+        "standard istituzionale",
+        "standard epistemologico",
+        "standard metodologico",
+        "standard etico",
+        "plagio",
+        "processo",
+        "scelte progettuali",
+        "auto-revisione",
+        "protocollo di prevenzione pattern AI",
+        "verifica retrospettiva",
+        "implicazioni",
+        "valutazione",
+        "credibilità",
+        "fiducia",
+        "integrità professionale",
+        "*wrAIting*",
+        "processo statistico non trasparente",
+        "controllo del meta-autore",
+        "validazione",
+        "meta-autore-editore",
+        "scrittore classico",
+        "responsabilità di produzione",
+        "responsabilità di validazione"
+      ],
+      "file": "s6-1a.html"
+    },
+    {
+      "id": "s6-2",
+      "tipo": "soglia",
+      "title": "Il dataprint come *manifestatio* del medium AI",
+      "tags": [
+        "*dataprint*",
+        "Floridi",
+        "*Distant Writing*",
+        "2025",
+        "stilistica strutturale",
+        "medium AI generativo",
+        "pattern stilistici emergenti",
+        "ritmo della prosa",
+        "struttura frasale",
+        "tendenze lessicali",
+        "transizioni",
+        "marche stilistiche",
+        "*data*",
+        "*print*",
+        "impronta",
+        "firma",
+        "voce vs dataprint",
+        "LLM",
+        "Claude",
+        "GPT",
+        "Foucault",
+        "funzione-autore",
+        "*manifestatio*",
+        "Panofsky",
+        "Erwin Panofsky",
+        "*Gothic Architecture and Scholasticism*",
+        "1951",
+        "scolastica",
+        "cattedrale gotica",
+        "*Summa*",
+        "Tommaso d'Aquino",
+        "visibilità della forma",
+        "forma simbolica",
+        "Manovich",
+        "architettura medioevale",
+        "scrittura scolastica",
+        "pittura rinascimentale",
+        "cinema novecentesco",
+        "database digitale",
+        "*wrAIting*",
+        "finestra epistemica",
+        "struttura opaca",
+        "ricostruzione del lettore",
+        "educazione critica al medium AI",
+        "scelte di utilizzo",
+        "adattamento del prompt",
+        "valutazione critica dell'output",
+        "resistenza attiva al dataprint",
+        "prevenzione pattern AI",
+        "quattro pattern strutturali",
+        "quinto pattern bibliografico",
+        "giudizio descrittivo",
+        "giudizio estetico",
+        "qualità dell'output",
+        "continuità di lunga durata",
+        "tradizione estetica europea",
+        "fenomeno storicamente situato"
+      ],
+      "file": "s6-2.html"
+    },
+    {
+      "id": "s6-3a",
+      "tipo": "soglia",
+      "title": "Sinfilosofia digitale: Schlegel e Floridi in dialogo",
+      "tags": [
+        "sinfilosofia",
+        "*Symphilosophie*",
+        "Schlegel",
+        "Friedrich Schlegel",
+        "1798",
+        "*Athenaeum*",
+        "gruppo romantico",
+        "Frühromantik",
+        "August Wilhelm Schlegel",
+        "Novalis",
+        "Schleiermacher",
+        "Schelling",
+        "Cometa",
+        "*L'età classico-romantica*",
+        "2009",
+        "scrittura collaborativa di frammenti",
+        "sistema aperto in continuo divenire",
+        "pratica dialogica",
+        "autorialità dialogica",
+        "autorialità individuale",
+        "proprietà collettiva del gruppo",
+        "dialogo come momento della produzione",
+        "meta-autore",
+        "Floridi",
+        "*Distant Writing*",
+        "2025",
+        "autori umani come progettisti narrativi",
+        "LLM come esecutori tecnici",
+        "scrittura attraverso il dialogo",
+        "parallelismo strutturale sinfilosofia-*wrAIting*",
+        "scrittura collaborativa",
+        "sospensione dell'autorialità solitaria",
+        "amplificazione cumulativa dell'intelligenza collettiva",
+        "sodali del dialogo",
+        "dispositivo tecnico come interlocutore",
+        "corpora del passato culturale",
+        "continuità di lunga durata",
+        "realizzazioni della categoria",
+        "Teatro di Camillo",
+        "cultura partecipativa di Jenkins",
+        "*Mischung* schlegeliana",
+        "parità epistemica",
+        "parità ontologica",
+        "asimmetria del dialogo",
+        "responsabilità del meta-autore",
+        "etica scrittoria",
+        "scelta etica",
+        "scrittura autoriale solitaria",
+        "chiusura del sistema",
+        "genealogia",
+        "sinfilosofia digitale",
+        "pratica del sistema della tesi",
+        "dispositivo SVOD di pubblicazione"
+      ],
+      "file": "s6-3a.html"
+    },
+    {
+      "id": "s7-1",
+      "tipo": "soglia",
+      "title": "Kernel, canone e bibbia: la struttura operativa dell'opera-volume",
+      "tags": [
+        "opera-volume",
+        "Pescatore",
+        "Armando Pescatore",
+        "Veronica Innocenti",
+        "*Ecosistemi narrativi*",
+        "2018",
+        "*kernel*",
+        "*canone*",
+        "*bibbia*",
+        "nucleo minimo del paradigma",
+        "invariante del paradigma",
+        "confine identitario",
+        "Forza",
+        "Jedi",
+        "Sith",
+        "Ribellione",
+        "Impero",
+        "galassia",
+        "*Star Wars*",
+        "multiverso",
+        "Avengers",
+        "*Marvel Cinematic Universe*",
+        "cosmogonia di Eä",
+        "quattro Ere",
+        "razze fondamentali",
+        "Terra di Mezzo",
+        "Tolkien",
+        "opere ufficialmente riconosciute",
+        "*κανών*",
+        "dispositivo gerarchico",
+        "dentro il canone",
+        "fuori dal canone",
+        "*Expanded Universe*",
+        "*Legends*",
+        "Lucasfilm-Disney",
+        "2012",
+        "*retconning*",
+        "*re-canonization*",
+        "canone secondario",
+        "documento normativo",
+        "bibbia di franchise",
+        "industria seriale televisiva",
+        "sceneggiatore",
+        "memoria istituzionale",
+        "memoria esterna",
+        "Teatro di Camillo",
+        "*Doctor Who*",
+        "*Star Trek*",
+        "soap statunitensi",
+        "saga di Star Wars",
+        "Wizarding World",
+        "*Final Fantasy*",
+        "*The Legend of Zelda*",
+        "*Pokémon*",
+        "subcreazione",
+        "subcreatore",
+        "Tolkien come subcreatore singolo",
+        "unità autoriale",
+        "autorialità distribuita",
+        "proprietà industriale",
+        "apparati editoriali",
+        "uffici dedicati",
+        "esperienza fruitiva",
+        "visione autoriale unitaria",
+        "istituzione produttiva"
+      ],
+      "file": "s7-1.html"
+    },
+    {
+      "id": "s7-2a",
+      "tipo": "soglia",
+      "title": "*Secondary Belief*: il patto estetico che rende il mondo abitabile",
+      "tags": [
+        "*Secondary Belief*",
+        "patto estetico",
+        "mondo secondario",
+        "fruitore",
+        "Tolkien",
+        "J.R.R. Tolkien",
+        "*On Fairy-Stories*",
+        "1939",
+        "1947",
+        "Università di St Andrews",
+        "*Essays Presented to Charles Williams*",
+        "Coleridge",
+        "*suspension of disbelief*",
+        "sospensione dell'incredulità",
+        "*Biographia Literaria*",
+        "1817",
+        "categoria negativa",
+        "categoria positiva",
+        "investimento attivo di credenza",
+        "credenza attiva",
+        "leggi interne",
+        "coerenza interna del mondo",
+        "condizione costitutiva",
+        "fitness mitopoietica",
+        "correlato fenomenologico",
+        "Mark J.P. Wolf",
+        "*Building Imaginary Worlds*",
+        "2012",
+        "worldbuilding",
+        "immersione attiva",
+        "*Star Wars*",
+        "galassia lontana lontana",
+        "specie aliene",
+        "iperspazio",
+        "Terra di Mezzo",
+        "razze fondamentali",
+        "ere narrative",
+        "elfi",
+        "nani",
+        "orchi",
+        "hobbit",
+        "*Marvel Cinematic Universe*",
+        "origin stories",
+        "timeline",
+        "multiverso",
+        "Asgard",
+        "Wakanda",
+        "partecipazione attiva",
+        "oggetto culturale condiviso",
+        "cultura partecipativa",
+        "Jenkins",
+        "De Certeau",
+        "fandom",
+        "lingue elfiche",
+        "fan fiction",
+        "giochi di ruolo",
+        "circolo virtuoso",
+        "spirale ascendente",
+        "*Star Trek*",
+        "*Doctor Who*",
+        "*Wizarding World*",
+        "*Mass Effect*",
+        "fidelizzazione superficiale",
+        "riconoscimento del brand",
+        "abitudine di consumo",
+        "valore di marketing",
+        "sinergie commerciali",
+        "distinzione fra fidelizzazione e *Secondary Belief*",
+        "criterio valutativo",
+        "critica delle opere-volume contemporanee",
+        "reboot",
+        "sequel",
+        "transmediali"
+      ],
+      "file": "s7-2a.html"
+    }
+  ],
+  "tags": {
+    "1550": [
+      "s3-1",
+      "s4-2a"
+    ],
+    "1798": [
+      "s4-3",
+      "s6-3a"
+    ],
+    "1817": [
+      "s7-2a"
+    ],
+    "1910": [
+      "s2-2a"
+    ],
+    "1937": [
+      "s2-2a"
+    ],
+    "1939": [
+      "s5-2",
+      "s7-2a"
+    ],
+    "1947": [
+      "s7-2a"
+    ],
+    "1951": [
+      "s4-3",
+      "s6-2"
+    ],
+    "1966": [
+      "s3-1a",
+      "s5-2"
+    ],
+    "1976": [
+      "s3-1b",
+      "s4-1a"
+    ],
+    "1980": [
+      "s5-1a"
+    ],
+    "1986": [
+      "s5-2"
+    ],
+    "1989": [
+      "s5-2",
+      "s5-2"
+    ],
+    "1991": [
+      "s3-1"
+    ],
+    "1992": [
+      "s5-1a"
+    ],
+    "2006": [
+      "s5-1a"
+    ],
+    "2009": [
+      "s2-1",
+      "s4-1a",
+      "s4-3",
+      "s5-2",
+      "s6-3a"
+    ],
+    "2010": [
+      "s2-1"
+    ],
+    "2012": [
+      "s2-1",
+      "s7-1",
+      "s7-2a"
+    ],
+    "2015": [
+      "s5-2"
+    ],
+    "2018": [
+      "s2-2",
+      "s7-1"
+    ],
+    "2019": [
+      "s2-1",
+      "s4-3",
+      "s5-2"
+    ],
+    "2022": [
+      "s2-2a",
+      "s4-3",
+      "s5-2",
+      "s5-2"
+    ],
+    "2023": [
+      "s5-2",
+      "s5-2"
+    ],
+    "2024": [
+      "s6-1a"
+    ],
+    "2025": [
+      "s4-2a",
+      "s6-2",
+      "s6-3a"
+    ],
+    "database": [
+      "p1",
+      "p3",
+      "s4-1a"
+    ],
+    "paradigma": [
+      "p1",
+      "s1-1"
+    ],
+    "sintagma": [
+      "p1",
+      "s1-1"
+    ],
+    "Manovich": [
+      "p1",
+      "p4",
+      "s1-1",
+      "s1-1b",
+      "s1-2-a",
+      "s1-2-b",
+      "s1-2",
+      "s1-3",
+      "s3-1b",
+      "s6-2"
+    ],
+    "Panofsky": [
+      "p1",
+      "p3",
+      "s6-2"
+    ],
+    "forma simbolica": [
+      "p1",
+      "s6-2"
+    ],
+    "manifestatio": [
+      "p1",
+      "p3"
+    ],
+    "visual logic": [
+      "p1"
+    ],
+    "Barabási": [
+      "p1",
+      "s1-1",
+      "s1-2-b"
+    ],
+    "rete scale-free": [
+      "p1",
+      "s2-1"
+    ],
+    "preferential attachment": [
+      "p1",
+      "p2",
+      "s1-1b",
+      "s1-2-b",
+      "s2-1"
+    ],
+    "power-law": [
+      "p1",
+      "p2",
+      "p3",
+      "s1-1",
+      "s2-1"
+    ],
+    "opera-volume": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "p5",
+      "p7",
+      "s1-1",
+      "s1-2-b",
+      "s1-3",
+      "s7-1"
+    ],
+    "Architect": [
+      "p1",
+      "p2"
+    ],
+    "hub": [
+      "p1",
+      "p2",
+      "s1-2-b"
+    ],
+    "modus operandi": [
+      "p1"
+    ],
+    "qualità estetica": [
+      "p1"
+    ],
+    "Landow": [
+      "p1"
+    ],
+    "lettore attivo": [
+      "p1"
+    ],
+    "stile": [
+      "p1"
+    ],
+    "rete": [
+      "p2",
+      "s4-1a"
+    ],
+    "scale-free": [
+      "p2"
+    ],
+    "first-mover advantage": [
+      "p2"
+    ],
+    "fitness": [
+      "p2",
+      "s2-2"
+    ],
+    "Bianconi-Barabási": [
+      "p2",
+      "p3",
+      "s1-1b",
+      "s2-2a",
+      "s4-1a"
+    ],
+    "winner-takes-all": [
+      "p2"
+    ],
+    "Bose-Einstein condensation": [
+      "p2",
+      "s2-2"
+    ],
+    "blockbuster": [
+      "p2",
+      "s1-2-c",
+      "s1-3",
+      "s2-1"
+    ],
+    "high concept": [
+      "p2",
+      "s1-2-c",
+      "s1-3"
+    ],
+    "kernel": [
+      "p2"
+    ],
+    "canone": [
+      "p2",
+      "p7"
+    ],
+    "bibbia": [
+      "p2"
+    ],
+    "ecosistema narrativo": [
+      "p2",
+      "s2-1"
+    ],
+    "resilienza": [
+      "p2"
+    ],
+    "algoritmo di raccomandazione": [
+      "p2",
+      "s1-2-b"
+    ],
+    "piattaforma": [
+      "p2",
+      "p5"
+    ],
+    "semiosfera (puntuale)": [
+      "p2"
+    ],
+    "proprietà intellettuale (rinvio a P7)": [
+      "p2"
+    ],
+    "Teatro della Memoria": [
+      "p3"
+    ],
+    "Camillo": [
+      "p3",
+      "s1-2-a",
+      "s3-1",
+      "s3-1a",
+      "s3-1b",
+      "s4-2a"
+    ],
+    "arte della memoria": [
+      "p3",
+      "s3-1"
+    ],
+    "loci": [
+      "p3"
+    ],
+    "imagines": [
+      "p3"
+    ],
+    "7×7": [
+      "p3"
+    ],
+    "Sefirot": [
+      "p3"
+    ],
+    "cabala": [
+      "p3",
+      "s3-1"
+    ],
+    "scacchiera": [
+      "p3"
+    ],
+    "combinatoria": [
+      "p3"
+    ],
+    "spettatore": [
+      "p3"
+    ],
+    "interfaccia": [
+      "p3",
+      "s1-2-a",
+      "s1-2",
+      "s1-3"
+    ],
+    "mens fenestrata": [
+      "p3"
+    ],
+    "mente artificiale": [
+      "p3",
+      "s3-1a"
+    ],
+    "homunculus": [
+      "p3"
+    ],
+    "alchimia": [
+      "p3"
+    ],
+    "Bolzoni": [
+      "p3",
+      "s1-2-a",
+      "s3-1",
+      "s3-1a",
+      "s3-1b",
+      "s4-2a"
+    ],
+    "Yates": [
+      "p3"
+    ],
+    "Warburg": [
+      "p3"
+    ],
+    "Mnemosyne Atlas": [
+      "p3"
+    ],
+    "Pathosformel": [
+      "p3"
+    ],
+    "Iconology of the Interval": [
+      "p3"
+    ],
+    "intervallo": [
+      "p3"
+    ],
+    "Zwischenraum": [
+      "p3"
+    ],
+    "Grundtmann": [
+      "p3",
+      "s1-2-c"
+    ],
+    "Didi-Huberman": [
+      "p3"
+    ],
+    "sistema chiuso": [
+      "p3"
+    ],
+    "sistema aperto": [
+      "p3",
+      "p4",
+      "s4-1a",
+      "s4-3"
+    ],
+    "totalità": [
+      "p3"
+    ],
+    "*Mischung*": [
+      "p3",
+      "p4",
+      "s4-2a"
+    ],
+    "*diaskeué*": [
+      "p3"
+    ],
+    "Schlegel": [
+      "p3",
+      "p4",
+      "p7",
+      "s4-1a",
+      "s4-1a",
+      "s4-2a",
+      "s4-3",
+      "s6-3a"
+    ],
+    "Cometa": [
+      "p3",
+      "p4",
+      "s4-1a",
+      "s4-3",
+      "s6-3a"
+    ],
+    "meme positivo": [
+      "p3"
+    ],
+    "auto-riflessività": [
+      "p3"
+    ],
+    "LLM": [
+      "p3",
+      "s3-1a",
+      "s4-2a",
+      "s5-2",
+      "s6-1a",
+      "s6-2"
+    ],
+    "distant writing": [
+      "p3",
+      "p6"
+    ],
+    "Prometeo": [
+      "p3",
+      "s3-1"
+    ],
+    "triade alchimica (fusione/affinità/intervallo)": [
+      "p3"
+    ],
+    "frammento": [
+      "p4",
+      "s4-1a",
+      "s4-3"
+    ],
+    "sinfilosofia": [
+      "p4",
+      "s4-1a",
+      "s4-2a",
+      "s6-3a"
+    ],
+    "Athenaeum": [
+      "p4"
+    ],
+    "Witz": [
+      "p4"
+    ],
+    "*Verkleinerungsglas*": [
+      "p4"
+    ],
+    "Lichtenberg": [
+      "p4"
+    ],
+    "*Verschmelzung*": [
+      "p4",
+      "s4-2a"
+    ],
+    "*Wahlverwandtschaft*": [
+      "p4"
+    ],
+    "diaskeué": [
+      "p4"
+    ],
+    "*Restruktion*": [
+      "p4"
+    ],
+    "organismo": [
+      "p4",
+      "s4-1a"
+    ],
+    "*infinita pienezza*": [
+      "p4"
+    ],
+    "caos formato": [
+      "p4"
+    ],
+    "*organisches Zeitalter*": [
+      "p4"
+    ],
+    "carattere animale": [
+      "p4"
+    ],
+    "potenziazione": [
+      "p4"
+    ],
+    "poesia universale progressiva": [
+      "p4",
+      "p7",
+      "s4-3"
+    ],
+    "serie interminabile di specchi": [
+      "p4"
+    ],
+    "*Frühromantik*": [
+      "p4"
+    ],
+    "database come forma simbolica": [
+      "p4",
+      "s1-3"
+    ],
+    "paradigma/sintagma": [
+      "p4",
+      "s1-1b",
+      "s1-3"
+    ],
+    "metamedium": [
+      "p4"
+    ],
+    "Kay": [
+      "p4"
+    ],
+    "linguaggi non ancora inventati": [
+      "p4"
+    ],
+    "frammento-pozzo": [
+      "p4",
+      "s4-1a"
+    ],
+    "frammento-soglia": [
+      "p4",
+      "s4-1a"
+    ],
+    "forma estetica": [
+      "p4"
+    ],
+    "*Kulturpolitik*": [
+      "p4"
+    ],
+    "isolamento dell'estetica": [
+      "p4"
+    ],
+    "totalità illimitata": [
+      "p4"
+    ],
+    "franchise": [
+      "p5"
+    ],
+    "IP": [
+      "p5"
+    ],
+    "proprietà intellettuale": [
+      "p5",
+      "s2-1",
+      "s5-1a"
+    ],
+    "continuity": [
+      "p5"
+    ],
+    "multiplicity": [
+      "p5"
+    ],
+    "*human bible*": [
+      "p5"
+    ],
+    "Brembilla": [
+      "p5",
+      "p7",
+      "s2-1",
+      "s2-2",
+      "s5-1a",
+      "s5-2"
+    ],
+    "Caldwell": [
+      "p5"
+    ],
+    "*industrial reflexivity*": [
+      "p5"
+    ],
+    "SVOD": [
+      "p5"
+    ],
+    "ambiente d'uso": [
+      "p5"
+    ],
+    "effetti di rete": [
+      "p5",
+      "s1-3"
+    ],
+    "Srnicek": [
+      "p5",
+      "s1-3"
+    ],
+    "monopolio": [
+      "p5",
+      "s1-3"
+    ],
+    "attenzione": [
+      "p5"
+    ],
+    "Wu": [
+      "p5",
+      "s1-3"
+    ],
+    "economia dell'attenzione": [
+      "p5"
+    ],
+    "*participatory culture*": [
+      "p5"
+    ],
+    "Jenkins": [
+      "p5",
+      "s5-1a",
+      "s7-2a"
+    ],
+    "Ito": [
+      "p5"
+    ],
+    "boyd": [
+      "p5"
+    ],
+    "fandom": [
+      "p5",
+      "s5-1a",
+      "s7-2a"
+    ],
+    "cultura partecipativa": [
+      "p5",
+      "s5-1a",
+      "s7-2a"
+    ],
+    "interactive media": [
+      "p5"
+    ],
+    "cooptazione": [
+      "p5"
+    ],
+    "Bratich": [
+      "p5"
+    ],
+    "universe storytelling": [
+      "p5"
+    ],
+    "ecosistemi narrativi": [
+      "p5",
+      "p7"
+    ],
+    "agenti eterogenei": [
+      "p5"
+    ],
+    "semiosfera": [
+      "p5",
+      "s1-1",
+      "s1-2",
+      "s1-3",
+      "s5-2"
+    ],
+    "Lotman": [
+      "p5",
+      "s1-1",
+      "s1-2",
+      "s1-3",
+      "s5-2"
+    ],
+    "meccanismo se non organismo": [
+      "p5"
+    ],
+    "configurazione industriale": [
+      "p5"
+    ],
+    "*wrAIting*": [
+      "p6",
+      "s1-1",
+      "s5-2",
+      "s6-1a",
+      "s6-2"
+    ],
+    "meta-autore": [
+      "p6",
+      "s3-1a",
+      "s6-1a",
+      "s6-3a"
+    ],
+    "designer": [
+      "p6"
+    ],
+    "responsibility": [
+      "p6"
+    ],
+    "decoupling": [
+      "p6"
+    ],
+    "sette fasi": [
+      "p6"
+    ],
+    "prompt engineering": [
+      "p6"
+    ],
+    "progressive refinement": [
+      "p6"
+    ],
+    "curation": [
+      "p6"
+    ],
+    "logica dei requisiti": [
+      "p6"
+    ],
+    "isotropia narrativa": [
+      "p6",
+      "s1-1b"
+    ],
+    "costruttivismo": [
+      "p6"
+    ],
+    "C-creativity": [
+      "p6",
+      "s1-1b"
+    ],
+    "combinatorial novelty": [
+      "p6"
+    ],
+    "Karinthy": [
+      "p6"
+    ],
+    "Encounters": [
+      "p6"
+    ],
+    "network narratives": [
+      "p6"
+    ],
+    "multiverse literature": [
+      "p6"
+    ],
+    "conversational literature": [
+      "p6"
+    ],
+    "dataprint": [
+      "p6"
+    ],
+    "voice": [
+      "p6"
+    ],
+    "stilistica del medium": [
+      "p6"
+    ],
+    "Floridi": [
+      "p6",
+      "s1-1b",
+      "s3-1a",
+      "s4-2a",
+      "s5-2",
+      "s6-2",
+      "s6-3a"
+    ],
+    "Flusser": [
+      "p6"
+    ],
+    "grammar machines": [
+      "p6"
+    ],
+    "accountability": [
+      "p6",
+      "s5-2",
+      "s6-1a"
+    ],
+    "answerability": [
+      "p6"
+    ],
+    "sette caratteristiche": [
+      "p6",
+      "s6-1a"
+    ],
+    "sociotecnico": [
+      "p6"
+    ],
+    "molte mani": [
+      "p6"
+    ],
+    "Novelli": [
+      "p6",
+      "s6-1a"
+    ],
+    "Taddeo": [
+      "p6"
+    ],
+    "personificazione": [
+      "p6"
+    ],
+    "scaffolding immaginativo": [
+      "p6"
+    ],
+    "simulazione": [
+      "p6"
+    ],
+    "intelligence": [
+      "p6"
+    ],
+    "black box": [
+      "p6"
+    ],
+    "hallucinations": [
+      "p6"
+    ],
+    "Bernini": [
+      "p6"
+    ],
+    "architettura": [
+      "p6"
+    ],
+    "death of the author": [
+      "p6"
+    ],
+    "birth of the author as designer": [
+      "p6"
+    ],
+    "subcreazione": [
+      "p7",
+      "s4-1a",
+      "s4-3",
+      "s7-1"
+    ],
+    "subcreator": [
+      "p7"
+    ],
+    "Tolkien": [
+      "p7",
+      "s1-1",
+      "s2-2",
+      "s2-2a",
+      "s4-3",
+      "s7-1",
+      "s7-2a"
+    ],
+    "Wolf": [
+      "p7",
+      "s1-2-b",
+      "s2-2a"
+    ],
+    "*On Fairy-stories*": [
+      "p7"
+    ],
+    "Mondo Primario": [
+      "p7"
+    ],
+    "mondo secondario": [
+      "p7",
+      "s7-2a"
+    ],
+    "*creating under*": [
+      "p7"
+    ],
+    "Secondary Belief": [
+      "p7"
+    ],
+    "invention": [
+      "p7"
+    ],
+    "completeness": [
+      "p7"
+    ],
+    "consistency": [
+      "p7"
+    ],
+    "MacDonald": [
+      "p7"
+    ],
+    "*Primary World defaults*": [
+      "p7"
+    ],
+    "cerchi concentrici di autorialità": [
+      "p7"
+    ],
+    "concentric circles of authorship": [
+      "p7"
+    ],
+    "originatore": [
+      "p7"
+    ],
+    "custode": [
+      "p7"
+    ],
+    "mondo aperto": [
+      "p7"
+    ],
+    "mondo chiuso": [
+      "p7"
+    ],
+    "Tolkien estate": [
+      "p7"
+    ],
+    "Christopher Tolkien": [
+      "p7",
+      "s2-2a",
+      "s4-3"
+    ],
+    "Pescatore": [
+      "p7",
+      "s2-2",
+      "s7-1"
+    ],
+    "*L'ombra dell'autore*": [
+      "p7"
+    ],
+    "estetica romantica": [
+      "p7"
+    ],
+    "genio": [
+      "p7"
+    ],
+    "ispirazione pura": [
+      "p7"
+    ],
+    "*caméra-stylo*": [
+      "p7"
+    ],
+    "postmoderno autoriale": [
+      "p7"
+    ],
+    "personaggi seriali": [
+      "p7"
+    ],
+    "figure seriali": [
+      "p7"
+    ],
+    "Casoli": [
+      "p7"
+    ],
+    "*Athenaeum*": [
+      "p7",
+      "s4-1a",
+      "s4-2a",
+      "s4-3",
+      "s6-3a"
+    ],
+    "frammento 116": [
+      "p7",
+      "s4-3"
+    ],
+    "*romantische Poesie*": [
+      "p7"
+    ],
+    "*Roman*": [
+      "p7"
+    ],
+    "*Wilhelm Meister*": [
+      "p7"
+    ],
+    "Goethe": [
+      "p7"
+    ],
+    "frammento 216": [
+      "p7"
+    ],
+    "tendenze dell'epoca": [
+      "p7"
+    ],
+    "aspirazione poetologica": [
+      "p7"
+    ],
+    "totalità narrativa": [
+      "p7"
+    ],
+    "custode delle leggi del mondo": [
+      "p7"
+    ],
+    "inversione paradigma/sintagma": [
+      "s1-1"
+    ],
+    "Saussure": [
+      "s1-1"
+    ],
+    "Barthes": [
+      "s1-1"
+    ],
+    "*Elementi di semiologia*": [
+      "s1-1"
+    ],
+    "*Database as a Symbolic Form*": [
+      "s1-1"
+    ],
+    "*The Language of New Media*": [
+      "s1-1",
+      "s1-2"
+    ],
+    "database materiale": [
+      "s1-1"
+    ],
+    "narrativa virtuale": [
+      "s1-1"
+    ],
+    "*natural enemies*": [
+      "s1-1"
+    ],
+    "catalogo SVOD": [
+      "s1-1"
+    ],
+    "Netflix": [
+      "s1-1",
+      "s1-2"
+    ],
+    "paradigma letterario eccedente": [
+      "s1-1"
+    ],
+    "Terra di Mezzo": [
+      "s1-1",
+      "s1-1b",
+      "s2-2",
+      "s2-2a",
+      "s4-3",
+      "s7-1",
+      "s7-2a"
+    ],
+    "*Marvel Cinematic Universe*": [
+      "s1-1",
+      "s1-2-b",
+      "s1-2",
+      "s4-3",
+      "s7-1",
+      "s7-2a"
+    ],
+    "Stan Lee": [
+      "s1-1",
+      "s1-2-b"
+    ],
+    "subcreatore": [
+      "s1-1",
+      "s7-1"
+    ],
+    "Greenaway": [
+      "s1-1"
+    ],
+    "*Stairs-Munich-Projection*": [
+      "s1-1"
+    ],
+    "*database cinema*": [
+      "s1-1"
+    ],
+    "paradigma scale-free": [
+      "s1-1",
+      "s1-1b"
+    ],
+    "qualità estetica del paradigma": [
+      "s1-1"
+    ],
+    "autorialità sul paradigma": [
+      "s1-1"
+    ],
+    "fenomenologia della fruizione": [
+      "s1-1"
+    ],
+    "navigazione": [
+      "s1-1"
+    ],
+    "sintagma virtuale": [
+      "s1-1"
+    ],
+    "traiettoria": [
+      "s1-1"
+    ],
+    "spazio attraversabile": [
+      "s1-1"
+    ],
+    "tempo della narrazione vs tempo della fruizione": [
+      "s1-1"
+    ],
+    "logica dei *requirements*": [
+      "s1-1"
+    ],
+    "meta-autore-progettista": [
+      "s1-1"
+    ],
+    "profondità diacronica": [
+      "s1-1"
+    ],
+    "frammento schlegeliano": [
+      "s1-1"
+    ],
+    "spazio narrativo come marmo": [
+      "s1-1b"
+    ],
+    "*Distant Writing*": [
+      "s1-1b",
+      "s3-1a",
+      "s4-2a",
+      "s6-2",
+      "s6-3a"
+    ],
+    "scrittura distante": [
+      "s1-1b"
+    ],
+    "qualsiasi direzione coerente": [
+      "s1-1b"
+    ],
+    "spazio illimitato di possibilità": [
+      "s1-1b"
+    ],
+    "sintagma come direzione": [
+      "s1-1b"
+    ],
+    "*power-law*": [
+      "s1-1b"
+    ],
+    "Barabási-Albert": [
+      "s1-1b",
+      "s2-1",
+      "s2-2",
+      "s4-1a"
+    ],
+    "fitness model": [
+      "s1-1b",
+      "s1-2-b"
+    ],
+    "nodi-hub e nodi-foglia": [
+      "s1-1b"
+    ],
+    "scale-freeness emergente": [
+      "s1-1b"
+    ],
+    "anisotropia pratica": [
+      "s1-1b"
+    ],
+    "tensione costitutiva del meta-autore": [
+      "s1-1b"
+    ],
+    "libertà teorica e responsabilità reale": [
+      "s1-1b"
+    ],
+    "novità combinatoria": [
+      "s1-1b",
+      "s4-2a"
+    ],
+    "*winner-takes-all* nel mercato dei franchise": [
+      "s1-1b"
+    ],
+    "concentrazione del mercato culturale": [
+      "s1-1b"
+    ],
+    "pratica matura del *wrAIting*": [
+      "s1-1b"
+    ],
+    "democratizzazione dello strumento": [
+      "s1-1b"
+    ],
+    "concentrazione del mercato": [
+      "s1-1b",
+      "s2-1",
+      "s2-2"
+    ],
+    "MCU": [
+      "s1-1b"
+    ],
+    "Wizarding World": [
+      "s1-1b",
+      "s4-3",
+      "s7-1"
+    ],
+    "Disney+": [
+      "s1-2-a",
+      "s1-2-b",
+      "s1-2",
+      "s1-3"
+    ],
+    "piattaforma SVOD": [
+      "s1-2-a",
+      "s1-2-b",
+      "s1-2",
+      "s1-3"
+    ],
+    "struttura razionale": [
+      "s1-2-a"
+    ],
+    "griglia geometrica": [
+      "s1-2-a"
+    ],
+    "brand pillar": [
+      "s1-2-a"
+    ],
+    "Disney": [
+      "s1-2-a",
+      "s1-2-c",
+      "s2-1",
+      "s2-2"
+    ],
+    "Pixar": [
+      "s1-2-a",
+      "s1-2-c"
+    ],
+    "Marvel": [
+      "s1-2-a",
+      "s1-2-c",
+      "s2-1",
+      "s2-2"
+    ],
+    "Star Wars": [
+      "s1-2-a",
+      "s1-2-c",
+      "s2-1",
+      "s2-2"
+    ],
+    "National Geographic": [
+      "s1-2-a",
+      "s1-2-c"
+    ],
+    "Hulu": [
+      "s1-2-a"
+    ],
+    "Brand Hub": [
+      "s1-2-a"
+    ],
+    "content hub": [
+      "s1-2-a"
+    ],
+    "hub-and-spoke": [
+      "s1-2-a"
+    ],
+    "Teatro della memoria": [
+      "s1-2-a",
+      "s3-1a",
+      "s3-1b"
+    ],
+    "matrice 7×7": [
+      "s1-2-a"
+    ],
+    "scacchiera combinatoria": [
+      "s1-2-a"
+    ],
+    "sospensione delle dimensioni mistiche": [
+      "s1-2-a"
+    ],
+    "accesso simultaneo": [
+      "s1-2-a"
+    ],
+    "spazializzazione": [
+      "s1-2-a"
+    ],
+    "grammatica della camera": [
+      "s1-2-a"
+    ],
+    "zoom": [
+      "s1-2-a"
+    ],
+    "scroll bidimensionale": [
+      "s1-2-a"
+    ],
+    "piano vs profondità": [
+      "s1-2-a"
+    ],
+    "drill-down": [
+      "s1-2-a",
+      "s1-2-c",
+      "s1-3"
+    ],
+    "clic come operatore di profondità": [
+      "s1-2-a"
+    ],
+    "multi-list interface": [
+      "s1-2-a"
+    ],
+    "carousel": [
+      "s1-2-a"
+    ],
+    "Erik Runyon": [
+      "s1-2-a",
+      "s1-2-b"
+    ],
+    "infinite scrolling problem": [
+      "s1-2-a"
+    ],
+    "paper RecGaze": [
+      "s1-2-a"
+    ],
+    "Frank Rausch": [
+      "s1-2-a"
+    ],
+    "navigazione discreta": [
+      "s1-2-a"
+    ],
+    "vantaggio cognitivo": [
+      "s1-2-a"
+    ],
+    "prezzo della rigidità": [
+      "s1-2-a"
+    ],
+    "tab «Per te»": [
+      "s1-2-a"
+    ],
+    "personalizzazione algoritmica": [
+      "s1-2-a",
+      "s1-3"
+    ],
+    "sintesi struttura razionale e algoritmo": [
+      "s1-2-a"
+    ],
+    "percorsi di fruizione": [
+      "s1-2-b"
+    ],
+    "topologia di rete": [
+      "s1-2-b"
+    ],
+    "scale-free network": [
+      "s1-2-b"
+    ],
+    "Albert": [
+      "s1-2-b"
+    ],
+    "*Science* 1999": [
+      "s1-2-b"
+    ],
+    "attaccamento preferenziale": [
+      "s1-2-b",
+      "s1-3"
+    ],
+    "Matthew effect": [
+      "s1-2-b",
+      "s1-3",
+      "s2-1"
+    ],
+    "rich get richer": [
+      "s1-2-b",
+      "s2-1"
+    ],
+    "nodi periferici": [
+      "s1-2-b"
+    ],
+    "power law": [
+      "s1-2-b"
+    ],
+    "growth": [
+      "s1-2-b"
+    ],
+    "crescita del network": [
+      "s1-2-b"
+    ],
+    "Bianconi-Albert": [
+      "s1-2-b"
+    ],
+    "*Building Imaginary Worlds*": [
+      "s1-2-b",
+      "s2-2a",
+      "s7-2a"
+    ],
+    "circoli concentrici di autorialità": [
+      "s1-2-b"
+    ],
+    "originator": [
+      "s1-2-b"
+    ],
+    "torchbearer": [
+      "s1-2-b"
+    ],
+    "estate": [
+      "s1-2-b"
+    ],
+    "employees": [
+      "s1-2-b"
+    ],
+    "freelancers": [
+      "s1-2-b"
+    ],
+    "derivative products": [
+      "s1-2-b"
+    ],
+    "fan productions": [
+      "s1-2-b"
+    ],
+    "noncanonical additions": [
+      "s1-2-b"
+    ],
+    "Kevin Feige": [
+      "s1-2-b"
+    ],
+    "MCU Infinity Saga": [
+      "s1-2-b",
+      "s1-2-c"
+    ],
+    "MCU Multiverse Saga": [
+      "s1-2-b",
+      "s1-2-c"
+    ],
+    "*Daredevil Rinascita*": [
+      "s1-2-b",
+      "s1-2-c"
+    ],
+    "hero principale": [
+      "s1-2-b"
+    ],
+    "Brand page": [
+      "s1-2-b"
+    ],
+    "long tail": [
+      "s1-2-b",
+      "s1-3"
+    ],
+    "concentrazione della visibilità": [
+      "s1-2-b",
+      "s1-3"
+    ],
+    "dato statistico carousel": [
+      "s1-2-b"
+    ],
+    "centralità autoriale": [
+      "s1-2-b"
+    ],
+    "centralità topologica": [
+      "s1-2-b"
+    ],
+    "dinamica personalizzata": [
+      "s1-2-b"
+    ],
+    "interazione utente in tempo reale": [
+      "s1-2-b"
+    ],
+    "feedback loop": [
+      "s1-2-b",
+      "s1-3"
+    ],
+    "immagine": [
+      "s1-2-c"
+    ],
+    "pathosformel": [
+      "s1-2-c"
+    ],
+    "*Mnemosyne Atlas*": [
+      "s1-2-c"
+    ],
+    "Aby Warburg": [
+      "s1-2-c"
+    ],
+    "archivio visuale": [
+      "s1-2-c"
+    ],
+    "risonanze visive": [
+      "s1-2-c"
+    ],
+    "affinità per immagini": [
+      "s1-2-c"
+    ],
+    "riproducibilità tecnica": [
+      "s1-2-c"
+    ],
+    "Walter Benjamin (richiamo)": [
+      "s1-2-c"
+    ],
+    "Justin Wyatt": [
+      "s1-2-c"
+    ],
+    "*High Concept: Movies and Marketing in Hollywood*": [
+      "s1-2-c"
+    ],
+    "the Look the Hook the Book": [
+      "s1-2-c"
+    ],
+    "Steven Spielberg": [
+      "s1-2-c"
+    ],
+    "venticinque parole": [
+      "s1-2-c"
+    ],
+    "integrazione film-marketing": [
+      "s1-2-c"
+    ],
+    "key art": [
+      "s1-2-c",
+      "s1-3"
+    ],
+    "marketing hook": [
+      "s1-2-c"
+    ],
+    "merchandising": [
+      "s1-2-c"
+    ],
+    "tie-in": [
+      "s1-2-c"
+    ],
+    "Marco Cucco": [
+      "s1-2-c"
+    ],
+    "*Il film blockbuster*": [
+      "s1-2-c",
+      "s2-1"
+    ],
+    "concentrazione industriale": [
+      "s1-2-c",
+      "s2-1"
+    ],
+    "David Puttnam": [
+      "s1-2-c",
+      "s2-1"
+    ],
+    "marchio-locomotiva": [
+      "s1-2-c",
+      "s1-3",
+      "s2-1"
+    ],
+    "cinque pillar brand": [
+      "s1-2-c"
+    ],
+    "*Avengers Endgame*": [
+      "s1-2-c"
+    ],
+    "tessera visiva": [
+      "s1-2-c"
+    ],
+    "riconoscimento immediato": [
+      "s1-2-c"
+    ],
+    "iconografia del supereroe": [
+      "s1-2-c"
+    ],
+    "cinema di supereroi": [
+      "s1-2-c"
+    ],
+    "superficie visiva": [
+      "s1-2-c",
+      "s1-3"
+    ],
+    "profondità testuale": [
+      "s1-2-c",
+      "s1-3"
+    ],
+    "medium libro vs medium SVOD": [
+      "s1-2-c"
+    ],
+    "convergenza delle tre voci": [
+      "s1-2-c"
+    ],
+    "immagine come dispositivo industriale-culturale": [
+      "s1-2-c"
+    ],
+    "confine semiotico": [
+      "s1-2",
+      "s1-3"
+    ],
+    "zona di traduzione": [
+      "s1-2"
+    ],
+    "non-trasparenza del codice": [
+      "s1-2"
+    ],
+    "Whorf-Sapir": [
+      "s1-2"
+    ],
+    "Derrida": [
+      "s1-2"
+    ],
+    "*cut and paste*": [
+      "s1-2"
+    ],
+    "*La semiosfera*": [
+      "s1-2"
+    ],
+    "finestra trasparente": [
+      "s1-2"
+    ],
+    "messaggi propri dell'interfaccia": [
+      "s1-2"
+    ],
+    "recettore sensoriale": [
+      "s1-2"
+    ],
+    "asimmetria della traduzione": [
+      "s1-2"
+    ],
+    "codici asimmetrici": [
+      "s1-2"
+    ],
+    "Galloway": [
+      "s1-2"
+    ],
+    "*The Interface Effect*": [
+      "s1-2"
+    ],
+    "zona autonoma di attività": [
+      "s1-2"
+    ],
+    "effetto-interfaccia": [
+      "s1-2"
+    ],
+    "barbaro": [
+      "s1-2"
+    ],
+    "esterno caotico": [
+      "s1-2"
+    ],
+    "produzione del fruitore come soggetto": [
+      "s1-2"
+    ],
+    "produzione del database come oggetto": [
+      "s1-2"
+    ],
+    "interfacce alternative": [
+      "s1-2"
+    ],
+    "fandom come interfaccia interpretativa": [
+      "s1-2"
+    ],
+    "Wikipedia come interfaccia enciclopedica": [
+      "s1-2"
+    ],
+    "*The Witcher 3*": [
+      "s1-2"
+    ],
+    "*Mass Effect*": [
+      "s1-2",
+      "s7-2a"
+    ],
+    "bestiario": [
+      "s1-2"
+    ],
+    "codex": [
+      "s1-2"
+    ],
+    "paratesti come confini semiotici interni": [
+      "s1-2"
+    ],
+    "design dell'interfaccia come atto autoriale": [
+      "s1-2"
+    ],
+    "doppia funzione del confine commerciale": [
+      "s1-2"
+    ],
+    "logica culturale e logica industriale": [
+      "s1-2"
+    ],
+    "rovesciamento": [
+      "s1-3"
+    ],
+    "libertà fruitiva": [
+      "s1-3"
+    ],
+    "database già percorso": [
+      "s1-3"
+    ],
+    "griglia razionale": [
+      "s1-3"
+    ],
+    "gabbie cognitive": [
+      "s1-3"
+    ],
+    "pillar brand": [
+      "s1-3"
+    ],
+    "cinque pillar": [
+      "s1-3"
+    ],
+    "«Per te»": [
+      "s1-3"
+    ],
+    "sintesi instabile": [
+      "s1-3"
+    ],
+    "immagine come dispositivo": [
+      "s1-3"
+    ],
+    "Cucco": [
+      "s1-3",
+      "s2-1"
+    ],
+    "opacità del meccanismo": [
+      "s1-3"
+    ],
+    "trasparenza dell'interfaccia": [
+      "s1-3"
+    ],
+    "asimmetria": [
+      "s1-3"
+    ],
+    "sotto la trasparenza": [
+      "s1-3"
+    ],
+    "platform capitalism": [
+      "s1-3"
+    ],
+    "industria dell'attenzione": [
+      "s1-3"
+    ],
+    "cattura dell'attenzione": [
+      "s1-3"
+    ],
+    "merce attenzione": [
+      "s1-3"
+    ],
+    "ecosistema della piattaforma": [
+      "s1-3"
+    ],
+    "realizzazione storica": [
+      "s1-3"
+    ],
+    "scelta progettuale": [
+      "s1-3",
+      "s4-3"
+    ],
+    "destino del medium": [
+      "s1-3"
+    ],
+    "alternative possibili": [
+      "s1-3"
+    ],
+    "sistema della tesi": [
+      "s1-3",
+      "s3-1",
+      "s6-1a"
+    ],
+    "attraversabilità": [
+      "s1-3"
+    ],
+    "esplorazione fruitiva": [
+      "s1-3"
+    ],
+    "livello 3": [
+      "s1-3"
+    ],
+    "sintesi critica": [
+      "s1-3"
+    ],
+    "tripletta 2A 2B 2C": [
+      "s1-3"
+    ],
+    "catena di pre-determinazione": [
+      "s1-3"
+    ],
+    "scelta libera": [
+      "s1-3"
+    ],
+    "scelta vincolata": [
+      "s1-3"
+    ],
+    "modello economico": [
+      "s1-3"
+    ],
+    "efficacia del design": [
+      "s1-3"
+    ],
+    "limite strutturale": [
+      "s1-3"
+    ],
+    "1999 «Science»": [
+      "s2-1"
+    ],
+    "grafo del mercato culturale": [
+      "s2-1"
+    ],
+    "nodi-franchise": [
+      "s2-1"
+    ],
+    "connessioni-investimenti": [
+      "s2-1"
+    ],
+    "iperhub": [
+      "s2-1"
+    ],
+    "Lucasfilm": [
+      "s2-1"
+    ],
+    "20th Century Fox": [
+      "s2-1"
+    ],
+    "Avengers": [
+      "s2-1",
+      "s7-1"
+    ],
+    "Iron Man": [
+      "s2-1"
+    ],
+    "Spider-Man": [
+      "s2-1"
+    ],
+    "*Avatar*": [
+      "s2-1"
+    ],
+    "*Alien*": [
+      "s2-1"
+    ],
+    "*Predator*": [
+      "s2-1"
+    ],
+    "*Harry Potter*": [
+      "s2-1",
+      "s2-2",
+      "s5-1a"
+    ],
+    "*Il Trono di Spade*": [
+      "s2-1",
+      "s2-2",
+      "s4-3"
+    ],
+    "*It's All Connected*": [
+      "s2-1",
+      "s2-2",
+      "s5-1a"
+    ],
+    "diritto d'autore": [
+      "s2-1"
+    ],
+    "marchio commerciale": [
+      "s2-1"
+    ],
+    "accumulazione cumulativa": [
+      "s2-1",
+      "s4-3"
+    ],
+    "capitale narrativo": [
+      "s2-1",
+      "s2-2",
+      "s4-3",
+      "s5-2"
+    ],
+    "effetto nostalgia": [
+      "s2-1",
+      "s2-2",
+      "s5-2"
+    ],
+    "reinvenzione": [
+      "s2-1"
+    ],
+    "acquisizioni strategiche": [
+      "s2-1"
+    ],
+    "ecologia dei franchise": [
+      "s2-1"
+    ],
+    "franchise consolidato": [
+      "s2-1"
+    ],
+    "franchise nuovo": [
+      "s2-1"
+    ],
+    "fidelizzazione del pubblico": [
+      "s2-1"
+    ],
+    "apparato di marketing": [
+      "s2-1"
+    ],
+    "sinergie commerciali": [
+      "s2-1",
+      "s7-2a"
+    ],
+    "posizionamento di rete": [
+      "s2-1"
+    ],
+    "qualità intrinseca": [
+      "s2-1"
+    ],
+    "qualità modulante": [
+      "s2-1"
+    ],
+    "attenzione iniziale": [
+      "s2-1"
+    ],
+    "attenzione successiva": [
+      "s2-1"
+    ],
+    "razionalità industriale": [
+      "s2-1"
+    ],
+    "operazione strutturale sulla rete": [
+      "s2-1"
+    ],
+    "η": [
+      "s2-2"
+    ],
+    "eta": [
+      "s2-2"
+    ],
+    "modello Bianconi-Barabási": [
+      "s2-2"
+    ],
+    "2001 «Europhysics Letters»": [
+      "s2-2"
+    ],
+    "*Competition and multiscaling in evolving networks*": [
+      "s2-2"
+    ],
+    "preferential attachment classico": [
+      "s2-2"
+    ],
+    "grado k": [
+      "s2-2"
+    ],
+    "k·η": [
+      "s2-2"
+    ],
+    "probabilità di connessione": [
+      "s2-2"
+    ],
+    "tenuta del paradigma": [
+      "s2-2"
+    ],
+    "*Ecosistemi narrativi*": [
+      "s2-2",
+      "s7-1"
+    ],
+    "coerenza mitopoietica": [
+      "s2-2"
+    ],
+    "profondità del mondo secondario": [
+      "s2-2"
+    ],
+    "ricchezza simbolica": [
+      "s2-2"
+    ],
+    "mondo costruito": [
+      "s2-2"
+    ],
+    "*Il signore degli anelli*": [
+      "s2-2",
+      "s2-2a",
+      "s4-3",
+      "s5-1a"
+    ],
+    "1954-55": [
+      "s2-2",
+      "s2-2a",
+      "s4-3"
+    ],
+    "Quattro Ere": [
+      "s2-2",
+      "s2-2a"
+    ],
+    "linguaggio costruito": [
+      "s2-2"
+    ],
+    "lingue elfiche": [
+      "s2-2",
+      "s7-2a"
+    ],
+    "Quenya": [
+      "s2-2",
+      "s2-2a"
+    ],
+    "Sindarin": [
+      "s2-2",
+      "s2-2a"
+    ],
+    "*Secondary Belief*": [
+      "s2-2",
+      "s2-2a",
+      "s7-2a"
+    ],
+    "Peter Jackson": [
+      "s2-2",
+      "s2-2a"
+    ],
+    "2001-2003": [
+      "s2-2",
+      "s2-2a"
+    ],
+    "Frank Herbert": [
+      "s2-2"
+    ],
+    "*Dune*": [
+      "s2-2"
+    ],
+    "J.K. Rowling": [
+      "s2-2",
+      "s4-3"
+    ],
+    "George R.R. Martin": [
+      "s2-2",
+      "s4-3"
+    ],
+    "Warner": [
+      "s2-2"
+    ],
+    "DC Comics": [
+      "s2-2"
+    ],
+    "Universal": [
+      "s2-2"
+    ],
+    "iperhub industriali": [
+      "s2-2"
+    ],
+    "franchise di alta fitness": [
+      "s2-2"
+    ],
+    "franchise di alta posizione": [
+      "s2-2"
+    ],
+    "valore intrinseco": [
+      "s2-2"
+    ],
+    "sfumatura della critica": [
+      "s2-2"
+    ],
+    "J.R.R. Tolkien": [
+      "s2-2a",
+      "s7-2a"
+    ],
+    "*Lo Hobbit*": [
+      "s2-2a"
+    ],
+    "Allen & Unwin": [
+      "s2-2a"
+    ],
+    "*Silmarillion*": [
+      "s2-2a"
+    ],
+    "*History of Middle-earth*": [
+      "s2-2a",
+      "s4-3"
+    ],
+    "1983-1996": [
+      "s2-2a",
+      "s4-3"
+    ],
+    "Ainulindalë": [
+      "s2-2a"
+    ],
+    "Valaquenta": [
+      "s2-2a"
+    ],
+    "Prima Era": [
+      "s2-2a"
+    ],
+    "Seconda Era": [
+      "s2-2a",
+      "s4-3"
+    ],
+    "Terza Era": [
+      "s2-2a"
+    ],
+    "Quarta Era": [
+      "s2-2a"
+    ],
+    "Khuzdul": [
+      "s2-2a"
+    ],
+    "Black Speech": [
+      "s2-2a"
+    ],
+    "Adûnaic": [
+      "s2-2a"
+    ],
+    "Tengwar": [
+      "s2-2a"
+    ],
+    "Cirth": [
+      "s2-2a"
+    ],
+    "cattedra di anglosassone": [
+      "s2-2a"
+    ],
+    "Oxford": [
+      "s2-2a"
+    ],
+    "filologo": [
+      "s2-2a"
+    ],
+    "cosmogonia di Eä": [
+      "s2-2a",
+      "s7-1"
+    ],
+    "Númenor": [
+      "s2-2a"
+    ],
+    "mappa della Terra di Mezzo": [
+      "s2-2a"
+    ],
+    "trilogia cinematografica": [
+      "s2-2a"
+    ],
+    "*Il ritorno del re*": [
+      "s2-2a"
+    ],
+    "tre Oscar": [
+      "s2-2a"
+    ],
+    "*Lo Hobbit* film": [
+      "s2-2a"
+    ],
+    "2012-2014": [
+      "s2-2a"
+    ],
+    "*Gli anelli del potere*": [
+      "s2-2a"
+    ],
+    "Amazon Prime Video": [
+      "s2-2a",
+      "s4-3"
+    ],
+    "*The Lord of the Rings Online*": [
+      "s2-2a"
+    ],
+    "*Middle-earth: Shadow of Mordor*": [
+      "s2-2a"
+    ],
+    "giochi di ruolo": [
+      "s2-2a",
+      "s7-2a"
+    ],
+    "merchandising globale": [
+      "s2-2a"
+    ],
+    "cinquanta lingue": [
+      "s2-2a"
+    ],
+    "comunità di pratica linguistica": [
+      "s2-2a"
+    ],
+    "fitness mitopoietica": [
+      "s2-2a",
+      "s4-3",
+      "s7-2a"
+    ],
+    "sospensione attiva dell'incredulità": [
+      "s2-2a"
+    ],
+    "leggi interne articolate": [
+      "s2-2a"
+    ],
+    "mondo abitabile": [
+      "s2-2a"
+    ],
+    "condizione di possibilità": [
+      "s2-2a"
+    ],
+    "condizione di sostenibilità": [
+      "s2-2a"
+    ],
+    "amplificatore strutturale": [
+      "s2-2a"
+    ],
+    "η eccezionale": [
+      "s2-2a"
+    ],
+    "lettera 131": [
+      "s2-2a"
+    ],
+    "Milton Waldman": [
+      "s2-2a",
+      "s4-3"
+    ],
+    "«more or less connected legend»": [
+      "s2-2a"
+    ],
+    "cicli collegati al magnifico tutto": [
+      "s2-2a"
+    ],
+    "spazio per altre menti e mani": [
+      "s2-2a"
+    ],
+    "investimento autoriale": [
+      "s2-2a"
+    ],
+    "sessanta anni di lavoro": [
+      "s2-2a"
+    ],
+    "caso eccezionale": [
+      "s2-2a"
+    ],
+    "produzione industriale": [
+      "s2-2a"
+    ],
+    "rapporto fra fitness e produzione": [
+      "s2-2a"
+    ],
+    "loci e imagines": [
+      "s3-1"
+    ],
+    "Giulio Camillo Delminio": [
+      "s3-1"
+    ],
+    "*Idea del theatro*": [
+      "s3-1",
+      "s4-2a"
+    ],
+    "sette colonne": [
+      "s3-1",
+      "s3-1b"
+    ],
+    "sette gradi": [
+      "s3-1",
+      "s3-1b"
+    ],
+    "quarantanove luoghi": [
+      "s3-1"
+    ],
+    "griglia 7×7": [
+      "s3-1",
+      "s3-1b"
+    ],
+    "scacchiera dei luoghi": [
+      "s3-1",
+      "s3-1b",
+      "s4-2a"
+    ],
+    "edizione Adelphi": [
+      "s3-1"
+    ],
+    "griglia di classificazione": [
+      "s3-1"
+    ],
+    "modello per la mente": [
+      "s3-1"
+    ],
+    "proiezioni materiali": [
+      "s3-1"
+    ],
+    "sette pianeti": [
+      "s3-1"
+    ],
+    "Luna": [
+      "s3-1"
+    ],
+    "Mercurio": [
+      "s3-1"
+    ],
+    "Venere": [
+      "s3-1"
+    ],
+    "Sole": [
+      "s3-1"
+    ],
+    "Marte": [
+      "s3-1"
+    ],
+    "Giove": [
+      "s3-1"
+    ],
+    "Saturno": [
+      "s3-1"
+    ],
+    "cosmologia rinascimentale": [
+      "s3-1"
+    ],
+    "Convivio": [
+      "s3-1"
+    ],
+    "Caverna": [
+      "s3-1"
+    ],
+    "Gorgoni": [
+      "s3-1"
+    ],
+    "Pasifae e il Toro": [
+      "s3-1"
+    ],
+    "Sandali di Mercurio": [
+      "s3-1"
+    ],
+    "Tre Doni della Sapienza": [
+      "s3-1"
+    ],
+    "Binah": [
+      "s3-1"
+    ],
+    "settima Sefirot": [
+      "s3-1"
+    ],
+    "sette volte sette": [
+      "s3-1"
+    ],
+    "Padre nostro": [
+      "s3-1"
+    ],
+    "testo ebraico di Matteo": [
+      "s3-1"
+    ],
+    "ombra del divino archetipo": [
+      "s3-1"
+    ],
+    "tradizione ermetica": [
+      "s3-1",
+      "s3-1a"
+    ],
+    "sette pozzi del sistema": [
+      "s3-1"
+    ],
+    "sette domini di articolazione argomentativa": [
+      "s3-1"
+    ],
+    "quarantanove frammenti tematici": [
+      "s3-1"
+    ],
+    "imagines come dispositivo di richiamo": [
+      "s3-1"
+    ],
+    "meccanismo combinatorio": [
+      "s3-1"
+    ],
+    "significato relazionale": [
+      "s3-1",
+      "s3-1b"
+    ],
+    "movimento del fruitore": [
+      "s3-1"
+    ],
+    "dispositivo digitale di navigazione": [
+      "s3-1",
+      "s3-1b"
+    ],
+    "totalità enciclopedica": [
+      "s3-1"
+    ],
+    "circoscritto": [
+      "s3-1"
+    ],
+    "profondità dell'articolazione": [
+      "s3-1"
+    ],
+    "prestito strutturale": [
+      "s3-1"
+    ],
+    "*mens fenestrata*": [
+      "s3-1a"
+    ],
+    "interiorità esternalizzata": [
+      "s3-1a"
+    ],
+    "arte della memoria classica": [
+      "s3-1a"
+    ],
+    "*Ad Herennium*": [
+      "s3-1a"
+    ],
+    "Cicerone": [
+      "s3-1a"
+    ],
+    "Quintiliano": [
+      "s3-1a"
+    ],
+    "maestri medievali": [
+      "s3-1a"
+    ],
+    "maestri rinascimentali": [
+      "s3-1a"
+    ],
+    "Frances Yates": [
+      "s3-1a"
+    ],
+    "*The Art of Memory*": [
+      "s3-1a"
+    ],
+    "arte interiore": [
+      "s3-1a"
+    ],
+    "sistema mnemonico solitario": [
+      "s3-1a"
+    ],
+    "Viglius Zuichemus": [
+      "s3-1a"
+    ],
+    "Erasmo": [
+      "s3-1a"
+    ],
+    "lettera del 1532": [
+      "s3-1a"
+    ],
+    "Venezia": [
+      "s3-1a"
+    ],
+    "edificio ligneo": [
+      "s3-1a"
+    ],
+    "rovesciamento all'esterno": [
+      "s3-1a"
+    ],
+    "dispositivo materiale": [
+      "s3-1a"
+    ],
+    "schedario delle belle forme": [
+      "s3-1a"
+    ],
+    "anatomia dei grandi testi": [
+      "s3-1a"
+    ],
+    "finestre della mente": [
+      "s3-1a"
+    ],
+    "*mens fenestrata* come categoria": [
+      "s3-1a"
+    ],
+    "microcosmo e macrocosmo": [
+      "s3-1a"
+    ],
+    "sospensione della dimensione mistica": [
+      "s3-1a"
+    ],
+    "Large Language Model": [
+      "s3-1a",
+      "s5-2"
+    ],
+    "Claude": [
+      "s3-1a",
+      "s6-2"
+    ],
+    "GPT": [
+      "s3-1a",
+      "s6-2"
+    ],
+    "Gemini": [
+      "s3-1a"
+    ],
+    "pesi della rete neurale": [
+      "s3-1a"
+    ],
+    "rappresentazioni vettoriali": [
+      "s3-1a"
+    ],
+    "matrici di attenzione": [
+      "s3-1a"
+    ],
+    "interfaccia testuale": [
+      "s3-1a"
+    ],
+    "finestra contemporanea": [
+      "s3-1a"
+    ],
+    "*dataprint*": [
+      "s3-1a",
+      "s5-2",
+      "s6-2"
+    ],
+    "stilistica strutturale del medium": [
+      "s3-1a",
+      "s5-2"
+    ],
+    "grammatica formale": [
+      "s3-1a",
+      "s3-1b"
+    ],
+    "*prompt*": [
+      "s3-1a"
+    ],
+    "traiettoria di probabilità": [
+      "s3-1a"
+    ],
+    "agentività compositiva": [
+      "s3-1a"
+    ],
+    "dispositivo amplificatore": [
+      "s3-1a"
+    ],
+    "sapere classico": [
+      "s3-1a"
+    ],
+    "corpus contemporanei": [
+      "s3-1a"
+    ],
+    "velocità dell'interazione": [
+      "s3-1a"
+    ],
+    "continuità di lunga durata": [
+      "s3-1a",
+      "s6-2",
+      "s6-3a"
+    ],
+    "prototipo cognitivo dell'AI": [
+      "s3-1a"
+    ],
+    "prestito cognitivo": [
+      "s3-1a"
+    ],
+    "pubblicazione SVOD del sistema della tesi": [
+      "s3-1b"
+    ],
+    "quarantanove caselle": [
+      "s3-1b"
+    ],
+    "pozzi tematici": [
+      "s3-1b"
+    ],
+    "domini di articolazione argomentativa": [
+      "s3-1b"
+    ],
+    "matrice incrociata": [
+      "s3-1b"
+    ],
+    "prodotto matriciale": [
+      "s3-1b"
+    ],
+    "imagines contemporanee": [
+      "s3-1b"
+    ],
+    "meme positivi": [
+      "s3-1b"
+    ],
+    "tessera grafica": [
+      "s3-1b"
+    ],
+    "dispositivo visivo di richiamo": [
+      "s3-1b"
+    ],
+    "interfaccia come confine semiotico": [
+      "s3-1b"
+    ],
+    "Dawkins": [
+      "s3-1b",
+      "s4-1a"
+    ],
+    "*The Selfish Gene*": [
+      "s3-1b"
+    ],
+    "meme": [
+      "s3-1b"
+    ],
+    "replicante culturale": [
+      "s3-1b"
+    ],
+    "stabilità": [
+      "s3-1b"
+    ],
+    "fedeltà": [
+      "s3-1b"
+    ],
+    "ricombinazione": [
+      "s3-1b"
+    ],
+    "qualifica «positivo»": [
+      "s3-1b"
+    ],
+    "intenzionalità progettuale": [
+      "s3-1b"
+    ],
+    "trasmissione attiva": [
+      "s3-1b"
+    ],
+    "contrapposizione virali passivi": [
+      "s3-1b"
+    ],
+    "isotropia progettuale": [
+      "s3-1b"
+    ],
+    "sospensione algoritmo di raccomandazione": [
+      "s3-1b"
+    ],
+    "sospensione feedback loop": [
+      "s3-1b"
+    ],
+    "sospensione personalizzazione": [
+      "s3-1b"
+    ],
+    "database come promessa formale": [
+      "s3-1b"
+    ],
+    "realizzazione cognitiva del database": [
+      "s3-1b"
+    ],
+    "pre-illuminazione di percorsi": [
+      "s3-1b"
+    ],
+    "piattaforma SVOD industriale": [
+      "s3-1b"
+    ],
+    "pubblicazione SVOD della tesi": [
+      "s3-1b"
+    ],
+    "attraversamento libero": [
+      "s3-1b"
+    ],
+    "percorso del fruitore": [
+      "s3-1b"
+    ],
+    "dispositivo combinatorio": [
+      "s3-1b"
+    ],
+    "multidimensionalità": [
+      "s3-1b"
+    ],
+    "*L'età classico-romantica*": [
+      "s4-1a",
+      "s4-3",
+      "s6-3a"
+    ],
+    "elemento più semplice di un sistema aperto": [
+      "s4-1a"
+    ],
+    "piccolo cosmo": [
+      "s4-1a"
+    ],
+    "romantici di Jena": [
+      "s4-1a"
+    ],
+    "Novalis": [
+      "s4-1a",
+      "s6-3a"
+    ],
+    "Schleiermacher": [
+      "s4-1a",
+      "s6-3a"
+    ],
+    "sospensione dell'elemento minimo": [
+      "s4-1a"
+    ],
+    "memetica": [
+      "s4-1a"
+    ],
+    "fisica degli atomi": [
+      "s4-1a"
+    ],
+    "frammento come unità relativa di senso": [
+      "s4-1a"
+    ],
+    "neologismo": [
+      "s4-1a",
+      "s4-1a"
+    ],
+    "pozzo come metafora": [
+      "s4-1a"
+    ],
+    "verticalità": [
+      "s4-1a"
+    ],
+    "profondità": [
+      "s4-1a"
+    ],
+    "nodo-hub": [
+      "s4-1a"
+    ],
+    "sette pozzi": [
+      "s4-1a"
+    ],
+    "teatro della memoria": [
+      "s4-1a"
+    ],
+    "industriale": [
+      "s4-1a"
+    ],
+    "AI come medium": [
+      "s4-1a"
+    ],
+    "soglia come metafora": [
+      "s4-1a"
+    ],
+    "orizzontalità": [
+      "s4-1a"
+    ],
+    "ponte di passaggio": [
+      "s4-1a"
+    ],
+    "arco del grafo": [
+      "s4-1a"
+    ],
+    "livelli diversi di scala": [
+      "s4-1a"
+    ],
+    "network science": [
+      "s4-1a"
+    ],
+    "grafo del sistema": [
+      "s4-1a"
+    ],
+    "topologia scale-free": [
+      "s4-1a"
+    ],
+    "modello con fitness": [
+      "s4-1a"
+    ],
+    "profondità del pozzo": [
+      "s4-1a"
+    ],
+    "specificità della soglia": [
+      "s4-1a"
+    ],
+    "fitness dei frammenti": [
+      "s4-1a"
+    ],
+    "lettura per pozzi": [
+      "s4-1a"
+    ],
+    "lettura per soglie": [
+      "s4-1a"
+    ],
+    "grammatica operativa": [
+      "s4-1a",
+      "s6-1a"
+    ],
+    "articolazione metalinguistica": [
+      "s4-1a"
+    ],
+    "carattere relazionale": [
+      "s4-1a"
+    ],
+    "carattere profondo": [
+      "s4-1a"
+    ],
+    "ars combinatoria": [
+      "s4-2a"
+    ],
+    "spirito combinatorio": [
+      "s4-2a"
+    ],
+    "principio combinatorio": [
+      "s4-2a"
+    ],
+    "lunga durata": [
+      "s4-2a"
+    ],
+    "macchine retoriche": [
+      "s4-2a"
+    ],
+    "*gorgo dell'artificio*": [
+      "s4-2a"
+    ],
+    "*artificiosa rota*": [
+      "s4-2a"
+    ],
+    "Teatro 7×7": [
+      "s4-2a"
+    ],
+    "luoghi-immagine": [
+      "s4-2a"
+    ],
+    "meccanismo che funziona da sé": [
+      "s4-2a"
+    ],
+    "ars dictaminis": [
+      "s4-2a"
+    ],
+    "retoriche umanistiche": [
+      "s4-2a"
+    ],
+    "magazzino ideale di macchine per costruire testi": [
+      "s4-2a"
+    ],
+    "Accademia di Lagado": [
+      "s4-2a"
+    ],
+    "Swift": [
+      "s4-2a"
+    ],
+    "tradizione epico-cavalleresca": [
+      "s4-2a"
+    ],
+    "*Auflösung*": [
+      "s4-2a"
+    ],
+    "mescolanza": [
+      "s4-2a"
+    ],
+    "fusione": [
+      "s4-2a"
+    ],
+    "dissoluzione": [
+      "s4-2a"
+    ],
+    "chimica romantica": [
+      "s4-2a"
+    ],
+    "Schelling": [
+      "s4-2a",
+      "s4-3",
+      "s6-3a"
+    ],
+    "filosofia della natura": [
+      "s4-2a"
+    ],
+    "*Witz*": [
+      "s4-2a"
+    ],
+    "arguzia": [
+      "s4-2a"
+    ],
+    "acutezza": [
+      "s4-2a"
+    ],
+    "diascévase": [
+      "s4-2a"
+    ],
+    "filologia omerica": [
+      "s4-2a"
+    ],
+    "decostruzione e ricomposizione": [
+      "s4-2a"
+    ],
+    "scrittura collettiva di frammenti": [
+      "s4-2a"
+    ],
+    "*C-creativity*": [
+      "s4-2a"
+    ],
+    "spazio della coerenza narrativa": [
+      "s4-2a"
+    ],
+    "non ex nihilo": [
+      "s4-2a"
+    ],
+    "costruttivista": [
+      "s4-2a"
+    ],
+    "Margaret Boden": [
+      "s4-2a"
+    ],
+    "creatività computazionale": [
+      "s4-2a"
+    ],
+    "P-creativity": [
+      "s4-2a"
+    ],
+    "H-creativity": [
+      "s4-2a"
+    ],
+    "tertium con proprietà nuove": [
+      "s4-2a"
+    ],
+    "corpora linguistici": [
+      "s4-2a"
+    ],
+    "scala materiale": [
+      "s4-2a"
+    ],
+    "scala formale": [
+      "s4-2a"
+    ],
+    "autore come compositore": [
+      "s4-2a"
+    ],
+    "sospensione dell'originalità assoluta": [
+      "s4-2a"
+    ],
+    "creazione ex nihilo": [
+      "s4-2a"
+    ],
+    "altra tradizione": [
+      "s4-2a"
+    ],
+    "cinque secoli di pensiero": [
+      "s4-2a"
+    ],
+    "pratica metodologica del sistema della tesi": [
+      "s4-2a"
+    ],
+    "meta-autore come compositore": [
+      "s4-2a"
+    ],
+    "poesia romantica": [
+      "s4-3"
+    ],
+    "universale": [
+      "s4-3"
+    ],
+    "progressiva": [
+      "s4-3"
+    ],
+    "poesia": [
+      "s4-3"
+    ],
+    "incompiutezza per principio": [
+      "s4-3"
+    ],
+    "apertura ontologica": [
+      "s4-3"
+    ],
+    "sistema classico": [
+      "s4-3"
+    ],
+    "Spinoza": [
+      "s4-3"
+    ],
+    "Kant": [
+      "s4-3"
+    ],
+    "*Sistema dell'idealismo trascendentale*": [
+      "s4-3"
+    ],
+    "compimento": [
+      "s4-3"
+    ],
+    "totalità organica": [
+      "s4-3"
+    ],
+    "forma costitutivamente incompiuta": [
+      "s4-3"
+    ],
+    "rivista": [
+      "s4-3"
+    ],
+    "opera in progress": [
+      "s4-3"
+    ],
+    "sinfilosofia collettiva": [
+      "s4-3"
+    ],
+    "opera-volume contemporanea": [
+      "s4-3"
+    ],
+    "2008-2025": [
+      "s4-3"
+    ],
+    "*Infinity Saga*": [
+      "s4-3"
+    ],
+    "*Avengers: Endgame*": [
+      "s4-3"
+    ],
+    "*Multiverse Saga*": [
+      "s4-3"
+    ],
+    "*Animali fantastici*": [
+      "s4-3"
+    ],
+    "Pottermore": [
+      "s4-3"
+    ],
+    "*Cronache del ghiaccio e del fuoco*": [
+      "s4-3"
+    ],
+    "HBO": [
+      "s4-3"
+    ],
+    "finale narrativo": [
+      "s4-3"
+    ],
+    "canone d'autore": [
+      "s4-3"
+    ],
+    "incompiutezza industriale": [
+      "s4-3"
+    ],
+    "ragioni economiche": [
+      "s4-3"
+    ],
+    "forma estetica nobile": [
+      "s4-3"
+    ],
+    "realizzazione industriale": [
+      "s4-3"
+    ],
+    "incompiutezza autentica": [
+      "s4-3"
+    ],
+    "incompiutezza ambivalente": [
+      "s4-3"
+    ],
+    "Tolkien lettera 131": [
+      "s4-3"
+    ],
+    "majestic whole": [
+      "s4-3"
+    ],
+    "cicli collegati": [
+      "s4-3"
+    ],
+    "altre menti e mani": [
+      "s4-3"
+    ],
+    "ragione costitutiva": [
+      "s4-3"
+    ],
+    "coesistenza delle due ragioni": [
+      "s4-3"
+    ],
+    "regime misto": [
+      "s4-3"
+    ],
+    "industria culturale": [
+      "s4-3"
+    ],
+    "periferia dinamica": [
+      "s5-1a"
+    ],
+    "bracconaggio testuale": [
+      "s5-1a"
+    ],
+    "De Certeau": [
+      "s5-1a",
+      "s7-2a"
+    ],
+    "Michel De Certeau": [
+      "s5-1a"
+    ],
+    "*L'invention du quotidien*": [
+      "s5-1a"
+    ],
+    "«Lire: un braconnage»": [
+      "s5-1a"
+    ],
+    "*braconnage*": [
+      "s5-1a"
+    ],
+    "*braconnier*": [
+      "s5-1a"
+    ],
+    "lettura come pratica attiva": [
+      "s5-1a"
+    ],
+    "lettore-bracconiere": [
+      "s5-1a"
+    ],
+    "foresta del signore": [
+      "s5-1a"
+    ],
+    "inquilino del testo": [
+      "s5-1a"
+    ],
+    "pratica popolare": [
+      "s5-1a"
+    ],
+    "resistenza al potere autoriale": [
+      "s5-1a"
+    ],
+    "dimensione politica della lettura": [
+      "s5-1a"
+    ],
+    "Henry Jenkins": [
+      "s5-1a"
+    ],
+    "*Textual Poachers*": [
+      "s5-1a"
+    ],
+    "*Convergence Culture*": [
+      "s5-1a"
+    ],
+    "fan fiction": [
+      "s5-1a",
+      "s7-2a"
+    ],
+    "fan art": [
+      "s5-1a"
+    ],
+    "fan vidding": [
+      "s5-1a"
+    ],
+    "cosplay": [
+      "s5-1a"
+    ],
+    "fanzine": [
+      "s5-1a"
+    ],
+    "podcast critici": [
+      "s5-1a"
+    ],
+    "convention": [
+      "s5-1a"
+    ],
+    "piattaforme digitali dedicate": [
+      "s5-1a"
+    ],
+    "sistema distribuito di appropriazione": [
+      "s5-1a"
+    ],
+    "corpus alternativo": [
+      "s5-1a"
+    ],
+    "*Star Trek*": [
+      "s5-1a",
+      "s7-1",
+      "s7-2a"
+    ],
+    "*Doctor Who*": [
+      "s5-1a",
+      "s7-1",
+      "s7-2a"
+    ],
+    "*Star Wars*": [
+      "s5-1a",
+      "s7-1",
+      "s7-2a"
+    ],
+    "*MCU*": [
+      "s5-1a"
+    ],
+    "cultura partecipativa contemporanea": [
+      "s5-1a"
+    ],
+    "dialettica fra proprietà e condivisione": [
+      "s5-1a"
+    ],
+    "zona grigia": [
+      "s5-1a"
+    ],
+    "bracconaggio commerciale": [
+      "s5-1a"
+    ],
+    "bracconaggio non commerciale": [
+      "s5-1a"
+    ],
+    "piattaforme dedicate": [
+      "s5-1a"
+    ],
+    "tolleranza istituzionale": [
+      "s5-1a"
+    ],
+    "*fan service*": [
+      "s5-1a"
+    ],
+    "circolazione bidirezionale": [
+      "s5-1a"
+    ],
+    "co-produzione del significato": [
+      "s5-1a"
+    ],
+    "ricodificazione critica": [
+      "s5-1a",
+      "s5-2"
+    ],
+    "riarticolazione queer": [
+      "s5-1a"
+    ],
+    "riarticolazione politica": [
+      "s5-1a"
+    ],
+    "dignità intellettuale del fandom": [
+      "s5-1a"
+    ],
+    "centro industriale": [
+      "s5-1a"
+    ],
+    "periferia produttiva": [
+      "s5-1a"
+    ],
+    "dispositivo giuridico": [
+      "s5-1a"
+    ],
+    "controllo del significato": [
+      "s5-1a"
+    ],
+    "memoria culturale": [
+      "s5-2"
+    ],
+    "Jurij Lotman": [
+      "s5-2"
+    ],
+    "scuola di Tartu-Mosca": [
+      "s5-2"
+    ],
+    "anni Settanta-Ottanta": [
+      "s5-2"
+    ],
+    "trasmissione culturale": [
+      "s5-2"
+    ],
+    "ricodificazione sistematica": [
+      "s5-2"
+    ],
+    "meccanismo dinamico": [
+      "s5-2"
+    ],
+    "archivio dinamico": [
+      "s5-2"
+    ],
+    "selezione del passato": [
+      "s5-2"
+    ],
+    "rinascimento e classicità": [
+      "s5-2"
+    ],
+    "romanticismo e medioevo": [
+      "s5-2"
+    ],
+    "modernismo e rinascimento": [
+      "s5-2"
+    ],
+    "ricodificazione come condizione di possibilità": [
+      "s5-2"
+    ],
+    "trasmissione passiva e sterilità": [
+      "s5-2"
+    ],
+    "ricodificazione legittima": [
+      "s5-2"
+    ],
+    "rilancio attraverso reinvenzione": [
+      "s5-2"
+    ],
+    "*La sirenetta* live action": [
+      "s5-2"
+    ],
+    "*La sirenetta* animazione": [
+      "s5-2"
+    ],
+    "Halle Bailey": [
+      "s5-2"
+    ],
+    "diversità": [
+      "s5-2"
+    ],
+    "sensibilità contemporanee": [
+      "s5-2"
+    ],
+    "reboot": [
+      "s5-2",
+      "s7-2a"
+    ],
+    "prequel": [
+      "s5-2"
+    ],
+    "remake": [
+      "s5-2"
+    ],
+    "*Star Wars* 1977": [
+      "s5-2"
+    ],
+    "*Il risveglio della Forza*": [
+      "s5-2"
+    ],
+    "*L'ascesa di Skywalker*": [
+      "s5-2"
+    ],
+    "*Obi-Wan Kenobi*": [
+      "s5-2"
+    ],
+    "*Ahsoka*": [
+      "s5-2"
+    ],
+    "Batman": [
+      "s5-2"
+    ],
+    "Bob Kane": [
+      "s5-2"
+    ],
+    "Bill Finger": [
+      "s5-2"
+    ],
+    "Tim Burton": [
+      "s5-2"
+    ],
+    "Christopher Nolan": [
+      "s5-2"
+    ],
+    "2005-2012": [
+      "s5-2"
+    ],
+    "Matt Reeves": [
+      "s5-2"
+    ],
+    "Adam West": [
+      "s5-2"
+    ],
+    "serie *Arkham*": [
+      "s5-2"
+    ],
+    "Rocksteady": [
+      "s5-2"
+    ],
+    "*The Dark Knight Returns*": [
+      "s5-2"
+    ],
+    "Frank Miller": [
+      "s5-2"
+    ],
+    "Batman culturale": [
+      "s5-2"
+    ],
+    "stratificazione storica": [
+      "s5-2"
+    ],
+    "corpus di addestramento": [
+      "s5-2"
+    ],
+    "prompt": [
+      "s5-2"
+    ],
+    "ricodificazione tecnica": [
+      "s5-2"
+    ],
+    "scala e velocità": [
+      "s5-2"
+    ],
+    "costruzione del passato": [
+      "s5-2"
+    ],
+    "*terzo* prodotto dalla composizione": [
+      "s5-2"
+    ],
+    "versione ricodificata": [
+      "s5-2"
+    ],
+    "responsabilità del meta-autore": [
+      "s5-2",
+      "s6-3a"
+    ],
+    "dispositivo produttivo": [
+      "s5-2"
+    ],
+    "articolazione contemporanea della cultura": [
+      "s5-2"
+    ],
+    "medium AI": [
+      "s5-2"
+    ],
+    "Mariarosaria Taddeo": [
+      "s6-1a"
+    ],
+    "Luciano Floridi": [
+      "s6-1a"
+    ],
+    "*Accountability in Artificial Intelligence*": [
+      "s6-1a"
+    ],
+    "*context*": [
+      "s6-1a"
+    ],
+    "*range*": [
+      "s6-1a"
+    ],
+    "*agent*": [
+      "s6-1a"
+    ],
+    "*forum*": [
+      "s6-1a"
+    ],
+    "*standards*": [
+      "s6-1a"
+    ],
+    "*process*": [
+      "s6-1a"
+    ],
+    "*implications*": [
+      "s6-1a"
+    ],
+    "contesto accademico": [
+      "s6-1a"
+    ],
+    "tesi magistrale": [
+      "s6-1a"
+    ],
+    "studi mediali e culturali": [
+      "s6-1a"
+    ],
+    "università di provenienza": [
+      "s6-1a"
+    ],
+    "facoltà": [
+      "s6-1a"
+    ],
+    "relatore": [
+      "s6-1a"
+    ],
+    "corso di studi": [
+      "s6-1a"
+    ],
+    "accountability istituzionale": [
+      "s6-1a"
+    ],
+    "accountability tecnica": [
+      "s6-1a"
+    ],
+    "campo di applicazione": [
+      "s6-1a"
+    ],
+    "sette dimensioni concettuali": [
+      "s6-1a"
+    ],
+    "responsabilità delle scelte": [
+      "s6-1a"
+    ],
+    "agente responsabile": [
+      "s6-1a"
+    ],
+    "dispositivo tecnico come strumento": [
+      "s6-1a"
+    ],
+    "principio classico del rapporto autore-tecnologia": [
+      "s6-1a"
+    ],
+    "macchina da scrivere": [
+      "s6-1a"
+    ],
+    "forum plurale": [
+      "s6-1a"
+    ],
+    "commissione di laurea": [
+      "s6-1a"
+    ],
+    "comunità accademica": [
+      "s6-1a"
+    ],
+    "pubblico non specialistico": [
+      "s6-1a"
+    ],
+    "pubblicazione SVOD": [
+      "s6-1a"
+    ],
+    "accountability accademica": [
+      "s6-1a"
+    ],
+    "accountability scientifica": [
+      "s6-1a"
+    ],
+    "accountability comunicativa": [
+      "s6-1a"
+    ],
+    "standard istituzionale": [
+      "s6-1a"
+    ],
+    "standard epistemologico": [
+      "s6-1a"
+    ],
+    "standard metodologico": [
+      "s6-1a"
+    ],
+    "standard etico": [
+      "s6-1a"
+    ],
+    "plagio": [
+      "s6-1a"
+    ],
+    "processo": [
+      "s6-1a"
+    ],
+    "scelte progettuali": [
+      "s6-1a"
+    ],
+    "auto-revisione": [
+      "s6-1a"
+    ],
+    "protocollo di prevenzione pattern AI": [
+      "s6-1a"
+    ],
+    "verifica retrospettiva": [
+      "s6-1a"
+    ],
+    "implicazioni": [
+      "s6-1a"
+    ],
+    "valutazione": [
+      "s6-1a"
+    ],
+    "credibilità": [
+      "s6-1a"
+    ],
+    "fiducia": [
+      "s6-1a"
+    ],
+    "integrità professionale": [
+      "s6-1a"
+    ],
+    "processo statistico non trasparente": [
+      "s6-1a"
+    ],
+    "controllo del meta-autore": [
+      "s6-1a"
+    ],
+    "validazione": [
+      "s6-1a"
+    ],
+    "meta-autore-editore": [
+      "s6-1a"
+    ],
+    "scrittore classico": [
+      "s6-1a"
+    ],
+    "responsabilità di produzione": [
+      "s6-1a"
+    ],
+    "responsabilità di validazione": [
+      "s6-1a"
+    ],
+    "stilistica strutturale": [
+      "s6-2"
+    ],
+    "medium AI generativo": [
+      "s6-2"
+    ],
+    "pattern stilistici emergenti": [
+      "s6-2"
+    ],
+    "ritmo della prosa": [
+      "s6-2"
+    ],
+    "struttura frasale": [
+      "s6-2"
+    ],
+    "tendenze lessicali": [
+      "s6-2"
+    ],
+    "transizioni": [
+      "s6-2"
+    ],
+    "marche stilistiche": [
+      "s6-2"
+    ],
+    "*data*": [
+      "s6-2"
+    ],
+    "*print*": [
+      "s6-2"
+    ],
+    "impronta": [
+      "s6-2"
+    ],
+    "firma": [
+      "s6-2"
+    ],
+    "voce vs dataprint": [
+      "s6-2"
+    ],
+    "Foucault": [
+      "s6-2"
+    ],
+    "funzione-autore": [
+      "s6-2"
+    ],
+    "*manifestatio*": [
+      "s6-2"
+    ],
+    "Erwin Panofsky": [
+      "s6-2"
+    ],
+    "*Gothic Architecture and Scholasticism*": [
+      "s6-2"
+    ],
+    "scolastica": [
+      "s6-2"
+    ],
+    "cattedrale gotica": [
+      "s6-2"
+    ],
+    "*Summa*": [
+      "s6-2"
+    ],
+    "Tommaso d'Aquino": [
+      "s6-2"
+    ],
+    "visibilità della forma": [
+      "s6-2"
+    ],
+    "architettura medioevale": [
+      "s6-2"
+    ],
+    "scrittura scolastica": [
+      "s6-2"
+    ],
+    "pittura rinascimentale": [
+      "s6-2"
+    ],
+    "cinema novecentesco": [
+      "s6-2"
+    ],
+    "database digitale": [
+      "s6-2"
+    ],
+    "finestra epistemica": [
+      "s6-2"
+    ],
+    "struttura opaca": [
+      "s6-2"
+    ],
+    "ricostruzione del lettore": [
+      "s6-2"
+    ],
+    "educazione critica al medium AI": [
+      "s6-2"
+    ],
+    "scelte di utilizzo": [
+      "s6-2"
+    ],
+    "adattamento del prompt": [
+      "s6-2"
+    ],
+    "valutazione critica dell'output": [
+      "s6-2"
+    ],
+    "resistenza attiva al dataprint": [
+      "s6-2"
+    ],
+    "prevenzione pattern AI": [
+      "s6-2"
+    ],
+    "quattro pattern strutturali": [
+      "s6-2"
+    ],
+    "quinto pattern bibliografico": [
+      "s6-2"
+    ],
+    "giudizio descrittivo": [
+      "s6-2"
+    ],
+    "giudizio estetico": [
+      "s6-2"
+    ],
+    "qualità dell'output": [
+      "s6-2"
+    ],
+    "tradizione estetica europea": [
+      "s6-2"
+    ],
+    "fenomeno storicamente situato": [
+      "s6-2"
+    ],
+    "*Symphilosophie*": [
+      "s6-3a"
+    ],
+    "Friedrich Schlegel": [
+      "s6-3a"
+    ],
+    "gruppo romantico": [
+      "s6-3a"
+    ],
+    "Frühromantik": [
+      "s6-3a"
+    ],
+    "August Wilhelm Schlegel": [
+      "s6-3a"
+    ],
+    "scrittura collaborativa di frammenti": [
+      "s6-3a"
+    ],
+    "sistema aperto in continuo divenire": [
+      "s6-3a"
+    ],
+    "pratica dialogica": [
+      "s6-3a"
+    ],
+    "autorialità dialogica": [
+      "s6-3a"
+    ],
+    "autorialità individuale": [
+      "s6-3a"
+    ],
+    "proprietà collettiva del gruppo": [
+      "s6-3a"
+    ],
+    "dialogo come momento della produzione": [
+      "s6-3a"
+    ],
+    "autori umani come progettisti narrativi": [
+      "s6-3a"
+    ],
+    "LLM come esecutori tecnici": [
+      "s6-3a"
+    ],
+    "scrittura attraverso il dialogo": [
+      "s6-3a"
+    ],
+    "parallelismo strutturale sinfilosofia-*wrAIting*": [
+      "s6-3a"
+    ],
+    "scrittura collaborativa": [
+      "s6-3a"
+    ],
+    "sospensione dell'autorialità solitaria": [
+      "s6-3a"
+    ],
+    "amplificazione cumulativa dell'intelligenza collettiva": [
+      "s6-3a"
+    ],
+    "sodali del dialogo": [
+      "s6-3a"
+    ],
+    "dispositivo tecnico come interlocutore": [
+      "s6-3a"
+    ],
+    "corpora del passato culturale": [
+      "s6-3a"
+    ],
+    "realizzazioni della categoria": [
+      "s6-3a"
+    ],
+    "Teatro di Camillo": [
+      "s6-3a",
+      "s7-1"
+    ],
+    "cultura partecipativa di Jenkins": [
+      "s6-3a"
+    ],
+    "*Mischung* schlegeliana": [
+      "s6-3a"
+    ],
+    "parità epistemica": [
+      "s6-3a"
+    ],
+    "parità ontologica": [
+      "s6-3a"
+    ],
+    "asimmetria del dialogo": [
+      "s6-3a"
+    ],
+    "etica scrittoria": [
+      "s6-3a"
+    ],
+    "scelta etica": [
+      "s6-3a"
+    ],
+    "scrittura autoriale solitaria": [
+      "s6-3a"
+    ],
+    "chiusura del sistema": [
+      "s6-3a"
+    ],
+    "genealogia": [
+      "s6-3a"
+    ],
+    "sinfilosofia digitale": [
+      "s6-3a"
+    ],
+    "pratica del sistema della tesi": [
+      "s6-3a"
+    ],
+    "dispositivo SVOD di pubblicazione": [
+      "s6-3a"
+    ],
+    "Armando Pescatore": [
+      "s7-1"
+    ],
+    "Veronica Innocenti": [
+      "s7-1"
+    ],
+    "*kernel*": [
+      "s7-1"
+    ],
+    "*canone*": [
+      "s7-1"
+    ],
+    "*bibbia*": [
+      "s7-1"
+    ],
+    "nucleo minimo del paradigma": [
+      "s7-1"
+    ],
+    "invariante del paradigma": [
+      "s7-1"
+    ],
+    "confine identitario": [
+      "s7-1"
+    ],
+    "Forza": [
+      "s7-1"
+    ],
+    "Jedi": [
+      "s7-1"
+    ],
+    "Sith": [
+      "s7-1"
+    ],
+    "Ribellione": [
+      "s7-1"
+    ],
+    "Impero": [
+      "s7-1"
+    ],
+    "galassia": [
+      "s7-1"
+    ],
+    "multiverso": [
+      "s7-1",
+      "s7-2a"
+    ],
+    "quattro Ere": [
+      "s7-1"
+    ],
+    "razze fondamentali": [
+      "s7-1",
+      "s7-2a"
+    ],
+    "opere ufficialmente riconosciute": [
+      "s7-1"
+    ],
+    "*κανών*": [
+      "s7-1"
+    ],
+    "dispositivo gerarchico": [
+      "s7-1"
+    ],
+    "dentro il canone": [
+      "s7-1"
+    ],
+    "fuori dal canone": [
+      "s7-1"
+    ],
+    "*Expanded Universe*": [
+      "s7-1"
+    ],
+    "*Legends*": [
+      "s7-1"
+    ],
+    "Lucasfilm-Disney": [
+      "s7-1"
+    ],
+    "*retconning*": [
+      "s7-1"
+    ],
+    "*re-canonization*": [
+      "s7-1"
+    ],
+    "canone secondario": [
+      "s7-1"
+    ],
+    "documento normativo": [
+      "s7-1"
+    ],
+    "bibbia di franchise": [
+      "s7-1"
+    ],
+    "industria seriale televisiva": [
+      "s7-1"
+    ],
+    "sceneggiatore": [
+      "s7-1"
+    ],
+    "memoria istituzionale": [
+      "s7-1"
+    ],
+    "memoria esterna": [
+      "s7-1"
+    ],
+    "soap statunitensi": [
+      "s7-1"
+    ],
+    "saga di Star Wars": [
+      "s7-1"
+    ],
+    "*Final Fantasy*": [
+      "s7-1"
+    ],
+    "*The Legend of Zelda*": [
+      "s7-1"
+    ],
+    "*Pokémon*": [
+      "s7-1"
+    ],
+    "Tolkien come subcreatore singolo": [
+      "s7-1"
+    ],
+    "unità autoriale": [
+      "s7-1"
+    ],
+    "autorialità distribuita": [
+      "s7-1"
+    ],
+    "proprietà industriale": [
+      "s7-1"
+    ],
+    "apparati editoriali": [
+      "s7-1"
+    ],
+    "uffici dedicati": [
+      "s7-1"
+    ],
+    "esperienza fruitiva": [
+      "s7-1"
+    ],
+    "visione autoriale unitaria": [
+      "s7-1"
+    ],
+    "istituzione produttiva": [
+      "s7-1"
+    ],
+    "patto estetico": [
+      "s7-2a"
+    ],
+    "fruitore": [
+      "s7-2a"
+    ],
+    "*On Fairy-Stories*": [
+      "s7-2a"
+    ],
+    "Università di St Andrews": [
+      "s7-2a"
+    ],
+    "*Essays Presented to Charles Williams*": [
+      "s7-2a"
+    ],
+    "Coleridge": [
+      "s7-2a"
+    ],
+    "*suspension of disbelief*": [
+      "s7-2a"
+    ],
+    "sospensione dell'incredulità": [
+      "s7-2a"
+    ],
+    "*Biographia Literaria*": [
+      "s7-2a"
+    ],
+    "categoria negativa": [
+      "s7-2a"
+    ],
+    "categoria positiva": [
+      "s7-2a"
+    ],
+    "investimento attivo di credenza": [
+      "s7-2a"
+    ],
+    "credenza attiva": [
+      "s7-2a"
+    ],
+    "leggi interne": [
+      "s7-2a"
+    ],
+    "coerenza interna del mondo": [
+      "s7-2a"
+    ],
+    "condizione costitutiva": [
+      "s7-2a"
+    ],
+    "correlato fenomenologico": [
+      "s7-2a"
+    ],
+    "Mark J.P. Wolf": [
+      "s7-2a"
+    ],
+    "worldbuilding": [
+      "s7-2a"
+    ],
+    "immersione attiva": [
+      "s7-2a"
+    ],
+    "galassia lontana lontana": [
+      "s7-2a"
+    ],
+    "specie aliene": [
+      "s7-2a"
+    ],
+    "iperspazio": [
+      "s7-2a"
+    ],
+    "ere narrative": [
+      "s7-2a"
+    ],
+    "elfi": [
+      "s7-2a"
+    ],
+    "nani": [
+      "s7-2a"
+    ],
+    "orchi": [
+      "s7-2a"
+    ],
+    "hobbit": [
+      "s7-2a"
+    ],
+    "origin stories": [
+      "s7-2a"
+    ],
+    "timeline": [
+      "s7-2a"
+    ],
+    "Asgard": [
+      "s7-2a"
+    ],
+    "Wakanda": [
+      "s7-2a"
+    ],
+    "partecipazione attiva": [
+      "s7-2a"
+    ],
+    "oggetto culturale condiviso": [
+      "s7-2a"
+    ],
+    "circolo virtuoso": [
+      "s7-2a"
+    ],
+    "spirale ascendente": [
+      "s7-2a"
+    ],
+    "*Wizarding World*": [
+      "s7-2a"
+    ],
+    "fidelizzazione superficiale": [
+      "s7-2a"
+    ],
+    "riconoscimento del brand": [
+      "s7-2a"
+    ],
+    "abitudine di consumo": [
+      "s7-2a"
+    ],
+    "valore di marketing": [
+      "s7-2a"
+    ],
+    "distinzione fra fidelizzazione e *Secondary Belief*": [
+      "s7-2a"
+    ],
+    "criterio valutativo": [
+      "s7-2a"
+    ],
+    "critica delle opere-volume contemporanee": [
+      "s7-2a"
+    ],
+    "sequel": [
+      "s7-2a"
+    ],
+    "transmediali": [
+      "s7-2a"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\")",
+      "Bash(Select-Object Name, LastWriteTime, Length, Attributes)",
+      "Bash(node build.js)",
+      "Bash(node -c \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\sito\\\\src\\\\js\\\\network.js\")"
+    ]
+  }
+}

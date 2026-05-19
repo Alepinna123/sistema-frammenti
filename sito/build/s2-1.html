@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preferential attachment nel mercato culturale — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Preferential attachment nel mercato culturale</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment">preferential attachment</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rich get richer">rich get richer</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Matthew effect">Matthew effect</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási-Albert">Barabási-Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1999 «Science»">1999 «Science»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete scale-free">rete scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="power-law">power-law</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grafo del mercato culturale">grafo del mercato culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodi-franchise">nodi-franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="connessioni-investimenti">connessioni-investimenti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="iperhub">iperhub</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney">Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Star Wars">Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Lucasfilm">Lucasfilm</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="20th Century Fox">20th Century Fox</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Avengers">Avengers</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Iron Man">Iron Man</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Spider-Man">Spider-Man</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Avatar*">*Avatar*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Alien*">*Alien*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Predator*">*Predator*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Harry Potter*">*Harry Potter*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il Trono di Spade*">*Il Trono di Spade*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="blockbuster">blockbuster</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cucco">Cucco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il film blockbuster*">*Il film blockbuster*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2010">2010</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione industriale">concentrazione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="David Puttnam">David Puttnam</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="marchio-locomotiva">marchio-locomotiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Brembilla">Brembilla</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*It's All Connected*">*It's All Connected*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="proprietà intellettuale">proprietà intellettuale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="diritto d'autore">diritto d'autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="marchio commerciale">marchio commerciale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accumulazione cumulativa">accumulazione cumulativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="capitale narrativo">capitale narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="effetto nostalgia">effetto nostalgia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="reinvenzione">reinvenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="acquisizioni strategiche">acquisizioni strategiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2009">2009</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2012">2012</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2019">2019</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ecologia dei franchise">ecologia dei franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="ecosistema narrativo">ecosistema narrativo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise consolidato">franchise consolidato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise nuovo">franchise nuovo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fidelizzazione del pubblico">fidelizzazione del pubblico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="apparato di marketing">apparato di marketing</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sinergie commerciali">sinergie commerciali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="posizionamento di rete">posizionamento di rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità intrinseca">qualità intrinseca</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità modulante">qualità modulante</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione iniziale">attenzione iniziale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione successiva">attenzione successiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="razionalità industriale">razionalità industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="operazione strutturale sulla rete">operazione strutturale sulla rete</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p><span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span>-László <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> e Réka <span class="concept-link" data-tag="Albert" tabindex="0" role="button">Albert</span> hanno articolato nel 1999, nel proprio paper su «Science»<sup><a href="#note-6" id="ref-6" class="note-ref">6</a></sup>, il meccanismo del <em><span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span></em> come spiegazione della distribuzione <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span> osservata in molte reti complesse del mondo reale. Il principio è formulabile in modo conciso: in una <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> che cresce nel tempo, ogni nuovo nodo che si aggiunge si connette agli altri nodi con probabilità proporzionale al numero di connessioni che ciascun nodo possiede già. I nodi con molte connessioni continuano ad accumulare connessioni, e crescono più rapidamente dei nodi con poche connessioni. Il sistema, lasciato operare nel tempo, sviluppa una distribuzione di grado che segue una legge di potenza: pochi nodi-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> accumulano la maggior parte delle connessioni, e molti nodi-foglia ne hanno pochissime. <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> ha condensato il principio nella formula colloquiale del <em><span class="concept-link" data-tag="rich get richer" tabindex="0" role="button">rich get richer</span></em>: «i ricchi diventano più ricchi», dove la ricchezza è metafora del grado di connessione nel grafo. Il meccanismo opera in modo automatico e cumulativo, e non richiede ipotesi di intenzionalità per produrre la concentrazione osservata.</p>
+<p>La voce di <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span> è articolata in dettaglio altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>, dove il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> è introdotto come uno dei meccanismi di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> che governano la crescita delle reti complesse e la distribuzione delle connessioni nei sistemi del mondo reale. Il presente discorso non rielabora il meccanismo da zero ma lo applica al mercato culturale contemporaneo, e specificamente al mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> mediali che caratterizza l&#39;industria <span class="concept-link" data-tag="SVOD" tabindex="0" role="button">SVOD</span> del nostro tempo. La tesi che il presente discorso articola è che il mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera come <span class="concept-link" data-tag="rete scale-free" tabindex="0" role="button">rete scale-free</span> in cui poche proprietà intellettuali consolidate accumulano la maggior parte dell&#39;<span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span> culturale, e il meccanismo che produce questa concentrazione è strutturalmente analogo al <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> delle reti complesse studiate da <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span>. Il mercato culturale non è anomalia critica di un sistema altrimenti equilibrato; è applicazione del medesimo meccanismo strutturale che produce la scale-freeness nelle reti tecnologiche, biologiche, sociali.</p>
+<p>Per articolare il punto, occorre precisare cosa funziona come nodo e cosa funziona come connessione nel <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span>. Il nodo è la <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> — il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> considerato come unità del catalogo <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>. <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> è un nodo. <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span> è un nodo. <em>Harry Potter</em> è un nodo. <em>Il Trono di Spade</em> è un nodo. La connessione è l&#39;investimento di <span class="concept-link" data-tag="attenzione" tabindex="0" role="button">attenzione</span>, capitale, lavoro, marketing, produzione, distribuzione che lega un nuovo prodotto al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> di partenza. Quando uno studio decide di produrre un nuovo film <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>, sta creando una nuova connessione fra una nuova opera e il nodo <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>. Quando una <span class="concept-link" data-tag="piattaforma SVOD" tabindex="0" role="button">piattaforma SVOD</span> acquista i diritti di trasmissione di una serie del Trono di Spade, sta creando una nuova connessione fra il proprio catalogo e il nodo Trono di Spade. Quando un giocattolaio produce una nuova linea di action figures di <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span>, sta creando una nuova connessione fra la propria offerta commerciale e il nodo <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span>. Il <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span> è composto dai <span class="concept-link" data-tag="nodi-franchise" tabindex="0" role="button">nodi-franchise</span> come vertici, e dalle <span class="concept-link" data-tag="connessioni-investimenti" tabindex="0" role="button">connessioni-investimenti</span> come archi.</p>
+<p>In questo grafo, il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> opera come segue. Quando uno studio cinematografico, una <span class="concept-link" data-tag="piattaforma SVOD" tabindex="0" role="button">piattaforma SVOD</span>, un editore, un produttore di <span class="concept-link" data-tag="merchandising" tabindex="0" role="button">merchandising</span> deve decidere a quale <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> investire le proprie risorse, la decisione è influenzata in modo determinante dal numero di connessioni esistenti che il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> candidato possiede già. Un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> che ha già molte connessioni — molti film, molte serie, molti <span class="concept-link" data-tag="tie-in" tabindex="0" role="button">tie-in</span> editoriali, molti prodotti di <span class="concept-link" data-tag="merchandising" tabindex="0" role="button">merchandising</span>, molti parchi a tema, molta presenza sui social media, molta visibilità nei festival e nelle premiazioni — è candidato preferenziale per nuove connessioni rispetto a un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> che ne ha poche. La decisione non è arbitraria ma è dettata da una razionalità economica documentata: investire su un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> già consolidato è meno rischioso, perché il pubblico è già fidelizzato, l&#39;identità visiva è già riconoscibile, l&#39;<span class="concept-link" data-tag="apparato di marketing" tabindex="0" role="button">apparato di marketing</span> è già rodato, le <span class="concept-link" data-tag="sinergie commerciali" tabindex="0" role="button">sinergie commerciali</span> sono già attivabili. Investire su un <span class="concept-link" data-tag="franchise nuovo" tabindex="0" role="button">franchise nuovo</span> è più rischioso, perché tutte queste dimensioni devono essere costruite da zero, e ciascuna costruzione richiede capitale e tempo. La razionalità economica dell&#39;<span class="concept-link" data-tag="industria culturale" tabindex="0" role="button">industria culturale</span> spinge dunque verso i <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati, e questa spinta è la versione concreta del meccanismo di <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> nel mercato culturale.</p>
+<p>La conseguenza strutturale è che il mercato dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> si configura nel tempo come <span class="concept-link" data-tag="rete scale-free" tabindex="0" role="button">rete scale-free</span>: pochi <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>-<span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> raccolgono la maggior parte degli investimenti dell&#39;industria, e molti <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>-foglia rimangono periferici. <span class="concept-link" data-tag="Marco Cucco" tabindex="0" role="button">Marco Cucco</span> ha articolato il punto attraverso il proprio studio del 2010, <em>Il film <span class="concept-link" data-tag="blockbuster" tabindex="0" role="button">blockbuster</span></em>, dove documenta il modello <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> che il cinema hollywoodiano ha adottato a partire dalla fine degli anni Settanta in risposta alla crisi del modello precedente. L&#39;osservazione fondamentale di <span class="concept-link" data-tag="Cucco" tabindex="0" role="button">Cucco</span>: «una delle misure adottate dall&#39;industria del cinema per risollevarsi dallo stato di crisi in cui versava fu di ridurre in maniera <span class="concept-link" data-tag="progressiva" tabindex="0" role="button">progressiva</span> il numero di pellicole realizzate e concentrarsi su poche grandi produzioni»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. La concentrazione delle risorse su pochi titoli è la versione macroindustriale del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>: anziché distribuire investimenti uniformemente fra molti progetti, l&#39;industria sceglie di concentrarli su pochi progetti già consolidati o con alto potenziale di consolidamento. <span class="concept-link" data-tag="Cucco" tabindex="0" role="button">Cucco</span> articola la logica economica del modello citando <span class="concept-link" data-tag="David Puttnam" tabindex="0" role="button">David Puttnam</span>: «ogni singolo grande film messo sul mercato dagli Studio ha il potenziale di essere un marchio in sé, una locomotiva dalla quale sono trainati molti altri settori dell&#39;economia»<sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup>. Il <span class="concept-link" data-tag="blockbuster" tabindex="0" role="button">blockbuster</span> non è semplicemente un film grande — è un brand visivo che traina una catena di prodotti accessori. Quando il brand è già consolidato, la catena di prodotti accessori si attiva con minore investimento e maggiore prevedibilità di ritorno.</p>
+<p><span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> ha portato questo modello alla propria attuazione più matura nel ventennio compreso fra il 2009 e il 2025 attraverso una serie di <span class="concept-link" data-tag="acquisizioni strategiche" tabindex="0" role="button">acquisizioni strategiche</span> che hanno aumentato sistematicamente il numero di connessioni che il proprio gruppo <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> possiede nel <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span>. L&#39;acquisizione di <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> Entertainment nel 2009 ha aggiunto al nodo <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> l&#39;intera <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> di <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> — <span class="concept-link" data-tag="Avengers" tabindex="0" role="button">Avengers</span>, <span class="concept-link" data-tag="Iron Man" tabindex="0" role="button">Iron Man</span>, <span class="concept-link" data-tag="Spider-Man" tabindex="0" role="button">Spider-Man</span> (con accordi specifici con Sony), Thor, Captain America, Hulk, Black Widow, X-Men (dopo acquisizione successiva di <span class="concept-link" data-tag="20th Century Fox" tabindex="0" role="button">20th Century Fox</span>), e centinaia di personaggi minori. L&#39;acquisizione di <span class="concept-link" data-tag="Lucasfilm" tabindex="0" role="button">Lucasfilm</span> nel 2012 ha aggiunto al nodo <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> l&#39;intera <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> di <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span>, dal <span class="concept-link" data-tag="canone" tabindex="0" role="button">canone</span> originale alle decine di derivati che la nuova proprietà ha potuto programmare. L&#39;acquisizione di <span class="concept-link" data-tag="20th Century Fox" tabindex="0" role="button">20th Century Fox</span> nel 2019 ha aggiunto al nodo <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span> <em>Avatar</em>, <em>Alien</em>, <em>Predator</em>, <em>Die Hard</em>, <em>The Simpsons</em>, e altri <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati. Il nodo <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span>, attraverso queste acquisizioni, è diventato l&#39;<span class="concept-link" data-tag="iperhub" tabindex="0" role="button">iperhub</span> del mercato culturale globale — il punto del grafo con il maggior numero di connessioni a opere consolidate, e dunque il punto di destinazione preferenziale di nuovi investimenti, nuovi accordi di distribuzione, nuove produzioni derivate, nuove campagne di marketing globali. La logica del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>, operante nel mercato culturale, ha prodotto una concentrazione che non era data all&#39;origine ma che si è formata cumulativamente attraverso scelte strategiche.</p>
+<p>Paola <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> ha articolato la dimensione complementare del meccanismo nel proprio studio del 2018, <em>It&#39;s All Connected</em>, dedicato all&#39;<span class="concept-link" data-tag="ecologia dei franchise" tabindex="0" role="button">ecologia dei franchise</span> mediali contemporanei. Il punto cardinale del lavoro di <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> per il presente discorso riguarda la <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> come dispositivo che consente l&#39;<span class="concept-link" data-tag="accumulazione cumulativa" tabindex="0" role="button">accumulazione cumulativa</span> di connessioni intorno a un singolo nodo. «La costante <span class="concept-link" data-tag="dialettica fra proprietà e condivisione" tabindex="0" role="button">dialettica fra proprietà e condivisione</span> è quindi alla base della costruzione dei <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>», scrive <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span><sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>. «Il controllo delle proprietà per ribadirne costantemente l&#39;esclusività diventa così essenziale»<sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>. Il diritto d&#39;autore e il <span class="concept-link" data-tag="marchio commerciale" tabindex="0" role="button">marchio commerciale</span> che proteggono il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> dell&#39;azienda titolare sono i dispositivi giuridici che permettono al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> di funzionare come nodo individuale del grafo: senza la protezione giuridica, le connessioni si disperderebbero, e ogni nuova produzione potrebbe agganciare elementi del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> senza dover passare attraverso il nodo proprietario. La <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> concentra giuridicamente le connessioni intorno al nodo, e dunque rende possibile l&#39;<span class="concept-link" data-tag="accumulazione cumulativa" tabindex="0" role="button">accumulazione cumulativa</span> che il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> richiede. <span class="concept-link" data-tag="Brembilla" tabindex="0" role="button">Brembilla</span> articola il meccanismo come «il rilancio passa per la <span class="concept-link" data-tag="reinvenzione" tabindex="0" role="button">reinvenzione</span>, che a sua volta fa cassa sull&#39;eredità e l&#39;<span class="concept-link" data-tag="effetto nostalgia" tabindex="0" role="button">effetto nostalgia</span> del <span class="concept-link" data-tag="capitale narrativo" tabindex="0" role="button">capitale narrativo</span> già popolare»<sup><a href="#note-5" id="ref-5" class="note-ref">5</a></sup>: i <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati possono reinvestire la propria eredità narrativa in nuove produzioni che attivano la <span class="concept-link" data-tag="fidelizzazione del pubblico" tabindex="0" role="button">fidelizzazione del pubblico</span> esistente — strategia che è possibile solo perché la <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> garantisce che l&#39;eredità narrativa resti esclusivamente disponibile al nodo proprietario.</p>
+<p>Il punto teorico è significativo perché chiarisce in che senso il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> culturale opera in modo diverso dal <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> delle reti tecnologiche. Nelle reti tecnologiche studiate da <span class="concept-link" data-tag="Barabási" tabindex="0" role="button">Barabási</span>, il meccanismo opera attraverso decisioni individuali non coordinate di molti agenti: ogni utente di internet, quando crea un nuovo collegamento ipertestuale, ne sceglie il bersaglio in modo influenzato dalla notorietà del sito di destinazione, ma nessun agente centrale governa l&#39;aggregato delle scelte. Nel mercato culturale, invece, il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> opera attraverso un sistema misto in cui le decisioni dei consumatori (quali film vedere, quali serie seguire) si integrano con le decisioni istituzionali degli studios e delle piattaforme (quali prodotti finanziare, quali distribuire). Il sistema istituzionale gioca un ruolo cruciale: non si limita a rispondere alle preferenze dei consumatori, le anticipa investendo su <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> che si aspetta di attrarre fidelizzazione, e in tal modo contribuisce a costruirla. La <span class="concept-link" data-tag="proprietà intellettuale" tabindex="0" role="button">proprietà intellettuale</span> è il <span class="concept-link" data-tag="dispositivo giuridico" tabindex="0" role="button">dispositivo giuridico</span> che consente all&#39;apparato istituzionale di esercitare questo ruolo strutturante: senza la protezione esclusiva del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> come proprietà del nodo, le decisioni istituzionali non potrebbero accumulare valore cumulativo, e il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> culturale non potrebbe operare nella forma matura che oggi caratterizza il mercato.</p>
+<p>La conseguenza per l&#39;<span class="concept-link" data-tag="opera-volume contemporanea" tabindex="0" role="button">opera-volume contemporanea</span> è strutturale. L&#39;<span class="concept-link" data-tag="opera-volume" tabindex="0" role="button">opera-volume</span> riconosciuta altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> come configurazione caratteristica del medium contemporaneo — il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, l&#39;<span class="concept-link" data-tag="ecosistema narrativo" tabindex="0" role="button">ecosistema narrativo</span>, il transmedia storytelling — non è forma neutrale del medium; è forma che cristallizza la logica del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> culturale. Quando uno studio produce un nuovo film, una nuova serie, un nuovo videogioco appartenente a un <span class="concept-link" data-tag="franchise consolidato" tabindex="0" role="button">franchise consolidato</span>, non sta semplicemente realizzando una nuova opera: sta aggiungendo una nuova connessione al <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> corrispondente, e dunque rafforzando la posizione del nodo nella distribuzione <span class="concept-link" data-tag="scale-free" tabindex="0" role="button">scale-free</span> del mercato. La produzione contemporanea di opere-volume è simultaneamente attività creativa e <span class="concept-link" data-tag="operazione strutturale sulla rete" tabindex="0" role="button">operazione strutturale sulla rete</span> del mercato culturale, e le due dimensioni sono difficilmente separabili. Una nuova opera che riesce a stare dentro il <span class="concept-link" data-tag="nodo-hub" tabindex="0" role="button">nodo-hub</span> di un <span class="concept-link" data-tag="franchise consolidato" tabindex="0" role="button">franchise consolidato</span> eredita la <span class="concept-link" data-tag="fidelizzazione del pubblico" tabindex="0" role="button">fidelizzazione del pubblico</span>, l&#39;<span class="concept-link" data-tag="apparato di marketing" tabindex="0" role="button">apparato di marketing</span>, le <span class="concept-link" data-tag="sinergie commerciali" tabindex="0" role="button">sinergie commerciali</span>, e dunque ha probabilità di successo molto maggiore di una nuova opera che si presenta come <span class="concept-link" data-tag="franchise nuovo" tabindex="0" role="button">franchise nuovo</span>. La <span class="concept-link" data-tag="razionalità industriale" tabindex="0" role="button">razionalità industriale</span> che spinge verso i <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> consolidati non è scelta arbitraria di pochi attori — è espressione del meccanismo strutturale del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> operante a livello sistemico.</p>
+<p>Resta da nominare in chiusura una conseguenza che merita di essere portata apertamente come constatazione documentata. Il <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span> culturale produce una <span class="concept-link" data-tag="concentrazione del mercato" tabindex="0" role="button">concentrazione del mercato</span> che opera indipendentemente dalla <span class="concept-link" data-tag="qualità intrinseca" tabindex="0" role="button">qualità intrinseca</span> delle singole opere prodotte. Un film che esce sotto il brand <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> viene investito da un&#39;<span class="concept-link" data-tag="attenzione iniziale" tabindex="0" role="button">attenzione iniziale</span> che dipende dalla posizione del nodo <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> nel grafo, non dalla qualità del film stesso. La qualità del film modula l&#39;<span class="concept-link" data-tag="attenzione successiva" tabindex="0" role="button">attenzione successiva</span> (un <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> di alta qualità rinforza ulteriormente la posizione del nodo, un <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span> di bassa qualità può rallentare temporaneamente la sua crescita), ma non determina l&#39;<span class="concept-link" data-tag="attenzione iniziale" tabindex="0" role="button">attenzione iniziale</span>, che è funzione del <span class="concept-link" data-tag="posizionamento di rete" tabindex="0" role="button">posizionamento di rete</span> del nodo a cui l&#39;opera appartiene. Il meccanismo strutturale di concentrazione opera dunque indipendentemente dalle valutazioni qualitative che la critica e il pubblico esprimerebbero in assenza di <span class="concept-link" data-tag="posizionamento di rete" tabindex="0" role="button">posizionamento di rete</span>. Questa caratteristica non è errore della logica del mercato culturale, è caratteristica costitutiva del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>: il sistema premia ciò che già occupa posizione centrale, e la posizione centrale, una volta consolidata, opera come fattore di amplificazione di tutto ciò che vi si lega. La presente soglia ha articolato il meccanismo come operante nel mercato culturale contemporaneo, e ha mostrato che <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span>, <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>, <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span> sono casi paradigmatici della sua attuazione matura. La critica complessiva di questa configurazione è articolata altrove nel <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span>.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Cucco, M. (2010), <em>Il film blockbuster</em>, Carocci, Roma [pagina da verificare sul fisico, sezione sulla risposta industriale alla crisi degli anni Sessanta-Settanta]. La voce di Cucco è articolata in dettaglio altrove nel sistema della tesi, nelle regioni dedicate al modello industriale dell&#39;opera-volume.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> David Puttnam, citato in Cucco, M. (2010), <em>Il film blockbuster</em>, cit. [pagina da verificare sul fisico, sezione sui blockbuster come piattaforme di marchi]. Il passaggio è citato e articolato in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Brembilla, P. (2018), <em>It&#39;s All Connected. L&#39;evoluzione delle serie TV statunitensi</em>, FrancoAngeli, Milano [pagina da verificare sul fisico, sezione sulla dialettica fra proprietà e condivisione nei franchise]. La voce di Brembilla è articolata in dettaglio altrove nel sistema della tesi.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Brembilla, P. (2018), <em>It&#39;s All Connected</em>, cit. [pagina da verificare sul fisico, sezione sul controllo della proprietà intellettuale].</p>
+    <p class="frag-note" id="note-5"><a href="#ref-5" class="frag-note-num">[5]</a> Brembilla, P. (2018), <em>It&#39;s All Connected</em>, cit. [pagina da verificare sul fisico, sezione sull&#39;effetto nostalgia e la reinvenzione delle eredità narrative].</p>
+    <p class="frag-note" id="note-6"><a href="#ref-6" class="frag-note-num">[6]</a> Barabási, A.-L., Albert, R. (1999), <em>Emergence of Scaling in Random Networks</em>, in «Science», 286(5439), pp. 509-512 [pagina da verificare sul fisico]. La voce di Barabási è articolata in dettaglio altrove nel sistema della tesi, nelle regioni dedicate al meccanismo strutturale del preferential attachment nelle reti complesse.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's2-1';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

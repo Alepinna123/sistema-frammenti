@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tolkien come caso di alta fitness mitopoietica — Sistema di frammenti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fragment">
+
+<!-- TENDINA LATERALE -->
+<aside id="drawer" role="complementary" aria-label="Profilo lettore">
+  <button class="dr-close" onclick="closeDrawer()" aria-label="Chiudi">×</button>
+  <p class="dr-title">Sistema di frammenti</p>
+  <p class="dr-subtitle">
+    <em>wrAIting come forma culturale</em>
+    <span class="meta">Alessandro Pinna · 2026</span>
+  </p>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Registro</div>
+    <p class="dr-persona" id="drPersona">— visitatore</p>
+    <p class="dr-persona-sub" id="drPersonaSub">Puoi leggere liberamente. Per commentare scegli un registro.</p>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Nel sistema</div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Frammenti letti</span>
+      <span class="dr-counter-value" id="drLetti">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Tag esplorati</span>
+      <span class="dr-counter-value" id="drTag">0</span>
+    </div>
+    <div class="dr-counter">
+      <span class="dr-counter-label">Commenti scritti</span>
+      <span class="dr-counter-value" id="drCommenti">0</span>
+    </div>
+  </div>
+
+  <div class="dr-section">
+    <div class="dr-sect-title">Azioni</div>
+    <button class="dr-action" onclick="esportaPercorso()">Esporta percorso letto</button>
+    <button class="dr-action" onclick="scaricaPdf()">Scarica tesi (PDF)</button>
+    <button class="dr-action" onclick="cambiaRegistro()">Cambia registro</button>
+  </div>
+
+  <div class="dr-section">
+    <p class="dr-philo">«Il sistema è una composizione collettiva — ogni frammento porta dentro di sé la totalità di cui è parte.»</p>
+  </div>
+</aside>
+
+<!-- NAVIGAZIONE -->
+<nav aria-label="Navigazione principale">
+  <button id="drawerToggle" aria-label="Apri pannello profilo">
+    <span class="dot" aria-hidden="true"></span>profilo
+  </button>
+  <a class="nav-logo" href="index.html">Sistema di frammenti</a>
+</nav>
+
+<!-- LINK TORNA ALLA RETE (sinistra, centrato, semiopaco) -->
+<a class="nav-back-link" href="index.html" aria-label="Torna alla rete">
+  <svg class="nbl-arrow" viewBox="0 0 5 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <polyline points="4,1 1,12 4,23" fill="none" stroke="currentColor" stroke-width="0.07" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="nbl-label">rete</span>
+</a>
+
+<!-- CONTENUTO FRAMMENTO -->
+<main class="viewer-content" id="viewerContent">
+
+  <p class="frag-tipo">soglia</p>
+
+  <h1 class="concept-title">Tolkien come caso di alta fitness mitopoietica</h1>
+
+  <!-- Tag di riassunto collassabili -->
+  <button class="tags-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagsRow">
+    <span class="tags-toggle-label">Tag</span>
+    <span class="tags-toggle-icon" aria-hidden="true">+</span>
+  </button>
+  <div class="concept-tags-row" id="tagsRow" role="list" aria-label="Tag del frammento" hidden>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien">Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="J.R.R. Tolkien">J.R.R. Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Lo Hobbit*">*Lo Hobbit*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1937">1937</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il signore degli anelli*">*Il signore degli anelli*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1954-55">1954-55</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Allen &amp; Unwin">Allen &amp; Unwin</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Silmarillion*">*Silmarillion*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Christopher Tolkien">Christopher Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*History of Middle-earth*">*History of Middle-earth*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1983-1996">1983-1996</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Ainulindalë">Ainulindalë</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Valaquenta">Valaquenta</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quattro Ere">Quattro Ere</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Prima Era">Prima Era</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Seconda Era">Seconda Era</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terza Era">Terza Era</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quarta Era">Quarta Era</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Quenya">Quenya</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Sindarin">Sindarin</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Khuzdul">Khuzdul</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Black Speech">Black Speech</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Adûnaic">Adûnaic</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tengwar">Tengwar</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cirth">Cirth</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cattedra di anglosassone">cattedra di anglosassone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Oxford">Oxford</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="filologo">filologo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cosmogonia di Eä">cosmogonia di Eä</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Númenor">Númenor</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mappa della Terra di Mezzo">mappa della Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="trilogia cinematografica">trilogia cinematografica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Peter Jackson">Peter Jackson</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2001-2003">2001-2003</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Il ritorno del re*">*Il ritorno del re*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="tre Oscar">tre Oscar</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Lo Hobbit* film">*Lo Hobbit* film</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2012-2014">2012-2014</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Gli anelli del potere*">*Gli anelli del potere*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Amazon Prime Video">Amazon Prime Video</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="2022">2022</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*The Lord of the Rings Online*">*The Lord of the Rings Online*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Middle-earth: Shadow of Mordor*">*Middle-earth: Shadow of Mordor*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="giochi di ruolo">giochi di ruolo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="merchandising globale">merchandising globale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cinquanta lingue">cinquanta lingue</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="comunità di pratica linguistica">comunità di pratica linguistica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness mitopoietica">fitness mitopoietica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wolf">Wolf</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Building Imaginary Worlds*">*Building Imaginary Worlds*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Secondary Belief*">*Secondary Belief*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sospensione attiva dell'incredulità">sospensione attiva dell'incredulità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="leggi interne articolate">leggi interne articolate</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mondo abitabile">mondo abitabile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="condizione di possibilità">condizione di possibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="condizione di sostenibilità">condizione di sostenibilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="amplificatore strutturale">amplificatore strutturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="η eccezionale">η eccezionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettera 131">lettera 131</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Milton Waldman">Milton Waldman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="«more or less connected legend»">«more or less connected legend»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cicli collegati al magnifico tutto">cicli collegati al magnifico tutto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="spazio per altre menti e mani">spazio per altre menti e mani</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="investimento autoriale">investimento autoriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sessanta anni di lavoro">sessanta anni di lavoro</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="1910">1910</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="caso eccezionale">caso eccezionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="produzione industriale">produzione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rapporto fra fitness e produzione">rapporto fra fitness e produzione</span>
+  </div>
+
+  <!-- Corpo -->
+  <div class="concept-body" id="fragmentBody">
+    <p>Il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove il <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span> di <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span><sup><a href="#note-2" id="ref-2" class="note-ref">2</a></sup> come estensione del <span class="concept-link" data-tag="preferential attachment classico" tabindex="0" role="button">preferential attachment classico</span>, in cui la probabilità di un nuovo nodo di connettersi a un nodo esistente è proporzionale al prodotto del grado del nodo e della sua <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca. La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span>, nella sua applicazione al mercato culturale, è funzione della <span class="concept-link" data-tag="coerenza mitopoietica" tabindex="0" role="button">coerenza mitopoietica</span>, della <span class="concept-link" data-tag="profondità del mondo secondario" tabindex="0" role="button">profondità del mondo secondario</span>, della <span class="concept-link" data-tag="ricchezza simbolica" tabindex="0" role="button">ricchezza simbolica</span> con cui il <span class="concept-link" data-tag="paradigma" tabindex="0" role="button">paradigma</span> narrativo è stato costruito. Il presente discorso articola in dettaglio un caso esemplare di questo modello: la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> di <span class="concept-link" data-tag="J.R.R. Tolkien" tabindex="0" role="button">J.R.R. Tolkien</span>, che è caso paradigmatico contemporaneo di <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> cresciuto fino a diventare <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> culturale globale a partire da una posizione iniziale di grado basso, attraverso l&#39;operare di una <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca eccezionalmente alta. Il caso <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> funziona come dimostrazione operativa del modello <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> e come articolazione concreta della categoria di mitopoiesi che il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> adotta come voce di mediazione.</p>
+<p>La <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> storica della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> nel <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span> offre i dati osservativi del caso. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> pubblica <em>Lo Hobbit</em> nel 1937 e <em>Il signore degli anelli</em> nei tre volumi del 1954-55, con Allen &amp; Unwin a Londra. Al momento della pubblicazione, il <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> è di grado basso: un singolo autore senza precedenti <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, una casa editrice di taglio universitario, un mercato letterario europeo postbellico in cui il fantasy non è ancora categoria consolidata. Nel modello classico di <span class="concept-link" data-tag="Barabási-Albert" tabindex="0" role="button">Barabási-Albert</span>, il grado iniziale basso prevederrebbe una crescita lenta o periferica. La realtà storica documenta una <span class="concept-link" data-tag="traiettoria" tabindex="0" role="button">traiettoria</span> opposta. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> è cresciuta nel tempo fino a diventare uno degli <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> maggiori del mercato culturale contemporaneo: <span class="concept-link" data-tag="trilogia cinematografica" tabindex="0" role="button">trilogia cinematografica</span> di <span class="concept-link" data-tag="Peter Jackson" tabindex="0" role="button">Peter Jackson</span> 2001-2003 con <span class="concept-link" data-tag="tre Oscar" tabindex="0" role="button">tre Oscar</span> a <em>Il ritorno del re</em>; trilogia successiva di <em>Lo Hobbit</em> 2012-2014; serie televisiva <em>Gli anelli del potere</em> di <span class="concept-link" data-tag="Amazon Prime Video" tabindex="0" role="button">Amazon Prime Video</span> dal 2022; videogiochi di ogni tipo da <em>The Lord of the Rings Online</em> alla serie <em>Middle-earth: Shadow of Mordor</em>; <span class="concept-link" data-tag="giochi di ruolo" tabindex="0" role="button">giochi di ruolo</span>, da carta a digitali; <span class="concept-link" data-tag="merchandising globale" tabindex="0" role="button">merchandising globale</span>; traduzioni in oltre <span class="concept-link" data-tag="cinquanta lingue" tabindex="0" role="button">cinquanta lingue</span>; sistemi linguistici elfici utilizzati da comunità di pratica indipendenti che hanno articolato grammatiche e dizionari come strumenti operativi della lingua. Il grado del nodo <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> è oggi confrontabile con quello di <span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span>, <span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>, <span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span> — i grandi <span class="concept-link" data-tag="iperhub industriali" tabindex="0" role="button">iperhub industriali</span> del mercato culturale — pur essendo partito da posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> radicalmente più modesta.</p>
+<p>La spiegazione del fenomeno richiede di articolare cosa sia la <em><span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span></em> della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> come proprietà strutturale del <span class="concept-link" data-tag="mondo costruito" tabindex="0" role="button">mondo costruito</span> da <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span>. La parola <em>mitopoiesi</em>, dal greco <em>μῦθος</em> (mito) e <em>ποίησις</em> (fare, costruire), indica letteralmente il fare-mito: la costruzione di un mondo che possiede le caratteristiche strutturali di un sistema mitologico. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non è semplicemente sfondo di una storia (Frodo e l&#39;Anello, gli eroi nel viaggio, la battaglia finale); è <em>mondo</em> dotato di <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> mitologica autonoma. Le caratteristiche strutturali di questa <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> sono articolabili in quattro dimensioni complementari che operano insieme.</p>
+<p><em>Prima dimensione: la coerenza linguistica.</em> <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> era <span class="concept-link" data-tag="filologo" tabindex="0" role="button">filologo</span> professionista (titolare della <span class="concept-link" data-tag="cattedra di anglosassone" tabindex="0" role="button">cattedra di anglosassone</span> a <span class="concept-link" data-tag="Oxford" tabindex="0" role="button">Oxford</span>) e ha costruito per la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> un sistema di lingue funzionanti, ciascuna dotata di fonologia, morfologia e sintassi articolate come sistema linguistico verificabile. Le due <span class="concept-link" data-tag="lingue elfiche" tabindex="0" role="button">lingue elfiche</span> principali — <span class="concept-link" data-tag="Quenya" tabindex="0" role="button">Quenya</span> e <span class="concept-link" data-tag="Sindarin" tabindex="0" role="button">Sindarin</span> — sono articolate in dettaglio nei manoscritti tolkieniani e nei volumi della <em>History of Middle-earth</em> curata postuma da <span class="concept-link" data-tag="Christopher Tolkien" tabindex="0" role="button">Christopher Tolkien</span> (dodici volumi pubblicati 1983-1996)<sup><a href="#note-3" id="ref-3" class="note-ref">3</a></sup>. <span class="concept-link" data-tag="Quenya" tabindex="0" role="button">Quenya</span> e <span class="concept-link" data-tag="Sindarin" tabindex="0" role="button">Sindarin</span> hanno fonologia coerente, derivazione storica documentata (<span class="concept-link" data-tag="Sindarin" tabindex="0" role="button">Sindarin</span> deriva da <span class="concept-link" data-tag="Quenya" tabindex="0" role="button">Quenya</span> attraverso evoluzioni fonologiche regolari, come i romanze derivano dal latino), morfologia complessa, sintassi articolata, vocabolario di migliaia di parole, scrittura in alfabeti dedicati (le <span class="concept-link" data-tag="Tengwar" tabindex="0" role="button">Tengwar</span> e le <span class="concept-link" data-tag="Cirth" tabindex="0" role="button">Cirth</span>) che hanno valore funzionale come strumento di codifica grafica. Le altre lingue della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> — il <span class="concept-link" data-tag="Khuzdul" tabindex="0" role="button">Khuzdul</span> dei <span class="concept-link" data-tag="nani" tabindex="0" role="button">nani</span>, il <span class="concept-link" data-tag="Black Speech" tabindex="0" role="button">Black Speech</span> di Mordor, l&#39;<span class="concept-link" data-tag="Adûnaic" tabindex="0" role="button">Adûnaic</span> di <span class="concept-link" data-tag="Númenor" tabindex="0" role="button">Númenor</span> — sono articolate con minore <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> ma tutte secondo lo stesso principio di costruzione sistematica. La coerenza linguistica è prima componente della <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> perché funziona come <em>substrato sistematico</em> del mondo: le lingue non sono ornamenti del mondo, sono il sistema simbolico che il mondo organizza, e la loro coerenza strutturale rende coerente per costruzione il mondo che le ospita.</p>
+<p><em>Seconda dimensione: la coerenza geografica.</em> La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> ha mappa documentata che articola coerentemente le sue terre, i suoi confini, le sue distanze. La mappa pubblicata da <span class="concept-link" data-tag="Christopher Tolkien" tabindex="0" role="button">Christopher Tolkien</span> sulla base degli appunti del padre è verificabile internamente: le distanze fra le città, i tempi di viaggio narrati nei romanzi, le caratteristiche geografiche descritte (montagne, fiumi, foreste, mari) si tengono insieme senza incongruenze. La geografia della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non è elenco di luoghi narrativamente utili ma è sistema spaziale articolato che funziona come substrato fisico del mondo. La conseguenza per la <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> è significativa: ogni nuova narrazione che si lega al <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> può trovare nella geografia esistente un substrato verificabile su cui appoggiare i propri eventi senza dover riinventare lo spazio. La <span class="concept-link" data-tag="trilogia cinematografica" tabindex="0" role="button">trilogia cinematografica</span> di Jackson nel 2001-2003 non ha dovuto inventare la geografia della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span>; l&#39;ha rappresentata cinematograficamente a partire dalla mappa tolkieniana. <em>Gli anelli del potere</em> del 2022 non ha dovuto inventare la geografia di <span class="concept-link" data-tag="Númenor" tabindex="0" role="button">Númenor</span>; l&#39;ha rappresentata a partire dalle indicazioni tolkieniane sulle Terre Occidentali. La coerenza geografica funziona come <em>infrastruttura riusabile</em> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>.</p>
+<p><em>Terza dimensione: la coerenza storica.</em> La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> ha storia profonda articolata in <span class="concept-link" data-tag="Quattro Ere" tabindex="0" role="button">Quattro Ere</span> documentate dalla <em>Cosmogonia di Eä</em> (l&#39;<span class="concept-link" data-tag="Ainulindalë" tabindex="0" role="button">Ainulindalë</span> e la <span class="concept-link" data-tag="Valaquenta" tabindex="0" role="button">Valaquenta</span> del <em>Silmarillion</em>) attraverso la <span class="concept-link" data-tag="Prima Era" tabindex="0" role="button">Prima Era</span> (gli eventi del <em>Silmarillion</em>), la <span class="concept-link" data-tag="Seconda Era" tabindex="0" role="button">Seconda Era</span> (la storia di <span class="concept-link" data-tag="Númenor" tabindex="0" role="button">Númenor</span> e la prima caduta di Sauron), la <span class="concept-link" data-tag="Terza Era" tabindex="0" role="button">Terza Era</span> (gli eventi de <em>Il signore degli anelli</em>), fino agli inizi della <span class="concept-link" data-tag="Quarta Era" tabindex="0" role="button">Quarta Era</span>. Ciascuna Era ha eventi cardinali documentati, personaggi articolati, regni nati e caduti, guerre e paci. La storia non è ornamento dei romanzi principali ma è sistema temporale articolato che funziona come substrato cronologico del mondo. La conseguenza per la <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> è strutturalmente significativa: ogni nuova narrazione può collocarsi cronologicamente nel mondo trovando contesto storico già documentato. <em>Gli anelli del potere</em> della <span class="concept-link" data-tag="Amazon Prime Video" tabindex="0" role="button">Amazon Prime Video</span>, ambientato nella <span class="concept-link" data-tag="Seconda Era" tabindex="0" role="button">Seconda Era</span>, non ha dovuto inventare il contesto storico della propria narrazione; l&#39;ha articolato a partire dal <em>Silmarillion</em> e dagli scritti tolkieniani postumi. La coerenza storica funziona come <em>archivio narrativo</em> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, da cui le nuove produzioni possono attingere senza ricostruire il mondo da zero.</p>
+<p><em>Quarta dimensione: la <span class="concept-link" data-tag="coerenza mitopoietica" tabindex="0" role="button">coerenza mitopoietica</span> complessiva.</em> Le tre dimensioni precedenti — linguistica, geografica, storica — operano insieme in una struttura cosmologica unitaria che <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> ha articolato apertamente come progetto. Nella celebre <span class="concept-link" data-tag="lettera 131" tabindex="0" role="button">lettera 131</span> del 1951 a <span class="concept-link" data-tag="Milton Waldman" tabindex="0" role="button">Milton Waldman</span>, <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> spiega che il proprio progetto era costruire «more or less connected legend, ranging from the large and cosmogonic, to the level of romantic fairy-story» — più o meno connessa leggenda, che va dalla scala grande e cosmogonica al livello del racconto di fata romantico. La connessione fra i livelli è la dimensione che integra le altre tre: la cosmogonia che spiega l&#39;origine del mondo si articola con la storia delle Ere che strutturano il tempo del mondo; la storia delle Ere si articola con la geografia che strutturava lo spazio; la geografia si articola con le lingue che danno <span class="concept-link" data-tag="forma simbolica" tabindex="0" role="button">forma simbolica</span> al mondo. Le quattro dimensioni non operano separatamente, operano come articolazione interna di un&#39;unica struttura mitopoietica. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> formula nella stessa lettera l&#39;intuizione strutturale che è particolarmente rilevante per il presente discorso: «the cycles should be linked to a <span class="concept-link" data-tag="majestic whole" tabindex="0" role="button">majestic whole</span>, and yet leave scope for other minds and hands, wielding paint and music and drama»<sup><a href="#note-1" id="ref-1" class="note-ref">1</a></sup>. I cicli devono essere collegati a un magnifico tutto, e tuttavia lasciare spazio ad <span class="concept-link" data-tag="altre menti e mani" tabindex="0" role="button">altre menti e mani</span> che impugnino pittura, musica, dramma. La tenuta del magnifico tutto è ciò che chiamo <em><span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span></em>, e la tenuta opera precisamente perché lascia spazio alle altre produzioni.</p>
+<p><span class="concept-link" data-tag="Mark J.P. Wolf" tabindex="0" role="button">Mark J.P. Wolf</span> ha articolato la dimensione teorica della <span class="concept-link" data-tag="profondità" tabindex="0" role="button">profondità</span> mitopoietica nel proprio studio del 2012 <em>Building Imaginary Worlds</em><sup><a href="#note-4" id="ref-4" class="note-ref">4</a></sup>, dove la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> è uno dei casi paradigmatici analizzati. <span class="concept-link" data-tag="Wolf" tabindex="0" role="button">Wolf</span> articola la categoria della <em><span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span></em> tolkieniana come dispositivo di fruizione del <span class="concept-link" data-tag="mondo secondario" tabindex="0" role="button">mondo secondario</span>: la <em><span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span></em> è la sospensione attiva dell&#39;incredulità che il lettore esercita non come passiva accettazione del mondo narrativo ma come investimento di credenza nel mondo come <em>funzionante secondo le proprie <span class="concept-link" data-tag="leggi interne" tabindex="0" role="button">leggi interne</span></em>. La <em><span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span></em> è tanto più forte quanto più il mondo possiede <span class="concept-link" data-tag="leggi interne articolate" tabindex="0" role="button">leggi interne articolate</span> e verificabili; è tanto più debole quanto più il mondo è abbozzato o incoerente. La <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera dunque come <em><span class="concept-link" data-tag="condizione di possibilità" tabindex="0" role="button">condizione di possibilità</span> della <span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span></em>: solo i mondi che hanno <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> alta possono sostenere <span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span> profonda, e solo i mondi capaci di <span class="concept-link" data-tag="Secondary Belief" tabindex="0" role="button">Secondary Belief</span> profonda possono crescere oltre il proprio grado iniziale nel <span class="concept-link" data-tag="grafo del mercato culturale" tabindex="0" role="button">grafo del mercato culturale</span>, perché il pubblico investe nel <span class="concept-link" data-tag="mondo abitabile" tabindex="0" role="button">mondo abitabile</span> e cerca di abitarlo in nuove produzioni che gli permettano di farlo.</p>
+<p>La conseguenza per il <span class="concept-link" data-tag="modello Bianconi-Barabási" tabindex="0" role="button">modello Bianconi-Barabási</span> applicato al mercato culturale è dunque articolabile in modo preciso. La <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> opera come <span class="concept-link" data-tag="amplificatore strutturale" tabindex="0" role="button">amplificatore strutturale</span> del <span class="concept-link" data-tag="preferential attachment" tabindex="0" role="button">preferential attachment</span>, ma opera anche come <em><span class="concept-link" data-tag="condizione di sostenibilità" tabindex="0" role="button">condizione di sostenibilità</span></em> della crescita. Un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> può crescere per posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> iniziale alta (<span class="concept-link" data-tag="Disney" tabindex="0" role="button">Disney</span>/<span class="concept-link" data-tag="Marvel" tabindex="0" role="button">Marvel</span>/<span class="concept-link" data-tag="Star Wars" tabindex="0" role="button">Star Wars</span> come <span class="concept-link" data-tag="iperhub" tabindex="0" role="button">iperhub</span> costruiti per consolidazione <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span>), e in questo caso la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> modula ma non determina la crescita. Un <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span> può crescere per <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> intrinseca alta a partire da posizione di <span class="concept-link" data-tag="rete" tabindex="0" role="button">rete</span> iniziale bassa (<span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> e la <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span>), e in questo caso la <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> <em>determina</em> la crescita oltre quanto la posizione iniziale prevederrebbe. Il secondo caso documenta una possibilità del sistema che la sola applicazione del <span class="concept-link" data-tag="preferential attachment classico" tabindex="0" role="button">preferential attachment classico</span> non spiegherebbe. La <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> come <span class="concept-link" data-tag="hub" tabindex="0" role="button">hub</span> culturale contemporaneo non è anomalia statistica del modello base, è realizzazione del <span class="concept-link" data-tag="modello con fitness" tabindex="0" role="button">modello con fitness</span> in cui η eccezionalmente alta ha amplificato sistematicamente la crescita nel tempo.</p>
+<p>Resta da nominare un punto teorico che la specificità del caso <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> permette di formulare con precisione. La <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> della <span class="concept-link" data-tag="Terra di Mezzo" tabindex="0" role="button">Terra di Mezzo</span> non è proprietà accidentale del <span class="concept-link" data-tag="franchise" tabindex="0" role="button">franchise</span>, è esito di un lavoro autoriale specifico — il lavoro di un <span class="concept-link" data-tag="filologo" tabindex="0" role="button">filologo</span> che dedica decenni alla costruzione coerente di un mondo, articolando dettagli che molti dei suoi lettori contemporanei non avrebbero mai consultato direttamente ma che operano come substrato profondo del <span class="concept-link" data-tag="mondo abitabile" tabindex="0" role="button">mondo abitabile</span>. <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> lavora alle <span class="concept-link" data-tag="lingue elfiche" tabindex="0" role="button">lingue elfiche</span> a partire dal 1910 circa, e prosegue il lavoro per tutta la vita; i manoscritti che <span class="concept-link" data-tag="Christopher Tolkien" tabindex="0" role="button">Christopher Tolkien</span> ha pubblicato postumi documentano un&#39;attività di costruzione mondana di sessant&#39;anni e oltre. Il lavoro autoriale che produce la <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> è dunque investimento di tempo, competenza, pazienza che la maggior parte delle produzioni industriali contemporanee non può permettersi. La <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> alta è raggiungibile solo attraverso un lavoro autoriale che opera in tempi diversi da quelli della <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span>, e questa è la ragione strutturale per cui il caso <span class="concept-link" data-tag="Tolkien" tabindex="0" role="button">Tolkien</span> resta <span class="concept-link" data-tag="caso eccezionale" tabindex="0" role="button">caso eccezionale</span>: il modello <span class="concept-link" data-tag="fitness" tabindex="0" role="button">fitness</span> <span class="concept-link" data-tag="Bianconi-Barabási" tabindex="0" role="button">Bianconi-Barabási</span> prevede che casi del genere siano possibili, ma le condizioni autoriali che li producono sono rare nel mercato culturale <span class="concept-link" data-tag="industriale" tabindex="0" role="button">industriale</span> del nostro tempo. La presente soglia ha articolato il caso esemplare; il <span class="concept-link" data-tag="sistema della tesi" tabindex="0" role="button">sistema della tesi</span> articola altrove la critica complessiva del rapporto fra <span class="concept-link" data-tag="fitness mitopoietica" tabindex="0" role="button">fitness mitopoietica</span> e <span class="concept-link" data-tag="produzione industriale" tabindex="0" role="button">produzione industriale</span>.</p>
+
+  </div>
+
+  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
+  <div class="continua" id="continua" aria-label="Proseguimento">
+    <div class="continua-title">Continua a leggere</div>
+    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
+    <div class="continua-grid" id="continuaGrid">
+      <!-- viewer.js inserisce le card qui -->
+    </div>
+  </div>
+
+  <!-- Note bibliografiche -->
+  <div class="frag-notes">
+  <div class="frag-notes-title">Note</div>
+  <p class="frag-note" id="note-1"><a href="#ref-1" class="frag-note-num">[1]</a> Tolkien, J.R.R. (1981), <em>The Letters of J.R.R. Tolkien</em>, a cura di H. Carpenter, George Allen &amp; Unwin, London, lettera 131 a Milton Waldman (1951) [pagina da verificare sul fisico]. Il passaggio originale: «I had a mind to make a body of more or less connected legend, ranging from the large and cosmogonic, to the level of romantic fairy-story […] The cycles should be linked to a majestic whole, and yet leave scope for other minds and hands, wielding paint and music and drama». La voce di Tolkien è articolata in dettaglio altrove nel sistema della tesi, nella regione dedicata alla subcreazione.</p>
+    <p class="frag-note" id="note-2"><a href="#ref-2" class="frag-note-num">[2]</a> Bianconi, G., Barabási, A.-L. (2001), <em>Competition and multiscaling in evolving networks</em>, in «Europhysics Letters», 54(4), pp. 436-442 [pagina da verificare sul fisico]. La voce di Bianconi-Barabási è articolata in dettaglio altrove nel sistema della tesi, nelle regioni dedicate al modello con fitness applicato al mercato culturale.</p>
+    <p class="frag-note" id="note-3"><a href="#ref-3" class="frag-note-num">[3]</a> Tolkien, C. (a cura di) (1983-1996), <em>The History of Middle-earth</em>, 12 volumi, George Allen &amp; Unwin / HarperCollins, London [riferimento bibliografico complessivo della raccolta postuma; volumi specifici da verificare sul fisico]. La curatela postuma di Christopher Tolkien documenta la costruzione linguistica, geografica e cronologica della Terra di Mezzo articolata dal padre nel corso di sessant&#39;anni di lavoro.</p>
+    <p class="frag-note" id="note-4"><a href="#ref-4" class="frag-note-num">[4]</a> Wolf, M.J.P. (2012), <em>Building Imaginary Worlds: The Theory and History of Subcreation</em>, Routledge, New York [pagina da verificare sul fisico, sezione sulla <em>Secondary Belief</em> come dispositivo di fruizione del mondo secondario]. La voce di Wolf è articolata in dettaglio altrove nel sistema della tesi, nella regione dedicata alla subcreazione.</p>
+</div>
+
+</main>
+
+<!-- TENDINA COMMENTI (destra) -->
+<aside id="commentsDrawer" class="cd open" role="complementary" aria-label="Commenti">
+  <div class="cd-header">
+    <div class="cd-header-left">
+      <span class="cd-title">Commenti</span>
+      <span class="cd-count" id="commentiCount">0</span>
+    </div>
+    <button class="cd-toggle" id="cdToggle" aria-label="Chiudi commenti">×</button>
+  </div>
+
+  <div class="cd-list" id="commentiList" aria-live="polite">
+    <p class="cd-empty">Ancora nessun commento.</p>
+  </div>
+
+  <div class="cd-compose" id="composeArea">
+    <div class="cd-compose-title">Scrivi un commento</div>
+    <input  class="cd-input"    id="composeTitleInput" type="text"
+            placeholder="Titolo del commento" aria-label="Titolo del commento">
+    <textarea class="cd-textarea" id="composeText"
+              placeholder="Il tuo commento…" aria-label="Testo del commento"></textarea>
+    <div class="cd-compose-footer">
+      <span class="cd-wordcount" id="wordCount">0 parole</span>
+      <label class="cd-priv">
+        <input type="checkbox" id="privToggle" aria-label="Commento privato"> Privato
+      </label>
+      <button class="cd-cta" id="composeCta" disabled>Pubblica →</button>
+    </div>
+  </div>
+
+  <p class="cd-guest" id="guestMsg" style="display:none">
+    Scegli un registro per commentare.
+  </p>
+</aside>
+
+<!-- Pulsante riapertura drawer commenti -->
+<button class="cd-open-btn" id="cdOpenBtn" aria-label="Apri commenti" hidden>
+  Commenti
+</button>
+
+<!-- Popup multi-destinazione -->
+<div id="multidest" role="dialog" aria-label="Destinazioni" aria-modal="true">
+  <div class="md-label">Esplora</div>
+  <div class="md-name" id="mdName"></div>
+  <div id="mdContent"></div>
+</div>
+
+<!-- Modal estrazione tag -->
+<div class="tag-extract-modal" id="tagModal" role="dialog" aria-label="Conferma tag" aria-modal="true">
+  <div class="tag-extract-inner">
+    <div class="tem-label">Tag estratti dal commento</div>
+    <div class="tem-title">Quali tag <em>entrano nel sistema</em>?</div>
+    <p class="tem-sub">I tag che confermi diventano parte del vocabolario condiviso — indistinguibili dal pensiero autoriale.</p>
+    <div class="tem-section">
+      <div class="tem-section-label">Tag suggeriti</div>
+      <div class="tem-tags" id="temTags"></div>
+    </div>
+    <div class="tem-foot">
+      <span class="tem-disclaim">Confermando accetti che i tag selezionati entrino nella rete pubblica.</span>
+      <div class="tem-actions">
+        <button class="tem-cancel" onclick="closeTagModal()">Annulla</button>
+        <button class="tem-confirm" onclick="confirmTags()">Conferma →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Dati frammento esposti per viewer.js e comments.js
+window.FRAGMENT_ID   = 's2-2a';
+window.SYSTEM_DATA   = 'system.json';
+</script>
+<script src="profile.js"></script>
+<script src="viewer.js"></script>
+<script src="comments.js"></script>
+<script src="extract-tags.js"></script>
+
+<script>
+// Drawer
+const drawerEl = document.getElementById('drawer');
+document.getElementById('drawerToggle').addEventListener('click', () => drawerEl.classList.toggle('open'));
+function closeDrawer() { drawerEl.classList.remove('open'); }
+document.addEventListener('click', e => {
+  if (drawerEl.classList.contains('open') &&
+      !drawerEl.contains(e.target) &&
+      !document.getElementById('drawerToggle').contains(e.target)) {
+    closeDrawer();
+  }
+});
+function esportaPercorso() { if (window.profileExportPath) profileExportPath(); }
+function scaricaPdf()       { alert('PDF in preparazione.'); }
+function cambiaRegistro()   { if (window.profileCambiaRegistro) profileCambiaRegistro(); }
+</script>
+
+</body>
+</html>

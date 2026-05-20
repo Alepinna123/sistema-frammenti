@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 7.2a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -156,6 +167,14 @@
     <span class="concept-tag-pill" role="listitem" data-tag="reboot">reboot</span>
     <span class="concept-tag-pill" role="listitem" data-tag="sequel">sequel</span>
     <span class="concept-tag-pill" role="listitem" data-tag="transmediali">transmediali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wolf">Wolf</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreatore">subcreatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mondo costruito">mondo costruito</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello con fitness">modello con fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="galassia">galassia</span>
   </div>
 
   <!-- Corpo -->
@@ -174,13 +193,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -263,11 +285,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's7-2a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's7-2a';
+window.FRAGMENT_TITLE = "*Secondary Belief*: il patto estetico che rende il mondo abitabile";
+window.FRAGMENT_TAGS  = ["*Secondary Belief*","patto estetico","mondo secondario","fruitore","Tolkien","J.R.R. Tolkien","*On Fairy-Stories*","1939","1947","Università di St Andrews","*Essays Presented to Charles Williams*","Coleridge","*suspension of disbelief*","sospensione dell'incredulità","*Biographia Literaria*","1817","categoria negativa","categoria positiva","investimento attivo di credenza","credenza attiva","leggi interne","coerenza interna del mondo","condizione costitutiva","fitness mitopoietica","correlato fenomenologico","Mark J.P. Wolf","*Building Imaginary Worlds*","2012","worldbuilding","immersione attiva","*Star Wars*","galassia lontana lontana","specie aliene","iperspazio","Terra di Mezzo","razze fondamentali","ere narrative","elfi","nani","orchi","hobbit","*Marvel Cinematic Universe*","origin stories","timeline","multiverso","Asgard","Wakanda","partecipazione attiva","oggetto culturale condiviso","cultura partecipativa","Jenkins","De Certeau","fandom","lingue elfiche","fan fiction","giochi di ruolo","circolo virtuoso","spirale ascendente","*Star Trek*","*Doctor Who*","*Wizarding World*","*Mass Effect*","fidelizzazione superficiale","riconoscimento del brand","abitudine di consumo","valore di marketing","sinergie commerciali","distinzione fra fidelizzazione e *Secondary Belief*","criterio valutativo","critica delle opere-volume contemporanee","reboot","sequel","transmediali","Barabási","fitness","Bianconi-Barabási","Wolf","subcreatore","mondo costruito","modello con fitness","galassia"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

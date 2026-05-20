@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 6.2</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -140,6 +151,12 @@
     <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
     <span class="concept-tag-pill" role="listitem" data-tag="tradizione estetica europea">tradizione estetica europea</span>
     <span class="concept-tag-pill" role="listitem" data-tag="fenomeno storicamente situato">fenomeno storicamente situato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meta-autore">meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability">accountability</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lunga durata">lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corpus di addestramento">corpus di addestramento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="valutazione">valutazione</span>
   </div>
 
   <!-- Corpo -->
@@ -157,13 +174,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -245,11 +265,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's6-2';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's6-2';
+window.FRAGMENT_TITLE = "Il dataprint come *manifestatio* del medium AI";
+window.FRAGMENT_TAGS  = ["*dataprint*","Floridi","*Distant Writing*","2025","stilistica strutturale","medium AI generativo","pattern stilistici emergenti","ritmo della prosa","struttura frasale","tendenze lessicali","transizioni","marche stilistiche","*data*","*print*","impronta","firma","voce vs dataprint","LLM","Claude","GPT","Foucault","funzione-autore","*manifestatio*","Panofsky","Erwin Panofsky","*Gothic Architecture and Scholasticism*","1951","scolastica","cattedrale gotica","*Summa*","Tommaso d'Aquino","visibilità della forma","forma simbolica","Manovich","architettura medioevale","scrittura scolastica","pittura rinascimentale","cinema novecentesco","database digitale","*wrAIting*","finestra epistemica","struttura opaca","ricostruzione del lettore","educazione critica al medium AI","scelte di utilizzo","adattamento del prompt","valutazione critica dell'output","resistenza attiva al dataprint","prevenzione pattern AI","quattro pattern strutturali","quinto pattern bibliografico","giudizio descrittivo","giudizio estetico","qualità dell'output","continuità di lunga durata","tradizione estetica europea","fenomeno storicamente situato","meta-autore","accountability","lunga durata","corpus di addestramento","medium AI","valutazione"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

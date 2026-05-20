@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.1b</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -114,6 +125,25 @@
     <span class="concept-tag-pill" role="listitem" data-tag="MCU">MCU</span>
     <span class="concept-tag-pill" role="listitem" data-tag="Wizarding World">Wizarding World</span>
     <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintagma">sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-free">scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="combinatoria">combinatoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione">attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="meta-autore">meta-autore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="traiettoria">traiettoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Albert">Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodi periferici">nodi periferici</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Iron Man">Iron Man</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodo-hub">nodo-hub</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
   </div>
 
   <!-- Corpo -->
@@ -132,13 +162,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -222,11 +255,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-1b';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-1b';
+window.FRAGMENT_TITLE = "Isotropia narrativa e topologia reale: la tensione costitutiva del meta-autore";
+window.FRAGMENT_TAGS  = ["isotropia narrativa","spazio narrativo come marmo","Floridi","*Distant Writing*","scrittura distante","qualsiasi direzione coerente","spazio illimitato di possibilità","Manovich","paradigma/sintagma","sintagma come direzione","paradigma scale-free","*power-law*","Barabási-Albert","preferential attachment","Bianconi-Barabási","fitness model","nodi-hub e nodi-foglia","scale-freeness emergente","anisotropia pratica","tensione costitutiva del meta-autore","libertà teorica e responsabilità reale","C-creativity","novità combinatoria","*winner-takes-all* nel mercato dei franchise","concentrazione del mercato culturale","pratica matura del *wrAIting*","democratizzazione dello strumento","concentrazione del mercato","MCU","Wizarding World","Terra di Mezzo","database","paradigma","sintagma","Barabási","rete","scale-free","fitness","combinatoria","franchise","attenzione","*wrAIting*","meta-autore","traiettoria","Albert","nodi periferici","sistema della tesi","Iron Man","nodo-hub","medium AI"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.2b</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -133,6 +144,30 @@
     <span class="concept-tag-pill" role="listitem" data-tag="interazione utente in tempo reale">interazione utente in tempo reale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="feedback loop">feedback loop</span>
     <span class="concept-tag-pill" role="listitem" data-tag="Manovich">Manovich</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-free">scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia">interfaccia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione">attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="navigazione">navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="MCU">MCU</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney">Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Star Wars">Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="carousel">carousel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pillar brand">pillar brand</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Avengers">Avengers</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello Bianconi-Barabási">modello Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Infinity Saga*">*Infinity Saga*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Multiverse Saga*">*Multiverse Saga*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="genealogia">genealogia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -154,13 +189,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -235,11 +273,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-2-b';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-2-b';
+window.FRAGMENT_TITLE = "Percorsi di fruizione e topologia di rete dell'opera-volume in Disney+. Wolf e Barabási";
+window.FRAGMENT_TAGS  = ["opera-volume","piattaforma SVOD","Disney+","percorsi di fruizione","topologia di rete","scale-free network","Barabási","Albert","*Science* 1999","preferential attachment","attaccamento preferenziale","Matthew effect","rich get richer","hub","nodi periferici","power law","growth","crescita del network","Bianconi-Albert","fitness model","Wolf","*Building Imaginary Worlds*","circoli concentrici di autorialità","originator","torchbearer","estate","employees","freelancers","derivative products","fan productions","noncanonical additions","*Marvel Cinematic Universe*","Stan Lee","Kevin Feige","MCU Infinity Saga","MCU Multiverse Saga","*Daredevil Rinascita*","hero principale","Brand page","long tail","concentrazione della visibilità","Erik Runyon","dato statistico carousel","algoritmo di raccomandazione","centralità autoriale","centralità topologica","dinamica personalizzata","interazione utente in tempo reale","feedback loop","Manovich","rete","scale-free","fitness","Bianconi-Barabási","piattaforma","interfaccia","franchise","SVOD","attenzione","navigazione","MCU","Disney","Marvel","Star Wars","carousel","pillar brand","sistema della tesi","Avengers","modello Bianconi-Barabási","opera-volume contemporanea","*Infinity Saga*","*Multiverse Saga*","genealogia","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 6.1a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -148,6 +159,10 @@
     <span class="concept-tag-pill" role="listitem" data-tag="scrittore classico">scrittore classico</span>
     <span class="concept-tag-pill" role="listitem" data-tag="responsabilità di produzione">responsabilità di produzione</span>
     <span class="concept-tag-pill" role="listitem" data-tag="responsabilità di validazione">responsabilità di validazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Taddeo">Taddeo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fedeltà">fedeltà</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="responsabilità del meta-autore">responsabilità del meta-autore</span>
   </div>
 
   <!-- Corpo -->
@@ -166,13 +181,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -251,11 +269,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's6-1a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's6-1a';
+window.FRAGMENT_TITLE = "Accountability: a cosa risponde il meta-autore";
+window.FRAGMENT_TAGS  = ["accountability","Novelli","Mariarosaria Taddeo","Luciano Floridi","*Accountability in Artificial Intelligence*","2024","sette caratteristiche","*context*","*range*","*agent*","*forum*","*standards*","*process*","*implications*","grammatica operativa","meta-autore","contesto accademico","tesi magistrale","studi mediali e culturali","università di provenienza","facoltà","relatore","corso di studi","accountability istituzionale","accountability tecnica","campo di applicazione","sistema della tesi","sette dimensioni concettuali","responsabilità delle scelte","agente responsabile","dispositivo tecnico come strumento","principio classico del rapporto autore-tecnologia","macchina da scrivere","LLM","forum plurale","commissione di laurea","comunità accademica","pubblico non specialistico","pubblicazione SVOD","accountability accademica","accountability scientifica","accountability comunicativa","standard istituzionale","standard epistemologico","standard metodologico","standard etico","plagio","processo","scelte progettuali","auto-revisione","protocollo di prevenzione pattern AI","verifica retrospettiva","implicazioni","valutazione","credibilità","fiducia","integrità professionale","*wrAIting*","processo statistico non trasparente","controllo del meta-autore","validazione","meta-autore-editore","scrittore classico","responsabilità di produzione","responsabilità di validazione","Floridi","Taddeo","fedeltà","responsabilità del meta-autore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

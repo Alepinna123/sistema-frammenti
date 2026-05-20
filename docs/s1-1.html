@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.1</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -125,6 +136,35 @@
     <span class="concept-tag-pill" role="listitem" data-tag="Lotman">Lotman</span>
     <span class="concept-tag-pill" role="listitem" data-tag="profondità diacronica">profondità diacronica</span>
     <span class="concept-tag-pill" role="listitem" data-tag="frammento schlegeliano">frammento schlegeliano</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="manifestatio">manifestatio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità estetica">qualità estetica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-free">scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="spettatore">spettatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità">totalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="caos formato">caos formato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma/sintagma">paradigma/sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="configurazione industriale">configurazione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Floridi">Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Wolf">Wolf</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="custode">custode</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma SVOD">piattaforma SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Albert">Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*La semiosfera*">*La semiosfera*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Iron Man">Iron Man</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*data*">*data*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="elfi">elfi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="hobbit">hobbit</span>
   </div>
 
   <!-- Corpo -->
@@ -150,13 +190,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -253,11 +296,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-1';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-1';
+window.FRAGMENT_TITLE = "Paradigma e sintagma nell'opera-volume: il mondo narrativo come totalità materiale, la singola storia come traiettoria virtuale";
+window.FRAGMENT_TAGS  = ["paradigma","sintagma","inversione paradigma/sintagma","Saussure","Barthes","*Elementi di semiologia*","Manovich","*Database as a Symbolic Form*","*The Language of New Media*","database materiale","narrativa virtuale","*natural enemies*","opera-volume","catalogo SVOD","Netflix","paradigma letterario eccedente","Terra di Mezzo","Tolkien","*Marvel Cinematic Universe*","Stan Lee","subcreatore","Greenaway","*Stairs-Munich-Projection*","*database cinema*","paradigma scale-free","power-law","Barabási","qualità estetica del paradigma","autorialità sul paradigma","fenomenologia della fruizione","navigazione","sintagma virtuale","traiettoria","spazio attraversabile","tempo della narrazione vs tempo della fruizione","*wrAIting*","logica dei *requirements*","meta-autore-progettista","semiosfera","Lotman","profondità diacronica","frammento schlegeliano","database","manifestatio","qualità estetica","rete","scale-free","piattaforma","spettatore","totalità","frammento","caos formato","paradigma/sintagma","franchise","SVOD","configurazione industriale","Floridi","Wolf","custode","piattaforma SVOD","Marvel","Albert","*La semiosfera*","sistema della tesi","Iron Man","industriale","opera-volume contemporanea","*data*","fruitore","elfi","hobbit"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.2a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -125,6 +136,32 @@
     <span class="concept-tag-pill" role="listitem" data-tag="tab «Per te»">tab «Per te»</span>
     <span class="concept-tag-pill" role="listitem" data-tag="personalizzazione algoritmica">personalizzazione algoritmica</span>
     <span class="concept-tag-pill" role="listitem" data-tag="sintesi struttura razionale e algoritmo">sintesi struttura razionale e algoritmo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="7×7">7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scacchiera">scacchiera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="spettatore">spettatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Netflix">Netflix</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="navigazione">navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="MCU">MCU</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cinque pillar brand">cinque pillar brand</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia razionale">griglia razionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="pillar brand">pillar brand</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cinque pillar">cinque pillar</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="«Per te»">«Per te»</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="asimmetria">asimmetria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette colonne">sette colonne</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette gradi">sette gradi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pianeti">sette pianeti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lunga durata">lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro di Camillo">Teatro di Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="galassia">galassia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -150,13 +187,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -231,11 +271,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-2-a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-2-a';
+window.FRAGMENT_TITLE = "L'interfaccia di Disney+ come Teatro contemporaneo della memoria. Analisi strutturale";
+window.FRAGMENT_TAGS  = ["Disney+","interfaccia","piattaforma SVOD","struttura razionale","griglia geometrica","brand pillar","Disney","Pixar","Marvel","Star Wars","National Geographic","Hulu","Brand Hub","content hub","hub-and-spoke","Camillo","Teatro della memoria","matrice 7×7","scacchiera combinatoria","Bolzoni","sospensione delle dimensioni mistiche","accesso simultaneo","Manovich","spazializzazione","grammatica della camera","zoom","scroll bidimensionale","piano vs profondità","drill-down","clic come operatore di profondità","multi-list interface","carousel","Erik Runyon","infinite scrolling problem","paper RecGaze","Frank Rausch","navigazione discreta","vantaggio cognitivo","prezzo della rigidità","tab «Per te»","personalizzazione algoritmica","sintesi struttura razionale e algoritmo","paradigma","piattaforma","7×7","scacchiera","spettatore","SVOD","Netflix","navigazione","MCU","cinque pillar brand","griglia razionale","pillar brand","cinque pillar","«Per te»","asimmetria","sistema della tesi","sette colonne","sette gradi","sette pianeti","continuità di lunga durata","profondità","industriale","lunga durata","Teatro di Camillo","galassia","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

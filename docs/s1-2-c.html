@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.2c</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -130,6 +141,27 @@
     <span class="concept-tag-pill" role="listitem" data-tag="medium libro vs medium SVOD">medium libro vs medium SVOD</span>
     <span class="concept-tag-pill" role="listitem" data-tag="convergenza delle tre voci">convergenza delle tre voci</span>
     <span class="concept-tag-pill" role="listitem" data-tag="immagine come dispositivo industriale-culturale">immagine come dispositivo industriale-culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia">interfaccia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Warburg">Warburg</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="MCU">MCU</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney+">Disney+</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Brand page">Brand page</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine come dispositivo">immagine come dispositivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cucco">Cucco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello economico">modello economico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Avengers">Avengers</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Infinity Saga*">*Infinity Saga*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Avengers: Endgame*">*Avengers: Endgame*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="memoria culturale">memoria culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="galassia">galassia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -148,13 +180,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -229,11 +264,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-2-c';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-2-c';
+window.FRAGMENT_TITLE = "L'immagine come dispositivo industriale-culturale di identificazione delle opere-volume in Disney+. Warburg, Wyatt, Cucco";
+window.FRAGMENT_TAGS  = ["immagine","pathosformel","*Mnemosyne Atlas*","Aby Warburg","archivio visuale","risonanze visive","affinità per immagini","riproducibilità tecnica","Walter Benjamin (richiamo)","Grundtmann","high concept","Justin Wyatt","*High Concept: Movies and Marketing in Hollywood*","the Look the Hook the Book","Steven Spielberg","venticinque parole","integrazione film-marketing","key art","marketing hook","merchandising","tie-in","Marco Cucco","blockbuster","*Il film blockbuster*","concentrazione industriale","David Puttnam","marchio-locomotiva","cinque pillar brand","Disney","Pixar","Marvel","Star Wars","National Geographic","*Daredevil Rinascita*","*Avengers Endgame*","MCU Infinity Saga","MCU Multiverse Saga","tessera visiva","riconoscimento immediato","iconografia del supereroe","cinema di supereroi","superficie visiva","profondità testuale","drill-down","medium libro vs medium SVOD","convergenza delle tre voci","immagine come dispositivo industriale-culturale","rete","piattaforma","interfaccia","Warburg","franchise","SVOD","MCU","Disney+","Brand page","immagine come dispositivo","Cucco","sistema della tesi","modello economico","Avengers","industriale","opera-volume contemporanea","*Infinity Saga*","*Avengers: Endgame*","memoria culturale","galassia","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

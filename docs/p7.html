@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Pozzo 7</span>
 
   <p class="frag-tipo">pozzo</p>
 
@@ -132,6 +143,28 @@
     <span class="concept-tag-pill" role="listitem" data-tag="totalità narrativa">totalità narrativa</span>
     <span class="concept-tag-pill" role="listitem" data-tag="opera-volume">opera-volume</span>
     <span class="concept-tag-pill" role="listitem" data-tag="custode delle leggi del mondo">custode delle leggi del mondo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità">totalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*diaskeué*">*diaskeué*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cometa">Cometa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="configurazione industriale">configurazione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="designer">designer</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Terra di Mezzo">Terra di Mezzo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="subcreatore">subcreatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scrittura distante">scrittura distante</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Building Imaginary Worlds*">*Building Imaginary Worlds*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema della tesi">sistema della tesi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="filologo">filologo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lettera 131">lettera 131</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stabilità">stabilità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dissoluzione">dissoluzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="diascévase">diascévase</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="universale">universale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Friedrich Schlegel">Friedrich Schlegel</span>
   </div>
 
   <!-- Corpo -->
@@ -151,13 +184,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -256,11 +292,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 'p7';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 'p7';
+window.FRAGMENT_TITLE = "Subcreazione, mondi secondari, cerchi concentrici di autorialità: l'autore dell'opera-volume";
+window.FRAGMENT_TAGS  = ["subcreazione","subcreator","Tolkien","Wolf","*On Fairy-stories*","Mondo Primario","mondo secondario","*creating under*","Secondary Belief","invention","completeness","consistency","MacDonald","*Primary World defaults*","cerchi concentrici di autorialità","concentric circles of authorship","originatore","custode","canone","mondo aperto","mondo chiuso","Tolkien estate","Christopher Tolkien","Pescatore","*L'ombra dell'autore*","estetica romantica","genio","ispirazione pura","*caméra-stylo*","postmoderno autoriale","Brembilla","personaggi seriali","figure seriali","Casoli","ecosistemi narrativi","Schlegel","*Athenaeum*","frammento 116","*romantische Poesie*","poesia universale progressiva","*Roman*","*Wilhelm Meister*","Goethe","frammento 216","tendenze dell'epoca","aspirazione poetologica","totalità narrativa","opera-volume","custode delle leggi del mondo","database","totalità","*diaskeué*","Cometa","frammento","franchise","configurazione industriale","designer","Terra di Mezzo","subcreatore","scrittura distante","*Building Imaginary Worlds*","sistema della tesi","filologo","lettera 131","stabilità","industriale","dissoluzione","diascévase","universale","opera-volume contemporanea","Friedrich Schlegel"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

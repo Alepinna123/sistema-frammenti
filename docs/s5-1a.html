@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 5.1a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -144,6 +155,12 @@
     <span class="concept-tag-pill" role="listitem" data-tag="periferia produttiva">periferia produttiva</span>
     <span class="concept-tag-pill" role="listitem" data-tag="dispositivo giuridico">dispositivo giuridico</span>
     <span class="concept-tag-pill" role="listitem" data-tag="controllo del significato">controllo del significato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="canone">canone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="invention">invention</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="produzione industriale">produzione industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industria culturale">industria culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="valutazione">valutazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="cultura partecipativa di Jenkins">cultura partecipativa di Jenkins</span>
   </div>
 
   <!-- Corpo -->
@@ -161,13 +178,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -248,11 +268,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's5-1a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's5-1a';
+window.FRAGMENT_TITLE = "Fandom come periferia dinamica: bracconaggio testuale";
+window.FRAGMENT_TAGS  = ["fandom","periferia dinamica","bracconaggio testuale","De Certeau","Michel De Certeau","*L'invention du quotidien*","1980","«Lire: un braconnage»","*braconnage*","*braconnier*","lettura come pratica attiva","lettore-bracconiere","foresta del signore","inquilino del testo","pratica popolare","resistenza al potere autoriale","dimensione politica della lettura","Jenkins","Henry Jenkins","*Textual Poachers*","1992","*Convergence Culture*","2006","cultura partecipativa","fan fiction","fan art","fan vidding","cosplay","fanzine","podcast critici","convention","piattaforme digitali dedicate","sistema distribuito di appropriazione","corpus alternativo","*Star Trek*","*Doctor Who*","*Harry Potter*","*Il signore degli anelli*","*Star Wars*","*MCU*","cultura partecipativa contemporanea","Brembilla","*It's All Connected*","proprietà intellettuale","dialettica fra proprietà e condivisione","zona grigia","bracconaggio commerciale","bracconaggio non commerciale","piattaforme dedicate","tolleranza istituzionale","*fan service*","circolazione bidirezionale","co-produzione del significato","ricodificazione critica","riarticolazione queer","riarticolazione politica","dignità intellettuale del fandom","centro industriale","periferia produttiva","dispositivo giuridico","controllo del significato","canone","invention","produzione industriale","industria culturale","valutazione","cultura partecipativa di Jenkins"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

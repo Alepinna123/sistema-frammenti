@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 4.3</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -158,6 +169,12 @@
     <span class="concept-tag-pill" role="listitem" data-tag="coesistenza delle due ragioni">coesistenza delle due ragioni</span>
     <span class="concept-tag-pill" role="listitem" data-tag="regime misto">regime misto</span>
     <span class="concept-tag-pill" role="listitem" data-tag="industria culturale">industria culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità">totalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fedeltà">fedeltà</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lunga durata">lunga durata</span>
   </div>
 
   <!-- Corpo -->
@@ -175,13 +192,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -264,11 +284,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's4-3';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's4-3';
+window.FRAGMENT_TITLE = "Il sistema infinito: poesia romantica e opera-volume come forme incompiute";
+window.FRAGMENT_TAGS  = ["Schlegel","frammento 116","*Athenaeum*","1798","poesia romantica","poesia universale progressiva","universale","progressiva","poesia","Cometa","*L'età classico-romantica*","2009","incompiutezza per principio","apertura ontologica","sistema aperto","sistema classico","Spinoza","Kant","Schelling","*Sistema dell'idealismo trascendentale*","compimento","totalità organica","frammento","forma costitutivamente incompiuta","rivista","opera in progress","sinfilosofia collettiva","opera-volume contemporanea","*Marvel Cinematic Universe*","2008-2025","*Infinity Saga*","*Avengers: Endgame*","2019","*Multiverse Saga*","Terra di Mezzo","Tolkien","*Il signore degli anelli*","1954-55","Christopher Tolkien","*History of Middle-earth*","1983-1996","Amazon Prime Video","2022","Seconda Era","Wizarding World","J.K. Rowling","*Animali fantastici*","Pottermore","*Il Trono di Spade*","George R.R. Martin","*Cronache del ghiaccio e del fuoco*","HBO","finale narrativo","canone d'autore","incompiutezza industriale","ragioni economiche","accumulazione cumulativa","capitale narrativo","forma estetica nobile","realizzazione industriale","incompiutezza autentica","incompiutezza ambivalente","subcreazione","Tolkien lettera 131","Milton Waldman","1951","majestic whole","cicli collegati","altre menti e mani","scelta progettuale","ragione costitutiva","fitness mitopoietica","coesistenza delle due ragioni","regime misto","industria culturale","paradigma","fitness","totalità","Marvel","fedeltà","lunga durata"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 1.3</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -146,6 +157,26 @@
     <span class="concept-tag-pill" role="listitem" data-tag="modello economico">modello economico</span>
     <span class="concept-tag-pill" role="listitem" data-tag="efficacia del design">efficacia del design</span>
     <span class="concept-tag-pill" role="listitem" data-tag="limite strutturale">limite strutturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintagma">sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma simbolica">forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-free">scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione">attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Netflix">Netflix</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="navigazione">navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="traiettoria">traiettoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="struttura razionale">struttura razionale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney">Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="vantaggio cognitivo">vantaggio cognitivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="topologia di rete">topologia di rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="riconoscimento immediato">riconoscimento immediato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -168,13 +199,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -249,11 +283,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's1-3';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's1-3';
+window.FRAGMENT_TITLE = "Critica complessiva di Disney+ come caso esemplare dell'opera-volume nell'industria SVOD contemporanea";
+window.FRAGMENT_TAGS  = ["Disney+","interfaccia","piattaforma SVOD","opera-volume","database come forma simbolica","Manovich","paradigma/sintagma","rovesciamento","libertà fruitiva","database già percorso","concentrazione della visibilità","long tail","attaccamento preferenziale","Matthew effect","feedback loop","griglia razionale","gabbie cognitive","pillar brand","cinque pillar","«Per te»","personalizzazione algoritmica","sintesi instabile","immagine come dispositivo","superficie visiva","profondità testuale","drill-down","key art","high concept","marchio-locomotiva","Cucco","blockbuster","opacità del meccanismo","trasparenza dell'interfaccia","confine semiotico","asimmetria","Lotman","semiosfera","sotto la trasparenza","platform capitalism","Srnicek","effetti di rete","monopolio","industria dell'attenzione","Wu","cattura dell'attenzione","merce attenzione","ecosistema della piattaforma","realizzazione storica","scelta progettuale","destino del medium","alternative possibili","sistema della tesi","attraversabilità","esplorazione fruitiva","livello 3","sintesi critica","tripletta 2A 2B 2C","catena di pre-determinazione","scelta libera","scelta vincolata","modello economico","efficacia del design","limite strutturale","database","paradigma","sintagma","forma simbolica","scale-free","piattaforma","SVOD","attenzione","architettura","Netflix","navigazione","traiettoria","struttura razionale","Disney","vantaggio cognitivo","topologia di rete","immagine","riconoscimento immediato","profondità","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 2.2</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -137,6 +148,16 @@
     <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
     <span class="concept-tag-pill" role="listitem" data-tag="valore intrinseco">valore intrinseco</span>
     <span class="concept-tag-pill" role="listitem" data-tag="sfumatura della critica">sfumatura della critica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment">preferential attachment</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Bianconi-Barabási">Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mondo secondario">mondo secondario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Albert">Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="merchandising">merchandising</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità intrinseca">qualità intrinseca</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello con fitness">modello con fitness</span>
   </div>
 
   <!-- Corpo -->
@@ -154,13 +175,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -241,11 +265,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's2-2';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's2-2';
+window.FRAGMENT_TITLE = "Fitness e qualità narrativa: quando η compensa il grado";
+window.FRAGMENT_TAGS  = ["fitness","η","eta","modello Bianconi-Barabási","2001 «Europhysics Letters»","*Competition and multiscaling in evolving networks*","preferential attachment classico","Barabási-Albert","grado k","k·η","probabilità di connessione","Bose-Einstein condensation","capitale narrativo","Brembilla","*It's All Connected*","effetto nostalgia","tenuta del paradigma","Pescatore","*Ecosistemi narrativi*","2018","coerenza mitopoietica","profondità del mondo secondario","ricchezza simbolica","mondo costruito","Tolkien","Terra di Mezzo","*Il signore degli anelli*","1954-55","Quattro Ere","linguaggio costruito","lingue elfiche","Quenya","Sindarin","*Secondary Belief*","Peter Jackson","2001-2003","Frank Herbert","*Dune*","J.K. Rowling","*Harry Potter*","George R.R. Martin","*Il Trono di Spade*","Disney","Marvel","Star Wars","Warner","DC Comics","Universal","iperhub industriali","franchise di alta fitness","franchise di alta posizione","concentrazione del mercato","valore intrinseco","sfumatura della critica","paradigma","Barabási","preferential attachment","Bianconi-Barabási","mondo secondario","Albert","merchandising","qualità intrinseca","profondità","modello con fitness"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

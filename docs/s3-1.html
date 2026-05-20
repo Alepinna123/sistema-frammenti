@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 3.1</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -137,6 +148,25 @@
     <span class="concept-tag-pill" role="listitem" data-tag="circoscritto">circoscritto</span>
     <span class="concept-tag-pill" role="listitem" data-tag="profondità dell'articolazione">profondità dell'articolazione</span>
     <span class="concept-tag-pill" role="listitem" data-tag="prestito strutturale">prestito strutturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro della Memoria">Teatro della Memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="imagines">imagines</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="7×7">7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scacchiera">scacchiera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità">totalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="navigazione">navigazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grammatica formale">grammatica formale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sapere classico">sapere classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="domini di articolazione argomentativa">domini di articolazione argomentativa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo combinatorio">dispositivo combinatorio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pozzi">sette pozzi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette dimensioni concettuali">sette dimensioni concettuali</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="esperienza fruitiva">esperienza fruitiva</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -154,13 +184,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -241,11 +274,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's3-1';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's3-1';
+window.FRAGMENT_TITLE = "Loci e imagines: la struttura 7×7 come sistema di accesso";
+window.FRAGMENT_TAGS  = ["loci e imagines","arte della memoria","Camillo","Giulio Camillo Delminio","*Idea del theatro*","1550","sette colonne","sette gradi","quarantanove luoghi","griglia 7×7","scacchiera dei luoghi","Bolzoni","edizione Adelphi","1991","griglia di classificazione","modello per la mente","proiezioni materiali","sette pianeti","Luna","Mercurio","Venere","Sole","Marte","Giove","Saturno","cosmologia rinascimentale","Convivio","Caverna","Gorgoni","Pasifae e il Toro","Sandali di Mercurio","Prometeo","Tre Doni della Sapienza","Binah","settima Sefirot","sette volte sette","Padre nostro","testo ebraico di Matteo","ombra del divino archetipo","cabala","tradizione ermetica","sette pozzi del sistema","sette domini di articolazione argomentativa","quarantanove frammenti tematici","imagines come dispositivo di richiamo","meccanismo combinatorio","significato relazionale","movimento del fruitore","dispositivo digitale di navigazione","totalità enciclopedica","sistema della tesi","circoscritto","profondità dell'articolazione","prestito strutturale","database","Teatro della Memoria","imagines","7×7","scacchiera","totalità","architettura","navigazione","immagine","grammatica formale","sapere classico","domini di articolazione argomentativa","dispositivo combinatorio","profondità","sette pozzi","opera-volume contemporanea","sette dimensioni concettuali","esperienza fruitiva","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

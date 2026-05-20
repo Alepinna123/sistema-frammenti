@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -73,6 +78,12 @@
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
 
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Pozzo 2</span>
+
   <p class="frag-tipo">pozzo</p>
 
   <h1 class="concept-title">La rete come potere effettivo dell'Architect</h1>
@@ -106,6 +117,32 @@
     <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
     <span class="concept-tag-pill" role="listitem" data-tag="semiosfera (puntuale)">semiosfera (puntuale)</span>
     <span class="concept-tag-pill" role="listitem" data-tag="proprietà intellettuale (rinvio a P7)">proprietà intellettuale (rinvio a P7)</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete scale-free">rete scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="monopolio">monopolio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="semiosfera">semiosfera</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Lotman">Lotman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Tolkien">Tolkien</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Pescatore">Pescatore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Netflix">Netflix</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Marvel Cinematic Universe*">*Marvel Cinematic Universe*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Star Wars">Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodi periferici">nodi periferici</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cucco">Cucco</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Iron Man">Iron Man</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="qualità intrinseca">qualità intrinseca</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello Bianconi-Barabási">modello Bianconi-Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Doctor Who*">*Doctor Who*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Batman">Batman</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*data*">*data*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fruitore">fruitore</span>
   </div>
 
   <!-- Corpo -->
@@ -132,13 +169,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -232,11 +272,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 'p2';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 'p2';
+window.FRAGMENT_TITLE = "La rete come potere effettivo dell'Architect";
+window.FRAGMENT_TAGS  = ["rete","scale-free","power-law","preferential attachment","first-mover advantage","fitness","Bianconi-Barabási","hub","winner-takes-all","Bose-Einstein condensation","blockbuster","high concept","kernel","canone","bibbia","ecosistema narrativo","resilienza","Architect","opera-volume","algoritmo di raccomandazione","piattaforma","semiosfera (puntuale)","proprietà intellettuale (rinvio a P7)","Barabási","rete scale-free","frammento","franchise","monopolio","semiosfera","Lotman","architettura","Tolkien","Pescatore","Netflix","*Marvel Cinematic Universe*","concentrazione del mercato","Marvel","Star Wars","nodi periferici","immagine","Cucco","Iron Man","qualità intrinseca","modello Bianconi-Barabási","industriale","*Doctor Who*","Batman","*data*","fruitore"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

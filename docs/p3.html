@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Pozzo 3</span>
 
   <p class="frag-tipo">pozzo</p>
 
@@ -128,6 +139,29 @@
     <span class="concept-tag-pill" role="listitem" data-tag="opera-volume">opera-volume</span>
     <span class="concept-tag-pill" role="listitem" data-tag="Prometeo">Prometeo</span>
     <span class="concept-tag-pill" role="listitem" data-tag="triade alchimica (fusione/affinità/intervallo)">triade alchimica (fusione/affinità/intervallo)</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma simbolica">forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database come forma simbolica">database come forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="traiettoria">traiettoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rovesciamento">rovesciamento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette colonne">sette colonne</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette gradi">sette gradi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette pianeti">sette pianeti</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Giove">Giove</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sette volte sette">sette volte sette</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cicerone">Cicerone</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="quarantanove caselle">quarantanove caselle</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo combinatorio">dispositivo combinatorio</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mescolanza">mescolanza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fusione">fusione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="poesia romantica">poesia romantica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="universale">universale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Friedrich Schlegel">Friedrich Schlegel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro di Camillo">Teatro di Camillo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Mischung* schlegeliana">*Mischung* schlegeliana</span>
   </div>
 
   <!-- Corpo -->
@@ -177,13 +211,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -291,11 +328,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 'p3';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 'p3';
+window.FRAGMENT_TITLE = "Il Teatro della Memoria di Giulio Camillo come *manifestatio* del programma del database";
+window.FRAGMENT_TAGS  = ["Teatro della Memoria","Camillo","arte della memoria","loci","imagines","7×7","Sefirot","cabala","scacchiera","combinatoria","spettatore","interfaccia","mens fenestrata","mente artificiale","homunculus","alchimia","Bolzoni","Yates","manifestatio","Panofsky","Warburg","Mnemosyne Atlas","Pathosformel","Iconology of the Interval","intervallo","Zwischenraum","Grundtmann","Didi-Huberman","sistema chiuso","sistema aperto","totalità","*Mischung*","*diaskeué*","Schlegel","Cometa","meme positivo","auto-riflessività","power-law","Bianconi-Barabási","database","LLM","distant writing","opera-volume","Prometeo","triade alchimica (fusione/affinità/intervallo)","forma simbolica","rete","frammento","database come forma simbolica","architettura","traiettoria","immagine","rovesciamento","sette colonne","sette gradi","sette pianeti","Giove","sette volte sette","Cicerone","quarantanove caselle","dispositivo combinatorio","mescolanza","fusione","poesia romantica","universale","Friedrich Schlegel","Teatro di Camillo","*Mischung* schlegeliana"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 3.1a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -140,6 +151,18 @@
     <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
     <span class="concept-tag-pill" role="listitem" data-tag="prototipo cognitivo dell'AI">prototipo cognitivo dell'AI</span>
     <span class="concept-tag-pill" role="listitem" data-tag="prestito cognitivo">prestito cognitivo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stile">stile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arte della memoria">arte della memoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="imagines">imagines</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="7×7">7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="interfaccia">interfaccia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia 7×7">griglia 7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="luoghi-immagine">luoghi-immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="corpus di addestramento">corpus di addestramento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Teatro di Camillo">Teatro di Camillo</span>
   </div>
 
   <!-- Corpo -->
@@ -158,13 +181,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -245,11 +271,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's3-1a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's3-1a';
+window.FRAGMENT_TITLE = "La mente artificiale: *mens fenestrata* e LLM";
+window.FRAGMENT_TAGS  = ["*mens fenestrata*","mente artificiale","interiorità esternalizzata","Camillo","Teatro della memoria","Bolzoni","arte della memoria classica","*Ad Herennium*","Cicerone","Quintiliano","maestri medievali","maestri rinascimentali","Frances Yates","*The Art of Memory*","1966","arte interiore","sistema mnemonico solitario","Viglius Zuichemus","Erasmo","lettera del 1532","Venezia","edificio ligneo","rovesciamento all'esterno","dispositivo materiale","schedario delle belle forme","anatomia dei grandi testi","finestre della mente","*mens fenestrata* come categoria","tradizione ermetica","microcosmo e macrocosmo","sospensione della dimensione mistica","LLM","Large Language Model","Claude","GPT","Gemini","pesi della rete neurale","rappresentazioni vettoriali","matrici di attenzione","interfaccia testuale","finestra contemporanea","*dataprint*","Floridi","*Distant Writing*","stilistica strutturale del medium","grammatica formale","*prompt*","traiettoria di probabilità","meta-autore","agentività compositiva","dispositivo amplificatore","sapere classico","corpus contemporanei","velocità dell'interazione","continuità di lunga durata","prototipo cognitivo dell'AI","prestito cognitivo","stile","arte della memoria","imagines","7×7","interfaccia","architettura","immagine","griglia 7×7","luoghi-immagine","corpus di addestramento","medium AI","Teatro di Camillo"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

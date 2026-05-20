@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 4.1a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -139,6 +150,11 @@
     <span class="concept-tag-pill" role="listitem" data-tag="articolazione metalinguistica">articolazione metalinguistica</span>
     <span class="concept-tag-pill" role="listitem" data-tag="carattere relazionale">carattere relazionale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="carattere profondo">carattere profondo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento schlegeliano">frammento schlegeliano</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
   </div>
 
   <!-- Corpo -->
@@ -156,13 +172,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -244,11 +263,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's4-1a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's4-1a';
+window.FRAGMENT_TITLE = "Frammento-pozzo e frammento-soglia: i neologismi della tesi";
+window.FRAGMENT_TAGS  = ["frammento","Schlegel","*Athenaeum*","Cometa","*L'età classico-romantica*","2009","elemento più semplice di un sistema aperto","piccolo cosmo","sistema aperto","sinfilosofia","romantici di Jena","Novalis","Schleiermacher","Schlegel","sospensione dell'elemento minimo","Dawkins","memetica","1976","fisica degli atomi","frammento come unità relativa di senso","frammento-pozzo","neologismo","pozzo come metafora","verticalità","profondità","nodo-hub","sette pozzi","database","rete","teatro della memoria","organismo","industriale","AI come medium","subcreazione","frammento-soglia","neologismo","soglia come metafora","orizzontalità","ponte di passaggio","arco del grafo","livelli diversi di scala","network science","grafo del sistema","topologia scale-free","Barabási-Albert","Bianconi-Barabási","modello con fitness","profondità del pozzo","specificità della soglia","fitness dei frammenti","lettura per pozzi","lettura per soglie","grammatica operativa","articolazione metalinguistica","carattere relazionale","carattere profondo","Barabási","fitness","architettura","frammento schlegeliano","opera-volume contemporanea"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

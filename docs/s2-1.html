@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 2.1</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -142,6 +153,16 @@
     <span class="concept-tag-pill" role="listitem" data-tag="concentrazione del mercato">concentrazione del mercato</span>
     <span class="concept-tag-pill" role="listitem" data-tag="razionalità industriale">razionalità industriale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="operazione strutturale sulla rete">operazione strutturale sulla rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scale-free">scale-free</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="SVOD">SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione">attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma SVOD">piattaforma SVOD</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Albert">Albert</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="merchandising">merchandising</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="nodo-hub">nodo-hub</span>
   </div>
 
   <!-- Corpo -->
@@ -159,13 +180,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -248,11 +272,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's2-1';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's2-1';
+window.FRAGMENT_TITLE = "Preferential attachment nel mercato culturale";
+window.FRAGMENT_TAGS  = ["preferential attachment","rich get richer","Matthew effect","Barabási-Albert","1999 «Science»","rete scale-free","power-law","grafo del mercato culturale","nodi-franchise","connessioni-investimenti","iperhub","Disney","Marvel","Star Wars","Lucasfilm","20th Century Fox","Avengers","Iron Man","Spider-Man","*Avatar*","*Alien*","*Predator*","*Harry Potter*","*Il Trono di Spade*","blockbuster","Cucco","*Il film blockbuster*","2010","concentrazione industriale","David Puttnam","marchio-locomotiva","Brembilla","*It's All Connected*","proprietà intellettuale","diritto d'autore","marchio commerciale","accumulazione cumulativa","capitale narrativo","effetto nostalgia","reinvenzione","acquisizioni strategiche","2009","2012","2019","ecologia dei franchise","ecosistema narrativo","franchise consolidato","franchise nuovo","fidelizzazione del pubblico","apparato di marketing","sinergie commerciali","posizionamento di rete","qualità intrinseca","qualità modulante","attenzione iniziale","attenzione successiva","concentrazione del mercato","razionalità industriale","operazione strutturale sulla rete","Barabási","scale-free","piattaforma","franchise","SVOD","attenzione","piattaforma SVOD","Albert","merchandising","nodo-hub"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

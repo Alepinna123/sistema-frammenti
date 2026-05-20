@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 5.2</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -162,6 +173,8 @@
     <span class="concept-tag-pill" role="listitem" data-tag="dispositivo produttivo">dispositivo produttivo</span>
     <span class="concept-tag-pill" role="listitem" data-tag="articolazione contemporanea della cultura">articolazione contemporanea della cultura</span>
     <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="immagine">immagine</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="reinvenzione">reinvenzione</span>
   </div>
 
   <!-- Corpo -->
@@ -180,13 +193,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -266,11 +282,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's5-2';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's5-2';
+window.FRAGMENT_TITLE = "Memoria culturale e ricodificazione: come la cultura usa il suo passato";
+window.FRAGMENT_TAGS  = ["memoria culturale","Lotman","Jurij Lotman","semiosfera","scuola di Tartu-Mosca","anni Settanta-Ottanta","trasmissione culturale","ricodificazione sistematica","meccanismo dinamico","archivio dinamico","selezione del passato","rinascimento e classicità","romanticismo e medioevo","modernismo e rinascimento","ricodificazione come condizione di possibilità","trasmissione passiva e sterilità","ricodificazione legittima","ricodificazione critica","Brembilla","rilancio attraverso reinvenzione","capitale narrativo","effetto nostalgia","*La sirenetta* live action","2023","*La sirenetta* animazione","1989","Halle Bailey","diversità","sensibilità contemporanee","reboot","prequel","remake","*Star Wars* 1977","*Il risveglio della Forza*","2015","*L'ascesa di Skywalker*","2019","*Obi-Wan Kenobi*","2022","*Ahsoka*","2023","Batman","Bob Kane","Bill Finger","1939","Tim Burton","1989","Christopher Nolan","2005-2012","Matt Reeves","2022","Adam West","1966","serie *Arkham*","Rocksteady","2009","*The Dark Knight Returns*","Frank Miller","1986","Batman culturale","stratificazione storica","*wrAIting*","LLM","Large Language Model","corpus di addestramento","prompt","ricodificazione tecnica","*dataprint*","Floridi","stilistica strutturale del medium","scala e velocità","costruzione del passato","*terzo* prodotto dalla composizione","versione ricodificata","accountability","responsabilità del meta-autore","dispositivo produttivo","articolazione contemporanea della cultura","medium AI","immagine","reinvenzione"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

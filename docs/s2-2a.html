@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 2.2a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -154,6 +165,23 @@
     <span class="concept-tag-pill" role="listitem" data-tag="caso eccezionale">caso eccezionale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="produzione industriale">produzione industriale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="rapporto fra fitness e produzione">rapporto fra fitness e produzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Barabási">Barabási</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment">preferential attachment</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fitness">fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mondo secondario">mondo secondario</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="traiettoria">traiettoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Disney">Disney</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Marvel">Marvel</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Star Wars">Star Wars</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="grafo del mercato culturale">grafo del mercato culturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="iperhub">iperhub</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="preferential attachment classico">preferential attachment classico</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="coerenza mitopoietica">coerenza mitopoietica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lingue elfiche">lingue elfiche</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="modello con fitness">modello con fitness</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="leggi interne">leggi interne</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="hobbit">hobbit</span>
   </div>
 
   <!-- Corpo -->
@@ -171,13 +199,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -258,11 +289,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's2-2a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's2-2a';
+window.FRAGMENT_TITLE = "Tolkien come caso di alta fitness mitopoietica";
+window.FRAGMENT_TAGS  = ["Tolkien","J.R.R. Tolkien","Terra di Mezzo","*Lo Hobbit*","1937","*Il signore degli anelli*","1954-55","Allen & Unwin","*Silmarillion*","Christopher Tolkien","*History of Middle-earth*","1983-1996","Ainulindalë","Valaquenta","Quattro Ere","Prima Era","Seconda Era","Terza Era","Quarta Era","Quenya","Sindarin","Khuzdul","Black Speech","Adûnaic","Tengwar","Cirth","cattedra di anglosassone","Oxford","filologo","cosmogonia di Eä","Númenor","mappa della Terra di Mezzo","trilogia cinematografica","Peter Jackson","2001-2003","*Il ritorno del re*","tre Oscar","*Lo Hobbit* film","2012-2014","*Gli anelli del potere*","Amazon Prime Video","2022","*The Lord of the Rings Online*","*Middle-earth: Shadow of Mordor*","giochi di ruolo","merchandising globale","cinquanta lingue","comunità di pratica linguistica","fitness mitopoietica","Wolf","*Building Imaginary Worlds*","*Secondary Belief*","sospensione attiva dell'incredulità","leggi interne articolate","mondo abitabile","condizione di possibilità","condizione di sostenibilità","amplificatore strutturale","Bianconi-Barabási","η eccezionale","lettera 131","Milton Waldman","«more or less connected legend»","cicli collegati al magnifico tutto","spazio per altre menti e mani","investimento autoriale","sessanta anni di lavoro","1910","caso eccezionale","produzione industriale","rapporto fra fitness e produzione","Barabási","preferential attachment","fitness","mondo secondario","traiettoria","Disney","Marvel","Star Wars","grafo del mercato culturale","iperhub","preferential attachment classico","coerenza mitopoietica","lingue elfiche","profondità","modello con fitness","leggi interne","hobbit"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

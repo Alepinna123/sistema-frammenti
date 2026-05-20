@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Pozzo 6</span>
 
   <p class="frag-tipo">pozzo</p>
 
@@ -126,6 +137,24 @@
     <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
     <span class="concept-tag-pill" role="listitem" data-tag="death of the author">death of the author</span>
     <span class="concept-tag-pill" role="listitem" data-tag="birth of the author as designer">birth of the author as designer</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stile">stile</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rete">rete</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="combinatoria">combinatoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="attenzione">attenzione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="scrittura distante">scrittura distante</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="novità combinatoria">novità combinatoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Claude">Claude</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*prompt*">*prompt*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="neologismo">neologismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="profondità">profondità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="medium AI">medium AI</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Mariarosaria Taddeo">Mariarosaria Taddeo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Luciano Floridi">Luciano Floridi</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="implicazioni">implicazioni</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="stilistica strutturale">stilistica strutturale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="firma">firma</span>
   </div>
 
   <!-- Corpo -->
@@ -159,13 +188,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -279,11 +311,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 'p6';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 'p6';
+window.FRAGMENT_TITLE = "L'AI come medium della scrittura distante: meta-autore, isotropia, dataprint, accountability";
+window.FRAGMENT_TAGS  = ["distant writing","*wrAIting*","meta-autore","designer","responsibility","decoupling","sette fasi","prompt engineering","progressive refinement","curation","logica dei requisiti","isotropia narrativa","costruttivismo","C-creativity","combinatorial novelty","Karinthy","Encounters","network narratives","multiverse literature","conversational literature","dataprint","voice","stilistica del medium","Floridi","Flusser","grammar machines","accountability","answerability","sette caratteristiche","sociotecnico","molte mani","Novelli","Taddeo","personificazione","scaffolding immaginativo","simulazione","intelligence","black box","hallucinations","Bernini","architettura","death of the author","birth of the author as designer","stile","rete","combinatoria","LLM","attenzione","scrittura distante","novità combinatoria","Claude","*prompt*","neologismo","profondità","industriale","medium AI","Mariarosaria Taddeo","Luciano Floridi","implicazioni","stilistica strutturale","firma"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

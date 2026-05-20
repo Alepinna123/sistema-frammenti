@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Pozzo 4</span>
 
   <p class="frag-tipo">pozzo</p>
 
@@ -119,6 +130,28 @@
     <span class="concept-tag-pill" role="listitem" data-tag="*Kulturpolitik*">*Kulturpolitik*</span>
     <span class="concept-tag-pill" role="listitem" data-tag="isolamento dell'estetica">isolamento dell'estetica</span>
     <span class="concept-tag-pill" role="listitem" data-tag="totalità illimitata">totalità illimitata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="database">database</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sintagma">sintagma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="forma simbolica">forma simbolica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="piattaforma">piattaforma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="totalità">totalità</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="franchise">franchise</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="simulazione">simulazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="architettura">architettura</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fedeltà">fedeltà</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="elemento più semplice di un sistema aperto">elemento più semplice di un sistema aperto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="neologismo">neologismo</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="industriale">industriale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*Auflösung*">*Auflösung*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="mescolanza">mescolanza</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="fusione">fusione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="arguzia">arguzia</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="poesia romantica">poesia romantica</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="universale">universale</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rivista">rivista</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="opera-volume contemporanea">opera-volume contemporanea</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Forza">Forza</span>
   </div>
 
   <!-- Corpo -->
@@ -141,13 +174,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -251,11 +287,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 'p4';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 'p4';
+window.FRAGMENT_TITLE = "Sistema di frammenti, organismo, caos formato: la riflessione estetica di Schlegel come strumento per pensare il database e il metamedium";
+window.FRAGMENT_TAGS  = ["frammento","sistema aperto","sinfilosofia","Athenaeum","Witz","*Verkleinerungsglas*","Lichtenberg","*Mischung*","*Verschmelzung*","*Wahlverwandtschaft*","diaskeué","*Restruktion*","organismo","*infinita pienezza*","caos formato","*organisches Zeitalter*","carattere animale","potenziazione","poesia universale progressiva","serie interminabile di specchi","Schlegel","Cometa","*Frühromantik*","database come forma simbolica","paradigma/sintagma","metamedium","Manovich","Kay","linguaggi non ancora inventati","opera-volume","frammento-pozzo","frammento-soglia","forma estetica","*Kulturpolitik*","isolamento dell'estetica","totalità illimitata","database","paradigma","sintagma","forma simbolica","piattaforma","totalità","franchise","simulazione","architettura","fedeltà","elemento più semplice di un sistema aperto","neologismo","industriale","*Auflösung*","mescolanza","fusione","arguzia","poesia romantica","universale","rivista","opera-volume contemporanea","Forza"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

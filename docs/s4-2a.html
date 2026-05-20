@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 4.2a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -147,6 +158,14 @@
     <span class="concept-tag-pill" role="listitem" data-tag="cinque secoli di pensiero">cinque secoli di pensiero</span>
     <span class="concept-tag-pill" role="listitem" data-tag="pratica metodologica del sistema della tesi">pratica metodologica del sistema della tesi</span>
     <span class="concept-tag-pill" role="listitem" data-tag="meta-autore come compositore">meta-autore come compositore</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="paradigma">paradigma</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="7×7">7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="combinatoria">combinatoria</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="Cometa">Cometa</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="griglia 7×7">griglia 7×7</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="continuità di lunga durata">continuità di lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="dispositivo combinatorio">dispositivo combinatorio</span>
   </div>
 
   <!-- Corpo -->
@@ -164,13 +183,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -254,11 +276,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's4-2a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's4-2a';
+window.FRAGMENT_TITLE = "Ars combinatoria: lo spirito combinatorio tra Camillo, Schlegel e Floridi";
+window.FRAGMENT_TAGS  = ["ars combinatoria","spirito combinatorio","principio combinatorio","lunga durata","Camillo","*Idea del theatro*","1550","Bolzoni","macchine retoriche","*gorgo dell'artificio*","*artificiosa rota*","Teatro 7×7","luoghi-immagine","scacchiera dei luoghi","meccanismo che funziona da sé","ars dictaminis","retoriche umanistiche","magazzino ideale di macchine per costruire testi","Accademia di Lagado","Swift","tradizione epico-cavalleresca","Schlegel","*Athenaeum*","*Mischung*","*Verschmelzung*","*Auflösung*","mescolanza","fusione","dissoluzione","chimica romantica","Schelling","filosofia della natura","*Witz*","arguzia","acutezza","diascévase","filologia omerica","decostruzione e ricomposizione","sinfilosofia","scrittura collettiva di frammenti","Floridi","*Distant Writing*","2025","*C-creativity*","novità combinatoria","spazio della coerenza narrativa","non ex nihilo","costruttivista","Margaret Boden","creatività computazionale","P-creativity","H-creativity","tertium con proprietà nuove","corpora linguistici","LLM","scala materiale","scala formale","autore come compositore","sospensione dell'originalità assoluta","creazione ex nihilo","altra tradizione","cinque secoli di pensiero","pratica metodologica del sistema della tesi","meta-autore come compositore","paradigma","7×7","combinatoria","Cometa","*wrAIting*","griglia 7×7","continuità di lunga durata","dispositivo combinatorio"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

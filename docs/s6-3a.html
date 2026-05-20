@@ -28,15 +28,20 @@
 
   <div class="dr-section">
     <div class="dr-sect-title">Nel sistema</div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Frammenti letti</span>
-      <span class="dr-counter-value" id="drLetti">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Frammenti letti</div>
+      <div id="drLettiList" class="dr-frag-list"></div>
+      <button id="drLettiMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
-      <span class="dr-counter-label">Tag esplorati</span>
-      <span class="dr-counter-value" id="drTag">0</span>
+
+    <div class="dr-sub-sect">
+      <div class="dr-sub-label">Tag esplorati</div>
+      <div id="drTagList" class="dr-tag-list"></div>
+      <button id="drTagMore" class="dr-more-btn" hidden></button>
     </div>
-    <div class="dr-counter">
+
+    <div class="dr-counter" style="margin-top:1.2rem">
       <span class="dr-counter-label">Commenti scritti</span>
       <span class="dr-counter-value" id="drCommenti">0</span>
     </div>
@@ -72,6 +77,12 @@
 
 <!-- CONTENUTO FRAMMENTO -->
 <main class="viewer-content" id="viewerContent">
+
+  <!-- Breadcrumb di sessione -->
+  <nav class="breadcrumb" id="breadcrumb" aria-label="Percorso" hidden></nav>
+
+  <!-- Identificatore strutturato overhead -->
+  <span class="frag-label">Soglia 6.3a</span>
 
   <p class="frag-tipo">soglia</p>
 
@@ -136,6 +147,13 @@
     <span class="concept-tag-pill" role="listitem" data-tag="sinfilosofia digitale">sinfilosofia digitale</span>
     <span class="concept-tag-pill" role="listitem" data-tag="pratica del sistema della tesi">pratica del sistema della tesi</span>
     <span class="concept-tag-pill" role="listitem" data-tag="dispositivo SVOD di pubblicazione">dispositivo SVOD di pubblicazione</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="sistema aperto">sistema aperto</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="LLM">LLM</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="frammento">frammento</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="*wrAIting*">*wrAIting*</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="accountability">accountability</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="lunga durata">lunga durata</span>
+    <span class="concept-tag-pill" role="listitem" data-tag="rivista">rivista</span>
   </div>
 
   <!-- Corpo -->
@@ -153,13 +171,16 @@
 
   </div>
 
-  <!-- Suggerimenti "Continua" (popolati da viewer.js) -->
-  <div class="continua" id="continua" aria-label="Proseguimento">
-    <div class="continua-title">Continua a leggere</div>
-    <p class="continua-sub">Altri frammenti del sistema che parlano di questo.</p>
-    <div class="continua-grid" id="continuaGrid">
-      <!-- viewer.js inserisce le card qui -->
-    </div>
+  <!-- Blocco A: soglie subordinate (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaA" aria-label="Continua con" hidden>
+    <div class="continua-title">Puoi continuare con</div>
+    <div class="continua-grid" id="continuaGridA"></div>
+  </div>
+
+  <!-- Blocco B: frammenti correlati per tag (viewer.js lo rivela se non vuoto) -->
+  <div class="continua" id="continuaB" aria-label="Potrebbe interessarti" hidden>
+    <div class="continua-title">Ti potrebbe interessare anche</div>
+    <div class="continua-grid" id="continuaGridB"></div>
   </div>
 
   <!-- Note bibliografiche -->
@@ -239,11 +260,15 @@
 </div>
 
 <script>
-// Dati frammento esposti per viewer.js e comments.js
-window.FRAGMENT_ID   = 's6-3a';
-window.SYSTEM_DATA   = 'system.json';
+// Dati frammento esposti per tutti i moduli client
+window.FRAGMENT_ID    = 's6-3a';
+window.FRAGMENT_TITLE = "Sinfilosofia digitale: Schlegel e Floridi in dialogo";
+window.FRAGMENT_TAGS  = ["sinfilosofia","*Symphilosophie*","Schlegel","Friedrich Schlegel","1798","*Athenaeum*","gruppo romantico","Frühromantik","August Wilhelm Schlegel","Novalis","Schleiermacher","Schelling","Cometa","*L'età classico-romantica*","2009","scrittura collaborativa di frammenti","sistema aperto in continuo divenire","pratica dialogica","autorialità dialogica","autorialità individuale","proprietà collettiva del gruppo","dialogo come momento della produzione","meta-autore","Floridi","*Distant Writing*","2025","autori umani come progettisti narrativi","LLM come esecutori tecnici","scrittura attraverso il dialogo","parallelismo strutturale sinfilosofia-*wrAIting*","scrittura collaborativa","sospensione dell'autorialità solitaria","amplificazione cumulativa dell'intelligenza collettiva","sodali del dialogo","dispositivo tecnico come interlocutore","corpora del passato culturale","continuità di lunga durata","realizzazioni della categoria","Teatro di Camillo","cultura partecipativa di Jenkins","*Mischung* schlegeliana","parità epistemica","parità ontologica","asimmetria del dialogo","responsabilità del meta-autore","etica scrittoria","scelta etica","scrittura autoriale solitaria","chiusura del sistema","genealogia","sinfilosofia digitale","pratica del sistema della tesi","dispositivo SVOD di pubblicazione","sistema aperto","LLM","frammento","*wrAIting*","accountability","lunga durata","rivista"];
+window.SYSTEM_DATA    = 'system.json';
 </script>
+<script src="utils.js"></script>
 <script src="profile.js"></script>
+<script src="breadcrumb.js"></script>
 <script src="viewer.js"></script>
 <script src="comments.js"></script>
 <script src="extract-tags.js"></script>

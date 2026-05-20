@@ -187,6 +187,148 @@ function wrapConceptLinks(html, conceptTerms) {
 }
 
 // ---------------------------------------------------------------------------
+// formatFragmentLabel: id → etichetta strutturata leggibile
+//   p1     → "Pozzo 1"
+//   s1-1   → "Soglia 1.1"
+//   s1-1b  → "Soglia 1.1b"
+//   s1-2-a → "Soglia 1.2a"
+// ---------------------------------------------------------------------------
+function formatFragmentLabel(id) {
+  const pozzo = id.match(/^p(\d+)$/);
+  if (pozzo) return 'Pozzo ' + pozzo[1];
+  const soglia = id.match(/^s(\d+)-(\d+)(?:-([a-z])|([a-z]))?$/);
+  if (soglia) {
+    const letter = soglia[3] || soglia[4] || '';
+    return 'Soglia ' + soglia[1] + '.' + soglia[2] + letter;
+  }
+  return id;
+}
+
+// ---------------------------------------------------------------------------
+// enrichTagsFromBody: due passate per estrarre tag dal corpo
+//
+// Filtri attivi (tutti devono essere soddisfatti per aggiungere un tag):
+//   1. Tag già nel vocabolario autoriale (dichiarato in almeno un frammento)
+//   2. Non è un puro numero (esclude anni, ID numerici)
+//   3. Lunghezza ≥ 4 oppure acronimo ALL-CAPS con lunghezza ≥ 2
+//   4. Non è nella stop-list di parole funzionali
+//   5. (Filtro 4) Il tag non ha già raggiunto MAX_FRAG_PER_TAG frammenti
+//      — baseline STATICA: conta solo i tag dichiarati nell'intestazione,
+//        più quelli già propagati nei frammenti precedenti durante la stessa
+//        esecuzione. Deterministico indipendentemente dall'ordine.
+//   6. (Filtro 5) Appare almeno MIN_OCCURRENCES volte nel corpo del frammento
+// ---------------------------------------------------------------------------
+
+const MAX_FRAG_PER_TAG  = 10;   // soglia di saturazione
+const MIN_OCCURRENCES   = 2;    // occorrenze minime nel corpo
+
+// Parole funzionali che saturano il sistema se propagate automaticamente.
+// I tag già dichiarati in un frammento non vengono rimossi.
+const STOPLIST_AUTO = new Set([
+  'processo', 'progressiva', 'progressivo', 'poesia', 'poetica',
+  'sole', 'opera', 'testo', 'lettura', 'scrittura', 'parola',
+  'parole', 'forma', 'tempo', 'spazio', 'mondo', 'sistema', 'dispositivo',
+]);
+
+function enrichTagsFromBody(fragments) {
+  // ── 1. Vocabolario globale ─────────────────────────────────────────────────
+  const vocab = new Set();
+  fragments.forEach(f => f.tags.forEach(t => vocab.add(t)));
+
+  // ── 2. Baseline statica: conta frammenti con quel tag DICHIARATO ──────────
+  //   Chiave: normalized lowercase (senza asterischi)
+  const baselineCount = {};
+  fragments.forEach(f => {
+    f.tags.forEach(t => {
+      const k = t.replace(/^\*+|\*+$/g, '').toLowerCase();
+      baselineCount[k] = (baselineCount[k] || 0) + 1;
+    });
+  });
+
+  // Conta le propagazioni incrementali durante questo build
+  const propagatedCount = {};
+
+  // Raccoglie i tag che hanno bloccato propagazioni per saturazione
+  const saturatedHits = {};   // normLow → contatore blocchi
+
+  let totalAdded = 0;
+
+  // ── 3. Per ogni frammento, cerca e propaga ─────────────────────────────────
+  fragments.forEach(frag => {
+    const existingNorm = new Set(
+      frag.tags.map(t => t.replace(/^\*+|\*+$/g, '').toLowerCase())
+    );
+
+    const added = [];
+
+    vocab.forEach(tag => {
+      const normalized = tag.replace(/^\*+|\*+$/g, '');
+      const normLow    = normalized.toLowerCase();
+
+      // ── Filtro 1: puri numeri ─────────────────────────────────────────────
+      if (/^\d+$/.test(normalized)) return;
+
+      // ── Filtro 2: lunghezza ───────────────────────────────────────────────
+      if (normalized.length < 2) return;
+      if (normalized.length < 4 && normalized !== normalized.toUpperCase()) return;
+
+      // ── Filtro 3: stop-list ───────────────────────────────────────────────
+      if (STOPLIST_AUTO.has(normLow)) return;
+
+      // ── Già presente nel frammento ────────────────────────────────────────
+      if (existingNorm.has(normLow)) return;
+
+      // ── Filtro 4: saturazione (baseline + propagazioni già effettuate) ────
+      const currentCount = (baselineCount[normLow] || 0) + (propagatedCount[normLow] || 0);
+      if (currentCount >= MAX_FRAG_PER_TAG) {
+        saturatedHits[normLow] = (saturatedHits[normLow] || 0) + 1;
+        return;
+      }
+
+      // ── Filtro 5: minimo MIN_OCCURRENCES occorrenze nel corpo ──────────────
+      const left  = /^\w/.test(normalized) ? '(?<![\\w\\u00C0-\\u024F])' : '';
+      const right = /\w$/.test(normalized) ? '(?![\\w\\u00C0-\\u024F])'  : '';
+      let re;
+      try {
+        re = new RegExp(left + escapeRegex(normalized) + right, 'gi');
+      } catch (_) { return; }
+
+      const matches = frag.bodyRaw.match(re);
+      if (!matches || matches.length < MIN_OCCURRENCES) return;
+
+      // Tutti i filtri superati: aggiungi il tag
+      added.push(tag);
+      frag.tags.push(tag);
+      existingNorm.add(normLow);
+      propagatedCount[normLow] = (propagatedCount[normLow] || 0) + 1;
+    });
+
+    if (added.length > 0) {
+      const lbl = formatFragmentLabel(frag.id).padEnd(14);
+      console.log(`  [TAG-BODY] ${lbl} +${added.length}: ${added.join(', ')}`);
+      totalAdded += added.length;
+    }
+  });
+
+  // ── Log tag saturati ───────────────────────────────────────────────────────
+  const saturatedList = Object.keys(saturatedHits).sort();
+  if (saturatedList.length > 0) {
+    console.log(`\n  Tag saturati (≥${MAX_FRAG_PER_TAG} frammenti, propagazione bloccata):`);
+    saturatedList.forEach(k => {
+      const total = (baselineCount[k] || 0) + (propagatedCount[k] || 0);
+      console.log(`    ${k.padEnd(36)} presente in ${total} frammenti`);
+    });
+  }
+
+  console.log('');
+  if (totalAdded > 0) {
+    console.log(`  Totale tag aggiunti dal corpo: ${totalAdded}\n`);
+  } else {
+    console.log('  Nessun tag aggiunto dal corpo.\n');
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Tag pills HTML
 // ---------------------------------------------------------------------------
 function renderTagPills(tags) {
@@ -204,8 +346,11 @@ function renderFragment(fragment, tmpl, conceptTerms) {
 
   return tmpl
     .replace(/{{FRAGMENT_TITLE}}/g,     esc(fragment.realTitle))
+    .replace(/{{FRAGMENT_TITLE_JS}}/g,  JSON.stringify(fragment.realTitle))
     .replace(/{{FRAGMENT_TIPO}}/g,      esc(fragment.tipo))
     .replace(/{{FRAGMENT_ID}}/g,        fragment.id)
+    .replace(/{{FRAGMENT_LABEL}}/g,     esc(formatFragmentLabel(fragment.id)))
+    .replace(/{{FRAGMENT_TAGS_JSON}}/g, JSON.stringify(fragment.tags))
     .replace(/{{FRAGMENT_TAG_PILLS}}/g, renderTagPills(fragment.tags))
     .replace(/{{FRAGMENT_BODY}}/g,      bodyHtml)
     .replace(/{{FRAGMENT_NOTES}}/g,     notesHtml)
@@ -297,7 +442,7 @@ function build() {
   console.log('  ✓ style.css copiato in build/');
 
   // Copia JS (da src/js/ se esistono, altrimenti usa gli stub)
-  const jsFiles = ['profile.js', 'network.js', 'viewer.js', 'comments.js', 'comment-page.js', 'extract-tags.js', 'onboarding.js'];
+  const jsFiles = ['utils.js', 'profile.js', 'breadcrumb.js', 'network.js', 'viewer.js', 'comments.js', 'comment-page.js', 'extract-tags.js', 'onboarding.js'];
   jsFiles.forEach(f => {
     const src = path.join(JS_DIR, f);
     const dst = path.join(BUILD_DIR, f);
@@ -329,6 +474,10 @@ function build() {
   });
 
   console.log(`\n  Totale: ${fragments.length} frammenti\n`);
+
+  // 3b. Arricchisci tag dal corpo (seconda passata)
+  console.log('  Arricchimento tag dal corpo del testo…');
+  enrichTagsFromBody(fragments);
 
   // 4. Genera HTML per ogni frammento
   const conceptTerms = buildConceptMap(fragments);

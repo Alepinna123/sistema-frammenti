@@ -5,7 +5,8 @@
       "Bash(Select-Object Name, LastWriteTime, Length, Attributes)",
       "Bash(node build.js)",
       "Bash(node -c \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\sito\\\\src\\\\js\\\\network.js\")",
-      "Bash(ls \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\\" && echo \"---\" && ls \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\docs\\\\\" | head -10)"
+      "Bash(ls \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\\" && echo \"---\" && ls \"C:\\\\Users\\\\Alepi\\\\OneDrive\\\\Desktop\\\\Sistema di frammenti md\\\\docs\\\\\" | head -10)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

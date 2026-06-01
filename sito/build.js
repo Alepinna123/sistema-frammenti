@@ -23,6 +23,48 @@ const MD_SOURCES = [
 ];
 
 // ---------------------------------------------------------------------------
+// removePhysicalCheckMarkers: rimuove dal testo il marker interno
+// «pagina da verificare sul fisico» e sue varianti prima del rendering.
+// Opera sul testo grezzo (markdown), NON sui file sorgente.
+// ---------------------------------------------------------------------------
+function removePhysicalCheckMarkers(text) {
+  // 1. Marker dentro parentesi quadre, eventualmente preceduto da sigla pagina
+  //    es: «p. [pagina da verificare sul fisico, sezione 3]»
+  //        «[da verificare sul fisico]»
+  text = text.replace(
+    /[\s,]*(?:p\.\s*|pag\.\s*|pagina\s+)?\[(?:pagina\s+|p\.\s*|pag\.\s*)?(?:da\s+)?verificare(?:\s+sul\s+fisico)?[^\]]*\]/gi,
+    ''
+  );
+
+  // 2. Marker dentro parentesi tonde
+  //    es: «(pagina da verificare sul fisico, sezione 3)»
+  text = text.replace(
+    /[\s,]*\((?:pagina\s+|p\.\s*|pag\.\s*)?(?:da\s+)?verificare(?:\s+sul\s+fisico)?[^)]*\)/gi,
+    ''
+  );
+
+  // 3. Marker nudo (senza parentesi)
+  //    es: «verificare sul fisico», «pagina da verificare sul fisico»
+  text = text.replace(
+    /[\s,]*(?:p\.\s*|pag\.\s*|pagina\s+)?(?:da\s+)?verificare\s+sul\s+fisico\b/gi,
+    ''
+  );
+
+  // 4. Pulizia artefatti residui
+  text = text
+    .replace(/[ \t]{2,}/g, ' ')   // doppi spazi (solo orizzontali)
+    .replace(/[ \t]+,/g,  ',')    // spazio prima della virgola
+    .replace(/,[ \t]*\./g, '.')   // virgola seguita da punto
+    .replace(/\.[ \t]*\./g, '.')  // due punti consecutivi
+    .replace(/\(\s*\)/g,  '')     // parentesi tonde vuote
+    .replace(/\[\s*\]/g,  '')     // parentesi quadre vuote
+    .replace(/[ \t]+\./g, '.')    // spazio prima del punto
+    .trim();
+
+  return text;
+}
+
+// ---------------------------------------------------------------------------
 // Parser markdown frammenti
 //
 // Struttura attesa:
@@ -78,7 +120,11 @@ function parseFragment(filePath) {
   const id        = rawId.toLowerCase().replace(/_/g, '-');
   const tipo      = /^P\d/i.test(rawId) ? 'pozzo' : 'soglia';
 
-  return { id, tipo, metaTitle, realTitle, tags, bodyRaw, bibRaw, filePath };
+  // Rimuovi marker interni prima del rendering (i sorgenti restano intatti)
+  const bodyClean = removePhysicalCheckMarkers(bodyRaw);
+  const bibClean  = removePhysicalCheckMarkers(bibRaw);
+
+  return { id, tipo, metaTitle, realTitle, tags, bodyRaw: bodyClean, bibRaw: bibClean, filePath };
 }
 
 // ---------------------------------------------------------------------------
